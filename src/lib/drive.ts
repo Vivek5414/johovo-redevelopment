@@ -88,8 +88,14 @@ export async function uploadFileToDrive({
     name: fileName,
   };
 
+  // Only assign parent folder if specified, and verify folder is accessible
   if (targetFolderId) {
-    fileMetadata.parents = [targetFolderId];
+    try {
+      await drive.files.get({ fileId: targetFolderId, fields: 'id' });
+      fileMetadata.parents = [targetFolderId];
+    } catch (fErr) {
+      console.warn(`Target folder ${targetFolderId} not accessible, uploading to root:`, fErr);
+    }
   }
 
   const stream = new Readable();
