@@ -1,22 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from '@/lib/db';
 import { getOrCreateFolder, uploadFileToDrive } from '@/lib/drive';
+import { logServiceError, retryTransientRequest } from '@/lib/upload-service';
 
 // Ensure table exists
 async function ensureProductTable() {
-  await sql`
-    CREATE TABLE IF NOT EXISTS product_files (
-      id SERIAL PRIMARY KEY,
-      product_name VARCHAR(255) NOT NULL,
-      file_name VARCHAR(255) NOT NULL,
-      file_id VARCHAR(255) NOT NULL,
-      mime_type VARCHAR(120),
-      file_size BIGINT,
-      preview_url TEXT NOT NULL,
-      download_url TEXT NOT NULL,
-      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
+  await retryTransientRequest(async () => {
+    await sql`
+      CREATE TABLE IF NOT EXISTS product_files (
+        id SERIAL PRIMARY KEY,
+        product_name VARCHAR(255) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        file_id VARCHAR(255) NOT NULL,
+        mime_type VARCHAR(120),
+        file_size BIGINT,
+        preview_url TEXT NOT NULL,
+        download_url TEXT NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+  });
 }
 
 export async function GET(req: NextRequest) {
@@ -27,25 +30,28 @@ export async function GET(req: NextRequest) {
 
     let rows;
     if (productName) {
-      rows = await sql`
-        SELECT id, product_name, file_name, file_id, mime_type, file_size, preview_url, download_url, created_at
-        FROM product_files
-        WHERE product_name ILIKE ${'%' + productName + '%'}
-        ORDER BY created_at DESC;
-      `;
+      rows = await retryTransientRequest(async () => sql`
+          SELECT id, product_name, file_name, file_id, mime_type, file_size, preview_url, download_url, created_at
+          FROM product_files
+          WHERE product_name ILIKE ${'%' + productName + '%'}
+          ORDER BY created_at DESC;
+        `);
     } else {
-      rows = await sql`
-        SELECT id, product_name, file_name, file_id, mime_type, file_size, preview_url, download_url, created_at
-        FROM product_files
-        ORDER BY created_at DESC
-        LIMIT 50;
-      `;
+      rows = await retryTransientRequest(async () => sql`
+          SELECT id, product_name, file_name, file_id, mime_type, file_size, preview_url, download_url, created_at
+          FROM product_files
+          ORDER BY created_at DESC
+          LIMIT 50;
+        `);
     }
 
     return NextResponse.json({ success: true, data: rows });
-  } catch (error: any) {
-    console.error('Error fetching product files:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    logServiceError('[product-upload] Could not fetch product file metadata.', error);
+    return NextResponse.json(
+      { success: false, error: 'Product file records are temporarily unavailable. Please retry.' },
+      { status: 503 },
+    );
   }
 }
 
@@ -95,8 +101,11 @@ export async function POST(req: NextRequest) {
       message: `File uploaded to products/${trimmedProductName} and saved to Neon!`,
       data: insertResult[0],
     });
-  } catch (error: any) {
-    console.error('Error in /api/products/upload:', error);
-    return NextResponse.json({ success: false, error: error.message || 'Server error' }, { status: 500 });
+  } catch (error: unknown) {
+    logServiceError('[product-upload] File upload failed.', error);
+    return NextResponse.json(
+      { success: false, error: 'The upload service is temporarily unavailable. Please retry.' },
+      { status: 503 },
+    );
   }
 }

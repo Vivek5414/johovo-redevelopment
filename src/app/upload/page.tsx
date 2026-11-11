@@ -43,8 +43,21 @@ export default function UploadTestingPage() {
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   useEffect(() => {
-    fetchGeneralFiles();
-    fetchProductFiles();
+    let active = true;
+    Promise.all([
+      fetch('/api/upload').then((response) => response.json()),
+      fetch('/api/products/upload').then((response) => response.json()),
+    ])
+      .then(([generalData, productData]) => {
+        if (!active) return;
+        if (generalData.success) setGeneralFilesList(generalData.data);
+        if (productData.success) setProductFilesList(productData.data);
+      })
+      .catch((error: unknown) => console.error(error));
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   const fetchGeneralFiles = async () => {
@@ -98,8 +111,11 @@ export default function UploadTestingPage() {
       } else {
         setMessage({ type: 'error', text: data.error || 'Failed to upload' });
       }
-    } catch (err: any) {
-      setMessage({ type: 'error', text: err.message || 'Error occurred' });
+    } catch (err: unknown) {
+      setMessage({
+        type: 'error',
+        text: err instanceof Error ? err.message : 'Error occurred',
+      });
     } finally {
       setIsGeneralUploading(false);
     }
@@ -136,8 +152,11 @@ export default function UploadTestingPage() {
       } else {
         setMessage({ type: 'error', text: data.error || 'Failed to upload product file' });
       }
-    } catch (err: any) {
-      setMessage({ type: 'error', text: err.message || 'Error occurred' });
+    } catch (err: unknown) {
+      setMessage({
+        type: 'error',
+        text: err instanceof Error ? err.message : 'Error occurred',
+      });
     } finally {
       setIsProductUploading(false);
     }

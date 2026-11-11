@@ -1,7 +1,10 @@
+import 'server-only';
 import { neon } from '@neondatabase/serverless';
 
-if (!process.env.DATABASE_URL) {
-  console.warn('DATABASE_URL is not defined in environment variables.');
+const databaseUrl = process.env.DATABASE_URL?.trim();
+
+if (!databaseUrl) {
+  throw new Error('DATABASE_URL is required for upload metadata storage.');
 }
 
-export const sql = neon(process.env.DATABASE_URL || '');
+export const sql = neon(databaseUrl);

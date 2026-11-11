@@ -1,5 +1,7 @@
+import 'server-only';
 import { google } from 'googleapis';
 import { Readable } from 'stream';
+import { logServiceError } from './upload-service';
 
 export function getDriveClient() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -88,14 +90,10 @@ export async function uploadFileToDrive({
     name: fileName,
   };
 
-  // Only assign parent folder if specified, and verify folder is accessible
+  // Verify the destination before upload; never silently place files elsewhere.
   if (targetFolderId) {
-    try {
-      await drive.files.get({ fileId: targetFolderId, fields: 'id' });
-      fileMetadata.parents = [targetFolderId];
-    } catch (fErr) {
-      console.warn(`Target folder ${targetFolderId} not accessible, uploading to root:`, fErr);
-    }
+    await drive.files.get({ fileId: targetFolderId, fields: 'id' });
+    fileMetadata.parents = [targetFolderId];
   }
 
   const stream = new Readable();
@@ -128,7 +126,10 @@ export async function uploadFileToDrive({
       },
     });
   } catch (permErr) {
-    console.warn('Could not set public permission on Google Drive file:', permErr);
+    logServiceError(
+      '[drive] File uploaded, but public sharing could not be configured.',
+      permErr,
+    );
   }
 
   // Fetch updated links
