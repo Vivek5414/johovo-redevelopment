@@ -1,0 +1,2034 @@
+{
+  "schemaVersion": 1,
+  "sourceSite": "https://johovo.in/",
+  "wordpressEndpoint": "https://johovo.in/wp-json/wp/v2/product?per_page=100&_embed=1",
+  "storefrontEndpoint": "https://johovo.in/wp-json/wc/store/v1/products?per_page=100&page=1",
+  "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+  "sourceProductCount": 8,
+  "namedProductCount": 6,
+  "demoCount": 2,
+  "products": [
+    {
+      "id": 4142,
+      "slug": "johovo-iyalmooligai-herbal-face-pack",
+      "productUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/",
+      "name": "JOHOVO™ IyalMooligai™ Herbal Face Pack Test",
+      "classification": "source-published-product",
+      "brandIdentity": "IyalMooligai",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [
+        {
+          "id": 47,
+          "name": "JOHOVO",
+          "slug": "johovo",
+          "sourceUrl": "https://johovo.in/brand/johovo/"
+        }
+      ],
+      "sku": "JHFP201",
+      "categories": [
+        {
+          "id": 65,
+          "name": "Face Pack",
+          "slug": "facepack",
+          "sourceUrl": "https://johovo.in/product-category/face-care/facepack/",
+          "parentId": 64
+        }
+      ],
+      "categoryIds": [
+        65
+      ],
+      "tags": [
+        {
+          "id": 68,
+          "name": "Ayurvedic Face Pack",
+          "slug": "ayurvedic-face-pack",
+          "sourceUrl": "https://johovo.in/product-tag/ayurvedic-face-pack/"
+        },
+        {
+          "id": 70,
+          "name": "Chemical-Free",
+          "slug": "chemical-free",
+          "sourceUrl": "https://johovo.in/product-tag/chemical-free/"
+        },
+        {
+          "id": 78,
+          "name": "Face Pack for All Skin Types",
+          "slug": "face-pack-for-all-skin-types",
+          "sourceUrl": "https://johovo.in/product-tag/face-pack-for-all-skin-types/"
+        },
+        {
+          "id": 80,
+          "name": "Gentle Skincare",
+          "slug": "gentle-skincare",
+          "sourceUrl": "https://johovo.in/product-tag/gentle-skincare/"
+        },
+        {
+          "id": 74,
+          "name": "Glowing Skin",
+          "slug": "glowing-skin",
+          "sourceUrl": "https://johovo.in/product-tag/glowing-skin/"
+        },
+        {
+          "id": 76,
+          "name": "Healthy Skin",
+          "slug": "healthy-skin",
+          "sourceUrl": "https://johovo.in/product-tag/healthy-skin/"
+        },
+        {
+          "id": 66,
+          "name": "Herbal Face Pack",
+          "slug": "herbal-face-pack",
+          "sourceUrl": "https://johovo.in/product-tag/herbal-face-pack/"
+        },
+        {
+          "id": 71,
+          "name": "Natural Ingredients",
+          "slug": "natural-ingredients",
+          "sourceUrl": "https://johovo.in/product-tag/natural-ingredients/"
+        },
+        {
+          "id": 67,
+          "name": "Natural Skincare",
+          "slug": "natural-skincare",
+          "sourceUrl": "https://johovo.in/product-tag/natural-skincare/"
+        },
+        {
+          "id": 77,
+          "name": "Organic Skincare",
+          "slug": "organic-skincare",
+          "sourceUrl": "https://johovo.in/product-tag/organic-skincare/"
+        },
+        {
+          "id": 75,
+          "name": "Radiant Skin",
+          "slug": "radiant-skin",
+          "sourceUrl": "https://johovo.in/product-tag/radiant-skin/"
+        },
+        {
+          "id": 73,
+          "name": "Rejuvenating Face Pack",
+          "slug": "rejuvenating-face-pack",
+          "sourceUrl": "https://johovo.in/product-tag/rejuvenating-face-pack/"
+        },
+        {
+          "id": 69,
+          "name": "Sensitive Skin Friendly",
+          "slug": "sensitive-skin-friendly",
+          "sourceUrl": "https://johovo.in/product-tag/sensitive-skin-friendly/"
+        },
+        {
+          "id": 72,
+          "name": "Skin Nourishment",
+          "slug": "skin-nourishment",
+          "sourceUrl": "https://johovo.in/product-tag/skin-nourishment/"
+        },
+        {
+          "id": 79,
+          "name": "Traditional Ayurvedic Skincare",
+          "slug": "traditional-ayurvedic-skincare",
+          "sourceUrl": "https://johovo.in/product-tag/traditional-ayurvedic-skincare/"
+        }
+      ],
+      "shortDescriptionHtml": "<p>Nourish, rejuvenate, and protect your skin with JOHOVO™ IyalMooligai™ Herbal Face Pack, a natural blend of herbs and ingredients inspired by ancient Ayurvedic traditions. Suitable for all skin types, including sensitive skin, this face pack helps to achieve radiant, healthy-looking skin. Free from harsh chemicals, artificial fragrances, and dyes.</p>\n",
+      "fullDescriptionHtml": "<p><strong>Unlock Your Natural Glow</strong></p>\n<p>Discover the power of nature with JOHOVO™ IyalMooligai™ Herbal Face Pack, a carefully crafted blend of natural herbs and ingredients that effectively elevates your daily skincare routine. The result of dedicated research and development, this face pack is designed to nourish, rejuvenate, and protect your skin, giving you a radiant and healthy glow.</p>\n<p>Inspired by ancient Ayurvedic traditions, JOHOVO™ IyalMooligai™ Herbal Face Pack is free from harsh chemicals, artificial fragrances, and dyes, making it suitable for all skin types, including sensitive skin. Experience the best of nature&#8217;s goodness for your skin and unlock your natural beauty!</p>\n<p><strong>Benefits</strong></p>\n<p>&#8211; Deep Cleansing: JOHOVO™ IyalMooligai™ Herbal Face Pack helps to deep cleanse the skin, removing dirt, impurities, and excess oil.<br />\n&#8211; Nourishes and Moisturizes: The pack&#8217;s natural ingredients help to nourish and moisturize the skin, leaving it soft, smooth, and supple.<br />\n&#8211; Reduces Acne and Blemishes: The antibacterial and anti-inflammatory properties of the herbs help to control acne, reduce blemishes, and prevent future breakouts.<br />\n&#8211; Brightens Complexion: Regular use of the face pack helps to brighten the complexion, reduce dark spots, and promote even skin tone.<br />\n&#8211; Soothes and Calms: The pack&#8217;s soothing and calming properties help to reduce redness, inflammation, and irritation, leaving skin feeling cool and refreshed.</p>\n<p>&nbsp;</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "JOHOVO™ IyalMooligai™ Herbal Face Pack Test",
+        "status": "publish",
+        "publishedAt": "2025-08-29T13:22:33",
+        "modifiedAt": "2026-04-03T06:54:38",
+        "excerptHtml": "<p>Nourish, rejuvenate, and protect your skin with JOHOVO™ IyalMooligai™ Herbal Face Pack, a natural blend of herbs and ingredients inspired by ancient Ayurvedic traditions. Suitable for all skin types, including sensitive skin, this face pack helps to achieve radiant, healthy-looking skin. Free from harsh chemicals, artificial fragrances, and dyes.</p>\n",
+        "contentHtml": "<p><strong>Unlock Your Natural Glow</strong></p>\n<p>Discover the power of nature with JOHOVO™ IyalMooligai™ Herbal Face Pack, a carefully crafted blend of natural herbs and ingredients that effectively elevates your daily skincare routine. The result of dedicated research and development, this face pack is designed to nourish, rejuvenate, and protect your skin, giving you a radiant and healthy glow.</p>\n<p>Inspired by ancient Ayurvedic traditions, JOHOVO™ IyalMooligai™ Herbal Face Pack is free from harsh chemicals, artificial fragrances, and dyes, making it suitable for all skin types, including sensitive skin. Experience the best of nature&#8217;s goodness for your skin and unlock your natural beauty!</p>\n<p><strong>Benefits</strong></p>\n<p>&#8211; Deep Cleansing: JOHOVO™ IyalMooligai™ Herbal Face Pack helps to deep cleanse the skin, removing dirt, impurities, and excess oil.<br />\n&#8211; Nourishes and Moisturizes: The pack&#8217;s natural ingredients help to nourish and moisturize the skin, leaving it soft, smooth, and supple.<br />\n&#8211; Reduces Acne and Blemishes: The antibacterial and anti-inflammatory properties of the herbs help to control acne, reduce blemishes, and prevent future breakouts.<br />\n&#8211; Brightens Complexion: Regular use of the face pack helps to brighten the complexion, reduce dark spots, and promote even skin tone.<br />\n&#8211; Soothes and Calms: The pack&#8217;s soothing and calming properties help to reduce redness, inflammation, and irritation, leaving skin feeling cool and refreshed.</p>\n<p>&nbsp;</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 4142,
+        "name": "JOHOVO™ IyalMooligai™ Herbal Face Pack Test",
+        "slug": "johovo-iyalmooligai-herbal-face-pack",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/",
+        "sku": "JHFP201",
+        "short_description": "<p>Nourish, rejuvenate, and protect your skin with JOHOVO™ IyalMooligai™ Herbal Face Pack, a natural blend of herbs and ingredients inspired by ancient Ayurvedic traditions. Suitable for all skin types, including sensitive skin, this face pack helps to achieve radiant, healthy-looking skin. Free from harsh chemicals, artificial fragrances, and dyes.</p>",
+        "description": "<p><strong>Unlock Your Natural Glow</strong></p>\n<p>Discover the power of nature with JOHOVO™ IyalMooligai™ Herbal Face Pack, a carefully crafted blend of natural herbs and ingredients that effectively elevates your daily skincare routine. The result of dedicated research and development, this face pack is designed to nourish, rejuvenate, and protect your skin, giving you a radiant and healthy glow.</p>\n<p>Inspired by ancient Ayurvedic traditions, JOHOVO™ IyalMooligai™ Herbal Face Pack is free from harsh chemicals, artificial fragrances, and dyes, making it suitable for all skin types, including sensitive skin. Experience the best of nature&#8217;s goodness for your skin and unlock your natural beauty!</p>\n<p><strong>Benefits</strong></p>\n<p>&#8211; Deep Cleansing: JOHOVO™ IyalMooligai™ Herbal Face Pack helps to deep cleanse the skin, removing dirt, impurities, and excess oil.<br />\n&#8211; Nourishes and Moisturizes: The pack&#8217;s natural ingredients help to nourish and moisturize the skin, leaving it soft, smooth, and supple.<br />\n&#8211; Reduces Acne and Blemishes: The antibacterial and anti-inflammatory properties of the herbs help to control acne, reduce blemishes, and prevent future breakouts.<br />\n&#8211; Brightens Complexion: Regular use of the face pack helps to brighten the complexion, reduce dark spots, and promote even skin tone.<br />\n&#8211; Soothes and Calms: The pack&#8217;s soothing and calming properties help to reduce redness, inflammation, and irritation, leaving skin feeling cool and refreshed.</p>\n<p>&nbsp;</p>",
+        "on_sale": true,
+        "prices": {
+          "price": "72000",
+          "regular_price": "84000",
+          "sale_price": "72000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>840.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;840.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>720.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;720.00.</span><span class=\"wd-price-unit\">210mg</span>",
+        "average_rating": "0",
+        "review_count": 6,
+        "images": [
+          {
+            "id": 4151,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_002",
+            "alt": ""
+          },
+          {
+            "id": 4144,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_005",
+            "alt": ""
+          },
+          {
+            "id": 4145,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_006",
+            "alt": ""
+          },
+          {
+            "id": 4146,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_007",
+            "alt": ""
+          },
+          {
+            "id": 4147,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_008",
+            "alt": ""
+          },
+          {
+            "id": 4149,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_010",
+            "alt": ""
+          },
+          {
+            "id": 4148,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO_FP BIG 210G_AMAZON PICS_009",
+            "alt": ""
+          }
+        ],
+        "categories": [
+          {
+            "id": 65,
+            "name": "Face Pack",
+            "slug": "facepack",
+            "link": "https://johovo.in/product-category/face-care/facepack/"
+          }
+        ],
+        "tags": [
+          {
+            "id": 68,
+            "name": "Ayurvedic Face Pack",
+            "slug": "ayurvedic-face-pack",
+            "link": "https://johovo.in/product-tag/ayurvedic-face-pack/"
+          },
+          {
+            "id": 70,
+            "name": "Chemical-Free",
+            "slug": "chemical-free",
+            "link": "https://johovo.in/product-tag/chemical-free/"
+          },
+          {
+            "id": 78,
+            "name": "Face Pack for All Skin Types",
+            "slug": "face-pack-for-all-skin-types",
+            "link": "https://johovo.in/product-tag/face-pack-for-all-skin-types/"
+          },
+          {
+            "id": 80,
+            "name": "Gentle Skincare",
+            "slug": "gentle-skincare",
+            "link": "https://johovo.in/product-tag/gentle-skincare/"
+          },
+          {
+            "id": 74,
+            "name": "Glowing Skin",
+            "slug": "glowing-skin",
+            "link": "https://johovo.in/product-tag/glowing-skin/"
+          },
+          {
+            "id": 76,
+            "name": "Healthy Skin",
+            "slug": "healthy-skin",
+            "link": "https://johovo.in/product-tag/healthy-skin/"
+          },
+          {
+            "id": 66,
+            "name": "Herbal Face Pack",
+            "slug": "herbal-face-pack",
+            "link": "https://johovo.in/product-tag/herbal-face-pack/"
+          },
+          {
+            "id": 71,
+            "name": "Natural Ingredients",
+            "slug": "natural-ingredients",
+            "link": "https://johovo.in/product-tag/natural-ingredients/"
+          },
+          {
+            "id": 67,
+            "name": "Natural Skincare",
+            "slug": "natural-skincare",
+            "link": "https://johovo.in/product-tag/natural-skincare/"
+          },
+          {
+            "id": 77,
+            "name": "Organic Skincare",
+            "slug": "organic-skincare",
+            "link": "https://johovo.in/product-tag/organic-skincare/"
+          },
+          {
+            "id": 75,
+            "name": "Radiant Skin",
+            "slug": "radiant-skin",
+            "link": "https://johovo.in/product-tag/radiant-skin/"
+          },
+          {
+            "id": 73,
+            "name": "Rejuvenating Face Pack",
+            "slug": "rejuvenating-face-pack",
+            "link": "https://johovo.in/product-tag/rejuvenating-face-pack/"
+          },
+          {
+            "id": 69,
+            "name": "Sensitive Skin Friendly",
+            "slug": "sensitive-skin-friendly",
+            "link": "https://johovo.in/product-tag/sensitive-skin-friendly/"
+          },
+          {
+            "id": 72,
+            "name": "Skin Nourishment",
+            "slug": "skin-nourishment",
+            "link": "https://johovo.in/product-tag/skin-nourishment/"
+          },
+          {
+            "id": 79,
+            "name": "Traditional Ayurvedic Skincare",
+            "slug": "traditional-ayurvedic-skincare",
+            "link": "https://johovo.in/product-tag/traditional-ayurvedic-skincare/"
+          }
+        ],
+        "brands": [
+          {
+            "id": 47,
+            "name": "JOHOVO",
+            "slug": "johovo",
+            "link": "https://johovo.in/brand/johovo/"
+          }
+        ],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;JOHOVO™ IyalMooligai™ Herbal Face Pack Test&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=4142",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "84000",
+        "salePriceMinorUnits": "72000",
+        "activePriceMinorUnits": "72000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>840.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;840.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>720.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;720.00.</span><span class=\"wd-price-unit\">210mg</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 4151,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_002.png",
+          "localPath": null,
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_002",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        },
+        {
+          "id": 4144,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_005.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-02.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_005",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4145,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_006.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-03.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_006",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4146,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_007.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-04.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_007",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4147,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_008.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-05.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_008",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4149,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_010.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-06.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_010",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4148,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO_FP-BIG-210G_AMAZON-PICS_009.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-face-pack/herbal-face-pack-gallery-07.png",
+          "name": "JOHOVO_FP BIG 210G_AMAZON PICS_009",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [],
+      "reviews": [
+        {
+          "id": 43,
+          "authorName": "Saraswathi",
+          "date": "2025-08-29T13:43:05",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I am using this herbal face pack for a month now, and I am amazed at the results! My skin looks brighter, and the acne has reduced significantly. The natural ingredients are gentle on my sensitive skin, and I love the subtle herbal scent. Highly recommend!</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-43"
+        },
+        {
+          "id": 42,
+          "authorName": "Sam Kamalraj",
+          "date": "2025-08-29T13:40:51",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>This face pack is a game-changer! I have tried many products that claimed to be natural, but this herbal face pack truly delivers. My skin feels nourished, and the glow is real! The packaging is eco-friendly, and the brand&#8217;s commitment to sustainability is impressive.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-42"
+        },
+        {
+          "id": 41,
+          "authorName": "David K",
+          "date": "2025-08-29T13:38:52",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I am so glad that I switched to JOHOVO IyalMooligai herbal face pack! The ingredients are all-natural, and the product is free from harsh chemicals. My skin looks healthier, and I feel confident in the brand&#8217;s claims. The customer service team is also very responsive and helpful.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-41"
+        },
+        {
+          "id": 40,
+          "authorName": "Neha Chowdhury",
+          "date": "2025-08-29T13:36:18",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>This herbal face pack is now a staple in my skincare routine! It deep cleanses my pores, reduces inflammation, and leaves my skin feeling soft and supple. The best part? It is suitable for sensitive skin, and I have noticed a significant reduction in redness.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-40"
+        },
+        {
+          "id": 39,
+          "authorName": "Olivia W",
+          "date": "2025-08-29T13:32:17",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I have tried many face packs that promise the world but don&#8217;t deliver. JOHOVO Herbal Face Pack is different. It&#8217;s gentle, effective, and made with natural ingredients that I can trust. My skin looks radiant, and I feel amazing.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-39"
+        },
+        {
+          "id": 38,
+          "authorName": "Ava L",
+          "date": "2025-08-29T13:29:21",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>The product is easy to apply, and the natural ingredients work wonders on my skin. I have noticed a significant improvement in skin texture, and the glow is undeniable. Highly recommend for anyone looking for a natural skincare solution!</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/#comment-38"
+        }
+      ],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 6,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "structuredSizeOrVariation",
+        "productVideo"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": [
+        "Source product title includes ?Test?; source wording retained exactly. Page size statement and gallery filename disagree (210mg vs 210G)."
+      ]
+    },
+    {
+      "id": 4120,
+      "slug": "johovo-iyalmooligai-herbal-hair-oil",
+      "productUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/",
+      "name": "JOHOVO™ IyalMooligai™ Herbal Hair Oil",
+      "classification": "source-published-product",
+      "brandIdentity": "IyalMooligai",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [
+        {
+          "id": 47,
+          "name": "JOHOVO",
+          "slug": "johovo",
+          "sourceUrl": "https://johovo.in/brand/johovo/"
+        }
+      ],
+      "sku": "JHCHO101",
+      "categories": [
+        {
+          "id": 63,
+          "name": "Hair Oil",
+          "slug": "hair-oil",
+          "sourceUrl": "https://johovo.in/product-category/hair-care/hair-oil/",
+          "parentId": 54
+        }
+      ],
+      "categoryIds": [
+        63
+      ],
+      "tags": [
+        {
+          "id": 61,
+          "name": "antidandruff hair oil",
+          "slug": "antidandruff-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/antidandruff-hair-oil/"
+        },
+        {
+          "id": 57,
+          "name": "ayurvedic hair oil",
+          "slug": "ayurvedic-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/ayurvedic-hair-oil/"
+        },
+        {
+          "id": 59,
+          "name": "bhringaraj hair oil",
+          "slug": "bhringaraj-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/bhringaraj-hair-oil/"
+        },
+        {
+          "id": 62,
+          "name": "hair growth hair oil",
+          "slug": "hair-growth-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/hair-growth-hair-oil/"
+        },
+        {
+          "id": 56,
+          "name": "herbal hair oil",
+          "slug": "herbal-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/herbal-hair-oil/"
+        },
+        {
+          "id": 58,
+          "name": "homemade hair oil",
+          "slug": "homemade-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/homemade-hair-oil/"
+        },
+        {
+          "id": 60,
+          "name": "Rosemary hair oil",
+          "slug": "rosemary-hair-oil",
+          "sourceUrl": "https://johovo.in/product-tag/rosemary-hair-oil/"
+        }
+      ],
+      "shortDescriptionHtml": "<p>JOHOVO™ IyalMooligai™ Herbal Hair Oil is a carefully crafted blend of natural herbs and oils designed to nourish and protect your hair. Our unique formula promotes healthy hair growth, reduces dandruff and itchiness, and leaves your locks soft, shiny, and manageable.</p>\n",
+      "fullDescriptionHtml": "<p><span style=\"font-weight: 400;\">JOHOVO™ IyalMooligai™ Herbal Hair Oil is a meticulously formulated blend of natural herbs and oils, carefully selected to provide comprehensive hair care. Our unique formula is deeply rooted in ancient Ayurvedic traditions, which emphasize the importance of natural ingredients and holistic approaches to health and beauty. This synergy of traditional wisdom and modern expertise creates a product that not only nourishes and strengthens your hair but also enhances its natural beauty.</span></p>\n<p><strong>The Power of Ayurveda</strong></p>\n<p><span style=\"font-weight: 400;\">Ayurveda, the ancient Indian system of medicine, recognizes the importance of hair care as an integral part of overall well-being. Our hair oil is inspired by these timeless principles, combining the finest herbs and oils to create a product that promotes healthy hair growth, prevents hair fall, and improves the overall texture and appearance of your hair.</span></p>\n",
+      "sourceWordPress": {
+        "titleHtml": "JOHOVO™ IyalMooligai™ Herbal Hair Oil",
+        "status": "publish",
+        "publishedAt": "2025-08-28T14:38:52",
+        "modifiedAt": "2025-09-20T11:58:52",
+        "excerptHtml": "<p>JOHOVO™ IyalMooligai™ Herbal Hair Oil is a carefully crafted blend of natural herbs and oils designed to nourish and protect your hair. Our unique formula promotes healthy hair growth, reduces dandruff and itchiness, and leaves your locks soft, shiny, and manageable.</p>\n",
+        "contentHtml": "<p><span style=\"font-weight: 400;\">JOHOVO™ IyalMooligai™ Herbal Hair Oil is a meticulously formulated blend of natural herbs and oils, carefully selected to provide comprehensive hair care. Our unique formula is deeply rooted in ancient Ayurvedic traditions, which emphasize the importance of natural ingredients and holistic approaches to health and beauty. This synergy of traditional wisdom and modern expertise creates a product that not only nourishes and strengthens your hair but also enhances its natural beauty.</span></p>\n<p><strong>The Power of Ayurveda</strong></p>\n<p><span style=\"font-weight: 400;\">Ayurveda, the ancient Indian system of medicine, recognizes the importance of hair care as an integral part of overall well-being. Our hair oil is inspired by these timeless principles, combining the finest herbs and oils to create a product that promotes healthy hair growth, prevents hair fall, and improves the overall texture and appearance of your hair.</span></p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 4120,
+        "name": "JOHOVO™ IyalMooligai™ Herbal Hair Oil",
+        "slug": "johovo-iyalmooligai-herbal-hair-oil",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/",
+        "sku": "JHCHO101",
+        "short_description": "<p>JOHOVO™ IyalMooligai™ Herbal Hair Oil is a carefully crafted blend of natural herbs and oils designed to nourish and protect your hair. Our unique formula promotes healthy hair growth, reduces dandruff and itchiness, and leaves your locks soft, shiny, and manageable.</p>",
+        "description": "<p><span style=\"font-weight: 400\">JOHOVO™ IyalMooligai™ Herbal Hair Oil is a meticulously formulated blend of natural herbs and oils, carefully selected to provide comprehensive hair care. Our unique formula is deeply rooted in ancient Ayurvedic traditions, which emphasize the importance of natural ingredients and holistic approaches to health and beauty. This synergy of traditional wisdom and modern expertise creates a product that not only nourishes and strengthens your hair but also enhances its natural beauty.</span></p>\n<p><strong>The Power of Ayurveda</strong></p>\n<p><span style=\"font-weight: 400\">Ayurveda, the ancient Indian system of medicine, recognizes the importance of hair care as an integral part of overall well-being. Our hair oil is inspired by these timeless principles, combining the finest herbs and oils to create a product that promotes healthy hair growth, prevents hair fall, and improves the overall texture and appearance of your hair.</span></p>",
+        "on_sale": true,
+        "prices": {
+          "price": "72000",
+          "regular_price": "84000",
+          "sale_price": "72000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>840.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;840.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>720.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;720.00.</span><span class=\"wd-price-unit\">240ml</span>",
+        "average_rating": "0",
+        "review_count": 5,
+        "images": [
+          {
+            "id": 4127,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001.png 1080w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001-80x80.png 80w",
+            "sizes": "(max-width: 1080px) 100vw, 1080px",
+            "name": "JOHOVO IyalMooligai Hair Oil",
+            "alt": ""
+          },
+          {
+            "id": 4128,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004.png 1080w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004-80x80.png 80w",
+            "sizes": "(max-width: 1080px) 100vw, 1080px",
+            "name": "JOHOVO HO_1200px_004",
+            "alt": ""
+          },
+          {
+            "id": 4129,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005.png 1080w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005-80x80.png 80w",
+            "sizes": "(max-width: 1080px) 100vw, 1080px",
+            "name": "JOHOVO HO_1200px_005",
+            "alt": ""
+          },
+          {
+            "id": 4130,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006.png 1200w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006-80x80.png 80w",
+            "sizes": "(max-width: 1200px) 100vw, 1200px",
+            "name": "JOHOVO HO_1200px_006",
+            "alt": ""
+          },
+          {
+            "id": 4131,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007.png 1080w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007-80x80.png 80w",
+            "sizes": "(max-width: 1080px) 100vw, 1080px",
+            "name": "JOHOVO HO_1200px_007",
+            "alt": ""
+          },
+          {
+            "id": 4132,
+            "src": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008.png 1080w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-48x48.png 48w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008-80x80.png 80w",
+            "sizes": "(max-width: 1080px) 100vw, 1080px",
+            "name": "JOHOVO HO_1200px_008",
+            "alt": ""
+          }
+        ],
+        "categories": [
+          {
+            "id": 63,
+            "name": "Hair Oil",
+            "slug": "hair-oil",
+            "link": "https://johovo.in/product-category/hair-care/hair-oil/"
+          }
+        ],
+        "tags": [
+          {
+            "id": 61,
+            "name": "antidandruff hair oil",
+            "slug": "antidandruff-hair-oil",
+            "link": "https://johovo.in/product-tag/antidandruff-hair-oil/"
+          },
+          {
+            "id": 57,
+            "name": "ayurvedic hair oil",
+            "slug": "ayurvedic-hair-oil",
+            "link": "https://johovo.in/product-tag/ayurvedic-hair-oil/"
+          },
+          {
+            "id": 59,
+            "name": "bhringaraj hair oil",
+            "slug": "bhringaraj-hair-oil",
+            "link": "https://johovo.in/product-tag/bhringaraj-hair-oil/"
+          },
+          {
+            "id": 62,
+            "name": "hair growth hair oil",
+            "slug": "hair-growth-hair-oil",
+            "link": "https://johovo.in/product-tag/hair-growth-hair-oil/"
+          },
+          {
+            "id": 56,
+            "name": "herbal hair oil",
+            "slug": "herbal-hair-oil",
+            "link": "https://johovo.in/product-tag/herbal-hair-oil/"
+          },
+          {
+            "id": 58,
+            "name": "homemade hair oil",
+            "slug": "homemade-hair-oil",
+            "link": "https://johovo.in/product-tag/homemade-hair-oil/"
+          },
+          {
+            "id": 60,
+            "name": "Rosemary hair oil",
+            "slug": "rosemary-hair-oil",
+            "link": "https://johovo.in/product-tag/rosemary-hair-oil/"
+          }
+        ],
+        "brands": [
+          {
+            "id": 47,
+            "name": "JOHOVO",
+            "slug": "johovo",
+            "link": "https://johovo.in/brand/johovo/"
+          }
+        ],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;JOHOVO™ IyalMooligai™ Herbal Hair Oil&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=4120",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "84000",
+        "salePriceMinorUnits": "72000",
+        "activePriceMinorUnits": "72000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>840.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;840.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>720.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;720.00.</span><span class=\"wd-price-unit\">240ml</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 4127,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_001.png",
+          "localPath": null,
+          "name": "JOHOVO IyalMooligai Hair Oil",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        },
+        {
+          "id": 4128,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_004.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/herbal-hair-oil-gallery-02.png",
+          "name": "JOHOVO HO_1200px_004",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4129,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_005.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/herbal-hair-oil-gallery-03.png",
+          "name": "JOHOVO HO_1200px_005",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4130,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_006.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/herbal-hair-oil-gallery-04.png",
+          "name": "JOHOVO HO_1200px_006",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4131,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_007.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/herbal-hair-oil-gallery-05.png",
+          "name": "JOHOVO HO_1200px_007",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        },
+        {
+          "id": 4132,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-HO_1200px_008.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/herbal-hair-oil-gallery-06.png",
+          "name": "JOHOVO HO_1200px_008",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "downloaded-open-verified"
+        }
+      ],
+      "ingredientImages": [
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Bhringaraj.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/bhringaraj-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Rosemary.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/rosemary-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Amla.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/amla-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Neem.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/neem-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Coconut-Oil.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/coconut-oil-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Henna.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/henna-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Ashwagandha.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/ashwagandha-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Hibiscus.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/hibiscus-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Betel-Leaves.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/betel-vine-ingredient.png",
+          "status": "downloaded-open-verified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/Small-Onion.png",
+          "localPath": "public/images/migrated/iyalmooligai/herbal-hair-oil/small-onion-ingredient.png",
+          "status": "downloaded-open-verified"
+        }
+      ],
+      "videos": [
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/WhatsApp-Video-2025-05-18-at-02.40.46_b411177b.mp4",
+          "localPath": "public/videos/migrated/johovo/whatsapp-product-video-2025-05-18.mp4",
+          "associationStatus": "observed-on-product-page",
+          "migrationStatus": "downloaded-container-verified-playback-unverified"
+        }
+      ],
+      "reviews": [
+        {
+          "id": 37,
+          "authorName": "Nalini Ganesh",
+          "date": "2025-08-28T16:02:15",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>This herbal hair oil is a game changer for my hair care routine. It is nourishing, promotes hair growth, and leaves my hair smelling amazing. I&#8217;ve already recommended it to my friends and family. Keep up the good work, JOHOVO!&#8221;</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/#comment-37"
+        },
+        {
+          "id": 36,
+          "authorName": "Suresh Moorthy",
+          "date": "2025-08-28T16:00:13",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I have been struggling with dandruff and scalp itchiness, but since I started using this iyalmooligai hair oil, I noticed a significant improvement. As mentioned, the oil antifungal properties seem to be doing the trick. Can&#8217;t wait to see more benefits in the long run!</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/#comment-36"
+        },
+        {
+          "id": 35,
+          "authorName": "Priya S",
+          "date": "2025-08-28T15:57:34",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>As someone who is sensitive to chemicals, I appreciate this Herbal Hair Oil is made from natural ingredients which i felt effect while using it. It&#8217;s gentle on my scalp, and my hair looks healthier than ever. The best part is that it doesn&#8217;t leave any greasy residue. Perfect for daily use.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/#comment-35"
+        },
+        {
+          "id": 34,
+          "authorName": "Karthik K",
+          "date": "2025-08-28T15:54:14",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I tried several hair oils before, but Johovo Herbal Hair Oil stands out. It&#8217;s lightweight, absorbs well, and has a pleasant scent. I&#8217;ve noticed a significant reduction in hair fall and an improvement in hair growth.</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/#comment-34"
+        },
+        {
+          "id": 33,
+          "authorName": "Rukmini R",
+          "date": "2025-08-28T15:11:43",
+          "location": null,
+          "rating": null,
+          "contentHtml": "<p>I&#8217;ve been using JOHOVO IyalMooligai Herbal Hair Oil for a few weeks now, and I&#8217;m impressed with the results. My hair feels softer, shinier, and more manageable. The oil&#8217;s blend of herbs seems to be working wonders for my scalp health too. Highly recommend!</p>\n",
+          "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/#comment-33"
+        }
+      ],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 5,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "structuredSizeOrVariation"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": [
+        "Public Store API brand taxonomy is JOHOVO; IyalMooligai is retained as the product sub-brand named in the source title."
+      ]
+    },
+    {
+      "id": 4084,
+      "slug": "demo-3",
+      "productUrl": "https://johovo.in/product/demo-3/",
+      "name": "demo 3",
+      "classification": "demo-excluded-from-genuine-product-count",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [],
+      "sku": null,
+      "categories": [
+        {
+          "id": 15,
+          "name": "Makeup",
+          "slug": "makeup",
+          "sourceUrl": "https://johovo.in/product-category/makeup/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        15
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>hhb</p>\n",
+      "fullDescriptionHtml": "<p>hhb</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "demo 3",
+        "status": "publish",
+        "publishedAt": "2025-08-20T20:03:55",
+        "modifiedAt": "2025-09-09T12:06:02",
+        "excerptHtml": "<p>hhb</p>\n",
+        "contentHtml": "<p>hhb</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 4084,
+        "name": "demo 3",
+        "slug": "demo-3",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/demo-3/",
+        "sku": "",
+        "short_description": "",
+        "description": "<p>hhb</p>",
+        "on_sale": true,
+        "prices": {
+          "price": "15000",
+          "regular_price": "49900",
+          "sale_price": "15000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>499.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;499.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2991,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099436-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099436-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099436-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099436-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099436-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099436-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099436-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099436-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099436-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099436-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099436.png",
+            "alt": ""
+          },
+          {
+            "id": 2994,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099438-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099438-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099438-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099438-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099438-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099438-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099438-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099438-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099438.png",
+            "alt": ""
+          },
+          {
+            "id": 2992,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099437-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099437-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099437-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099437-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099437-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099437-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099437-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099437-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099437.png",
+            "alt": ""
+          }
+        ],
+        "categories": [],
+        "tags": [],
+        "brands": [],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;demo 3&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=4084",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "49900",
+        "salePriceMinorUnits": "15000",
+        "activePriceMinorUnits": "15000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>499.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;499.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2991,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png",
+          "localPath": null,
+          "name": "2025/05/1000099436.png",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "not-locally-available"
+        },
+        {
+          "id": 2994,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+          "localPath": null,
+          "name": "2025/05/1000099438.png",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "not-locally-available"
+        },
+        {
+          "id": 2992,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+          "localPath": null,
+          "name": "2025/05/1000099437.png",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "not-locally-available"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/JOHOVO-IyalMooligai-Herbal-Hair-Oil.mp4",
+          "localPath": "public/videos/migrated/unverified/iyalmooligai-hair-oil-unverified-demo-association.mp4",
+          "associationStatus": "observed-on-demo-page-unverified-product-association",
+          "migrationStatus": "downloaded-container-verified-playback-unverified"
+        }
+      ],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "structuredSizeOrVariation",
+        "explicitIngredientSection",
+        "publicReviews",
+        "storefrontCategoryLabels"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": [
+        "Source product title/content identify this entry as a demo; retained in source data but excluded from genuine product count.",
+        "A product-named video is shown on a demo page; product association remains unverified."
+      ]
+    },
+    {
+      "id": 4082,
+      "slug": "demo-1",
+      "productUrl": "https://johovo.in/product/demo-1/",
+      "name": "demo 1",
+      "classification": "demo-excluded-from-genuine-product-count",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [],
+      "sku": null,
+      "categories": [
+        {
+          "id": 15,
+          "name": "Makeup",
+          "slug": "makeup",
+          "sourceUrl": "https://johovo.in/product-category/makeup/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        15
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>demo</p>\n",
+      "fullDescriptionHtml": "<p>demo</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "demo 1",
+        "status": "publish",
+        "publishedAt": "2025-08-20T18:28:31",
+        "modifiedAt": "2025-08-20T18:28:31",
+        "excerptHtml": "<p>demo</p>\n",
+        "contentHtml": "<p>demo</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 4082,
+        "name": "demo 1",
+        "slug": "demo-1",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/demo-1/",
+        "sku": "",
+        "short_description": "",
+        "description": "<p>demo</p>",
+        "on_sale": true,
+        "prices": {
+          "price": "15000",
+          "regular_price": "50000",
+          "sale_price": "15000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>500.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;500.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span><span class=\"wd-price-unit\">100</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2992,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099437-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099437-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099437-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099437-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099437-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099437-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099437-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099437-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099437.png",
+            "alt": ""
+          },
+          {
+            "id": 2994,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099438-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099438-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099438-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099438-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099438-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099438-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099438-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099438-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099438.png",
+            "alt": ""
+          },
+          {
+            "id": 2992,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099437-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099437-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099437-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099437-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099437-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099437-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099437-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099437-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099437.png",
+            "alt": ""
+          }
+        ],
+        "categories": [],
+        "tags": [],
+        "brands": [],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;demo 1&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=4082",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "50000",
+        "salePriceMinorUnits": "15000",
+        "activePriceMinorUnits": "15000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>500.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;500.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span><span class=\"wd-price-unit\">100</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2992,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+          "localPath": null,
+          "name": "2025/05/1000099437.png",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "not-locally-available"
+        },
+        {
+          "id": 2994,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+          "localPath": null,
+          "name": "2025/05/1000099438.png",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "not-locally-available"
+        },
+        {
+          "id": 2992,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+          "localPath": null,
+          "name": "2025/05/1000099437.png",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "not-locally-available"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "structuredSizeOrVariation",
+        "explicitIngredientSection",
+        "productVideo",
+        "publicReviews",
+        "storefrontCategoryLabels"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": [
+        "Source product title/content identify this entry as a demo; retained in source data but excluded from genuine product count."
+      ]
+    },
+    {
+      "id": 2995,
+      "slug": "premium-rose-body-scrub-johovo",
+      "productUrl": "https://johovo.in/product/premium-rose-body-scrub-johovo/",
+      "name": "Premium Rose Body Scrub &#8211; Johovo",
+      "classification": "source-published-product",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [],
+      "sku": null,
+      "categories": [
+        {
+          "id": 53,
+          "name": "Trending",
+          "slug": "tranding",
+          "sourceUrl": "https://johovo.in/product-category/tranding/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        53
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>hi</p>\n",
+      "fullDescriptionHtml": "",
+      "sourceWordPress": {
+        "titleHtml": "Premium Rose Body Scrub &#8211; Johovo",
+        "status": "publish",
+        "publishedAt": "2025-05-24T22:38:20",
+        "modifiedAt": "2025-08-15T20:30:04",
+        "excerptHtml": "<p>hi</p>\n",
+        "contentHtml": "",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 2995,
+        "name": "Premium Rose Body Scrub &#8211; Johovo",
+        "slug": "premium-rose-body-scrub-johovo",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/premium-rose-body-scrub-johovo/",
+        "sku": "",
+        "short_description": "<p>hi</p>",
+        "description": "",
+        "on_sale": true,
+        "prices": {
+          "price": "40000",
+          "regular_price": "100000",
+          "sale_price": "40000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>1,000.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;1,000.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>400.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;400.00.</span><span class=\"wd-price-unit\">100</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2994,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099438-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099438-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099438-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099438-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099438-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099438-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099438-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099438-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099438-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099438.png",
+            "alt": ""
+          }
+        ],
+        "categories": [
+          {
+            "id": 53,
+            "name": "Trending",
+            "slug": "tranding",
+            "link": "https://johovo.in/product-category/tranding/"
+          }
+        ],
+        "tags": [],
+        "brands": [],
+        "attributes": [
+          {
+            "id": 0,
+            "name": "Size",
+            "taxonomy": null,
+            "has_variations": true,
+            "terms": [
+              {
+                "id": 0,
+                "name": "240ml",
+                "slug": "240ml",
+                "default": true
+              }
+            ]
+          }
+        ],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;Premium Rose Body Scrub &#8211; Johovo&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=2995",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "100000",
+        "salePriceMinorUnits": "40000",
+        "activePriceMinorUnits": "40000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>1,000.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;1,000.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>400.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;400.00.</span><span class=\"wd-price-unit\">100</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [
+        {
+          "id": 0,
+          "name": "Size",
+          "taxonomy": null,
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 0,
+              "name": "240ml",
+              "slug": "240ml",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2994,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099438.png",
+          "localPath": null,
+          "name": "2025/05/1000099438.png",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "fullDescription",
+        "explicitIngredientSection",
+        "productVideo",
+        "publicReviews"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": []
+    },
+    {
+      "id": 2993,
+      "slug": "premium-rose-body-wash-johovo",
+      "productUrl": "https://johovo.in/product/premium-rose-body-wash-johovo/",
+      "name": "Premium Rose Body Wash &#8211; Johovo",
+      "classification": "source-published-product",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [],
+      "sku": null,
+      "categories": [
+        {
+          "id": 15,
+          "name": "Makeup",
+          "slug": "makeup",
+          "sourceUrl": "https://johovo.in/product-category/makeup/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        15
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>hiii</p>\n",
+      "fullDescriptionHtml": "<p>huh7890i09i9</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "Premium Rose Body Wash &#8211; Johovo",
+        "status": "publish",
+        "publishedAt": "2025-05-24T22:36:56",
+        "modifiedAt": "2025-08-13T20:06:12",
+        "excerptHtml": "<p>hiii</p>\n",
+        "contentHtml": "<p>huh7890i09i9</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 2993,
+        "name": "Premium Rose Body Wash &#8211; Johovo",
+        "slug": "premium-rose-body-wash-johovo",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/premium-rose-body-wash-johovo/",
+        "sku": "",
+        "short_description": "<p>hiii</p>",
+        "description": "<p>huh7890i09i9</p>",
+        "on_sale": false,
+        "prices": {
+          "price": "49900",
+          "regular_price": "49900",
+          "sale_price": "49900",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>499.00</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2992,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099437-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099437-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099437-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099437-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099437-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099437-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099437-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099437-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099437-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099437.png",
+            "alt": ""
+          }
+        ],
+        "categories": [],
+        "tags": [],
+        "brands": [],
+        "attributes": [
+          {
+            "id": 0,
+            "name": "new",
+            "taxonomy": null,
+            "has_variations": true,
+            "terms": [
+              {
+                "id": 0,
+                "name": "hi",
+                "slug": "hi",
+                "default": true
+              }
+            ]
+          }
+        ],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;Premium Rose Body Wash &#8211; Johovo&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=2993",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "49900",
+        "salePriceMinorUnits": "49900",
+        "activePriceMinorUnits": "49900",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>499.00</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [
+        {
+          "id": 0,
+          "name": "new",
+          "taxonomy": null,
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 0,
+              "name": "hi",
+              "slug": "hi",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2992,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099437.png",
+          "localPath": null,
+          "name": "2025/05/1000099437.png",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/WhatsApp-Video-2025-05-18-at-02.40.46_b411177b.mp4",
+          "localPath": "public/videos/migrated/johovo/whatsapp-product-video-2025-05-18.mp4",
+          "associationStatus": "observed-on-product-page",
+          "migrationStatus": "downloaded-container-verified-playback-unverified"
+        },
+        {
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/08/WhatsApp-Video-2025-05-30-at-02.10.03_44d719d9.mp4",
+          "localPath": "public/videos/migrated/johovo/whatsapp-product-video-2025-05-30.mp4",
+          "associationStatus": "observed-on-product-page",
+          "migrationStatus": "downloaded-container-verified-playback-unverified"
+        }
+      ],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "explicitIngredientSection",
+        "publicReviews",
+        "storefrontCategoryLabels"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": []
+    },
+    {
+      "id": 2990,
+      "slug": "premium-rose-moisturizing-body-lotion-johova",
+      "productUrl": "https://johovo.in/product/premium-rose-moisturizing-body-lotion-johova/",
+      "name": "Premium Rose Moisturizing Body Lotion &#8211; Johova",
+      "classification": "source-published-product",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": "Johova",
+      "sourceBrandTaxonomy": [],
+      "sku": null,
+      "categories": [
+        {
+          "id": 15,
+          "name": "Makeup",
+          "slug": "makeup",
+          "sourceUrl": "https://johovo.in/product-category/makeup/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        15
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>Rose moisturizing body lotions are known for their ability to : ● Hydrate and nourish the skin ● Improve skin</p>\n",
+      "fullDescriptionHtml": "<p>Rose moisturizing body lotions are known for their ability to :</p>\n<p>● Hydrate and nourish the skin<br />\n● Improve skin elasticity and firmness<br />\n● Soothe and calm dry, irritated skin<br />\n● Leave a pleasant fragrance on the skin</p>\n<p><strong>Benefits of JOHOVO Premium Rose Moisturizing Body Lotion</strong></p>\n<p>● Long-lasting hydration : The body lotion provides long-lasting hydration to the<br />\nskin, leaving it feeling soft, smooth, and supple.<br />\n● Improves skin elasticity : The rose extracts and natural ingredients in the body<br />\nlotion help to improve skin elasticity and firmness.<br />\n● Soothes and calms : The rose extracts have a soothing and calming effect on<br />\nthe skin, reducing inflammation and irritation.<br />\n● Pleasant fragrance : The body lotion leaves a pleasant fragrance on the skin,<br />\nmaking you feel fresh and confident.<br />\nKey Ingredients<br />\n● Rose Extracts : Rich in antioxidants and vitamins, rose extracts help to nourish<br />\nand moisturize the skin.<br />\n● Natural Ingredients : The body lotion contains natural ingredients like coconut<br />\noil, shea butter, and olive oil that help to moisturize and nourish the skin.<br />\n● Hydrating Agents : The body lotion contains hydrating agents like hyaluronic<br />\nacid that help to lock in moisture and provide long-lasting hydration.</p>\n<p><strong>Unique Selling Points</strong></p>\n<p>● 100% natural : Our body lotion is made with 100% natural ingredients, making it<br />\na safe and effective solution for hydrating and nourishing the skin.<br />\n● No harsh chemicals : Our body lotion is free from harsh chemicals, making it an<br />\nexcellent alternative to traditional body lotions.</p>\n<p>● Suitable for all skin types : Our body lotion is gentle enough for all skin types,<br />\nincluding sensitive skin.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>● Apply the body lotion to your skin after bathing or showering.<br />\n● Massage the lotion into your skin until fully absorbed.<br />\n● Use regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p>● Quality guarantee : We&#8217;re committed to delivering high-quality products that<br />\nmeet your expectations.<br />\n● Natural and effective : Our products are made with natural ingredients and are<br />\ndesigned to be effective and safe for all skin types.<br />\n● Sustainable practices : We&#8217;re dedicated to reducing our environmental footprint<br />\nand promoting sustainable practices throughout our operations.<br />\n● Customer satisfaction : We&#8217;re passionate about delivering exceptional customer<br />\nexperiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "Premium Rose Moisturizing Body Lotion &#8211; Johova",
+        "status": "publish",
+        "publishedAt": "2025-05-24T22:15:55",
+        "modifiedAt": "2025-08-19T19:13:10",
+        "excerptHtml": "<p>Rose moisturizing body lotions are known for their ability to : ● Hydrate and nourish the skin ● Improve skin</p>\n",
+        "contentHtml": "<p>Rose moisturizing body lotions are known for their ability to :</p>\n<p>● Hydrate and nourish the skin<br />\n● Improve skin elasticity and firmness<br />\n● Soothe and calm dry, irritated skin<br />\n● Leave a pleasant fragrance on the skin</p>\n<p><strong>Benefits of JOHOVO Premium Rose Moisturizing Body Lotion</strong></p>\n<p>● Long-lasting hydration : The body lotion provides long-lasting hydration to the<br />\nskin, leaving it feeling soft, smooth, and supple.<br />\n● Improves skin elasticity : The rose extracts and natural ingredients in the body<br />\nlotion help to improve skin elasticity and firmness.<br />\n● Soothes and calms : The rose extracts have a soothing and calming effect on<br />\nthe skin, reducing inflammation and irritation.<br />\n● Pleasant fragrance : The body lotion leaves a pleasant fragrance on the skin,<br />\nmaking you feel fresh and confident.<br />\nKey Ingredients<br />\n● Rose Extracts : Rich in antioxidants and vitamins, rose extracts help to nourish<br />\nand moisturize the skin.<br />\n● Natural Ingredients : The body lotion contains natural ingredients like coconut<br />\noil, shea butter, and olive oil that help to moisturize and nourish the skin.<br />\n● Hydrating Agents : The body lotion contains hydrating agents like hyaluronic<br />\nacid that help to lock in moisture and provide long-lasting hydration.</p>\n<p><strong>Unique Selling Points</strong></p>\n<p>● 100% natural : Our body lotion is made with 100% natural ingredients, making it<br />\na safe and effective solution for hydrating and nourishing the skin.<br />\n● No harsh chemicals : Our body lotion is free from harsh chemicals, making it an<br />\nexcellent alternative to traditional body lotions.</p>\n<p>● Suitable for all skin types : Our body lotion is gentle enough for all skin types,<br />\nincluding sensitive skin.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>● Apply the body lotion to your skin after bathing or showering.<br />\n● Massage the lotion into your skin until fully absorbed.<br />\n● Use regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p>● Quality guarantee : We&#8217;re committed to delivering high-quality products that<br />\nmeet your expectations.<br />\n● Natural and effective : Our products are made with natural ingredients and are<br />\ndesigned to be effective and safe for all skin types.<br />\n● Sustainable practices : We&#8217;re dedicated to reducing our environmental footprint<br />\nand promoting sustainable practices throughout our operations.<br />\n● Customer satisfaction : We&#8217;re passionate about delivering exceptional customer<br />\nexperiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 2990,
+        "name": "Premium Rose Moisturizing Body Lotion &#8211; Johova",
+        "slug": "premium-rose-moisturizing-body-lotion-johova",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/premium-rose-moisturizing-body-lotion-johova/",
+        "sku": "",
+        "short_description": "",
+        "description": "<p>Rose moisturizing body lotions are known for their ability to :</p>\n<p>● Hydrate and nourish the skin<br />\n● Improve skin elasticity and firmness<br />\n● Soothe and calm dry, irritated skin<br />\n● Leave a pleasant fragrance on the skin</p>\n<p><strong>Benefits of JOHOVO Premium Rose Moisturizing Body Lotion</strong></p>\n<p>● Long-lasting hydration : The body lotion provides long-lasting hydration to the<br />\nskin, leaving it feeling soft, smooth, and supple.<br />\n● Improves skin elasticity : The rose extracts and natural ingredients in the body<br />\nlotion help to improve skin elasticity and firmness.<br />\n● Soothes and calms : The rose extracts have a soothing and calming effect on<br />\nthe skin, reducing inflammation and irritation.<br />\n● Pleasant fragrance : The body lotion leaves a pleasant fragrance on the skin,<br />\nmaking you feel fresh and confident.<br />\nKey Ingredients<br />\n● Rose Extracts : Rich in antioxidants and vitamins, rose extracts help to nourish<br />\nand moisturize the skin.<br />\n● Natural Ingredients : The body lotion contains natural ingredients like coconut<br />\noil, shea butter, and olive oil that help to moisturize and nourish the skin.<br />\n● Hydrating Agents : The body lotion contains hydrating agents like hyaluronic<br />\nacid that help to lock in moisture and provide long-lasting hydration.</p>\n<p><strong>Unique Selling Points</strong></p>\n<p>● 100% natural : Our body lotion is made with 100% natural ingredients, making it<br />\na safe and effective solution for hydrating and nourishing the skin.<br />\n● No harsh chemicals : Our body lotion is free from harsh chemicals, making it an<br />\nexcellent alternative to traditional body lotions.</p>\n<p>● Suitable for all skin types : Our body lotion is gentle enough for all skin types,<br />\nincluding sensitive skin.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>● Apply the body lotion to your skin after bathing or showering.<br />\n● Massage the lotion into your skin until fully absorbed.<br />\n● Use regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p>● Quality guarantee : We&#8217;re committed to delivering high-quality products that<br />\nmeet your expectations.<br />\n● Natural and effective : Our products are made with natural ingredients and are<br />\ndesigned to be effective and safe for all skin types.<br />\n● Sustainable practices : We&#8217;re dedicated to reducing our environmental footprint<br />\nand promoting sustainable practices throughout our operations.<br />\n● Customer satisfaction : We&#8217;re passionate about delivering exceptional customer<br />\nexperiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>",
+        "on_sale": true,
+        "prices": {
+          "price": "15000",
+          "regular_price": "50000",
+          "sale_price": "15000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>500.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;500.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2991,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000099436-300x300.png",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png 1500w, https://johovo.in/wp-content/uploads/2025/05/1000099436-300x300.png 300w, https://johovo.in/wp-content/uploads/2025/05/1000099436-80x80.png 80w, https://johovo.in/wp-content/uploads/2025/05/1000099436-600x600.png 600w, https://johovo.in/wp-content/uploads/2025/05/1000099436-1024x1024.png 1024w, https://johovo.in/wp-content/uploads/2025/05/1000099436-150x150.png 150w, https://johovo.in/wp-content/uploads/2025/05/1000099436-768x768.png 768w, https://johovo.in/wp-content/uploads/2025/05/1000099436-24x24.png 24w, https://johovo.in/wp-content/uploads/2025/05/1000099436-36x36.png 36w, https://johovo.in/wp-content/uploads/2025/05/1000099436-48x48.png 48w",
+            "sizes": "(max-width: 1500px) 100vw, 1500px",
+            "name": "2025/05/1000099436.png",
+            "alt": ""
+          }
+        ],
+        "categories": [],
+        "tags": [],
+        "brands": [],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;Premium Rose Moisturizing Body Lotion &#8211; Johova&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=2990",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "50000",
+        "salePriceMinorUnits": "15000",
+        "activePriceMinorUnits": "15000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>500.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;500.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>150.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;150.00.</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2991,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000099436.png",
+          "localPath": null,
+          "name": "2025/05/1000099436.png",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "structuredSizeOrVariation",
+        "productVideo",
+        "publicReviews",
+        "storefrontCategoryLabels"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": [
+        "Original title uses ?Johova?; source wording retained exactly."
+      ]
+    },
+    {
+      "id": 2020,
+      "slug": "johovo-premium-orange-face-pack-brighten-and-nourish-your-skin",
+      "productUrl": "https://johovo.in/product/johovo-premium-orange-face-pack-brighten-and-nourish-your-skin/",
+      "name": "Orange Face Pack &#8211; Johovo",
+      "classification": "source-published-product",
+      "brandIdentity": "JOHOVO",
+      "parentBrand": "JOHOVO",
+      "sourceBrandLabel": null,
+      "sourceBrandTaxonomy": [
+        {
+          "id": 47,
+          "name": "JOHOVO",
+          "slug": "johovo",
+          "sourceUrl": "https://johovo.in/brand/johovo/"
+        }
+      ],
+      "sku": null,
+      "categories": [
+        {
+          "id": 15,
+          "name": "Makeup",
+          "slug": "makeup",
+          "sourceUrl": "https://johovo.in/product-category/makeup/",
+          "parentId": 0
+        }
+      ],
+      "categoryIds": [
+        15
+      ],
+      "tags": [],
+      "shortDescriptionHtml": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>\n",
+      "fullDescriptionHtml": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>\n<p>Importance of Orange Face Pack<br />\nOrange face packs are known for their ability to :</p>\n<p>Brighten and even out skin tone<br />\nReduce dark spots and hyperpigmentation<br />\nNourish and moisturize the skin<br />\nExfoliate and remove dead skin cells</p>\n<p>Benefits of JOHOVO Premium Orange Face Pack</p>\n<p><strong>Brightens skin :</strong> Pure orange peels help to brighten and even out skin tone.</p>\n<p><strong>Reduces dark spots </strong>: Orange peels have natural bleaching properties that help to reduce dark spots and hyperpigmentation.</p>\n<p><strong>Nourishes and moisturizes :</strong> Orange peels are rich in vitamin C and antioxidants that help to nourish and moisturize the skin.</p>\n<p><strong>Exfoliates and removes dead skin cells :</strong> The gentle abrasive nature of orange peels helps to exfoliate and remove dead skin cells.</p>\n<p><strong>Key Ingredients :</strong></p>\n<p><strong>Pure Orange Peels :</strong> Rich in vitamin C and antioxidants, orange peels help to brighten and nourish the skin.</p>\n<p><strong>Unique Selling Points :</strong><br />\n100% natural: Our face pack is made with 100% pure orange peels, making it a natural and effective solution for glowing skin.</p>\n<p><strong>No harsh chemicals :</strong> Our face pack is free from harsh chemicals, making it an excellent alternative to traditional skincare products.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>Mix the face pack with water or rose water to form a paste.<br />\nApply the paste to your face and neck, avoiding the eye area.<br />\nLeave the face pack on for 15-20 minutes, or until it dries.<br />\nRinse off with lukewarm water and pat dry.<br />\nUse regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p><strong>Quality guarantee :</strong> We&#8217;re committed to delivering high-quality products that meet your expectations.</p>\n<p><strong>Natural and effective :</strong> Our products are made with natural ingredients and are designed to be effective and safe for all skin types.</p>\n<p><strong>Sustainable practices :</strong> We&#8217;re dedicated to reducing our environmental footprint and promoting sustainable practices throughout our operations.</p>\n<p><strong>Customer satisfaction </strong>: We&#8217;re passionate about delivering exceptional customer experiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>\n",
+      "sourceWordPress": {
+        "titleHtml": "Orange Face Pack &#8211; Johovo",
+        "status": "publish",
+        "publishedAt": "2025-05-09T15:11:26",
+        "modifiedAt": "2025-05-25T07:55:05",
+        "excerptHtml": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>\n",
+        "contentHtml": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>\n<p>Importance of Orange Face Pack<br />\nOrange face packs are known for their ability to :</p>\n<p>Brighten and even out skin tone<br />\nReduce dark spots and hyperpigmentation<br />\nNourish and moisturize the skin<br />\nExfoliate and remove dead skin cells</p>\n<p>Benefits of JOHOVO Premium Orange Face Pack</p>\n<p><strong>Brightens skin :</strong> Pure orange peels help to brighten and even out skin tone.</p>\n<p><strong>Reduces dark spots </strong>: Orange peels have natural bleaching properties that help to reduce dark spots and hyperpigmentation.</p>\n<p><strong>Nourishes and moisturizes :</strong> Orange peels are rich in vitamin C and antioxidants that help to nourish and moisturize the skin.</p>\n<p><strong>Exfoliates and removes dead skin cells :</strong> The gentle abrasive nature of orange peels helps to exfoliate and remove dead skin cells.</p>\n<p><strong>Key Ingredients :</strong></p>\n<p><strong>Pure Orange Peels :</strong> Rich in vitamin C and antioxidants, orange peels help to brighten and nourish the skin.</p>\n<p><strong>Unique Selling Points :</strong><br />\n100% natural: Our face pack is made with 100% pure orange peels, making it a natural and effective solution for glowing skin.</p>\n<p><strong>No harsh chemicals :</strong> Our face pack is free from harsh chemicals, making it an excellent alternative to traditional skincare products.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>Mix the face pack with water or rose water to form a paste.<br />\nApply the paste to your face and neck, avoiding the eye area.<br />\nLeave the face pack on for 15-20 minutes, or until it dries.<br />\nRinse off with lukewarm water and pat dry.<br />\nUse regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p><strong>Quality guarantee :</strong> We&#8217;re committed to delivering high-quality products that meet your expectations.</p>\n<p><strong>Natural and effective :</strong> Our products are made with natural ingredients and are designed to be effective and safe for all skin types.</p>\n<p><strong>Sustainable practices :</strong> We&#8217;re dedicated to reducing our environmental footprint and promoting sustainable practices throughout our operations.</p>\n<p><strong>Customer satisfaction </strong>: We&#8217;re passionate about delivering exceptional customer experiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>\n",
+        "metadataSku": null
+      },
+      "sourceStorefront": {
+        "id": 2020,
+        "name": "Orange Face Pack &#8211; Johovo",
+        "slug": "johovo-premium-orange-face-pack-brighten-and-nourish-your-skin",
+        "parent": 0,
+        "type": "simple",
+        "variation": "",
+        "permalink": "https://johovo.in/product/johovo-premium-orange-face-pack-brighten-and-nourish-your-skin/",
+        "sku": "",
+        "short_description": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>",
+        "description": "<p>JOHOVO Premium Orange Face Pack is a natural and effective solution for glowing skin. This face pack contains pure orange peels that help to brighten and nourish your skin, leaving it soft, smooth, and radiant.</p>\n<p>Importance of Orange Face Pack<br />\nOrange face packs are known for their ability to :</p>\n<p>Brighten and even out skin tone<br />\nReduce dark spots and hyperpigmentation<br />\nNourish and moisturize the skin<br />\nExfoliate and remove dead skin cells</p>\n<p>Benefits of JOHOVO Premium Orange Face Pack</p>\n<p><strong>Brightens skin :</strong> Pure orange peels help to brighten and even out skin tone.</p>\n<p><strong>Reduces dark spots </strong>: Orange peels have natural bleaching properties that help to reduce dark spots and hyperpigmentation.</p>\n<p><strong>Nourishes and moisturizes :</strong> Orange peels are rich in vitamin C and antioxidants that help to nourish and moisturize the skin.</p>\n<p><strong>Exfoliates and removes dead skin cells :</strong> The gentle abrasive nature of orange peels helps to exfoliate and remove dead skin cells.</p>\n<p><strong>Key Ingredients :</strong></p>\n<p><strong>Pure Orange Peels :</strong> Rich in vitamin C and antioxidants, orange peels help to brighten and nourish the skin.</p>\n<p><strong>Unique Selling Points :</strong><br />\n100% natural: Our face pack is made with 100% pure orange peels, making it a natural and effective solution for glowing skin.</p>\n<p><strong>No harsh chemicals :</strong> Our face pack is free from harsh chemicals, making it an excellent alternative to traditional skincare products.</p>\n<p><strong>How to Use Our Product ?</strong></p>\n<p>Mix the face pack with water or rose water to form a paste.<br />\nApply the paste to your face and neck, avoiding the eye area.<br />\nLeave the face pack on for 15-20 minutes, or until it dries.<br />\nRinse off with lukewarm water and pat dry.<br />\nUse regularly for best results.</p>\n<p><strong>Why Buy From JOHOVO ?</strong></p>\n<p><strong>Quality guarantee :</strong> We&#8217;re committed to delivering high-quality products that meet your expectations.</p>\n<p><strong>Natural and effective :</strong> Our products are made with natural ingredients and are designed to be effective and safe for all skin types.</p>\n<p><strong>Sustainable practices :</strong> We&#8217;re dedicated to reducing our environmental footprint and promoting sustainable practices throughout our operations.</p>\n<p><strong>Customer satisfaction </strong>: We&#8217;re passionate about delivering exceptional customer experiences and ensuring that you&#8217;re completely satisfied with your purchase.</p>",
+        "on_sale": true,
+        "prices": {
+          "price": "20000",
+          "regular_price": "39900",
+          "sale_price": "20000",
+          "price_range": null,
+          "currency_code": "INR",
+          "currency_symbol": "₹",
+          "currency_minor_unit": 2,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "₹",
+          "currency_suffix": ""
+        },
+        "price_html": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>399.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;399.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>200.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;200.00.</span>",
+        "average_rating": "0",
+        "review_count": 0,
+        "images": [
+          {
+            "id": 2019,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000094299.jpg",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000094299-300x300.jpg",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000094299.jpg 2031w, https://johovo.in/wp-content/uploads/2025/05/1000094299-80x92.jpg 80w, https://johovo.in/wp-content/uploads/2025/05/1000094299-600x692.jpg 600w, https://johovo.in/wp-content/uploads/2025/05/1000094299-260x300.jpg 260w, https://johovo.in/wp-content/uploads/2025/05/1000094299-887x1024.jpg 887w, https://johovo.in/wp-content/uploads/2025/05/1000094299-768x886.jpg 768w, https://johovo.in/wp-content/uploads/2025/05/1000094299-1331x1536.jpg 1331w, https://johovo.in/wp-content/uploads/2025/05/1000094299-1775x2048.jpg 1775w, https://johovo.in/wp-content/uploads/2025/05/1000094299-21x24.jpg 21w, https://johovo.in/wp-content/uploads/2025/05/1000094299-31x36.jpg 31w, https://johovo.in/wp-content/uploads/2025/05/1000094299-42x48.jpg 42w",
+            "sizes": "(max-width: 2031px) 100vw, 2031px",
+            "name": "2025/05/1000094299.jpg",
+            "alt": ""
+          },
+          {
+            "id": 2123,
+            "src": "https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled.jpg",
+            "thumbnail": "https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled-300x300.jpg",
+            "srcset": "https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled.jpg 2250w, https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled-80x91.jpg 80w, https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled-600x683.jpg 600w, https://johovo.in/wp-content/uploads/2025/05/1000094819-264x300.jpg 264w, https://johovo.in/wp-content/uploads/2025/05/1000094819-900x1024.jpg 900w, https://johovo.in/wp-content/uploads/2025/05/1000094819-768x874.jpg 768w, https://johovo.in/wp-content/uploads/2025/05/1000094819-1350x1536.jpg 1350w, https://johovo.in/wp-content/uploads/2025/05/1000094819-1800x2048.jpg 1800w, https://johovo.in/wp-content/uploads/2025/05/1000094819-21x24.jpg 21w, https://johovo.in/wp-content/uploads/2025/05/1000094819-32x36.jpg 32w, https://johovo.in/wp-content/uploads/2025/05/1000094819-42x48.jpg 42w",
+            "sizes": "(max-width: 2250px) 100vw, 2250px",
+            "name": "2025/05/1000094819-scaled.jpg",
+            "alt": ""
+          }
+        ],
+        "categories": [],
+        "tags": [],
+        "brands": [
+          {
+            "id": 47,
+            "name": "JOHOVO",
+            "slug": "johovo",
+            "link": "https://johovo.in/brand/johovo/"
+          }
+        ],
+        "attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "has_options": false,
+        "is_purchasable": true,
+        "is_in_stock": true,
+        "is_on_backorder": false,
+        "low_stock_remaining": null,
+        "stock_availability": {
+          "text": "",
+          "class": "in-stock"
+        },
+        "sold_individually": false,
+        "add_to_cart": {
+          "text": "Add to cart",
+          "description": "Add to cart: &ldquo;Orange Face Pack &#8211; Johovo&rdquo;",
+          "url": "/wp-json/wc/store/v1/products?per_page=100&#038;page=1&#038;add-to-cart=2020",
+          "single_text": "Add to cart",
+          "minimum": 1,
+          "maximum": 9999,
+          "multiple_of": 1
+        },
+        "extensions": {}
+      },
+      "price": {
+        "regularPriceMinorUnits": "39900",
+        "salePriceMinorUnits": "20000",
+        "activePriceMinorUnits": "20000",
+        "currencyCode": "INR",
+        "currencySymbol": "₹",
+        "sourcePriceHtml": "<del aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>399.00</span></del> <span class=\"screen-reader-text\">Original price was: &#8377;399.00.</span><ins aria-hidden=\"true\"><span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#8377;</span>200.00</span></ins><span class=\"screen-reader-text\">Current price is: &#8377;200.00.</span>",
+        "sourceBadgeDiscount": null,
+        "note": "Store API values retained exactly in minor units; do not infer a current sale from this historical snapshot."
+      },
+      "attributes": [],
+      "variations": [],
+      "groupedProductIds": [],
+      "relatedProductIds": null,
+      "relatedProductsStatus": "not-exposed-by-inspected-public-product-api-or-product-page",
+      "images": [
+        {
+          "id": 2019,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000094299.jpg",
+          "localPath": null,
+          "name": "2025/05/1000094299.jpg",
+          "alt": null,
+          "role": "product-main",
+          "migrationStatus": "represented-by-central-official-image"
+        },
+        {
+          "id": 2123,
+          "sourceUrl": "https://johovo.in/wp-content/uploads/2025/05/1000094819-scaled.jpg",
+          "localPath": null,
+          "name": "2025/05/1000094819-scaled.jpg",
+          "alt": null,
+          "role": "product-gallery",
+          "migrationStatus": "not-locally-available"
+        }
+      ],
+      "ingredientImages": [],
+      "videos": [],
+      "reviews": [],
+      "rating": {
+        "averageRating": "0",
+        "reviewCount": 0,
+        "perReviewRatingsAvailable": false
+      },
+      "missingFields": [
+        "sku",
+        "structuredSizeOrVariation",
+        "productVideo",
+        "publicReviews",
+        "storefrontCategoryLabels"
+      ],
+      "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+      "migrationNotes": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+.brand {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.johovo {
+  color: var(--color-text-primary);
+}
+
+.iyalmooligai {
+  color: var(--color-herbal-green);
+}
+
+.image {
+  display: block;
+  width: clamp(8.5rem, 14vw, 11rem);
+  height: auto;
+}
+
+.textFallback {
+  font: inherit;
+}

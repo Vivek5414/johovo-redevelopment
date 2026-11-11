@@ -1,0 +1,214 @@
+.form {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.form label {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.form label span,
+.disclaimer {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+}
+
+.form label > span {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.form label > span > span {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  font-size: var(--font-size-md);
+}
+
+.form textarea {
+  min-height: 136px;
+  resize: vertical;
+}
+
+.form input:focus-visible,
+.form select:focus-visible,
+.form textarea:focus-visible {
+  border-color: var(--color-brand-cyan);
+}
+
+.submit {
+  min-height: 48px;
+  justify-self: start;
+  padding-inline: var(--space-6);
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-primary);
+  background: var(--color-brand-cyan);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+}
+
+.submit:hover {
+  background: color-mix(in srgb, var(--color-brand-cyan) 82%, white);
+}
+
+.selectedProduct,
+.disclaimer,
+.status {
+  margin: 0;
+}
+
+.selectedProduct {
+  color: var(--color-text-secondary);
+}
+
+.disclaimer {
+  max-width: 52ch;
+}
+
+.status {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.status a {
+  color: var(--color-text-primary);
+  text-decoration-color: var(--color-brand-cyan);
+  text-underline-offset: 3px;
+}
+
+.premium label {
+  align-content: start;
+  align-items: start;
+}
+
+.premium input,
+.premium select,
+.premium textarea {
+  min-width: 0;
+  min-height: 52px;
+  padding: 0.75rem 0.875rem;
+  border-color: var(--color-herbal-border);
+  background: color-mix(in srgb, var(--color-surface) 92%, var(--color-herbal-cream));
+  transition:
+    border-color var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard);
+}
+
+.premium textarea {
+  min-height: 128px;
+}
+
+.premium input:focus-visible,
+.premium select:focus-visible,
+.premium textarea:focus-visible {
+  border-color: var(--color-herbal-natural);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-herbal-natural) 16%, transparent);
+}
+
+.premium input:user-invalid,
+.premium textarea:user-invalid {
+  border-color: var(--color-danger);
+}
+
+.premium .submit {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  justify-self: stretch;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--color-herbal-forest);
+  border-radius: var(--radius-md);
+  color: var(--color-surface);
+  background: var(--color-herbal-forest);
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.premium .submit:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-herbal-forest-deep);
+  background: var(--color-herbal-forest-deep);
+  box-shadow: var(--shadow-card);
+}
+
+.premium .submit:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.premium .submit svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.premium .status {
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-herbal-natural);
+  background: var(--color-herbal-cream);
+}
+
+.premium .status a {
+  text-decoration-color: var(--color-herbal-natural);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium input,
+  .premium select,
+  .premium textarea,
+  .premium .submit {
+    transition: none;
+  }
+
+  .premium .submit:hover,
+  .premium .submit:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .premium .submit {
+    width: 100%;
+  }
+}

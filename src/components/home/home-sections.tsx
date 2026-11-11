@@ -1,0 +1,789 @@
+import Image from "next/image";
+import Link from "next/link";
+import { BrandLogo } from "@/components/brand/brand-logo";
+import {
+  HerbalBrandSignature,
+  HerbalBotanicalPanel,
+} from "@/components/brand/herbal-botanical-pattern";
+import { ContentSection } from "@/components/layout/content-section";
+import { PageContainer } from "@/components/layout/page-container";
+import { WhatsAppEnquiryForm } from "@/components/contact/whatsapp-enquiry-form";
+import { ProductCard } from "@/components/product/product-card";
+import { LinkButton } from "@/components/ui/link-button";
+import { ScrollReveal } from "./scroll-reveal";
+import {
+  catalogProducts,
+  getCatalogCategories,
+} from "@/lib/catalog/migrated-catalog";
+import {
+  calculateDiscountPercentage,
+  formatCatalogPrice,
+} from "@/lib/catalog/format-price";
+import { JOHOVO_CONTACT } from "@/lib/contact";
+import {
+  getShowcaseProduct,
+  showcaseProducts,
+} from "@/lib/catalog/showcase-products";
+import styles from "./home-sections.module.css";
+
+const categories = getCatalogCategories();
+const categoryCardContent: Record<string, { description: string }> = {
+  "face-care": {
+    description: "Everyday face-care essentials for a fresh, cared-for feel.",
+  },
+  facepack: {
+    description: "Explore herbal face-pack favourites from the collection.",
+  },
+  "hair-care": {
+    description: "Thoughtful botanical essentials for your hair-care routine.",
+  },
+  "hair-oil": {
+    description: "Discover IyalMooligai herbal hair oil and its botanical blend.",
+  },
+  makeup: {
+    description: "A considered collection for your everyday beauty ritual.",
+  },
+  tranding: {
+    description: "Discover a current pick from the JOHOVO collection.",
+  },
+};
+const categoryDisplayOrder = [
+  "face-care",
+  "facepack",
+  "hair-care",
+  "hair-oil",
+  "makeup",
+  "tranding",
+];
+const herbalProducts = catalogProducts.filter(
+  (product) => product.brand === "iyalmooligai",
+);
+const heroProduct =
+  herbalProducts.find((product) =>
+    product.categories.some(({ name }) => name === "Hair Oil"),
+  ) ?? catalogProducts[0];
+const heroImage = heroProduct?.productImages.find(
+  ({ role }) => role === "main",
+);
+const heroFeatureCategories = categories.filter(
+  ({ slug, parentId, productCount }) =>
+    parentId === 0 &&
+    productCount > 0 &&
+    ["face-care", "hair-care", "makeup"].includes(slug),
+);
+const heroLifestyleImage =
+  heroImage?.src ?? "/images/reference-homepage-featured.png";
+const heroLifestyleAlt =
+  heroImage?.alt ?? "JOHOVO homepage promotion featuring its product collection";
+const hairOil = herbalProducts.find((product) =>
+  product.categories.some(({ name }) => name === "Hair Oil"),
+);
+const allReviews = catalogProducts.flatMap((product) =>
+  product.reviews.map((review, index) => ({
+    ...review,
+    productName: product.name,
+    productSlug: product.slug,
+    key: `${product.id}-${index}`,
+  })),
+);
+const homepageReviews = allReviews.filter(
+  ({ productSlug }) => productSlug === "johovo-iyalmooligai-herbal-face-pack",
+);
+const videos = catalogProducts.flatMap((product) =>
+  product.videos.map((video, index) => ({
+    ...video,
+    productName: product.name,
+    productSlug: product.slug,
+    key: `${product.id}-${index}`,
+  })),
+);
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className={styles.sectionHeading}>
+      <div>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2>{title}</h2>
+      </div>
+      {description ? <p className={styles.sectionDescription}>{description}</p> : null}
+    </div>
+  );
+}
+
+function HeroCategoryIcon({ slug }: { slug: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {slug === "face-care" ? (
+        <>
+          <path
+            d="M12 3.5c-4.1 0-7 3.1-7 7.4v2.2c0 4.3 2.8 7.4 7 7.4s7-3.1 7-7.4v-2.2c0-4.3-2.9-7.4-7-7.4Z"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M9 10.5h.01M15 10.5h.01M9.5 15c1.4 1.1 3.6 1.1 5 0"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="1.5"
+          />
+        </>
+      ) : slug === "hair-care" ? (
+        <>
+          <path
+            d="M18.5 20c-1.8-2.3-2.2-4.7-1.3-7.1 1-3.1-.7-6.2-3.8-7-3.2-.8-6.2 1.4-6.5 4.7-.3 2.4.4 4.9 2.1 6.9V20"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M7.3 11.6c1.4.1 2.3-.5 2.8-1.8m-2.4 5c1.7.2 2.9-.5 3.6-2"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="1.5"
+          />
+        </>
+      ) : (
+        <>
+          <path
+            d="M8 3.5h8v3l-1.5 1.7v11.3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V8.2L8 6.5v-3Z"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M9.5 12h5m-5 2.5h5"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="1.5"
+          />
+        </>
+      )}
+    </svg>
+  );
+}
+
+export function HeroSection() {
+  return (
+    <ContentSection className={styles.hero} id="top">
+      <PageContainer className={styles.heroGrid}>
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>A more natural beauty ritual</p>
+          <h1>
+            Nurture Your
+            <br />
+            Skin Naturally
+            <br />
+            <span className={styles.headlineBrand}>
+              with <BrandLogo identity="johovo" />
+            </span>
+          </h1>
+          <p className={styles.heroIntro}>
+            Thoughtful, herbal-based care for your diverse beauty needs, from
+            glowing skin to nourished hair and body.
+          </p>
+        </div>
+        <figure
+          aria-label="JOHOVO skincare lifestyle portrait"
+          className={styles.heroVisual}
+        >
+          <span aria-hidden="true" className={styles.botanicalSprig} />
+          <div className={styles.lifestyleFrame}>
+            <Image
+              alt={heroLifestyleAlt}
+              className={styles.lifestyleImage}
+              fill
+              preload
+              sizes="(max-width: 700px) 100vw, (max-width: 1100px) 55vw, 46vw"
+              src={heroLifestyleImage}
+            />
+          </div>
+          <ul
+            aria-label="Explore product categories"
+            className={styles.heroFeatureBadges}
+          >
+            {heroFeatureCategories.map((category) => (
+              <li key={category.id}>
+                <Link
+                  className={styles.heroFeatureBadge}
+                  href={`/categories/${category.slug}`}
+                >
+                  <span className={styles.heroFeatureIcon}>
+                    <HeroCategoryIcon slug={category.slug} />
+                  </span>
+                  <span>{category.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <span aria-hidden="true" className={styles.botanicalLeaf} />
+        </figure>
+        {heroProduct ? (
+          <Link
+            aria-label={`View ${heroProduct.name}`}
+            className={styles.featuredProduct}
+            href={`/products/${heroProduct.slug}`}
+          >
+            <span className={styles.featuredProductImage}>
+              {heroImage ? (
+                <Image
+                  alt={heroImage.alt}
+                  fill
+                  sizes="(max-width: 700px) 112px, 136px"
+                  src={heroImage.src}
+                />
+              ) : null}
+            </span>
+            <span className={styles.featuredProductDetails}>
+              <span className={styles.featuredProductEyebrow}>
+                Featured product
+              </span>
+              {heroProduct.brand === "iyalmooligai" ? (
+                <HerbalBrandSignature className={styles.featuredBrand} />
+              ) : null}
+              <span className={styles.featuredProductName}>
+                {heroProduct.name}
+              </span>
+              {heroProduct.sellingPrice !== null ? (
+                <span className={styles.featuredProductPrice}>
+                  <span className={styles.featuredProductPriceValues}>
+                    {new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: heroProduct.currency ?? "INR",
+                      maximumFractionDigits: 2,
+                    }).format(heroProduct.sellingPrice)}
+                    {heroProduct.originalPrice !== null &&
+                    heroProduct.originalPrice > heroProduct.sellingPrice ? (
+                      <del>
+                        {new Intl.NumberFormat("en-IN", {
+                          style: "currency",
+                          currency: heroProduct.currency ?? "INR",
+                          maximumFractionDigits: 2,
+                        }).format(heroProduct.originalPrice)}
+                      </del>
+                    ) : null}
+                  </span>
+                  <small>Source-listed price</small>
+                </span>
+              ) : null}
+              <span className={styles.featuredProductLink}>
+                View product <span aria-hidden="true">↗</span>
+              </span>
+            </span>
+          </Link>
+        ) : null}
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function AboutSection() {
+  return (
+    <ContentSection className={styles.about} id="about" tone="neutral">
+      <PageContainer className={styles.aboutGrid}>
+        <div className={styles.aboutLabel}>
+          <p className={styles.eyebrow}>About JOHOVO</p>
+          <h2>The company behind the catalogue.</h2>
+          <LinkButton href="/about-us" size="compact" variant="quiet">
+            Read about JOHOVO <span aria-hidden="true">→</span>
+          </LinkButton>
+        </div>
+        <blockquote className={styles.aboutQuote}>
+          <p>
+            “At JOHOVO, we’re passionate about helping you achieve healthy,
+            glowing skin, luscious locks, and soft, nourished lips and body. Our
+            mission is to provide high-quality, herbal-based products that cater
+            to your diverse beauty needs.”
+          </p>
+          <cite>From JOHOVO’s public About page</cite>
+        </blockquote>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function CollectionsSection() {
+  return (
+    <ContentSection className={styles.collections} id="collections">
+      <PageContainer>
+        <SectionHeading
+          description="Explore six featured products across the IyalMooligai and JOHOVO collections."
+          eyebrow="The JOHOVO collection"
+          title="Care, chosen with intention"
+        />
+        <div className={styles.showcaseGrid}>
+          {showcaseProducts.map(({ slug }, index) => {
+            const product = catalogProducts.find(
+              (candidate) => candidate.slug === slug,
+            );
+            return product ? (
+              <ScrollReveal index={index} key={product.id}>
+                <ProductCard
+                  product={product}
+                />
+              </ScrollReveal>
+            ) : null;
+          })}
+        </div>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function ProductCategoriesSection() {
+  const categoryCards = categoryDisplayOrder.flatMap((slug) => {
+    const category = categories.find((item) => item.slug === slug);
+    const content = categoryCardContent[slug];
+    if (!category || !content || category.productCount <= 0) return [];
+
+    return [{ category, content }];
+  });
+  const featuredProducts = showcaseProducts.flatMap((presentation) => {
+    const product = catalogProducts.find(
+      ({ slug }) => slug === presentation.slug,
+    );
+    return product ? [{ presentation, product }] : [];
+  });
+
+  return (
+    <ContentSection className={styles.categorySection} id="product-categories">
+      <PageContainer>
+        <ScrollReveal index={0}>
+          <SectionHeading
+            eyebrow="EXPLORE JOHOVO"
+            title="Discover Your Beauty Essentials"
+            description="Explore our collections and find the right essentials for your everyday beauty and personal-care routine."
+          />
+        </ScrollReveal>
+        <nav
+          aria-label="Product categories"
+          className={styles.categoryNavigation}
+        >
+          {categoryCards.map(({ category, content }, index) => (
+            <ScrollReveal index={index} key={category.id}>
+              <Link
+                className={styles.categoryLink}
+                href={`/categories/${category.slug}`}
+              >
+                <span className={styles.categoryLinkNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className={styles.categoryLinkText}>
+                  <span className={styles.categoryName}>{category.name}</span>
+                  <span className={styles.categoryDescription}>
+                    {content.description}
+                  </span>
+                  <span className={styles.categoryCount}>
+                    {category.productCount}{" "}
+                    {category.productCount === 1 ? "product" : "products"}
+                  </span>
+                </span>
+                <span aria-hidden="true" className={styles.categoryArrow}>
+                  →
+                </span>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </nav>
+        <ScrollReveal index={0}>
+          <SectionHeading
+            eyebrow="JOHOVO PRODUCTS"
+            title="Shop the collection"
+            description="Explore the products featured in the JOHOVO catalogue."
+          />
+        </ScrollReveal>
+        <div className={styles.categoryProductGrid}>
+          {featuredProducts.map(({ presentation, product }, index) => {
+            const discount = calculateDiscountPercentage(
+              product.originalPrice,
+              product.sellingPrice,
+            );
+            const description =
+              product.shortDescription &&
+              product.shortDescription.trim().length > 20
+                ? product.shortDescription
+                : "Product details are available on the product page.";
+
+            return (
+              <ScrollReveal index={index} key={product.id}>
+                <article className={styles.categoryProductCard}>
+                  <Link
+                    aria-label={`View ${presentation.title}`}
+                    className={styles.categoryProductImage}
+                    href={`/products/${product.slug}`}
+                  >
+                    <Image
+                      alt={presentation.imageAlt}
+                      fill
+                      sizes="(max-width: 480px) 100vw, (max-width: 900px) 50vw, 33vw"
+                      src={presentation.imageSrc}
+                    />
+                  </Link>
+                  <div className={styles.categoryProductContent}>
+                    {product.categories.length ? (
+                      <span className={styles.categoryProductType}>
+                        {product.categories[0].name}
+                      </span>
+                    ) : null}
+                    <h3>
+                      <Link href={`/products/${product.slug}`}>
+                        {presentation.title}
+                      </Link>
+                    </h3>
+                    <p className={styles.categoryProductDescription}>
+                      {description}
+                    </p>
+                    {product.sizes.length ? (
+                      <p className={styles.categoryProductSize}>
+                        Size: {product.sizes.join(", ")}
+                      </p>
+                    ) : null}
+                    <div className={styles.categoryProductPrice}>
+                      {product.originalPrice !== null ? (
+                        <del>
+                          {formatCatalogPrice(
+                            product.originalPrice,
+                            product.currency,
+                          )}
+                        </del>
+                      ) : null}
+                      {product.sellingPrice !== null ? (
+                        <strong>
+                          {formatCatalogPrice(
+                            product.sellingPrice,
+                            product.currency,
+                          )}
+                        </strong>
+                      ) : (
+                        <span>Price not listed</span>
+                      )}
+                      {discount !== null ? (
+                        <span className={styles.categoryProductDiscount}>
+                          {discount}% off
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className={styles.categoryProductNote}>
+                      Source-listed price; current availability is unconfirmed.
+                    </p>
+                    <div className={styles.categoryProductActions}>
+                      <Link href={`/products/${product.slug}`}>View Product</Link>
+                      <a
+                        href={product.originalSourceUrl}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Shop Now
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function HerbalSection() {
+  if (!herbalProducts.length) return null;
+
+  return (
+    <ContentSection className={styles.herbal} id="herbal-care">
+      <PageContainer>
+        <HerbalBotanicalPanel className={styles.herbalPanel}>
+          <div className={styles.herbalIntro}>
+            <HerbalBrandSignature />
+            <p className={styles.eyebrow}>Herbal product sub-brand</p>
+            <h2>IyalMooligai</h2>
+            <p>
+              Discover the products identified as IyalMooligai in the source
+              catalogue, presented within JOHOVO.
+            </p>
+            <LinkButton href="/collections/herbal-care" variant="secondary">
+              Explore Herbal Care
+            </LinkButton>
+          </div>
+          <div className={styles.herbalProductLinks}>
+            {herbalProducts.map((product) => {
+              const presentation = getShowcaseProduct(product.slug);
+              return (
+                <Link href={`/products/${product.slug}`} key={product.id}>
+                  <span>{presentation?.title ?? product.name}</span>
+                  <span aria-hidden="true">View product →</span>
+                </Link>
+              );
+            })}
+            <Link href="/collections/herbal-care">
+              <span>Browse all IyalMooligai products</span>
+              <span aria-hidden="true">Explore Herbal Care →</span>
+            </Link>
+          </div>
+        </HerbalBotanicalPanel>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function ProductInformationSection() {
+  if (!hairOil?.ingredientImages.length) return null;
+
+  return (
+    <ContentSection className={styles.information} id="product-information">
+      <PageContainer>
+        <SectionHeading
+          eyebrow="Product information"
+          title="Source imagery, kept with its product."
+          description={`These illustrations were captured on the ${hairOil.name} source page. Their labels do not independently verify the product formula.`}
+        />
+        <div className={styles.ingredientGrid}>
+          {hairOil.ingredientImages.map((image) => (
+            <figure className={styles.ingredientCard} key={image.src}>
+              <div>
+                <Image
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 600px) 40vw, (max-width: 1000px) 25vw, 160px"
+                  src={image.src}
+                />
+              </div>
+              {image.name ? <figcaption>{image.name}</figcaption> : null}
+            </figure>
+          ))}
+        </div>
+        <Link
+          className={styles.informationLink}
+          href={`/products/${hairOil.slug}`}
+        >
+          View all information for {hairOil.name} <span aria-hidden="true">→</span>
+        </Link>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function VideoSection() {
+  if (!videos.length) return null;
+
+  return (
+    <ContentSection className={styles.videoSection} id="videos" tone="neutral">
+      <PageContainer>
+        <SectionHeading
+          eyebrow="Product videos"
+          title="From the product pages"
+          description="Videos are shown only where the migration recorded an association with a published product page."
+        />
+        <div className={styles.videoGrid}>
+          {videos.map((video) => (
+            <article className={styles.videoCard} key={video.key}>
+              <video controls preload="metadata" title={`${video.productName} product video`}>
+                <source src={video.src} type="video/mp4" />
+                <a href={video.originalSourceUrl}>Open the source video</a>
+              </video>
+              <Link href={`/products/${video.productSlug}`}>
+                {video.productName}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function ReviewsSection() {
+  if (!homepageReviews.length) return null;
+
+  return (
+    <ContentSection className={styles.reviews} id="reviews">
+      <PageContainer>
+        <SectionHeading
+          eyebrow="CUSTOMER LOVE"
+          title="Real Experiences. Honest Reviews."
+          description="Discover what customers are saying about their JOHOVO experience."
+        />
+        <p className={styles.reviewSummary}>
+          <strong>{homepageReviews.length}</strong>
+          <span>published customer reviews</span>
+        </p>
+        <div className={styles.reviewGrid}>
+          {homepageReviews.map((review, index) => {
+            const productPresentation = getShowcaseProduct(review.productSlug);
+            const productTitle =
+              productPresentation?.title ?? review.productName;
+
+            return (
+              <ScrollReveal index={index} key={review.key}>
+                <article className={styles.reviewCard}>
+                  <div className={styles.reviewTopline}>
+                    <span className={styles.reviewEyebrow}>Customer review</span>
+                    {review.rating !== null ? (
+                      <span
+                        aria-label={`${review.rating} out of 5 stars`}
+                        className={styles.reviewStars}
+                      >
+                        {Array.from({ length: 5 }, (_, starIndex) => (
+                          <span
+                            aria-hidden="true"
+                            className={
+                              starIndex < review.rating!
+                                ? styles.reviewStarFilled
+                                : styles.reviewStarEmpty
+                            }
+                            key={starIndex}
+                          >
+                            ★
+                          </span>
+                        ))}
+                      </span>
+                    ) : null}
+                  </div>
+                  <blockquote>{review.text}</blockquote>
+                  <div className={styles.reviewAttribution}>
+                    {review.author ? (
+                      <span className={styles.reviewAuthor}>
+                        {review.author}
+                      </span>
+                    ) : null}
+                    {review.date ? (
+                      <time dateTime={review.date}>
+                        {review.date.slice(0, 10)}
+                      </time>
+                    ) : null}
+                  </div>
+                  <Link
+                    className={styles.reviewProduct}
+                    href={`/products/${review.productSlug}`}
+                  >
+                    {productPresentation ? (
+                      <span className={styles.reviewProductImage}>
+                        <Image
+                          alt=""
+                          fill
+                          sizes="48px"
+                          src={productPresentation.imageSrc}
+                        />
+                      </span>
+                    ) : null}
+                    <span>
+                      <small>Reviewed product</small>
+                      <strong>{productTitle}</strong>
+                    </span>
+                    <span aria-hidden="true" className={styles.reviewProductArrow}>
+                      →
+                    </span>
+                  </Link>
+                </article>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </PageContainer>
+    </ContentSection>
+  );
+}
+
+export function ContactSection() {
+  return (
+    <ContentSection className={styles.contact} id="contact">
+      <PageContainer className={styles.contactGrid}>
+        <ScrollReveal index={0}>
+          <div className={styles.contactCopy}>
+            <p className={styles.eyebrow}>Contact &amp; enquiries</p>
+            <h2>Let&apos;s Talk About Your Beauty Needs.</h2>
+            <p>
+              Have a question about a JOHOVO product? We&apos;re here to help.
+              Contact our team or send us your enquiry.
+            </p>
+            <address className={styles.contactDetails}>
+              <a href={`tel:${JOHOVO_CONTACT.phone}`}>
+                <span aria-hidden="true" className={styles.contactIcon}>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7.1 3.5h2.7l1.3 4.1-1.8 1.8a15 15 0 0 0 5.3 5.3l1.8-1.8 4.1 1.3v2.7a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 5.1 5.7a2 2 0 0 1 2-2.2Z" />
+                  </svg>
+                </span>
+                <span>
+                  <small>Call our team</small>
+                  <strong>{JOHOVO_CONTACT.displayPhone}</strong>
+                </span>
+              </a>
+              <a href={`mailto:${JOHOVO_CONTACT.email}`}>
+                <span aria-hidden="true" className={styles.contactIcon}>
+                  <svg viewBox="0 0 24 24">
+                    <rect height="15" rx="2" width="19" x="2.5" y="4.5" />
+                    <path d="m3.5 6 8.5 7 8.5-7" />
+                  </svg>
+                </span>
+                <span>
+                  <small>Email support</small>
+                  <strong>{JOHOVO_CONTACT.email}</strong>
+                </span>
+              </a>
+              <a
+                href={`https://wa.me/${JOHOVO_CONTACT.whatsapp}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span aria-hidden="true" className={styles.contactIcon}>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20.2 11.6a8.2 8.2 0 0 1-12.1 7.2l-4.1 1.1 1.1-4a8.2 8.2 0 1 1 15.1-4.3Z" />
+                    <path d="M8.2 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.5.9 1.3 1.7 2.2 2.2.2.1.4.2.6 0l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1 1-.7 1.4-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-2-2.4-2.2-3.3-.3-.9 0-1.8.4-2.5Z" />
+                  </svg>
+                </span>
+                <span>
+                  <small>WhatsApp</small>
+                  <strong>{JOHOVO_CONTACT.displayWhatsApp}</strong>
+                </span>
+              </a>
+            </address>
+            <LinkButton
+              className={styles.contactButton}
+              href="/contact"
+              variant="secondary"
+            >
+              Contact JOHOVO
+            </LinkButton>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal index={1}>
+          <div className={styles.contactForm}>
+            <div className={styles.contactFormHeading}>
+              <p className={styles.eyebrow}>We&apos;re happy to help</p>
+              <h3>Send Us an Enquiry</h3>
+              <p>
+                Tell us what you&apos;re looking for and we&apos;ll help you
+                find the right product.
+              </p>
+            </div>
+            <WhatsAppEnquiryForm
+              formId="homepage-enquiry-form"
+              variant="premium"
+              products={catalogProducts.map(
+                (product) =>
+                  getShowcaseProduct(product.slug)?.title ?? product.name,
+              )}
+            />
+          </div>
+        </ScrollReveal>
+      </PageContainer>
+    </ContentSection>
+  );
+}

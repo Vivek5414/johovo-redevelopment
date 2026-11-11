@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 1,
+  "migrationTimestamp": "2026-11-10T12:45:36.845Z",
+  "endpoints": {
+    "categories": {
+      "url": "https://johovo.in/wp-json/wp/v2/product_cat?per_page=100",
+      "status": "available",
+      "error": null
+    },
+    "tags": {
+      "url": "https://johovo.in/wp-json/wp/v2/product_tag?per_page=100",
+      "status": "available",
+      "error": null
+    },
+    "brands": {
+      "url": "https://johovo.in/wp-json/wp/v2/product_brand?per_page=100",
+      "status": "available",
+      "error": null
+    },
+    "videoPosts": {
+      "url": "https://johovo.in/wp-json/wp/v2/video_product?per_page=100",
+      "status": "unavailable-404",
+      "error": "Public custom post type REST route returned HTTP 404."
+    }
+  },
+  "categories": [
+    {
+      "id": 64,
+      "name": "Face Care",
+      "slug": "face-care",
+      "descriptionHtml": "",
+      "parentId": 0,
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-category/face-care/",
+      "image": null
+    },
+    {
+      "id": 65,
+      "name": "Face Pack",
+      "slug": "facepack",
+      "descriptionHtml": "",
+      "parentId": 64,
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-category/face-care/facepack/",
+      "image": null
+    },
+    {
+      "id": 54,
+      "name": "Hair Care",
+      "slug": "hair-care",
+      "descriptionHtml": "",
+      "parentId": 0,
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-category/hair-care/",
+      "image": null
+    },
+    {
+      "id": 63,
+      "name": "Hair Oil",
+      "slug": "hair-oil",
+      "descriptionHtml": "",
+      "parentId": 54,
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-category/hair-care/hair-oil/",
+      "image": null
+    },
+    {
+      "id": 15,
+      "name": "Makeup",
+      "slug": "makeup",
+      "descriptionHtml": "",
+      "parentId": 0,
+      "count": 5,
+      "sourceUrl": "https://johovo.in/product-category/makeup/",
+      "image": null
+    },
+    {
+      "id": 53,
+      "name": "Trending",
+      "slug": "tranding",
+      "descriptionHtml": "",
+      "parentId": 0,
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-category/tranding/",
+      "image": null
+    }
+  ],
+  "tags": [
+    {
+      "id": 61,
+      "name": "antidandruff hair oil",
+      "slug": "antidandruff-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/antidandruff-hair-oil/"
+    },
+    {
+      "id": 68,
+      "name": "Ayurvedic Face Pack",
+      "slug": "ayurvedic-face-pack",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/ayurvedic-face-pack/"
+    },
+    {
+      "id": 57,
+      "name": "ayurvedic hair oil",
+      "slug": "ayurvedic-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/ayurvedic-hair-oil/"
+    },
+    {
+      "id": 59,
+      "name": "bhringaraj hair oil",
+      "slug": "bhringaraj-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/bhringaraj-hair-oil/"
+    },
+    {
+      "id": 70,
+      "name": "Chemical-Free",
+      "slug": "chemical-free",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/chemical-free/"
+    },
+    {
+      "id": 78,
+      "name": "Face Pack for All Skin Types",
+      "slug": "face-pack-for-all-skin-types",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/face-pack-for-all-skin-types/"
+    },
+    {
+      "id": 80,
+      "name": "Gentle Skincare",
+      "slug": "gentle-skincare",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/gentle-skincare/"
+    },
+    {
+      "id": 74,
+      "name": "Glowing Skin",
+      "slug": "glowing-skin",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/glowing-skin/"
+    },
+    {
+      "id": 62,
+      "name": "hair growth hair oil",
+      "slug": "hair-growth-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/hair-growth-hair-oil/"
+    },
+    {
+      "id": 76,
+      "name": "Healthy Skin",
+      "slug": "healthy-skin",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/healthy-skin/"
+    },
+    {
+      "id": 66,
+      "name": "Herbal Face Pack",
+      "slug": "herbal-face-pack",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/herbal-face-pack/"
+    },
+    {
+      "id": 56,
+      "name": "herbal hair oil",
+      "slug": "herbal-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/herbal-hair-oil/"
+    },
+    {
+      "id": 58,
+      "name": "homemade hair oil",
+      "slug": "homemade-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/homemade-hair-oil/"
+    },
+    {
+      "id": 71,
+      "name": "Natural Ingredients",
+      "slug": "natural-ingredients",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/natural-ingredients/"
+    },
+    {
+      "id": 67,
+      "name": "Natural Skincare",
+      "slug": "natural-skincare",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/natural-skincare/"
+    },
+    {
+      "id": 77,
+      "name": "Organic Skincare",
+      "slug": "organic-skincare",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/organic-skincare/"
+    },
+    {
+      "id": 75,
+      "name": "Radiant Skin",
+      "slug": "radiant-skin",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/radiant-skin/"
+    },
+    {
+      "id": 73,
+      "name": "Rejuvenating Face Pack",
+      "slug": "rejuvenating-face-pack",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/rejuvenating-face-pack/"
+    },
+    {
+      "id": 60,
+      "name": "Rosemary hair oil",
+      "slug": "rosemary-hair-oil",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/rosemary-hair-oil/"
+    },
+    {
+      "id": 69,
+      "name": "Sensitive Skin Friendly",
+      "slug": "sensitive-skin-friendly",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/sensitive-skin-friendly/"
+    },
+    {
+      "id": 72,
+      "name": "Skin Nourishment",
+      "slug": "skin-nourishment",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/skin-nourishment/"
+    },
+    {
+      "id": 79,
+      "name": "Traditional Ayurvedic Skincare",
+      "slug": "traditional-ayurvedic-skincare",
+      "descriptionHtml": "",
+      "count": 1,
+      "sourceUrl": "https://johovo.in/product-tag/traditional-ayurvedic-skincare/"
+    }
+  ],
+  "brands": [
+    {
+      "id": 47,
+      "name": "JOHOVO",
+      "slug": "johovo",
+      "descriptionHtml": "",
+      "count": 3,
+      "sourceUrl": "https://johovo.in/brand/johovo/"
+    }
+  ],
+  "videoPosts": [
+    {
+      "sourceUrl": "https://johovo.in/video_product/3924/",
+      "title": null,
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "sourceUrl": "https://johovo.in/video_product/premium-rose-body-scrub-johovo/",
+      "title": "Premium Rose Body Scrub ? Johovo",
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "sourceUrl": "https://johovo.in/video_product/premium-rose-body-scrub-johovo-2/",
+      "title": "Premium Rose Body Scrub ? Johovo",
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "sourceUrl": "https://johovo.in/video_product/4085/",
+      "title": null,
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    }
+  ],
+  "authorArchives": [
+    {
+      "sourceUrl": "https://johovo.in/author/6369727717/",
+      "displayName": "Adhavan Rajadurai",
+      "result": "Nothing Found"
+    },
+    {
+      "sourceUrl": "https://johovo.in/author/johovo/",
+      "displayName": "Johovo",
+      "result": "Nothing Found"
+    },
+    {
+      "sourceUrl": "https://johovo.in/author/johovoo/",
+      "displayName": "JOHOVO",
+      "result": "Nothing Found"
+    }
+  ],
+  "routeCount": 63,
+  "routes": [
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/affiliate-dashboard-2/",
+      "title": "Affiliate Dashboard",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/affiliate-login-register/",
+      "title": "Affiliate Login/Register",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/affiliate-dashboard/",
+      "title": " Affiliate Dashboard",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/faq/",
+      "title": "Faq",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/about-us/",
+      "title": "About Us",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/terms-and-conditions/",
+      "title": "Terms and Conditions",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/return-policy/",
+      "title": "Return Policy",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/refund-policy/",
+      "title": "Refund Policy",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/delivery-policy/",
+      "title": "Delivery Policy",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/video/",
+      "title": "Video",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/woo-reviews/",
+      "title": "Woo Reviews",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/reviews/",
+      "title": "Reviews",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/my-wishlist/",
+      "title": "My Wishlist",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/",
+      "title": "Home",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/my-account/",
+      "title": "My account",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/checkout/",
+      "title": "Checkout",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/cart/",
+      "title": "Cart",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/shop/",
+      "title": "Shop",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "page",
+      "sourceUrl": "https://johovo.in/privacy-policy/",
+      "title": "Privacy Policy",
+      "status": "inspected-public-api-content"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-face-pack/",
+      "title": "JOHOVO™ IyalMooligai™ Herbal Face Pack Test",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/johovo-iyalmooligai-herbal-hair-oil/",
+      "title": "JOHOVO™ IyalMooligai™ Herbal Hair Oil",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/demo-3/",
+      "title": "demo 3",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/demo-1/",
+      "title": "demo 1",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/premium-rose-body-scrub-johovo/",
+      "title": "Premium Rose Body Scrub &#8211; Johovo",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/premium-rose-body-wash-johovo/",
+      "title": "Premium Rose Body Wash &#8211; Johovo",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/premium-rose-moisturizing-body-lotion-johova/",
+      "title": "Premium Rose Moisturizing Body Lotion &#8211; Johova",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product",
+      "sourceUrl": "https://johovo.in/product/johovo-premium-orange-face-pack-brighten-and-nourish-your-skin/",
+      "title": "Orange Face Pack &#8211; Johovo",
+      "status": "inspected-public-product"
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/face-care/",
+      "title": "Face Care",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/face-care/facepack/",
+      "title": "Face Pack",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/hair-care/",
+      "title": "Hair Care",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/hair-care/hair-oil/",
+      "title": "Hair Oil",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/makeup/",
+      "title": "Makeup",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-category",
+      "sourceUrl": "https://johovo.in/product-category/tranding/",
+      "title": "Trending",
+      "status": "inspected-public-archive",
+      "imageUrl": null
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/antidandruff-hair-oil/",
+      "title": "antidandruff hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/ayurvedic-face-pack/",
+      "title": "Ayurvedic Face Pack",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/ayurvedic-hair-oil/",
+      "title": "ayurvedic hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/bhringaraj-hair-oil/",
+      "title": "bhringaraj hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/chemical-free/",
+      "title": "Chemical-Free",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/face-pack-for-all-skin-types/",
+      "title": "Face Pack for All Skin Types",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/gentle-skincare/",
+      "title": "Gentle Skincare",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/glowing-skin/",
+      "title": "Glowing Skin",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/hair-growth-hair-oil/",
+      "title": "hair growth hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/healthy-skin/",
+      "title": "Healthy Skin",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/herbal-face-pack/",
+      "title": "Herbal Face Pack",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/herbal-hair-oil/",
+      "title": "herbal hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/homemade-hair-oil/",
+      "title": "homemade hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/natural-ingredients/",
+      "title": "Natural Ingredients",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/natural-skincare/",
+      "title": "Natural Skincare",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/organic-skincare/",
+      "title": "Organic Skincare",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/radiant-skin/",
+      "title": "Radiant Skin",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/rejuvenating-face-pack/",
+      "title": "Rejuvenating Face Pack",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/rosemary-hair-oil/",
+      "title": "Rosemary hair oil",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/sensitive-skin-friendly/",
+      "title": "Sensitive Skin Friendly",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/skin-nourishment/",
+      "title": "Skin Nourishment",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-tag",
+      "sourceUrl": "https://johovo.in/product-tag/traditional-ayurvedic-skincare/",
+      "title": "Traditional Ayurvedic Skincare",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "product-brand",
+      "sourceUrl": "https://johovo.in/brand/johovo/",
+      "title": "JOHOVO",
+      "status": "inspected-public-archive"
+    },
+    {
+      "type": "video-product",
+      "sourceUrl": "https://johovo.in/video_product/3924/",
+      "title": null,
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "type": "video-product",
+      "sourceUrl": "https://johovo.in/video_product/premium-rose-body-scrub-johovo/",
+      "title": "Premium Rose Body Scrub ? Johovo",
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "type": "video-product",
+      "sourceUrl": "https://johovo.in/video_product/premium-rose-body-scrub-johovo-2/",
+      "title": "Premium Rose Body Scrub ? Johovo",
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "type": "video-product",
+      "sourceUrl": "https://johovo.in/video_product/4085/",
+      "title": null,
+      "routeStatus": "public-route-reachable",
+      "apiStatus": "custom-post-type-endpoint-unavailable"
+    },
+    {
+      "type": "author-archive",
+      "sourceUrl": "https://johovo.in/author/6369727717/",
+      "displayName": "Adhavan Rajadurai",
+      "result": "Nothing Found"
+    },
+    {
+      "type": "author-archive",
+      "sourceUrl": "https://johovo.in/author/johovo/",
+      "displayName": "Johovo",
+      "result": "Nothing Found"
+    },
+    {
+      "type": "author-archive",
+      "sourceUrl": "https://johovo.in/author/johovoo/",
+      "displayName": "JOHOVO",
+      "result": "Nothing Found"
+    }
+  ],
+  "knownUninspectedPagination": [
+    {
+      "sourceUrl": "https://johovo.in/shop/page/2/",
+      "status": "connection-closed",
+      "note": "Store API reports 8 products on 1 page."
+    },
+    {
+      "sourceUrl": "https://johovo.in/product-category/makeup/page/2/",
+      "status": "connection-closed",
+      "note": "Store API reports 8 products on 1 page."
+    }
+  ]
+}

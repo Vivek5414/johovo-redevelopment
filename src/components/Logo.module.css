@@ -1,0 +1,48 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.image {
+  display: block;
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footerImage {
+  width: 150px;
+}
+
+.image.heroImage {
+  width: clamp(150px, 24vw, 460px);
+}
+
+@media (max-width: 940px) {
+  .image {
+    width: 145px;
+  }
+
+  .footerImage {
+    width: 135px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image {
+    width: 125px;
+  }
+
+  .footerImage {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image.heroImage {
+    width: clamp(118px, 36vw, 154px);
+  }
+}

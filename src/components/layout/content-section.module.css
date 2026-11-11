@@ -1,0 +1,12 @@
+.section {
+  padding-block: var(--space-section);
+}
+
+.neutral {
+  background: var(--color-surface-muted);
+}
+
+.herbal {
+  color: var(--color-herbal-forest);
+  background: var(--color-herbal-cream);
+}

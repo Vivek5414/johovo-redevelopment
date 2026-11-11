@@ -1,0 +1,87 @@
+.gallery {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-3);
+}
+
+.mainImage {
+  position: relative;
+  min-height: 360px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+
+.mainAsset {
+  object-fit: contain;
+  animation: galleryImageEnter 220ms var(--easing-standard) both;
+}
+
+@keyframes galleryImageEnter {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.thumbnails {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: 2px 2px var(--space-2);
+  scrollbar-width: thin;
+}
+
+.thumbnail {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.thumbnail img {
+  object-fit: contain;
+}
+
+.selected {
+  border-color: var(--color-brand-cyan);
+  box-shadow: 0 0 0 1px var(--color-brand-cyan);
+}
+
+.emptyGallery {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-muted);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mainAsset {
+    animation: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .mainImage {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mainImage {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+}

@@ -1,0 +1,91 @@
+.main {
+  padding-block: var(--space-section);
+}
+
+.banner {
+  padding: clamp(2rem, 7vw, 5.5rem);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: var(--space-6) 0 var(--space-3);
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.banner h1 {
+  max-width: 16ch;
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.04em;
+  line-height: var(--line-height-tight);
+}
+
+.intro {
+  max-width: 640px;
+  margin: var(--space-5) 0 var(--space-8);
+  color: var(--color-herbal-forest);
+  line-height: var(--line-height-body);
+}
+
+.categories {
+  padding-top: var(--space-section);
+}
+
+.categories > .eyebrow {
+  margin: 0 0 var(--space-3);
+}
+
+.categoriesTitle {
+  margin: 0 0 var(--space-8);
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
+
+.details {
+  max-width: 760px;
+  padding-block: var(--space-16);
+}
+
+.details .eyebrow {
+  margin-top: 0;
+}
+
+.details h2 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
+
+.details > p:last-child {
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-block: var(--space-8);
+  }
+
+  .details {
+    padding-block: var(--space-10);
+  }
+}

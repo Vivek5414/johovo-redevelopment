@@ -1,0 +1,21 @@
+.signature {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+}
+
+.johovo {
+  color: var(--color-brand-purple);
+  background: var(--color-surface);
+}
+
+.iyalmooligai {
+  color: var(--color-herbal-forest);
+  background: var(--color-herbal-cream);
+  border-color: var(--color-herbal-border);
+}

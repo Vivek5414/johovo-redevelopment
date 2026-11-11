@@ -1,0 +1,1527 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0;
+  background:
+    radial-gradient(
+      ellipse at 86% 16%,
+      color-mix(in srgb, var(--color-brand-pink) 12%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(
+      115deg,
+      var(--color-herbal-blush) 0%,
+      var(--color-ivory) 54%,
+      var(--color-surface) 100%
+    );
+}
+
+.heroGrid {
+  display: grid;
+  min-height: clamp(650px, calc(100svh - 150px), 780px);
+  grid-template-areas:
+    "copy visual"
+    "featured visual";
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  gap: 0 clamp(1.5rem, 3vw, 3.5rem);
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  grid-area: copy;
+  align-self: end;
+  max-width: 590px;
+  padding-bottom: var(--space-4);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-brand-purple-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--color-skincare-heading);
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 5vw, 5rem);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.headlineBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.13em;
+  white-space: nowrap;
+}
+
+.headlineBrand img {
+  display: inline-block;
+  width: clamp(7rem, 12.5vw, 11rem);
+  height: auto;
+  vertical-align: middle;
+}
+
+.heroIntro {
+  max-width: 40ch;
+  margin: var(--space-5) 0 0;
+  color: var(--color-skincare-copy);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.heroVisual {
+  position: relative;
+  z-index: 1;
+  grid-area: visual;
+  min-width: 0;
+  min-height: 100%;
+  align-self: stretch;
+  margin: 0;
+}
+
+.lifestyleFrame {
+  position: absolute;
+  inset: -1rem calc(-1 * var(--page-gutter)) -1rem 0;
+  overflow: hidden;
+  background: var(--color-herbal-blush);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-text-primary) 21%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-text-primary) 21%
+  );
+}
+
+.lifestyleFrame::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-ivory) 0%,
+      color-mix(in srgb, var(--color-ivory) 45%, transparent) 22%,
+      transparent 56%
+    ),
+    linear-gradient(0deg, var(--color-herbal-blush) 0%, transparent 25%);
+  content: "";
+  pointer-events: none;
+}
+
+.lifestyleImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.heroFeatureBadges {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateY(-50%);
+}
+
+.heroFeatureBadge {
+  display: grid;
+  width: 4.6rem;
+  aspect-ratio: 1;
+  align-content: center;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-surface) 90%, transparent);
+  border-radius: 50%;
+  color: var(--color-skincare-heading);
+  background: color-mix(in srgb, var(--color-herbal-blush) 94%, transparent);
+  box-shadow: var(--shadow-card);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.heroFeatureBadge:hover,
+.heroFeatureBadge:focus-visible {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-raised);
+}
+
+.heroFeatureIcon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-skincare-plum);
+  background: color-mix(in srgb, var(--color-brand-pink) 16%, white);
+}
+
+.heroFeatureIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.botanicalSprig,
+.botanicalLeaf {
+  position: absolute;
+  z-index: 1;
+  width: 76px;
+  height: 118px;
+  border-left: 1px solid color-mix(in srgb, var(--color-herbal-natural) 45%, transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.botanicalSprig {
+  top: 3%;
+  right: 0;
+  transform: rotate(30deg);
+}
+
+.botanicalSprig::before,
+.botanicalSprig::after,
+.botanicalLeaf::before,
+.botanicalLeaf::after {
+  position: absolute;
+  width: 25px;
+  height: 44px;
+  border: 1px solid color-mix(in srgb, var(--color-herbal-natural) 55%, transparent);
+  border-radius: 100% 0 100% 0;
+  background: color-mix(in srgb, var(--color-herbal-cream) 45%, transparent);
+  content: "";
+}
+
+.botanicalSprig::before {
+  top: 14px;
+  left: -26px;
+  transform: rotate(-35deg);
+}
+
+.botanicalSprig::after {
+  top: 55px;
+  left: 1px;
+  transform: rotate(45deg);
+}
+
+.botanicalLeaf {
+  right: 5%;
+  bottom: 0;
+  transform: rotate(208deg) scale(0.7);
+}
+
+.botanicalLeaf::before {
+  top: 20px;
+  left: -24px;
+  transform: rotate(-35deg);
+}
+
+.botanicalLeaf::after {
+  top: 62px;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.featuredProduct {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100%, 490px);
+  min-height: 176px;
+  grid-area: featured;
+  grid-template-columns: 132px minmax(0, 1fr);
+  align-self: start;
+  gap: var(--space-4);
+  overflow: hidden;
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 88%, transparent);
+  border-radius: 24px;
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-surface) 84%, transparent);
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.featuredProduct:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-raised);
+}
+
+.featuredProductImage {
+  position: relative;
+  min-height: 148px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--color-surface);
+}
+
+.featuredProductImage img {
+  padding: 0.25rem;
+  object-fit: contain;
+}
+
+.featuredProductDetails {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 0.4rem;
+  padding-block: 0.2rem;
+}
+
+.featuredProductEyebrow {
+  color: var(--color-brand-purple-text);
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.featuredBrand {
+  margin-block: 0.1rem;
+}
+
+.featuredBrand svg {
+  width: 1.1rem;
+}
+
+.featuredProductName {
+  color: var(--color-skincare-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+}
+
+.featuredProductPrice {
+  display: grid;
+  gap: 0.1rem;
+  color: var(--color-skincare-heading);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.featuredProductPriceValues {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.featuredProductPriceValues del {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-regular);
+}
+
+.featuredProductPrice small {
+  color: var(--color-text-secondary);
+  font-size: 0.62rem;
+  font-weight: var(--font-weight-regular);
+}
+
+.featuredProductLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 0.1rem;
+  color: var(--color-brand-warm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.about,
+.videoSection,
+.contact {
+  background: var(--color-surface-muted);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: clamp(2rem, 8vw, 7rem);
+}
+
+.aboutLabel h2,
+.sectionHeading h2,
+.contactCopy h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.025em;
+  line-height: var(--line-height-tight);
+}
+
+.aboutLabel > a {
+  margin-top: var(--space-5);
+}
+
+.aboutQuote {
+  margin: 0;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  border-left: 2px solid var(--color-brand-pink);
+}
+
+.aboutQuote p {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.4;
+}
+
+.aboutQuote cite {
+  display: block;
+  margin-top: var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: normal;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.sectionHeading > div {
+  max-width: 680px;
+}
+
+.sectionDescription {
+  max-width: 490px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.showcaseGrid {
+  display: grid;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.showcaseReveal {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+}
+
+.showcaseRevealEntered {
+  animation: showcaseReveal 520ms var(--easing-standard) both;
+  animation-delay: calc(var(--showcase-order) * 55ms);
+}
+
+.categorySection {
+  background:
+    radial-gradient(
+      ellipse at 92% 10%,
+      color-mix(in srgb, var(--color-brand-pink) 8%, transparent),
+      transparent 32%
+    ),
+    var(--color-herbal-cream);
+}
+
+.categoryNavigation {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.categoryNavigation > div {
+  min-width: 0;
+}
+
+.categoryLink {
+  display: grid;
+  min-width: 0;
+  min-height: 104px;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard),
+    transform var(--duration-standard) var(--easing-standard);
+}
+
+.categoryLink:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-brand-pink) 48%, var(--color-herbal-border));
+  background: var(--color-surface);
+}
+
+.categoryLink:active {
+  transform: translateY(0);
+}
+
+.categoryLink:focus-visible {
+  outline: 2px solid var(--color-herbal-forest);
+  outline-offset: 3px;
+}
+
+.categoryLinkNumber {
+  display: grid;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-herbal-forest) 20%, transparent);
+  border-radius: 50%;
+  color: var(--color-herbal-forest);
+  background: var(--color-herbal-cream);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.categoryLinkText {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.categoryName {
+  min-width: 0;
+  color: var(--color-skincare-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  line-height: var(--line-height-tight);
+}
+
+.categoryDescription {
+  min-width: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  line-height: 1.45;
+}
+
+.categoryCount {
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.categoryArrow {
+  color: var(--color-herbal-natural);
+  transition: transform var(--duration-standard) var(--easing-standard);
+}
+
+.categoryLink:hover .categoryArrow {
+  transform: translateX(4px);
+}
+
+.categoryProductGrid {
+  display: grid;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.categoryProductGrid > div {
+  min-width: 0;
+  height: 100%;
+}
+
+.categoryProductCard {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.categoryProductCard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-brand-pink) 48%, var(--color-herbal-border));
+  box-shadow: var(--shadow-raised);
+}
+
+.categoryProductImage {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.25 / 1;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      140deg,
+      var(--color-herbal-blush),
+      var(--color-ivory) 65%,
+      var(--color-surface)
+    );
+}
+
+.categoryProductImage img {
+  padding: clamp(0.75rem, 1.8vw, 1.35rem);
+  object-fit: contain;
+  transition: transform 650ms var(--easing-standard);
+}
+
+.categoryProductCard:hover .categoryProductImage img {
+  transform: scale(1.04);
+}
+
+.categoryProductContent {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: clamp(1rem, 1.6vw, 1.35rem);
+}
+
+.categoryProductType {
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.categoryProductContent h3 {
+  margin: 0;
+  color: var(--color-skincare-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.5vw, 1.55rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
+
+.categoryProductContent h3 a {
+  color: inherit;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+}
+
+.categoryProductContent h3 a:hover {
+  text-decoration-color: var(--color-brand-pink);
+}
+
+.categoryProductDescription {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+}
+
+.categoryProductSize,
+.categoryProductNote {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.categoryProductPrice {
+  display: flex;
+  min-height: 2rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.categoryProductPrice del {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.categoryProductPrice strong {
+  color: var(--color-herbal-forest);
+  font-size: var(--font-size-lg);
+}
+
+.categoryProductDiscount {
+  padding: 0.15rem 0.45rem;
+  color: var(--color-danger-text);
+  background: var(--color-danger-surface);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.categoryProductNote {
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.categoryProductActions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.categoryProductActions a {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-herbal-forest);
+  color: var(--color-herbal-forest);
+  background: var(--color-surface);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--easing-standard),
+    color var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard);
+}
+
+.categoryProductActions a:last-child {
+  color: var(--color-surface);
+  background: var(--color-herbal-forest);
+}
+
+.categoryProductActions a:hover {
+  border-color: var(--color-brand-pink);
+}
+
+.categoryProductActions a:last-child:hover {
+  border-color: var(--color-herbal-forest-deep);
+  background: var(--color-herbal-forest-deep);
+}
+
+.categoryProductActions a:active {
+  transform: translateY(1px);
+}
+
+@keyframes showcaseReveal {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcaseRevealEntered {
+    animation: none;
+  }
+
+  .categoryLink,
+  .categoryProductCard,
+  .categoryProductImage img,
+  .categoryProductActions a,
+  .categoryArrow {
+    transition: none;
+  }
+
+  .categoryLink:hover,
+  .categoryLink:active,
+  .categoryProductCard:hover,
+  .categoryProductCard:hover .categoryProductImage img,
+  .categoryProductActions a:active,
+  .categoryArrow {
+    transform: none;
+  }
+
+}
+
+.herbalPanel {
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.herbalIntro {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+}
+
+.herbalIntro > .eyebrow {
+  margin-top: var(--space-5);
+  color: var(--color-herbal-natural);
+}
+
+.herbalIntro h2 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.04em;
+  line-height: var(--line-height-tight);
+}
+
+.herbalIntro > p:not(.eyebrow) {
+  max-width: 56ch;
+  margin: var(--space-4) 0 var(--space-5);
+  color: var(--color-herbal-forest);
+}
+
+.herbalProductLinks {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  max-width: 760px;
+  gap: 0;
+  margin-top: var(--space-8);
+}
+
+.herbalProductLinks a {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest);
+  text-decoration: none;
+}
+
+.herbalProductLinks a span:first-child {
+  font-weight: var(--font-weight-semibold);
+}
+
+.herbalProductLinks a span:last-child {
+  flex: 0 0 auto;
+  font-size: var(--font-size-xs);
+}
+
+.information {
+  background:
+    linear-gradient(180deg, var(--color-background), var(--color-ivory));
+}
+
+.ingredientGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.ingredientCard {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.ingredientCard > div {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.ingredientCard img {
+  padding: var(--space-2);
+  object-fit: contain;
+}
+
+.ingredientCard figcaption {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.informationLink {
+  display: inline-flex;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration-color: var(--color-brand-cyan);
+  text-underline-offset: 4px;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.videoCard {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.videoCard video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-media-background);
+}
+
+.videoCard > a {
+  width: fit-content;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration-color: var(--color-brand-cyan);
+  text-underline-offset: 4px;
+}
+
+.reviewGrid {
+  display: grid;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.reviews {
+  background: var(--color-herbal-cream);
+}
+
+.reviewSummary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: calc(-1 * var(--space-5)) 0 var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.reviewSummary strong {
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+}
+
+.reviewCard {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-4);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border: 1px solid var(--color-herbal-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 86%, var(--color-herbal-cream));
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.reviewCard::before {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  color: color-mix(in srgb, var(--color-brand-pink) 28%, transparent);
+  content: "“";
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  pointer-events: none;
+  transition: transform var(--duration-standard) var(--easing-standard);
+}
+
+.reviewCard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-brand-pink) 45%, var(--color-herbal-border));
+  box-shadow: var(--shadow-raised);
+}
+
+.reviewCard:hover::before {
+  transform: translateY(-2px) rotate(-4deg);
+}
+
+.reviewTopline {
+  display: flex;
+  min-height: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-right: 2rem;
+}
+
+.reviewEyebrow {
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reviewStars {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.1rem;
+  color: var(--color-brand-yellow);
+  font-size: var(--font-size-sm);
+}
+
+.reviewStarEmpty {
+  color: var(--color-border);
+}
+
+.reviewCard blockquote {
+  flex: 1;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
+}
+
+.reviewRating {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.reviewAttribution {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.reviewAuthor {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.reviewProduct {
+  display: flex;
+  min-width: 0;
+  min-height: 64px;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest);
+  text-decoration: none;
+}
+
+.reviewProductImage {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.reviewProductImage img {
+  padding: 2px;
+  object-fit: contain;
+}
+
+.reviewProduct > span:nth-child(2) {
+  display: grid;
+  min-width: 0;
+  gap: 0.15rem;
+}
+
+.reviewProduct small {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.reviewProduct strong {
+  overflow: hidden;
+  font-size: var(--font-size-xs);
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.reviewProductArrow {
+  margin-left: auto;
+  transition: transform var(--duration-standard) var(--easing-standard);
+}
+
+.reviewProduct:hover .reviewProductArrow {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviewCard,
+  .reviewCard::before,
+  .reviewProductArrow {
+    transition: none;
+  }
+
+  .reviewCard:hover {
+    transform: none;
+  }
+
+  .reviewCard:hover::before,
+  .reviewProduct:hover .reviewProductArrow {
+    transform: none;
+  }
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.contactGrid > .showcaseReveal {
+  height: auto;
+  min-width: 0;
+}
+
+.contact {
+  background:
+    radial-gradient(
+      ellipse at 8% 12%,
+      color-mix(in srgb, var(--color-brand-pink) 7%, transparent),
+      transparent 32%
+    ),
+    var(--color-herbal-cream);
+}
+
+.contactCopy {
+  display: grid;
+  width: 100%;
+  justify-items: start;
+  align-content: center;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+}
+
+.contactCopy h2 {
+  max-width: 15ch;
+  color: var(--color-skincare-heading);
+  font-size: clamp(2.15rem, 3.6vw, 3.25rem);
+  line-height: 1.08;
+}
+
+.contactCopy .eyebrow {
+  margin: 0;
+}
+
+.contactCopy > p:not(.eyebrow) {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.contactDetails {
+  display: grid;
+  width: 100%;
+  gap: var(--space-2);
+  margin: var(--space-1) 0;
+  font-style: normal;
+}
+
+.contactDetails a {
+  display: flex;
+  min-width: 0;
+  min-height: 58px;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard);
+}
+
+.contactDetails a:hover {
+  border-color: var(--color-herbal-border);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+}
+
+.contactDetails a > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 0.125rem;
+}
+
+.contactDetails small {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.contactDetails strong {
+  overflow-wrap: anywhere;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.contactIcon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-brand-pink) 18%, transparent);
+  border-radius: 50%;
+  color: var(--color-brand-warm);
+  background: color-mix(in srgb, var(--color-brand-pink) 8%, white);
+  transition: transform var(--duration-standard) var(--easing-standard);
+}
+
+.contactDetails a:hover .contactIcon {
+  transform: translateX(2px);
+}
+
+.contactIcon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.contactButton {
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-6);
+  border-color: var(--color-herbal-forest);
+  color: var(--color-surface);
+  background: var(--color-herbal-forest);
+  transition:
+    transform var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard);
+}
+
+.contactButton:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-herbal-forest-deep);
+  background: var(--color-herbal-forest-deep);
+}
+
+.contactButton:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.contactForm {
+  display: grid;
+  width: 100%;
+  align-content: start;
+  gap: var(--space-6);
+  min-width: 0;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--color-herbal-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.contactFormHeading {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.contactFormHeading .eyebrow {
+  margin: 0;
+}
+
+.contactFormHeading h3 {
+  margin: 0;
+  color: var(--color-skincare-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.4vw, 2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
+
+.contactFormHeading > p:last-child {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 900px) {
+  .contactGrid {
+    gap: var(--space-6);
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .contactForm {
+    padding: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contactDetails a,
+  .contactIcon,
+  .contactButton {
+    transition: none;
+  }
+
+  .contactDetails a:hover .contactIcon,
+  .contactButton:hover,
+  .contactButton:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    min-height: 620px;
+    gap: 0 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 4.8vw, 3.8rem);
+  }
+
+  .heroVisual {
+    min-height: 100%;
+  }
+
+  .lifestyleFrame {
+    inset-inline-end: calc(-1 * var(--page-gutter));
+  }
+
+  .heroFeatureBadge {
+    width: 4.2rem;
+    font-size: 0.62rem;
+  }
+
+  .showcaseGrid,
+  .reviewGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .categoryNavigation,
+  .categoryProductGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .videoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ingredientGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 700px) {
+  .heroGrid {
+    min-height: auto;
+    grid-template-areas:
+      "copy"
+      "visual"
+      "featured";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: var(--space-6);
+  }
+
+  .aboutGrid,
+  .contactGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contactCopy {
+    padding-block: 0;
+  }
+
+  .contactCopy h2 {
+    max-width: 18ch;
+  }
+
+  .heroCopy {
+    align-self: auto;
+    padding-bottom: 0;
+  }
+
+  .hero h1 {
+    max-width: none;
+    font-size: clamp(2.25rem, 9.2vw, 3.5rem);
+  }
+
+  .headlineBrand img {
+    width: clamp(6.6rem, 27vw, 9.5rem);
+  }
+
+  .heroVisual {
+    display: grid;
+    width: 100%;
+    min-height: 0;
+    grid-template-rows: auto auto;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .lifestyleFrame::after {
+    background: linear-gradient(
+      0deg,
+      var(--color-herbal-blush) 0%,
+      transparent 26%
+    );
+  }
+
+  .heroFeatureBadges {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    transform: none;
+  }
+
+  .heroFeatureBadge {
+    width: clamp(4.1rem, 19.5vw, 4.75rem);
+    font-size: 0.62rem;
+  }
+
+  .featuredProduct {
+    width: 100%;
+    max-width: 480px;
+    justify-self: start;
+  }
+
+  .featuredProductImage {
+    min-height: 140px;
+  }
+
+  .aboutGrid {
+    gap: var(--space-6);
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .ingredientGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-block: 0;
+  }
+
+  .heroGrid {
+    gap: var(--space-5);
+  }
+
+  .heroCopy {
+    width: min(100%, 34rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 10.1vw, 2.85rem);
+  }
+
+  .heroIntro {
+    margin-top: var(--space-4);
+    font-size: var(--font-size-md);
+  }
+
+  .heroVisual {
+    gap: var(--space-3);
+  }
+
+  .featuredProduct {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: var(--space-3);
+    min-height: 148px;
+    padding: 0.6rem;
+    border-radius: 20px;
+  }
+
+  .featuredProductImage {
+    min-height: 126px;
+  }
+
+  .featuredProductDetails {
+    gap: 0.3rem;
+  }
+
+  .featuredProductName {
+    font-size: 0.96rem;
+  }
+
+  .showcaseGrid,
+  .reviewGrid,
+  .videoGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .categoryNavigation,
+  .categoryProductGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ingredientGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

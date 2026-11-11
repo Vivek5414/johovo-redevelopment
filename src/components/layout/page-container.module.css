@@ -1,0 +1,13 @@
+.container {
+  width: min(100%, var(--container-content));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.content {
+  max-width: var(--container-content);
+}
+
+.reading {
+  max-width: var(--container-reading);
+}

@@ -1,0 +1,39 @@
+.main {
+  display: grid;
+  min-height: 58vh;
+  align-content: center;
+  padding-block: var(--space-section);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-brand-purple-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.main h1 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.04em;
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  max-width: 620px;
+  margin: var(--space-5) 0 var(--space-8);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.homeLink {
+  color: var(--color-herbal-forest);
+  font-weight: var(--font-weight-semibold);
+  text-decoration-color: var(--color-brand-pink);
+  text-underline-offset: 4px;
+}
