@@ -1,0 +1,272 @@
+.formWrapper {
+  width: 100%;
+}
+
+.formCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-herbal-border);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--color-herbal-forest) 7%, transparent);
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-herbal-forest-deep);
+  letter-spacing: 0.02em;
+}
+
+.optionalTag {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: 0.75rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 1rem;
+  color: var(--color-herbal-natural);
+  font-size: 1.15rem !important;
+  pointer-events: none;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.fieldIconTop {
+  position: absolute;
+  left: 1rem;
+  top: 0.95rem;
+  color: var(--color-herbal-natural);
+  font-size: 1.15rem !important;
+  pointer-events: none;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+  background: color-mix(in srgb, var(--color-herbal-cream) 40%, var(--color-surface));
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition: all var(--duration-fast) var(--easing-standard);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23456b45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--color-herbal-natural);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-herbal-natural) 18%, transparent);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent);
+}
+
+/* Submit Button */
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.95rem 1.75rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-herbal-natural) 0%,
+    var(--color-herbal-forest) 100%
+  );
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-herbal-natural) 30%, transparent);
+  transition: all var(--duration-standard) var(--easing-standard);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--color-herbal-natural) 40%, transparent);
+  background: linear-gradient(
+    135deg,
+    var(--color-herbal-forest) 0%,
+    var(--color-herbal-forest-deep) 100%
+  );
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitIcon {
+  font-size: 1.1rem !important;
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+.submitButton:hover:not(:disabled) .submitIcon {
+  transform: translateX(4px);
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Alerts */
+.errorAlert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-danger-surface);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 40%, transparent);
+  border-radius: var(--radius-md);
+  color: var(--color-danger-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.errorIcon {
+  font-size: 1.15rem !important;
+  color: var(--color-danger);
+  flex-shrink: 0;
+}
+
+.successCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.successIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-herbal-natural) 15%, transparent);
+  color: var(--color-herbal-natural);
+  margin-bottom: 1.25rem;
+}
+
+.successIcon {
+  font-size: 2.5rem !important;
+}
+
+.successTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  color: var(--color-herbal-forest-deep);
+}
+
+.successMessage {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+.resetButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.5rem;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-herbal-natural);
+  border-radius: var(--radius-pill);
+  color: var(--color-herbal-natural);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.resetButton:hover {
+  background: var(--color-herbal-natural);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .formCard {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+}

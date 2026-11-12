@@ -1,0 +1,242 @@
+.enquiryFormWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.selectedProductPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-herbal-cream) 85%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+  width: fit-content;
+}
+
+.productPillIcon {
+  font-size: 1.1rem !important;
+  color: var(--color-herbal-natural);
+}
+
+.productPillLabel {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.productPillName {
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+/* Form Layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+  letter-spacing: 0.02em;
+}
+
+.optionalBadge {
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 0.85rem;
+  color: var(--color-herbal-natural);
+  font-size: 1.15rem !important;
+  pointer-events: none;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-herbal-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.input {
+  height: 48px;
+  padding: 0 0.85rem 0 2.5rem;
+}
+
+.textarea {
+  min-height: 110px;
+  padding: 0.85rem 0.85rem 0.85rem 2.5rem;
+  resize: vertical;
+}
+
+.textareaIcon {
+  top: 0.95rem;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-herbal-natural);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-herbal-natural) 18%, transparent);
+}
+
+/* Feedback Banners */
+.alertSuccess,
+.alertError {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.alertSuccess {
+  background: color-mix(in srgb, var(--color-brand-green) 12%, #fff);
+  border: 1px solid var(--color-brand-green);
+  color: #116914;
+}
+
+.alertError {
+  background: var(--color-danger-surface);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger-text);
+}
+
+.alertIcon {
+  font-size: 1.25rem !important;
+  flex-shrink: 0;
+}
+
+/* Submit Actions */
+.formActions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 50px;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-forest);
+  border: none;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-herbal-forest) 25%, transparent);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--color-herbal-forest-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--color-herbal-forest) 35%, transparent);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.privacyGuarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+}
+
+.guaranteeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-herbal-natural);
+}
+
+@media (max-width: 900px) {
+  .fieldsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}

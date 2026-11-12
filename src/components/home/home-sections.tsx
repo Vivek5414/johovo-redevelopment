@@ -14,7 +14,8 @@ import {
 } from "@/components/brand/herbal-botanical-pattern";
 import { ContentSection } from "@/components/layout/content-section";
 import { PageContainer } from "@/components/layout/page-container";
-import { WhatsAppEnquiryForm } from "@/components/contact/whatsapp-enquiry-form";
+import { ContactForm } from "@/components/contact/contact-form";
+import { HomeContactDetails } from "./home-contact-details";
 import { ProductCard } from "@/components/product/product-card";
 import { LinkButton } from "@/components/ui/link-button";
 import { InstagramSection as InstagramShowcaseSection } from "@/components/Instagram";
@@ -435,13 +436,12 @@ export function ProductCategoriesSection() {
                     </p>
                     <div className={styles.categoryProductActions}>
                       <Link href={`/products/${product.slug}`}>View Product</Link>
-                      <a
-                        href={product.originalSourceUrl}
-                        rel="noopener noreferrer"
-                        target="_blank"
+                      <Link
+                        className={styles.categoryProductActionShop}
+                        href={`/products/${product.slug}`}
                       >
                         Shop Now
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -576,39 +576,7 @@ export function ContactSection() {
               Have a question about a JOHOVO product? We&apos;re here to help.
               Contact our team or send us your enquiry.
             </p>
-            <address className={styles.contactDetails}>
-              <a href={`tel:${JOHOVO_CONTACT.phone}`}>
-                <span aria-hidden="true" className={styles.contactIcon}>
-                  <PhoneRoundedIcon fontSize="small" />
-                </span>
-                <span>
-                  <small>Call our team</small>
-                  <strong>{JOHOVO_CONTACT.displayPhone}</strong>
-                </span>
-              </a>
-              <a href={`mailto:${JOHOVO_CONTACT.email}`}>
-                <span aria-hidden="true" className={styles.contactIcon}>
-                  <EmailRoundedIcon fontSize="small" />
-                </span>
-                <span>
-                  <small>Email support</small>
-                  <strong>{JOHOVO_CONTACT.email}</strong>
-                </span>
-              </a>
-              <a
-                href={`https://wa.me/${JOHOVO_CONTACT.whatsapp}`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span aria-hidden="true" className={styles.contactIcon}>
-                  <WhatsAppIcon fontSize="small" />
-                </span>
-                <span>
-                  <small>WhatsApp</small>
-                  <strong>{JOHOVO_CONTACT.displayWhatsApp}</strong>
-                </span>
-              </a>
-            </address>
+            <HomeContactDetails />
             <LinkButton
               className={styles.contactButton}
               href="/contact"
@@ -624,13 +592,10 @@ export function ContactSection() {
               <p className={styles.eyebrow}>We&apos;re happy to help</p>
               <h3>Send Us an Enquiry</h3>
               <p>
-                Tell us what you&apos;re looking for and we&apos;ll help you
-                find the right product.
+                Fill in your details below and we&apos;ll help you find the right herbal product.
               </p>
             </div>
-            <WhatsAppEnquiryForm
-              formId="homepage-enquiry-form"
-              variant="premium"
+            <ContactForm
               products={catalogProducts.map(
                 (product) =>
                   getShowcaseProduct(product.slug)?.title ?? product.name,

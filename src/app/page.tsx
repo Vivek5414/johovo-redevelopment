@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/hero";
+import { CategorySection } from "@/components/category";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
 import {
@@ -24,6 +26,7 @@ export default function Home() {
       <SiteHeader />
       <HeroSection />
       <AboutSection />
+      <CategorySection />
       <CollectionsSection />
       <ProductCategoriesSection />
       <HerbalSection />
@@ -32,6 +35,7 @@ export default function Home() {
       <TestimonialsSection />
       <InstagramShowcase />
       <ContactSection />
+      <SiteFooter />
     </>
   );
 }

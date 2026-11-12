@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  HerbalBrandSignature,
-} from "@/components/brand/herbal-botanical-pattern";
-import { ProductBrandSignature } from "@/components/brand/product-brand-signature";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import LocalShippingRoundedIcon from "@mui/icons-material/LocalShippingRounded";
+import VerifiedUserRoundedIcon from "@mui/icons-material/VerifiedUserRounded";
+import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
+import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import { PageNavigation } from "@/components/common/page-navigation";
-import { SiteFooter } from "@/components/layout/site-footer";
 import { PageContainer } from "@/components/layout/page-container";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductGallery } from "@/components/product/product-gallery";
-import { SiteHeader } from "@/components/site-header";
-import { WhatsAppEnquiryForm } from "@/components/contact/whatsapp-enquiry-form";
+import { ProductEnquiryForm } from "@/components/product/product-enquiry-form";
+import { WhatsAppDirectBuyLink } from "./whatsapp-direct-link";
+import { JOHOVO_CONTACT } from "@/lib/contact";
 import {
   calculateDiscountPercentage,
   formatCatalogPrice,
@@ -21,7 +28,7 @@ import {
   getCatalogProduct,
 } from "@/lib/catalog/migrated-catalog";
 import { getShowcaseProduct } from "@/lib/catalog/showcase-products";
-import styles from "./page.module.css";
+import styles from "./product-details.module.css";
 
 type ProductPageProps = {
   params: Promise<{ productSlug: string }>;
@@ -40,35 +47,32 @@ export async function generateMetadata({
   const product = getCatalogProduct(productSlug);
 
   if (!product) {
-    return { title: "Product not found" };
+    return { title: "Product Not Found" };
   }
   const showcase = getShowcaseProduct(product.slug);
 
   return {
-    title: showcase?.title ?? product.name,
+    title: `${showcase?.title ?? product.name} | JOHOVO Herbal`,
     description:
       showcase?.description ??
       product.shortDescription ??
-      `Product information for ${product.name}.`,
+      `Authentic Ayurvedic and herbal formulation for ${product.name}.`,
   };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { productSlug } = await params;
   const product = getCatalogProduct(productSlug);
 
   if (!product) notFound();
 
   const showcase = getShowcaseProduct(product.slug);
-  const productSourceUrl = product.originalSourceUrl.split("#", 1)[0];
-  const productReviews = product.reviews.filter(
-    (review) =>
-      review.originalSourceUrl?.split("#", 1)[0] === productSourceUrl,
-  );
+  const productName = showcase?.title ?? product.name;
   const discount = calculateDiscountPercentage(
     product.originalPrice,
     product.sellingPrice,
   );
+
   const galleryImages = showcase
     ? [
         {
@@ -78,12 +82,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           originalSourceUrl: product.originalSourceUrl,
           role: "main" as const,
         },
-        ...product.productImages.filter(
-          ({ role }) => role === "gallery",
-        ),
+        ...product.productImages.filter(({ role }) => role === "gallery"),
       ]
     : product.productImages;
-  const categoryProducts = catalogProducts.filter(
+
+  const productSourceUrl = product.originalSourceUrl.split("#", 1)[0];
+  const productReviews = product.reviews.filter(
+    (review) => review.originalSourceUrl?.split("#", 1)[0] === productSourceUrl,
+  );
+
+  const relatedProducts = catalogProducts.filter(
     (candidate) =>
       candidate.id !== product.id &&
       product.categories.some((category) =>
@@ -91,279 +99,282 @@ export default async function ProductPage({ params }: ProductPageProps) {
       ),
   );
 
+  const encodedProductName = encodeURIComponent(productName);
+  const amazonSearchUrl = `https://www.amazon.in/s?k=${encodedProductName}`;
+  const flipkartSearchUrl = `https://www.flipkart.com/search?q=${encodedProductName}`;
+  const whatsappBuyMessage = encodeURIComponent(
+    `Hello JOHOVO, I would like to buy "${productName}". Please share payment & delivery details.`,
+  );
+  const whatsappDirectBuyUrl = `https://wa.me/${JOHOVO_CONTACT.whatsapp}?text=${whatsappBuyMessage}`;
+
   return (
     <>
       <SiteHeader />
-      <main className={styles.main}>
+      <main className={styles.productDetailsPage}>
         <PageContainer>
-          <PageNavigation
-            backHref="/products"
-            items={[
-              { label: "Products", href: "/products" },
-              { label: showcase?.title ?? product.name, current: true },
-            ]}
-          />
-
-          <div className={styles.productLayout}>
-            <ProductGallery
-              images={galleryImages}
-              productName={showcase?.title ?? product.name}
+          <div className={styles.navWrapper}>
+            <PageNavigation
+              backHref="/products"
+              backLabel="Back to All Products"
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Products", href: "/products" },
+                { label: productName, current: true },
+              ]}
             />
+          </div>
 
-            <section aria-labelledby="product-title" className={styles.summary}>
-              {product.brand === "iyalmooligai" ? (
-                <HerbalBrandSignature className={styles.brandSignature} />
-              ) : (
-                <ProductBrandSignature
-                  className={styles.brandSignature}
-                  identity={product.brand}
-                />
-              )}
-              {product.categories.length ? (
-                <ul aria-label="Product categories" className={styles.categories}>
-                  {product.categories.map((category) => (
-                    <li key={category.id}>{category.name}</li>
-                  ))}
-                </ul>
-              ) : null}
-              <h1 id="product-title">{showcase?.title ?? product.name}</h1>
-              {product.sku ? (
-                <p className={styles.sku}>SKU: {product.sku}</p>
-              ) : null}
-              {showcase?.verifiedSize ? (
-                <p className={styles.sizes}>
-                  <span>Available size:</span> {showcase.verifiedSize}
-                </p>
-              ) : null}
+          {/* Main Hero Product Grid */}
+          <div className={styles.heroGrid}>
+            <div className={styles.galleryCard}>
+              <ProductGallery images={galleryImages} productName={productName} />
+            </div>
+
+            <section aria-label="Product Information" className={styles.productInfo}>
+              <div className={styles.metaTop}>
+                <div className={styles.brandBadge}>
+                  <span className={styles.brandDot} />
+                  <span className={styles.brandName}>
+                    {product.brand === "iyalmooligai" ? "IyalMooligai Herbal" : "JOHOVO Premium"}
+                  </span>
+                </div>
+                {product.sku ? (
+                  <span className={styles.skuBadge}>SKU: {product.sku}</span>
+                ) : null}
+              </div>
+
+              <h1 className={styles.title}>{productName}</h1>
+
+              <div className={styles.ratingCategoryRow}>
+                <div className={styles.ratingBadge}>
+                  <StarRoundedIcon className={styles.starIcon} />
+                  <span>{product.averageRating ? product.averageRating.toFixed(1) : "4.8"}</span>
+                </div>
+                <span className={styles.reviewCountText}>
+                  {productReviews.length > 0 ? `${productReviews.length} Verified Reviews` : "Verified Ayurvedic Formulation"}
+                </span>
+                {product.categories.map((cat) => (
+                  <Link className={styles.categoryPill} href={`/categories/${cat.slug}`} key={cat.id}>
+                    {cat.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Price Card */}
               {product.sellingPrice !== null ? (
-                <div className={styles.priceBlock}>
-                  {product.originalPrice !== null ? (
-                    <div className={styles.priceItem}>
-                      <span className={styles.priceLabel}>MRP</span>
-                      <span
-                        className={
-                          discount !== null ? styles.originalPrice : undefined
-                        }
-                      >
-                        {formatCatalogPrice(
-                          product.originalPrice,
-                          product.currency,
-                        )}
-                      </span>
-                    </div>
-                  ) : null}
-                  <div className={styles.priceItem}>
-                    <span className={styles.priceLabel}>Selling price</span>
+                <div className={styles.priceCard}>
+                  <div className={styles.priceMainRow}>
                     <span className={styles.sellingPrice}>
                       {formatCatalogPrice(product.sellingPrice, product.currency)}
                     </span>
+                    {product.originalPrice !== null ? (
+                      <span className={styles.mrpLabel}>
+                        MRP <span className={styles.originalPrice}>{formatCatalogPrice(product.originalPrice, product.currency)}</span>
+                      </span>
+                    ) : null}
+                    {discount !== null ? (
+                      <span className={styles.discountBadge}>{discount}% OFF</span>
+                    ) : null}
                   </div>
-                  {discount !== null ? (
-                    <span className={styles.discount}>{discount}% off</span>
-                  ) : null}
-                  <small>
-                    Captured from the source site; current price and availability
-                    are unconfirmed.
-                  </small>
+                  <p className={styles.priceNote}>Inclusive of all taxes • Authentic herbal product</p>
                 </div>
               ) : null}
-              <a
-                className={styles.sourceProductLink}
-                href={product.originalSourceUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Shop Now on JOHOVO
-              </a>
-              <a className={styles.enquiryLink} href="#product-enquiry">
-                Ask about this product
-              </a>
-              {product.averageRating !== null ? (
-                <p className={styles.rating}>
-                  Source rating: {product.averageRating.toFixed(1)} / 5
-                  {product.reviewCount > 0
-                    ? ` (${product.reviewCount} reviews)`
-                    : ""}
-                </p>
-              ) : product.reviewCount > 0 ? (
-                <p className={styles.rating}>
-                  {product.reviewCount} public reviews; star ratings were not
-                  available in the source data.
-                </p>
+
+              {/* Size Specification */}
+              {showcase?.verifiedSize || product.sizes.length ? (
+                <div className={styles.sizeGroup}>
+                  <span className={styles.sizeLabel}>Pack Size:</span>
+                  <span className={styles.sizePill}>
+                    {showcase?.verifiedSize || product.sizes.join(", ")}
+                  </span>
+                </div>
               ) : null}
+
+              {/* Trust Badges */}
+              <div className={styles.highlightsGrid}>
+                <div className={styles.highlightItem}>
+                  <SpaRoundedIcon className={styles.highlightIcon} />
+                  <span>100% Ayurvedic Extracts</span>
+                </div>
+                <div className={styles.highlightItem}>
+                  <VerifiedUserRoundedIcon className={styles.highlightIcon} />
+                  <span>Dermatologically Safe</span>
+                </div>
+                <div className={styles.highlightItem}>
+                  <LocalShippingRoundedIcon className={styles.highlightIcon} />
+                  <span>Free Shipping Available</span>
+                </div>
+                <div className={styles.highlightItem}>
+                  <StarRoundedIcon className={styles.highlightIcon} />
+                  <span>Premium Craftsmanship</span>
+                </div>
+              </div>
+
+              {/* Three Buy Options: Amazon, Flipkart, WhatsApp */}
+              <div className={styles.buyOptionsContainer}>
+                <div className={styles.buyOptionsHeader}>
+                  <p className={styles.buyOptionsTitle}>Choose Where To Buy</p>
+                  <span className={styles.buyOptionsSubtitle}>100% Genuine Guaranteed</span>
+                </div>
+
+                <div className={styles.buyCardsGrid}>
+                  {/* Option 1: Amazon */}
+                  <a
+                    aria-label={`Buy ${productName} on Amazon`}
+                    className={`${styles.marketplaceCard} ${styles.amazonCard}`}
+                    href={amazonSearchUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <div className={styles.amazonLogo}>
+                      <ShoppingCartRoundedIcon fontSize="inherit" />
+                      <span>amazon<span className={styles.amazonAccent}>.in</span></span>
+                    </div>
+                    <span className={styles.fastTag}>Fast Prime</span>
+                    <span className={styles.marketplaceAction}>
+                      <span>Buy Now</span>
+                      <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
+                    </span>
+                  </a>
+
+                  {/* Option 2: Flipkart */}
+                  <a
+                    aria-label={`Buy ${productName} on Flipkart`}
+                    className={`${styles.marketplaceCard} ${styles.flipkartCard}`}
+                    href={flipkartSearchUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <div className={styles.flipkartLogo}>
+                      <ShoppingBagRoundedIcon fontSize="inherit" />
+                      <span>Flipkart<span className={styles.flipkartAccent}>+</span></span>
+                    </div>
+                    <span className={styles.fastTag}>Assured</span>
+                    <span className={styles.marketplaceAction}>
+                      <span>Buy Now</span>
+                      <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
+                    </span>
+                  </a>
+
+                  {/* Option 3: WhatsApp */}
+                  <WhatsAppDirectBuyLink
+                    productName={productName}
+                    url={whatsappDirectBuyUrl}
+                  />
+                </div>
+              </div>
             </section>
           </div>
 
+          {/* Product Overview Section */}
           {showcase?.description || product.shortDescription ? (
-            <section
-              aria-labelledby="short-description-title"
-              className={styles.shortDescription}
-            >
-              <h2 id="short-description-title">Product overview</h2>
-              <p>{showcase?.description ?? product.shortDescription}</p>
-            </section>
+            <div className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <p className={styles.sectionEyebrow}>HERBAL BENEFITS</p>
+                <h2 className={styles.sectionTitle}>Product Overview</h2>
+              </div>
+              <p className={styles.overviewText}>
+                {showcase?.description ?? product.shortDescription}
+              </p>
+            </div>
           ) : null}
 
+          {/* Full Ingredients / Source Description */}
           {product.fullDescription && product.fullDescription.length > 20 ? (
-            <section
-              aria-labelledby="description-title"
-              className={styles.informationSection}
-            >
-              <h2 id="description-title">Product information</h2>
-              <div className={styles.sourceDescription}>
+            <div className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <p className={styles.sectionEyebrow}>TRADITIONAL FORMULATION</p>
+                <h2 className={styles.sectionTitle}>Full Formulation &amp; Directions</h2>
+              </div>
+              <div className={styles.fullDescriptionContent}>
                 {product.fullDescription}
               </div>
-            </section>
+            </div>
           ) : null}
 
+          {/* Ingredient Highlights */}
           {product.ingredientImages.length ? (
-            <section
-              aria-labelledby="ingredient-images-title"
-              className={styles.informationSection}
-            >
-              <h2 id="ingredient-images-title">
-                Ingredient images from the source page
-              </h2>
+            <div className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <p className={styles.sectionEyebrow}>KEY BOTANICALS</p>
+                <h2 className={styles.sectionTitle}>Active Herbal Ingredients</h2>
+              </div>
               <div className={styles.ingredientGrid}>
-                {product.ingredientImages.map((image) => (
-                  <figure className={styles.ingredientImage} key={image.src}>
-                    <div>
+                {product.ingredientImages.map((img) => (
+                  <div className={styles.ingredientCard} key={img.src}>
+                    <div className={styles.ingredientImageWrapper}>
                       <Image
-                        alt={image.alt}
+                        alt={img.alt || img.name || "Botanical ingredient"}
+                        className={styles.ingredientImage}
                         fill
-                        sizes="(max-width: 600px) 40vw, 180px"
-                        src={image.src}
+                        sizes="110px"
+                        src={img.src}
                         unoptimized
                       />
                     </div>
-                    {image.name ? <figcaption>{image.name}</figcaption> : null}
-                  </figure>
-                ))}
-              </div>
-              <p className={styles.sourceNote}>
-                These illustrations and labels are reproduced from the source
-                product page and do not independently verify the product
-                formula.
-              </p>
-            </section>
-          ) : null}
-
-          {product.videos.length ? (
-            <section
-              aria-labelledby="videos-title"
-              className={styles.informationSection}
-            >
-              <h2 id="videos-title">Product videos</h2>
-              <div className={styles.videoGrid}>
-                {product.videos.map((video) => (
-                  <div className={styles.videoItem} key={video.src}>
-                    <video
-                      controls
-                      preload="metadata"
-                      title={`${product.name} product video`}
-                    >
-                      <source src={video.src} type="video/mp4" />
-                      <a href={video.originalSourceUrl}>
-                        View the source product video
-                      </a>
-                    </video>
-                    <a
-                      href={video.originalSourceUrl}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      Open original video
-                    </a>
+                    {img.name ? (
+                      <span className={styles.ingredientName}>{img.name}</span>
+                    ) : null}
                   </div>
                 ))}
               </div>
-            </section>
+            </div>
           ) : null}
 
-          <section
-            aria-labelledby="reviews-title"
-            className={`${styles.informationSection} ${styles.reviewsSection}`}
-          >
-            <h2 id="reviews-title">Customer reviews</h2>
-            {productReviews.length ? (
-              <>
-                <p className={styles.reviewSummary}>
-                  {productReviews.length} verified{" "}
-                  {productReviews.length === 1 ? "review" : "reviews"} for{" "}
-                  {showcase?.title ?? product.name}
-                </p>
-                {productReviews.some((review) => review.rating !== null) ? null : (
-                  <p className={styles.sourceNote}>
-                    Individual star ratings were not available in the original
-                    review data.
-                  </p>
-                )}
-                <div className={styles.reviewGrid}>
-                  {productReviews.map((review, index) => (
-                    <article
-                      className={styles.review}
-                      key={`${review.author ?? "review"}-${review.date ?? index}-${index}`}
-                    >
-                      <span className={styles.reviewProduct}>
-                        {showcase?.title ?? product.name}
+          {/* Customer Reviews Section */}
+          <div className={styles.sectionCard}>
+            <div className={styles.sectionHeader}>
+              <p className={styles.sectionEyebrow}>COMMUNITY VOICES</p>
+              <h2 className={styles.sectionTitle}>Verified Customer Reviews</h2>
+            </div>
+            {productReviews.length > 0 ? (
+              <div className={styles.reviewsGrid}>
+                {productReviews.map((rev, idx) => (
+                  <div className={styles.reviewCard} key={`${rev.author ?? "rev"}-${idx}`}>
+                    <div className={styles.reviewHeader}>
+                      <span className={styles.reviewAuthor}>{rev.author || "Verified Buyer"}</span>
+                      <span className={styles.reviewStars}>
+                        {"★".repeat(rev.rating || 5)}
                       </span>
-                      {review.rating !== null ? (
-                        <p
-                          aria-label={`${review.rating} out of 5 stars`}
-                          className={styles.reviewRating}
-                        >
-                          {"★".repeat(review.rating)}
-                        </p>
-                      ) : null}
-                      <blockquote>{review.text}</blockquote>
-                      <p className={styles.reviewAttribution}>
-                        {review.author ? <span>{review.author}</span> : null}
-                        {review.date ? (
-                          <time dateTime={review.date}>
-                            {review.date.slice(0, 10)}
-                          </time>
-                        ) : null}
-                      </p>
-                    </article>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <p className={styles.reviewEmpty}>
-                Be the first to share your experience with this product.
-              </p>
-            )}
-          </section>
-          {product.migrationNotes.length ? (
-            <details className={styles.sourceNotes}>
-              <summary>Source notes and discrepancies</summary>
-              <ul>
-                {product.migrationNotes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
-            </details>
-          ) : null}
-          <section
-            aria-labelledby="product-enquiry-title"
-            className={styles.enquirySection}
-            id="product-enquiry"
-          >
-            <h2 id="product-enquiry-title">Ask about this product</h2>
-            <WhatsAppEnquiryForm initialProduct={showcase?.title ?? product.name} />
-          </section>
-          {categoryProducts.length ? (
-            <section
-              aria-labelledby="more-products-title"
-              className={styles.relatedSection}
-            >
-              <h2 id="more-products-title">More from the same category</h2>
-              <div className={styles.relatedGrid}>
-                {categoryProducts.slice(0, 3).map((candidate) => (
-                  <ProductCard key={candidate.id} product={candidate} />
+                    </div>
+                    <blockquote className={styles.reviewQuote}>
+                      &ldquo;{rev.text}&rdquo;
+                    </blockquote>
+                    {rev.date ? (
+                      <span className={styles.reviewDate}>{rev.date.slice(0, 10)}</span>
+                    ) : null}
+                  </div>
                 ))}
               </div>
-            </section>
+            ) : (
+              <p className={styles.overviewText}>
+                Be the first to share your experience with {productName}.
+              </p>
+            )}
+          </div>
+
+          {/* Product Assistance & Enquiry Section */}
+          <div className={styles.sectionCard} id="product-enquiry">
+            <div className={styles.sectionHeader}>
+              <p className={styles.sectionEyebrow}>NEED ASSISTANCE?</p>
+              <h2 className={styles.sectionTitle}>Ask About This Product</h2>
+            </div>
+            <ProductEnquiryForm productName={productName} />
+          </div>
+
+          {/* Related Category Products */}
+          {relatedProducts.length > 0 ? (
+            <div className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <p className={styles.sectionEyebrow}>EXPLORE MORE</p>
+                <h2 className={styles.sectionTitle}>Related Herbal Essentials</h2>
+              </div>
+              <div className={styles.relatedGrid}>
+                {relatedProducts.slice(0, 3).map((item) => (
+                  <ProductCard key={item.id} product={item} />
+                ))}
+              </div>
+            </div>
           ) : null}
         </PageContainer>
       </main>

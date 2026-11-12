@@ -1,0 +1,577 @@
+.productDetailsPage {
+  background: var(--color-background);
+  min-height: 85vh;
+  padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(3.5rem, 6vw, 6rem);
+}
+
+/* Breadcrumb wrapper */
+.navWrapper {
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* Main Hero Grid Layout */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Gallery Container */
+.galleryCard {
+  position: sticky;
+  top: 100px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 2vw, 1.75rem);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--color-herbal-forest) 5%, transparent);
+}
+
+/* Product Info Column */
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Top Meta Row */
+.metaTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brandBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.85rem 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-herbal-cream) 90%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+}
+
+.brandDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-herbal-natural);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-herbal-natural) 25%, transparent);
+}
+
+.brandName {
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skuBadge {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-family: monospace;
+}
+
+/* Product Title */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* Rating & Category Pills */
+.ratingCategoryRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-brand-yellow) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-brand-yellow) 50%, transparent);
+  color: #8c6700;
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.starIcon {
+  font-size: 1rem !important;
+  color: var(--color-brand-yellow);
+}
+
+.reviewCountText {
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+}
+
+.categoryPill {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.categoryPill:hover {
+  background: var(--color-herbal-cream);
+  border-color: var(--color-herbal-natural);
+}
+
+/* Price Box */
+.priceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-herbal-cream) 60%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+}
+
+.priceMainRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.sellingPrice {
+  font-size: clamp(1.85rem, 2.5vw, 2.35rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+  line-height: 1;
+}
+
+.mrpLabel {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+}
+
+.discountBadge {
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  background: var(--color-brand-pink);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+}
+
+.priceNote {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+/* Size Pill Selector */
+.sizeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sizeLabel {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.sizePill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-forest);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Highlights Grid */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-herbal-forest-deep);
+}
+
+.highlightIcon {
+  font-size: 1.15rem !important;
+  color: var(--color-herbal-natural);
+}
+
+/* Marketplace & Instant Buy Options Section */
+.buyOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-herbal-cream) 45%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+}
+
+.buyOptionsHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.buyOptionsTitle {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-herbal-forest-deep);
+}
+
+.buyOptionsSubtitle {
+  font-size: 0.75rem;
+  color: var(--color-herbal-natural);
+  font-weight: var(--font-weight-medium);
+}
+
+.buyCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.marketplaceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.95rem 0.65rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-standard);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+}
+
+.marketplaceCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--color-herbal-forest) 10%, transparent);
+}
+
+.marketplaceCard:active {
+  transform: translateY(0);
+}
+
+/* Amazon Card Theme (using global yellow & dark forest tones) */
+.amazonCard {
+  border-color: color-mix(in srgb, var(--color-brand-yellow) 40%, var(--color-border));
+}
+
+.amazonCard:hover {
+  border-color: var(--color-brand-yellow);
+  background: color-mix(in srgb, var(--color-brand-yellow) 6%, #fff);
+}
+
+.amazonLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.95rem;
+  color: var(--color-herbal-forest-deep);
+  letter-spacing: -0.02em;
+}
+
+.amazonAccent {
+  color: var(--color-brand-yellow);
+}
+
+/* Flipkart Card Theme (using global cyan & yellow tones) */
+.flipkartCard {
+  border-color: color-mix(in srgb, var(--color-brand-cyan) 40%, var(--color-border));
+}
+
+.flipkartCard:hover {
+  border-color: var(--color-brand-cyan);
+  background: color-mix(in srgb, var(--color-brand-cyan) 6%, #fff);
+}
+
+.flipkartLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.95rem;
+  color: var(--color-herbal-forest-deep);
+  letter-spacing: -0.02em;
+}
+
+.flipkartAccent {
+  color: var(--color-brand-yellow);
+  font-style: italic;
+}
+
+/* WhatsApp Card Theme (using global green / herbal natural tones) */
+.whatsappCard {
+  border-color: color-mix(in srgb, var(--color-brand-green) 40%, var(--color-border));
+}
+
+.whatsappCard:hover {
+  border-color: var(--color-brand-green);
+  background: color-mix(in srgb, var(--color-brand-green) 6%, #fff);
+}
+
+.whatsappLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.95rem;
+  color: var(--color-herbal-forest-deep);
+  letter-spacing: -0.02em;
+}
+
+.whatsappIcon {
+  font-size: 1.15rem !important;
+  color: var(--color-brand-green);
+}
+
+.marketplaceAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.marketplaceIcon {
+  font-size: 0.8rem !important;
+}
+
+.marketplaceCard:hover .marketplaceAction {
+  color: var(--color-herbal-natural);
+}
+
+.fastTag {
+  font-size: 0.62rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-herbal-cream) 80%, transparent);
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-text-secondary);
+  line-height: 1.2;
+}
+
+/* Sections Styling */
+.sectionCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.sectionHeader {
+  margin-bottom: 1.5rem;
+}
+
+.sectionEyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--color-herbal-natural);
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+/* Description text */
+.overviewText {
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  max-width: 75ch;
+  margin: 0;
+}
+
+.fullDescriptionContent {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  white-space: pre-line;
+}
+
+/* Ingredient Grid */
+.ingredientGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.ingredientCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-herbal-cream) 40%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+}
+
+.ingredientImageWrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 2px solid var(--color-herbal-border);
+}
+
+.ingredientImage {
+  object-fit: cover;
+}
+
+.ingredientName {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-herbal-forest-deep);
+}
+
+/* Reviews Grid */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-herbal-cream) 35%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviewAuthor {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.reviewStars {
+  color: var(--color-brand-yellow);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+.reviewQuote {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.reviewDate {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Related Products Grid */
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryCard {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .marketplaceCard {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+  }
+}

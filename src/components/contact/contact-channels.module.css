@@ -1,0 +1,56 @@
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.channelItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.channelItem:hover {
+  border-color: var(--color-herbal-natural);
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
+}
+
+.channelIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-herbal-cream) 80%, var(--color-surface));
+  color: var(--color-herbal-forest);
+  border: 1px solid var(--color-herbal-border);
+}
+
+.channelMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.channelLabel {
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.channelValue {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}

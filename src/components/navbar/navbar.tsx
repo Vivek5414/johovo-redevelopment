@@ -8,6 +8,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import navbarData from "./navbar-data.json";
+import { recordContactClick } from "@/lib/tracking";
 import styles from "./navbar.module.css";
 
 export type SearchProduct = {
@@ -230,6 +231,7 @@ export function Navbar({ products = [] }: NavbarProps) {
           <a
             className={`${styles.mobileContactButton} ${styles.mobileWhatsappBtn}`}
             href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.defaultWhatsAppMessage)}`}
+            onClick={() => recordContactClick("whatsapp")}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -239,6 +241,7 @@ export function Navbar({ products = [] }: NavbarProps) {
           <a
             className={`${styles.mobileContactButton} ${styles.mobileCallBtn}`}
             href={`tel:${contact.phone}`}
+            onClick={() => recordContactClick("call")}
           >
             <PhoneRoundedIcon style={{ width: "18px", height: "18px" }} />
             <span>Call {contact.displayPhone}</span>

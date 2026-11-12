@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import LocalShippingRoundedIcon from "@mui/icons-material/LocalShippingRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import type { CatalogProduct } from "@/lib/catalog/migrated-catalog";
 import {
@@ -66,10 +65,6 @@ export function ProductCard({
             <StarRoundedIcon fontSize="inherit" />
             {rating.toFixed(1)}
           </span>
-          <span className={styles.deliveryBadge}>
-            <LocalShippingRoundedIcon fontSize="inherit" />
-            Free delivery
-          </span>
         </div>
         <h3>
           <Link href={`/products/${product.slug}`}>{title}</Link>
@@ -105,14 +100,12 @@ export function ProductCard({
           </div>
         ) : null}
         <div className={styles.actions}>
-          <a
+          <Link
             className={styles.shopNow}
-            href={product.originalSourceUrl}
-            rel="noopener noreferrer"
-            target="_blank"
+            href={`/products/${product.slug}`}
           >
             Shop Now
-          </a>
+          </Link>
         </div>
       </div>
     </article>

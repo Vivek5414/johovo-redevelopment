@@ -1,0 +1,72 @@
+[
+  {
+    "id": "face-care",
+    "title": "Face Care",
+    "subtitle": "Pack & Glow",
+    "slug": "face-care",
+    "href": "/categories/face-care",
+    "image": "/images/products/iyalmooligai-herbal-face-pack.png",
+    "tag": "Trending",
+    "description": "Natural herbal face packs & botanical formulations for everyday radiant glow"
+  },
+  {
+    "id": "hair-care",
+    "title": "Hair Care",
+    "subtitle": "Oils & Tonics",
+    "slug": "hair-care",
+    "href": "/categories/hair-care",
+    "image": "/images/products/iyalmooligai-herbal-hair-oil.png",
+    "tag": "Bestseller",
+    "description": "Traditional Ayurvedic herbal hair oils for deep nourishment & root strength"
+  },
+  {
+    "id": "body-care",
+    "title": "Body Care",
+    "subtitle": "Scrubs & Care",
+    "slug": "body-care",
+    "href": "/categories/body-care",
+    "image": "/images/products/premium-rose-body-scrub.png",
+    "tag": "Popular",
+    "description": "Luxurious rose scrubs & smoothing bodycare made with gentle natural exfoliants"
+  },
+  {
+    "id": "body-lotion",
+    "title": "Moisturizers",
+    "subtitle": "Rose Lotions",
+    "slug": "body-lotion",
+    "href": "/categories/body-lotion",
+    "image": "/images/products/premium-rose-body-lotion.png",
+    "tag": "Hydration",
+    "description": "Deeply hydrating rose body lotions with lasting softness and delicate floral scent"
+  },
+  {
+    "id": "body-wash",
+    "title": "Body Wash",
+    "subtitle": "Gentle Cleanse",
+    "slug": "body-wash",
+    "href": "/categories/body-wash",
+    "image": "/images/products/premium-rose-body-wash.png",
+    "tag": "Refreshing",
+    "description": "Botanical herbal bath washes that refresh and nourish without stripping skin"
+  },
+  {
+    "id": "orange-glow",
+    "title": "Orange Glow",
+    "subtitle": "Citrus Bright",
+    "slug": "orange-glow",
+    "href": "/products/johovo-iyalmooligai-herbal-face-pack",
+    "image": "/images/products/johovo-orange-face-pack.png",
+    "tag": "New",
+    "description": "Vitamin C infused herbal face formulations for refreshed, energized skin"
+  },
+  {
+    "id": "herbal-care",
+    "title": "All Herbal",
+    "subtitle": "Complete Range",
+    "slug": "herbal-care",
+    "href": "/collections/herbal-care",
+    "image": "/images/hero/hero.png",
+    "tag": "Explore",
+    "description": "Explore the complete botanical universe of IyalMooligai & JOHOVO collections"
+  }
+]

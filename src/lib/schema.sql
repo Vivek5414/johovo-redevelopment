@@ -25,7 +25,19 @@ CREATE TABLE IF NOT EXISTS product_files (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 3. Table for customer contact enquiries (/contact)
+CREATE TABLE IF NOT EXISTS contact_enquiries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    phone VARCHAR(50) NOT NULL,
+    product VARCHAR(255),
+    message TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Indexes for quick lookups
 CREATE INDEX IF NOT EXISTS idx_uploaded_files_created_at ON uploaded_files(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_product_files_product_name ON product_files(product_name);
 CREATE INDEX IF NOT EXISTS idx_product_files_created_at ON product_files(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_contact_enquiries_created_at ON contact_enquiries(created_at DESC);
