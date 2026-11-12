@@ -81,7 +81,6 @@ export function AdminSidebar({
 
         {/* Navigation */}
         <nav className={styles.navSection}>
-          <p className={styles.navLabel}>Database &amp; Modules</p>
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
