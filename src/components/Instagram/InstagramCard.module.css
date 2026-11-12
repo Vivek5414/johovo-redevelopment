@@ -1,0 +1,160 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+
+.previewLink {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.imageWrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-herbal-cream) 70%, var(--color-surface));
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(23, 47, 41, 0.96), rgba(69, 107, 69, 0.9));
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 240ms var(--easing-standard), filter 240ms var(--easing-standard);
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+  filter: saturate(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 47, 41, 0.02), rgba(23, 47, 41, 0.26));
+}
+
+.iconBadge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-herbal-forest-deep);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.reelPill {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: rgba(23, 47, 41, 0.8);
+  color: var(--color-surface);
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0.8rem 0.85rem;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.likeButton,
+.likeButtonActive,
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.74rem;
+  font-weight: var(--font-weight-semibold);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
+}
+
+.likeButton:hover,
+.likeButtonActive:hover,
+.shareButton:hover {
+  transform: translateY(-1px);
+}
+
+.likeButtonActive {
+  border-color: rgba(252, 40, 116, 0.2);
+  background: rgba(252, 40, 116, 0.08);
+  color: var(--color-brand-pink);
+}
+
+.shareButton {
+  min-width: 5.2rem;
+}

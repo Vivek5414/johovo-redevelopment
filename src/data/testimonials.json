@@ -1,0 +1,50 @@
+[
+  {
+    "id": "cust-1",
+    "name": "Priya S.",
+    "location": "Chennai, Tamil Nadu",
+    "rating": 5,
+    "quote": "The herbal formula feels so gentle on my skin and gives a natural, lasting glow without any irritation. I have been using it for weeks and love the fresh botanical feel it leaves every single morning.",
+    "product": "IyalMooligai Herbal Face Pack",
+    "productSlug": "johovo-iyalmooligai-herbal-face-pack",
+    "productImage": "/images/products/iyalmooligai-herbal-face-pack.png",
+    "date": "2 days ago",
+    "verified": true
+  },
+  {
+    "id": "cust-2",
+    "name": "Anand R.",
+    "location": "Coimbatore, Tamil Nadu",
+    "rating": 5,
+    "quote": "The texture is rich yet non-sticky, the herbal aroma is deeply calming, and the hair fall reduction is genuinely noticeable. Fits effortlessly into my daily routine and feels very premium.",
+    "product": "IyalMooligai Herbal Hair Oil",
+    "productSlug": "johovo-iyalmooligai-herbal-hair-oil",
+    "productImage": "/images/products/iyalmooligai-herbal-hair-oil.png",
+    "date": "1 week ago",
+    "verified": true
+  },
+  {
+    "id": "cust-3",
+    "name": "Meena K.",
+    "location": "Bengaluru, Karnataka",
+    "rating": 5,
+    "quote": "I was looking for a clean herbal skincare routine and this collection delivered beyond expectations. My skin texture has noticeably improved, silky smooth with zero dryness.",
+    "product": "Premium Rose Body Scrub",
+    "productSlug": "premium-rose-body-scrub-johovo",
+    "productImage": "/images/products/premium-rose-body-scrub.png",
+    "date": "2 weeks ago",
+    "verified": true
+  },
+  {
+    "id": "cust-4",
+    "name": "Divya N.",
+    "location": "Hyderabad, Telangana",
+    "rating": 5,
+    "quote": "Thoughtfully crafted herbal formulation. My curls feel significantly softer and more manageable, and the natural sheen lasts throughout the week without weighing hair down.",
+    "product": "IyalMooligai Herbal Hair Oil",
+    "productSlug": "johovo-iyalmooligai-herbal-hair-oil",
+    "productImage": "/images/products/iyalmooligai-herbal-hair-oil.png",
+    "date": "3 weeks ago",
+    "verified": true
+  }
+]

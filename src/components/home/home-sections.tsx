@@ -17,6 +17,7 @@ import { PageContainer } from "@/components/layout/page-container";
 import { WhatsAppEnquiryForm } from "@/components/contact/whatsapp-enquiry-form";
 import { ProductCard } from "@/components/product/product-card";
 import { LinkButton } from "@/components/ui/link-button";
+import { InstagramSection as InstagramShowcaseSection } from "@/components/Instagram";
 import { ScrollReveal } from "./scroll-reveal";
 import {
   catalogProducts,
@@ -84,17 +85,6 @@ const heroLifestyleAlt =
   heroImage?.alt ?? "JOHOVO homepage promotion featuring its product collection";
 const hairOil = herbalProducts.find((product) =>
   product.categories.some(({ name }) => name === "Hair Oil"),
-);
-const allReviews = catalogProducts.flatMap((product) =>
-  product.reviews.map((review, index) => ({
-    ...review,
-    productName: product.name,
-    productSlug: product.slug,
-    key: `${product.id}-${index}`,
-  })),
-);
-const homepageReviews = allReviews.filter(
-  ({ productSlug }) => productSlug === "johovo-iyalmooligai-herbal-face-pack",
 );
 const videos = catalogProducts.flatMap((product) =>
   product.videos.map((video, index) => ({
@@ -570,96 +560,8 @@ export function VideoSection() {
   );
 }
 
-export function ReviewsSection() {
-  if (!homepageReviews.length) return null;
-
-  return (
-    <ContentSection className={styles.reviews} id="reviews">
-      <PageContainer>
-        <SectionHeading
-          eyebrow="CUSTOMER LOVE"
-          title="Real Experiences. Honest Reviews."
-          description="Discover what customers are saying about their JOHOVO experience."
-        />
-        <p className={styles.reviewSummary}>
-          <strong>{homepageReviews.length}</strong>
-          <span>published customer reviews</span>
-        </p>
-        <div className={styles.reviewGrid}>
-          {homepageReviews.map((review, index) => {
-            const productPresentation = getShowcaseProduct(review.productSlug);
-            const productTitle =
-              productPresentation?.title ?? review.productName;
-
-            return (
-              <ScrollReveal index={index} key={review.key}>
-                <article className={styles.reviewCard}>
-                  <div className={styles.reviewTopline}>
-                    <span className={styles.reviewEyebrow}>Customer review</span>
-                    {review.rating !== null ? (
-                      <span
-                        aria-label={`${review.rating} out of 5 stars`}
-                        className={styles.reviewStars}
-                      >
-                        {Array.from({ length: 5 }, (_, starIndex) => (
-                          <span
-                            aria-hidden="true"
-                            className={
-                              starIndex < review.rating!
-                                ? styles.reviewStarFilled
-                                : styles.reviewStarEmpty
-                            }
-                            key={starIndex}
-                          >
-                            ★
-                          </span>
-                        ))}
-                      </span>
-                    ) : null}
-                  </div>
-                  <blockquote>{review.text}</blockquote>
-                  <div className={styles.reviewAttribution}>
-                    {review.author ? (
-                      <span className={styles.reviewAuthor}>
-                        {review.author}
-                      </span>
-                    ) : null}
-                    {review.date ? (
-                      <time dateTime={review.date}>
-                        {review.date.slice(0, 10)}
-                      </time>
-                    ) : null}
-                  </div>
-                  <Link
-                    className={styles.reviewProduct}
-                    href={`/products/${review.productSlug}`}
-                  >
-                    {productPresentation ? (
-                      <span className={styles.reviewProductImage}>
-                        <Image
-                          alt=""
-                          fill
-                          sizes="48px"
-                          src={productPresentation.imageSrc}
-                        />
-                      </span>
-                    ) : null}
-                    <span>
-                      <small>Reviewed product</small>
-                      <strong>{productTitle}</strong>
-                    </span>
-                    <span aria-hidden="true" className={styles.reviewProductArrow}>
-                      →
-                    </span>
-                  </Link>
-                </article>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-      </PageContainer>
-    </ContentSection>
-  );
+export function InstagramSection() {
+  return <InstagramShowcaseSection />;
 }
 
 export function ContactSection() {

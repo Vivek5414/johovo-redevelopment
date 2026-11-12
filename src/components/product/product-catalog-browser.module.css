@@ -4,44 +4,211 @@
   min-width: 0;
 }
 
+.topBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .searchLabel {
   display: grid;
-  width: min(100%, 34rem);
+  flex: 1 1 35rem;
+  max-width: 56rem;
   gap: var(--space-2);
   color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
 }
 
+.searchLabelText {
+  margin-left: 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.searchFieldWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.25rem 0.25rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  box-shadow: 0 4px 14px rgb(23 47 41 / 6%);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  color: var(--color-text-secondary);
+}
+
 .searchInput {
   width: 100%;
-  min-height: 48px;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  min-height: 52px;
+  padding: var(--space-3) 3.2rem var(--space-3) 2.6rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-text-primary);
+  background: transparent;
+  box-shadow: none;
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.searchInput:focus-visible {
+  outline: none;
+}
+
+.toolbarMeta {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.resultCount {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.mobileFilterButton {
+  display: none;
+}
+
+.mobileFilterBackdrop {
+  display: none;
+}
+
+.mobileFilterHeader {
+  display: none;
+}
+
+.closeFilterButton {
+  display: none;
+}
+
+.mobileSortTitle {
+  display: block;
+}
+
+.sortLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--color-surface) 26%, transparent);
+  border-radius: 0.75rem;
+  color: var(--color-surface);
+  background: color-mix(in srgb, var(--color-surface) 10%, transparent);
+  font-size: var(--font-size-sm);
+}
+
+.sortLabel select {
+  min-height: 38px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: 0.6rem;
+  color: var(--color-surface);
+  background: transparent;
+  font-weight: var(--font-weight-medium);
+  outline: none;
+}
+
+.sortLabel select option {
   color: var(--color-text-primary);
   background: var(--color-surface);
 }
 
-.searchInput:focus-visible {
+.catalogLayout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.filterSidebar {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.sidebarBox {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.sidebarBox h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.sortOptions {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.sortOption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 42px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  text-align: left;
+  transition:
+    border-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard);
+}
+
+.sortOption:hover {
   border-color: var(--color-brand-purple-text);
+}
+
+.sortSelected {
+  border-color: var(--color-brand-purple-text);
+  color: var(--color-brand-purple-text);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 10%, var(--color-surface));
 }
 
 .categoryNavigation {
   display: flex;
+  flex-direction: column;
   gap: var(--space-2);
-  overflow-x: auto;
-  margin-inline: calc(-1 * var(--page-gutter));
-  padding: var(--space-1) var(--page-gutter) var(--space-3);
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
+  overflow: visible;
+  padding: 0;
 }
 
 .categoryButton {
   display: inline-flex;
   min-height: 42px;
-  flex: 0 0 auto;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
@@ -50,20 +217,31 @@
   background: var(--color-surface);
   cursor: pointer;
   font-size: var(--font-size-sm);
-  scroll-snap-align: start;
+  text-align: left;
   transition:
+    transform var(--duration-fast) var(--easing-standard),
     border-color var(--duration-fast) var(--easing-standard),
-    color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard),
     background-color var(--duration-fast) var(--easing-standard);
 }
 
 .categoryButton:hover {
-  border-color: var(--color-brand-cyan);
+  transform: translateY(-1px);
+  border-color: var(--color-brand-purple-text);
+  box-shadow: var(--shadow-card);
 }
 
 .categoryButton span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
   color: var(--color-text-secondary);
-  font-size: var(--font-size-xs);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 8%, var(--color-surface));
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
 }
 
 .childCategory {
@@ -71,37 +249,19 @@
 }
 
 .selected {
-  border-color: var(--color-brand-cyan);
-  color: var(--color-text-primary);
-  background: color-mix(in srgb, var(--color-brand-cyan) 12%, white);
+  border-color: var(--color-brand-purple-text);
+  color: var(--color-brand-purple-text);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 9%, var(--color-surface));
 }
 
 .selected span {
-  color: inherit;
+  color: var(--color-brand-purple-text);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 12%, var(--color-surface));
 }
 
-.resultCount {
-  margin: 0;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-}
-
-.sortLabel {
-  display: flex;
-  width: fit-content;
-  align-items: center;
-  gap: var(--space-3);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-}
-
-.sortLabel select {
-  min-height: 42px;
-  padding: 0 var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
-  background: var(--color-surface);
+.mainCatalogContent {
+  display: grid;
+  gap: var(--space-5);
 }
 
 .productGrid {
@@ -114,8 +274,9 @@
   margin: 0;
   padding: var(--space-8);
   border: 1px solid var(--color-border);
+  border-radius: 1rem;
   color: var(--color-text-secondary);
-  background: var(--color-surface-muted);
+  background: var(--color-surface);
   text-align: center;
 }
 
@@ -123,19 +284,27 @@
   min-height: 46px;
   justify-self: center;
   padding-inline: var(--space-6);
-  border: 1px solid var(--color-brand-cyan);
+  border: 1px solid var(--color-brand-purple-text);
   border-radius: var(--radius-pill);
-  color: var(--color-text-primary);
-  background: var(--color-surface);
+  color: var(--color-brand-purple-text);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 10%, var(--color-surface));
   cursor: pointer;
   font-weight: var(--font-weight-semibold);
 }
 
 .loadMore:hover {
-  background: color-mix(in srgb, var(--color-brand-cyan) 12%, white);
+  background: color-mix(in srgb, var(--color-brand-purple-text) 18%, var(--color-surface));
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
+  .catalogLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .filterSidebar {
+    order: 2;
+  }
+
   .productGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -144,6 +313,141 @@
 @media (max-width: 600px) {
   .browser {
     gap: var(--space-5);
+  }
+
+  .topBar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .searchLabel {
+    max-width: none;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .searchFieldWrap {
+    min-width: 0;
+  }
+
+  .toolbarMeta {
+    display: none;
+  }
+
+  .mobileFilterButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 0.8rem;
+    border: 1px solid var(--color-brand-pink);
+    border-radius: 999px;
+    color: var(--color-brand-pink);
+    background: color-mix(in srgb, var(--color-brand-pink) 12%, var(--color-surface));
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+  }
+
+  .catalogLayout {
+    position: relative;
+  }
+
+  .filterSidebar {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    z-index: 9999;
+    width: min(88vw, 24rem);
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 1rem 0.9rem 1.2rem;
+    border-radius: 0;
+    background: var(--color-surface);
+    box-shadow: -18px 0 40px rgb(25 25 25 / 18%);
+    transition: right 180ms ease;
+  }
+
+  .filterSidebarOpen {
+    right: 0;
+  }
+
+  .mobileFilterBackdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    display: block;
+    border: 0;
+    background: rgb(17 17 17 / 38%);
+    cursor: pointer;
+  }
+
+  .sidebarBox {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0.9rem 0.8rem 1rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mobileFilterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobileFilterHeader h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .closeFilterButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    border: 1px solid var(--color-brand-pink);
+    border-radius: 999px;
+    color: var(--color-surface);
+    background: var(--color-brand-pink);
+    box-shadow: 0 6px 16px rgb(204 86 116 / 25%);
+    cursor: pointer;
+  }
+
+  .mobileSortTitle {
+    display: none;
+  }
+
+  .sortOptions {
+    gap: 0.35rem;
+  }
+
+  .sortOption,
+  .categoryButton {
+    min-height: 38px;
+    font-size: 0.84rem;
+  }
+
+  .sortLabel {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sortLabel select {
+    width: 100%;
   }
 
   .productGrid {

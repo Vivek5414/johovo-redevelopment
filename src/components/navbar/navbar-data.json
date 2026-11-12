@@ -32,6 +32,10 @@
       "href": "/collections/herbal-care"
     },
     {
+      "label": "Reviews",
+      "href": "/testimonial"
+    },
+    {
       "label": "Contact",
       "href": "/contact"
     }

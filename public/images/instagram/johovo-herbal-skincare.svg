@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" role="img" aria-labelledby="title desc">
+  <title id="title">Herbal skincare</title>
+  <desc id="desc">Botanical skincare still life in olive green and cream tones.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f1df"/>
+      <stop offset="1" stop-color="#e8f0d0"/>
+    </linearGradient>
+    <linearGradient id="jar" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#fdfdfb"/>
+      <stop offset="1" stop-color="#ebeadf"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="680" fill="url(#bg)"/>
+  <circle cx="460" cy="90" r="84" fill="#dfe9c7" opacity="0.85"/>
+  <path d="M60 510c86-86 132-100 185-72 66 35 95 26 137-2 46-31 88-30 130 9 20 18 36 38 55 60v176H60V510Z" fill="#b8c89d" opacity="0.6"/>
+  <rect x="215" y="220" width="170" height="220" rx="28" fill="url(#jar)" stroke="#8d9078" stroke-width="4"/>
+  <rect x="245" y="180" width="110" height="52" rx="18" fill="#d7d0b7"/>
+  <rect x="252" y="258" width="96" height="110" rx="18" fill="#c5d85e" opacity="0.42"/>
+  <path d="M285 300c20-27 46-41 34-72-27 11-58 44-45 86 7 22 28 32 58 32-12-16-31-28-47-46Z" fill="#7aa85c" opacity="0.85"/>
+  <path d="M148 490c16-46 49-84 80-111 24-20 59-37 96-41-10 46-28 83-60 115-31 31-84 52-116 37Z" fill="#a8bf78" opacity="0.75"/>
+  <path d="M440 470c18-41 54-68 90-81-11 31-31 55-59 76-27 20-55 32-77 31 12-9 31-17 46-26Z" fill="#8aa660" opacity="0.72"/>
+  <text x="300" y="588" text-anchor="middle" fill="#203b33" font-size="28" font-family="Georgia, serif" font-weight="700">JOHOVO</text>
+  <text x="300" y="622" text-anchor="middle" fill="#456b45" font-size="18" font-family="Arial, sans-serif">Herbal glow</text>
+</svg>

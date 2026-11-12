@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/hero";
 import { SiteHeader } from "@/components/site-header";
+import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
 import {
   AboutSection,
   CollectionsSection,
@@ -8,9 +9,9 @@ import {
   HerbalSection,
   ProductInformationSection,
   ProductCategoriesSection,
-  ReviewsSection,
   VideoSection,
 } from "@/components/home/home-sections";
+import { TestimonialsSection } from "@/components/testimonials/testimonials";
 
 export const metadata: Metadata = {
   title: "JOHOVO | Product Catalogue",
@@ -28,7 +29,8 @@ export default function Home() {
       <HerbalSection />
       <ProductInformationSection />
       <VideoSection />
-      <ReviewsSection />
+      <TestimonialsSection />
+      <InstagramShowcase />
       <ContactSection />
     </>
   );

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" role="img" aria-labelledby="title desc">
+  <title id="title">Nature care</title>
+  <desc id="desc">Gentle natural skincare and botanical care composition.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f8ef"/>
+      <stop offset="1" stop-color="#dce8d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="680" fill="url(#bg)"/>
+  <circle cx="462" cy="104" r="92" fill="#dfeac4" opacity="0.84"/>
+  <path d="M64 520c45-53 101-98 175-131 45-20 96-34 146-35 46-2 87 9 128 31 26 14 57 42 91 72v168H64V520Z" fill="#a7c287" opacity="0.68"/>
+  <rect x="178" y="190" width="246" height="260" rx="28" fill="#f4f0e5" stroke="#9aa27d" stroke-width="4"/>
+  <rect x="212" y="146" width="178" height="58" rx="16" fill="#dfe0ca"/>
+  <path d="M228 335c41-61 88-94 160-111-10 62-32 118-81 157-49 39-106 55-131 46 11-28 26-59 52-92Z" fill="#7ea56a" opacity="0.8"/>
+  <path d="M330 272c42-28 87-26 121 9 29 28 39 76 28 122-19 78-82 121-152 120-40-1-77-14-109-42 30-47 60-87 112-109Z" fill="#d9b378" opacity="0.72"/>
+  <text x="300" y="586" text-anchor="middle" fill="#203b33" font-size="30" font-family="Georgia, serif" font-weight="700">Nature Care</text>
+  <text x="300" y="620" text-anchor="middle" fill="#456b45" font-size="18" font-family="Arial, sans-serif">Plant-powered care</text>
+</svg>

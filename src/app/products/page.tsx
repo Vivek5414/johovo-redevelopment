@@ -32,7 +32,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           <header className={styles.heading}>
             <p className={styles.eyebrow}>JOHOVO catalogue</p>
             <h1>Products</h1>
-            <p>
+            <p className={styles.lead}>
               Browse products captured from the JOHOVO source catalogue. Prices
               and product details are shown as recorded and may require
               confirmation before purchase.

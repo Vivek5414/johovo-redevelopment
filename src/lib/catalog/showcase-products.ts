@@ -28,8 +28,7 @@ export const showcaseProducts: readonly ShowcaseProduct[] = [
   {
     slug: "johovo-iyalmooligai-herbal-face-pack",
     title: "IyalMooligai Herbal Face Pack",
-    description:
-      "A herbal blend made with natural ingredients to deep cleanse, remove impurities, and nourish skin.",
+    description: "",
     imageSrc: "/images/products/iyalmooligai-herbal-face-pack.png",
     imageAlt: "IyalMooligai Herbal Face Pack promotional product artwork",
   },

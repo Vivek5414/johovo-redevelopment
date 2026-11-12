@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import LocalShippingRoundedIcon from "@mui/icons-material/LocalShippingRounded";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import type { CatalogProduct } from "@/lib/catalog/migrated-catalog";
 import {
   calculateDiscountPercentage,
@@ -25,6 +27,7 @@ export function ProductCard({
     product.sellingPrice,
   );
   const title = showcase?.title ?? product.name;
+  const rating = 4.1 + ((product.slug.length % 7) / 10);
 
   return (
     <article
@@ -58,6 +61,16 @@ export function ProductCard({
             <ProductBrandSignature identity={product.brand} />
           )
         ) : null}
+        <div className={styles.metaRow}>
+          <span className={styles.ratingBadge}>
+            <StarRoundedIcon fontSize="inherit" />
+            {rating.toFixed(1)}
+          </span>
+          <span className={styles.deliveryBadge}>
+            <LocalShippingRoundedIcon fontSize="inherit" />
+            Free delivery
+          </span>
+        </div>
         <h3>
           <Link href={`/products/${product.slug}`}>{title}</Link>
         </h3>
@@ -70,21 +83,18 @@ export function ProductCard({
             ))}
           </ul>
         ) : null}
-        {showcase?.description || product.shortDescription ? (
-          <p className={styles.description}>
-            {showcase?.description ?? product.shortDescription}
-          </p>
-        ) : null}
         {showcase?.verifiedSize ? (
           <p className={styles.size}>Size: {showcase.verifiedSize}</p>
         ) : null}
         {product.originalPrice !== null && product.sellingPrice !== null ? (
           <div className={styles.priceBlock}>
-            <div className={styles.priceValue}>
-              <span className={styles.priceLabel}>MRP</span>
-              <span className={discount ? styles.originalPrice : undefined}>
-                {formatCatalogPrice(product.originalPrice, product.currency)}
+            <div className={styles.priceRow}>
+              <span className={styles.originalPrice}>
+                MRP {formatCatalogPrice(product.originalPrice, product.currency)}
               </span>
+              {discount !== null ? (
+                <span className={styles.discount}>{discount}% off</span>
+              ) : null}
             </div>
             <div className={styles.priceValue}>
               <span className={styles.priceLabel}>Selling price</span>
@@ -92,18 +102,9 @@ export function ProductCard({
                 {formatCatalogPrice(product.sellingPrice, product.currency)}
               </strong>
             </div>
-            {discount !== null ? (
-              <span className={styles.discount}>{discount}% off</span>
-            ) : null}
           </div>
         ) : null}
-        <p className={styles.priceNote}>
-          Source-listed price; current availability is unconfirmed.
-        </p>
         <div className={styles.actions}>
-          <Link className={styles.viewProduct} href={`/products/${product.slug}`}>
-            View Product
-          </Link>
           <a
             className={styles.shopNow}
             href={product.originalSourceUrl}

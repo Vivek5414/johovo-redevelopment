@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   HerbalBrandSignature,
 } from "@/components/brand/herbal-botanical-pattern";
 import { ProductBrandSignature } from "@/components/brand/product-brand-signature";
+import { PageNavigation } from "@/components/common/page-navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageContainer } from "@/components/layout/page-container";
 import { ProductCard } from "@/components/product/product-card";
@@ -96,11 +96,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <SiteHeader />
       <main className={styles.main}>
         <PageContainer>
-          <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-            <Link href="/products">Products</Link>
-            <span aria-hidden="true">/</span>
-                <span aria-current="page">{showcase?.title ?? product.name}</span>
-          </nav>
+          <PageNavigation
+            backHref="/products"
+            items={[
+              { label: "Products", href: "/products" },
+              { label: showcase?.title ?? product.name, current: true },
+            ]}
+          />
 
           <div className={styles.productLayout}>
             <ProductGallery

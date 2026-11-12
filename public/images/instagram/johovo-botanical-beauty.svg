@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" role="img" aria-labelledby="title desc">
+  <title id="title">Botanical beauty</title>
+  <desc id="desc">Botanical beauty essentials in a fresh green and blush palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fdf6ee"/>
+      <stop offset="1" stop-color="#edf3dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="680" fill="url(#bg)"/>
+  <path d="M38 484c81-77 142-101 198-100 83 2 129 48 168 87 57 58 94 93 140 117H38v-104Z" fill="#b9d7a4" opacity="0.7"/>
+  <rect x="160" y="165" width="118" height="260" rx="24" fill="#f7f4ec" stroke="#a3a48c" stroke-width="4"/>
+  <rect x="300" y="230" width="144" height="195" rx="24" fill="#f6e8d6" stroke="#c39b73" stroke-width="4"/>
+  <rect x="214" y="134" width="90" height="48" rx="18" fill="#d9d4b8"/>
+  <rect x="344" y="197" width="82" height="50" rx="17" fill="#e4d8c8"/>
+  <path d="M200 330c52-54 106-71 165-70-12 42-39 79-68 100-53 37-110 54-150 50 11-24 28-49 53-80Z" fill="#a7c884" opacity="0.9"/>
+  <path d="M334 285c32-40 69-62 113-70-19 74-52 114-90 136-35 20-73 22-102 19 23-28 39-55 79-85Z" fill="#c88f8f" opacity="0.6"/>
+  <text x="300" y="582" text-anchor="middle" fill="#203b33" font-size="28" font-family="Georgia, serif" font-weight="700">Botanical Beauty</text>
+  <text x="300" y="617" text-anchor="middle" fill="#456b45" font-size="18" font-family="Arial, sans-serif">Everyday ritual</text>
+</svg>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageNavigation } from "@/components/common/page-navigation";
 import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
@@ -52,11 +52,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <SiteHeader />
       <main className={styles.main}>
         <PageContainer>
-          <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-            <Link href="/products">Products</Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">{category.name}</span>
-          </nav>
+          <PageNavigation
+            backHref="/products"
+            items={[{ label: "Products", href: "/products" }, { label: category.name, current: true }]}
+          />
           <header className={styles.heading}>
             <p className={styles.eyebrow}>Source-listed category</p>
             <h1>{category.name}</h1>
