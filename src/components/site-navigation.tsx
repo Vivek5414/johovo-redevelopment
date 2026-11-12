@@ -1,5 +1,6 @@
 "use client";
 
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -111,10 +112,7 @@ export function SiteNavigation({ products }: { products: SearchProduct[] }) {
             value={query}
           />
           <button aria-label="Search products" type="submit">
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <circle cx="10.8" cy="10.8" r="6.8" />
-              <path d="m16 16 5 5" />
-            </svg>
+            <SearchRoundedIcon />
           </button>
           {matches.length ? (
             <ul aria-label="Search suggestions" className={styles.suggestions}>

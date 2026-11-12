@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { useState, type FormEvent } from "react";
 import { JOHOVO_CONTACT } from "@/lib/contact";
 import styles from "./whatsapp-enquiry-form.module.css";
@@ -99,12 +100,7 @@ export function WhatsAppEnquiryForm({
         <textarea maxLength={2000} name="message" required rows={5} />
       </label>
       <button className={styles.submit} type="submit">
-        {isPremium ? (
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M20.2 11.6a8.2 8.2 0 0 1-12.1 7.2l-4.1 1.1 1.1-4a8.2 8.2 0 1 1 15.1-4.3Z" />
-            <path d="M8.2 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.5.9 1.3 1.7 2.2 2.2.2.1.4.2.6 0l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1 1-.7 1.4-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-2-2.4-2.2-3.3-.3-.9 0-1.8.4-2.5Z" />
-          </svg>
-        ) : null}
+        {isPremium ? <WhatsAppIcon /> : null}
         {isPremium ? "Prepare WhatsApp Message" : "Prepare WhatsApp message"}
       </button>
       <p className={styles.disclaimer}>

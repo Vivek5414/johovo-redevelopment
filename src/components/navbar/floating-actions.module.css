@@ -1,0 +1,135 @@
+.floatingActions {
+  position: fixed;
+  right: clamp(1rem, 2.5vw, 1.75rem);
+  bottom: clamp(1rem, 2.5vw, 1.75rem);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.actionButton {
+  pointer-events: auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  transition: transform var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+  cursor: pointer;
+}
+
+.actionButton:hover,
+.actionButton:focus-visible {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.actionButton:active {
+  transform: scale(0.96);
+}
+
+.callButton {
+  background: linear-gradient(135deg, var(--color-herbal-forest) 0%, var(--color-herbal-natural) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.whatsappButton {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Tooltip on desktop hover */
+.labelTooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: var(--color-herbal-forest-deep);
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.labelTooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--color-herbal-forest-deep);
+}
+
+.actionButton:hover .labelTooltip,
+.actionButton:focus-visible .labelTooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Pulse animation on whatsapp button */
+.whatsappButton::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  opacity: 0.6;
+  animation: pulseRipple 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRipple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .actionButton {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Don't show tooltips on mobile/touch */
+  .labelTooltip {
+    display: none;
+  }
+}

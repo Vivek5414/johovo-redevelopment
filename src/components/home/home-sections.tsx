@@ -1,3 +1,10 @@
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import BrushRoundedIcon from "@mui/icons-material/BrushRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import FaceRetouchingNaturalRoundedIcon from "@mui/icons-material/FaceRetouchingNaturalRounded";
+import PaletteRoundedIcon from "@mui/icons-material/PaletteRounded";
+import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Image from "next/image";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -119,63 +126,17 @@ function SectionHeading({
 }
 
 function HeroCategoryIcon({ slug }: { slug: string }) {
+  const Icon =
+    slug === "face-care"
+      ? FaceRetouchingNaturalRoundedIcon
+      : slug === "hair-care"
+        ? BrushRoundedIcon
+        : PaletteRoundedIcon;
+
   return (
-    <svg
-      aria-hidden="true"
-      fill="none"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {slug === "face-care" ? (
-        <>
-          <path
-            d="M12 3.5c-4.1 0-7 3.1-7 7.4v2.2c0 4.3 2.8 7.4 7 7.4s7-3.1 7-7.4v-2.2c0-4.3-2.9-7.4-7-7.4Z"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M9 10.5h.01M15 10.5h.01M9.5 15c1.4 1.1 3.6 1.1 5 0"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="1.5"
-          />
-        </>
-      ) : slug === "hair-care" ? (
-        <>
-          <path
-            d="M18.5 20c-1.8-2.3-2.2-4.7-1.3-7.1 1-3.1-.7-6.2-3.8-7-3.2-.8-6.2 1.4-6.5 4.7-.3 2.4.4 4.9 2.1 6.9V20"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M7.3 11.6c1.4.1 2.3-.5 2.8-1.8m-2.4 5c1.7.2 2.9-.5 3.6-2"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="1.5"
-          />
-        </>
-      ) : (
-        <>
-          <path
-            d="M8 3.5h8v3l-1.5 1.7v11.3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V8.2L8 6.5v-3Z"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M9.5 12h5m-5 2.5h5"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="1.5"
-          />
-        </>
-      )}
-    </svg>
+    <span className={styles.heroFeatureIcon}>
+      <Icon fontSize="inherit" />
+    </span>
   );
 }
 
@@ -283,7 +244,7 @@ export function HeroSection() {
                 </span>
               ) : null}
               <span className={styles.featuredProductLink}>
-                View product <span aria-hidden="true">↗</span>
+                View product <ArrowForwardRoundedIcon fontSize="small" />
               </span>
             </span>
           </Link>
@@ -716,9 +677,7 @@ export function ContactSection() {
             <address className={styles.contactDetails}>
               <a href={`tel:${JOHOVO_CONTACT.phone}`}>
                 <span aria-hidden="true" className={styles.contactIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <path d="M7.1 3.5h2.7l1.3 4.1-1.8 1.8a15 15 0 0 0 5.3 5.3l1.8-1.8 4.1 1.3v2.7a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 5.1 5.7a2 2 0 0 1 2-2.2Z" />
-                  </svg>
+                  <PhoneRoundedIcon fontSize="small" />
                 </span>
                 <span>
                   <small>Call our team</small>
@@ -727,10 +686,7 @@ export function ContactSection() {
               </a>
               <a href={`mailto:${JOHOVO_CONTACT.email}`}>
                 <span aria-hidden="true" className={styles.contactIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <rect height="15" rx="2" width="19" x="2.5" y="4.5" />
-                    <path d="m3.5 6 8.5 7 8.5-7" />
-                  </svg>
+                  <EmailRoundedIcon fontSize="small" />
                 </span>
                 <span>
                   <small>Email support</small>
@@ -743,10 +699,7 @@ export function ContactSection() {
                 target="_blank"
               >
                 <span aria-hidden="true" className={styles.contactIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <path d="M20.2 11.6a8.2 8.2 0 0 1-12.1 7.2l-4.1 1.1 1.1-4a8.2 8.2 0 1 1 15.1-4.3Z" />
-                    <path d="M8.2 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.5.9 1.3 1.7 2.2 2.2.2.1.4.2.6 0l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1 1-.7 1.4-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-2-2.4-2.2-3.3-.3-.9 0-1.8.4-2.5Z" />
-                  </svg>
+                  <WhatsAppIcon fontSize="small" />
                 </span>
                 <span>
                   <small>WhatsApp</small>
