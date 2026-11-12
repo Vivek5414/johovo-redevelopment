@@ -4,6 +4,7 @@ import StarIcon from "@mui/icons-material/Star";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import testimonialsData from "@/data/testimonials.json";
+import { PageNavigation } from "@/components/common/page-navigation";
 import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -27,6 +28,20 @@ export default function TestimonialPage() {
     <>
       <SiteHeader />
       <main className={styles.page}>
+        {/* Navigation / Breadcrumb row with breathing room */}
+        <div className={styles.navigationBar}>
+          <PageContainer>
+            <PageNavigation
+              backHref="/"
+              backLabel="Back to Home"
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Testimonials", current: true },
+              ]}
+            />
+          </PageContainer>
+        </div>
+
         {/* Hero Header */}
         <header className={styles.header}>
           <PageContainer>

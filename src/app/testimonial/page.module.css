@@ -3,6 +3,12 @@
   min-height: 100vh;
 }
 
+/* Navigation bar row above hero */
+.navigationBar {
+  background: color-mix(in srgb, var(--color-herbal-cream) 90%, #fff);
+  border-bottom: 1px solid var(--color-herbal-border);
+}
+
 /* Header Banner */
 .header {
   background: linear-gradient(
@@ -10,7 +16,7 @@
     color-mix(in srgb, var(--color-herbal-cream) 90%, #fff) 0%,
     color-mix(in srgb, var(--color-herbal-cream) 40%, var(--color-surface)) 100%
   );
-  padding: clamp(3.5rem, 6vw, 5rem) 0 3rem;
+  padding: clamp(3rem, 5vw, 4.5rem) 0 3rem;
   border-bottom: 1px solid var(--color-herbal-border);
 }
 
@@ -191,7 +197,6 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
   padding-top: 1rem;
   border-top: 1px dashed var(--color-border);
 }
@@ -248,76 +253,6 @@
   gap: 0.4rem;
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
-}
-
-/* Product link */
-.productLink {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.65rem 0.85rem;
-  background: color-mix(in srgb, var(--color-herbal-cream) 70%, var(--color-surface));
-  border: 1px solid var(--color-herbal-border);
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  transition: all var(--duration-fast) var(--easing-standard);
-}
-
-.productLink:hover {
-  background: var(--color-surface);
-  border-color: var(--color-herbal-natural);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-herbal-forest) 8%, transparent);
-}
-
-.productThumb {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: #fff;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.productThumbImg {
-  object-fit: contain;
-  padding: 2px;
-}
-
-.productDetails {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.productLabel {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-bold);
-}
-
-.productName {
-  font-size: 0.825rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-herbal-forest-deep);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.productArrow {
-  font-size: 1rem !important;
-  color: var(--color-herbal-natural);
-  transition: transform var(--duration-fast) var(--easing-standard);
-  flex-shrink: 0;
-}
-
-.productLink:hover .productArrow {
-  transform: translateX(3px);
 }
 
 /* Bottom Callout */

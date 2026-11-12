@@ -14,13 +14,22 @@ type PageNavigationProps = {
   items: BreadcrumbItem[];
   backHref?: string;
   backLabel?: string;
+  className?: string;
 };
 
-export function BackButton({ href = "/", label = "Back" }: { href?: string; label?: string }) {
+export function BackButton({
+  href = "/",
+  label = "Back to Home",
+}: {
+  href?: string;
+  label?: string;
+}) {
   return (
     <Link className={styles.backButton} href={href}>
-      <ArrowBackRoundedIcon fontSize="small" />
-      <span>{label}</span>
+      <span className={styles.backButtonIconWrapper}>
+        <ArrowBackRoundedIcon className={styles.backIcon} />
+      </span>
+      <span className={styles.backButtonLabel}>{label}</span>
     </Link>
   );
 }
@@ -33,24 +42,40 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   }
 
   return (
-    <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
+    <nav aria-label="Breadcrumb navigation" className={styles.breadcrumbs}>
       <ol className={styles.breadcrumbList}>
         {safeItems.map((item, index) => {
+          const isFirst = index === 0;
           const isLast = index === safeItems.length - 1;
-          const content = item.href && !item.current ? (
-            <Link className={styles.breadcrumbLink} href={item.href}>
-              {item.label}
-            </Link>
-          ) : (
-            <span aria-current={item.current ? "page" : undefined} className={styles.breadcrumbCurrent}>
-              {item.label}
-            </span>
-          );
+          const isCurrent = item.current || isLast;
 
           return (
             <li className={styles.breadcrumbItem} key={`${item.label}-${index}`}>
-              {content}
-              {!isLast ? <NavigateNextRoundedIcon className={styles.separator} fontSize="inherit" /> : null}
+              {item.href && !isCurrent ? (
+                <Link className={styles.breadcrumbLink} href={item.href}>
+                  {isFirst ? (
+                    <HomeRoundedIcon className={styles.homeIcon} />
+                  ) : null}
+                  <span>{item.label}</span>
+                </Link>
+              ) : (
+                <span
+                  aria-current={isCurrent ? "page" : undefined}
+                  className={styles.breadcrumbCurrent}
+                >
+                  {isFirst ? (
+                    <HomeRoundedIcon className={styles.homeIcon} />
+                  ) : null}
+                  <span>{item.label}</span>
+                </span>
+              )}
+
+              {!isLast ? (
+                <NavigateNextRoundedIcon
+                  aria-hidden="true"
+                  className={styles.separator}
+                />
+              ) : null}
             </li>
           );
         })}
@@ -59,9 +84,14 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   );
 }
 
-export function PageNavigation({ items, backHref = "/", backLabel = "Back" }: PageNavigationProps) {
+export function PageNavigation({
+  items,
+  backHref = "/",
+  backLabel = "Back to Home",
+  className,
+}: PageNavigationProps) {
   return (
-    <div className={styles.wrapper}>
+    <div className={[styles.wrapper, className].filter(Boolean).join(" ")}>
       <BackButton href={backHref} label={backLabel} />
       <Breadcrumbs items={items} />
     </div>
