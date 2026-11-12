@@ -13,14 +13,15 @@ type AdminHeaderProps = {
 };
 
 const TITLE_MAP: Record<string, string> = {
-  "/admin/dashboard": "Dashboard Overview",
+  "/admin/dashboard": "Dashboard",
   "/admin/products": "Products Catalog",
   "/admin/categories": "Categories",
   "/admin/product-enquiries": "Product Enquiries",
   "/admin/contact-enquiries": "Contact Form Enquiries",
+  "/admin/receipt": "Receipt & Invoice Generator",
   "/admin/whatsapp-clicks": "WhatsApp Click Events",
   "/admin/call-clicks": "Call Click Events",
-  "/admin/files": "Uploaded Cloud Files",
+  // "/admin/files": "Uploaded Cloud Files",
 };
 
 export function AdminHeader({
@@ -42,14 +43,7 @@ export function AdminHeader({
         >
           <MenuRoundedIcon />
         </button>
-        <div className={styles.titleArea}>
-          <div className={styles.breadcrumbs}>
-            <span>Admin</span>
-            <span>/</span>
-            <span>{title}</span>
-          </div>
-          <h1 className={styles.pageTitle}>{title}</h1>
-        </div>
+     
       </div>
 
       <div className={styles.rightGroup}>

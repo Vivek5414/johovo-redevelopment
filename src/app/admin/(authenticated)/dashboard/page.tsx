@@ -5,7 +5,7 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 import ContactMailRoundedIcon from "@mui/icons-material/ContactMailRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
-import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
+import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import AdminPanelSettingsRoundedIcon from "@mui/icons-material/AdminPanelSettingsRounded";
 import { sql } from "@/lib/db";
 import { requireAdmin } from "@/lib/auth/admin-auth";
@@ -101,11 +101,11 @@ export default async function AdminDashboardPage() {
           value={callClicksCount}
         />
         <StatsCard
-          href="/admin/files"
-          icon={CloudUploadRoundedIcon}
-          subtext="Media assets in Neon"
-          title="Product Files"
-          value={productFilesCount}
+          href="/admin/receipt"
+          icon={ReceiptLongRoundedIcon}
+          subtext="PDF & Print ready"
+          title="Receipt Generator"
+          value="Invoice"
         />
         <StatsCard
           icon={AdminPanelSettingsRoundedIcon}

@@ -9,6 +9,7 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 import ContactMailRoundedIcon from "@mui/icons-material/ContactMailRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
+import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
@@ -21,9 +22,11 @@ const NAV_ITEMS = [
   { label: "Categories", href: "/admin/categories", icon: CategoryRoundedIcon },
   { label: "Product Enquiries", href: "/admin/product-enquiries", icon: QuestionAnswerRoundedIcon },
   { label: "Contact Enquiries", href: "/admin/contact-enquiries", icon: ContactMailRoundedIcon },
+  { label: "Receipt / Invoice", href: "/admin/receipt", icon: ReceiptLongRoundedIcon },
   { label: "WhatsApp Click Logs", href: "/admin/whatsapp-clicks", icon: WhatsAppIcon },
   { label: "Call Click Logs", href: "/admin/call-clicks", icon: CallRoundedIcon },
-  { label: "Uploaded Files", href: "/admin/files", icon: CloudUploadRoundedIcon },
+  // Uploaded Files commented as requested
+  // { label: "Uploaded Files", href: "/admin/files", icon: CloudUploadRoundedIcon },
 ];
 
 type AdminSidebarProps = {

@@ -1,0 +1,52 @@
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.callBtn {
+  color: var(--color-herbal-forest-deep);
+}
+
+.callBtn:hover {
+  background: color-mix(in srgb, var(--color-herbal-forest) 12%, #fff);
+  border-color: var(--color-herbal-forest);
+  transform: translateY(-1px);
+}
+
+.whatsappBtn {
+  color: #25d366;
+}
+
+.whatsappBtn:hover {
+  background: color-mix(in srgb, #25d366 14%, #fff);
+  border-color: #25d366;
+  transform: translateY(-1px);
+}
+
+.mailBtn {
+  color: var(--color-brand-warm);
+}
+
+.mailBtn:hover {
+  background: color-mix(in srgb, var(--color-brand-pink) 12%, #fff);
+  border-color: var(--color-brand-pink);
+  transform: translateY(-1px);
+}
+
+.icon {
+  font-size: 1.05rem !important;
+}

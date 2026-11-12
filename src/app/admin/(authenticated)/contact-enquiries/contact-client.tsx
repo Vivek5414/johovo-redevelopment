@@ -1,6 +1,7 @@
 "use client";
 
 import { DataTable, type ColumnDef } from "@/components/admin/DataTable/DataTable";
+import { LeadQuickActions } from "@/components/admin/QuickActions/LeadQuickActions";
 
 export function AdminContactEnquiriesClient({ enquiries }: { enquiries: any[] }) {
   const columns: ColumnDef<any>[] = [
@@ -24,12 +25,20 @@ export function AdminContactEnquiriesClient({ enquiries }: { enquiries: any[] })
     {
       header: "Phone",
       cell: (row) => (
-        <a
-          href={`tel:${row.phone}`}
-          style={{ color: "var(--color-herbal-forest-deep)", fontWeight: 600, textDecoration: "none" }}
-        >
+        <span style={{ color: "var(--color-herbal-forest-deep)", fontWeight: 600 }}>
           {row.phone}
-        </a>
+        </span>
+      ),
+    },
+    {
+      header: "Quick Contact",
+      cell: (row) => (
+        <LeadQuickActions
+          customerName={row.name}
+          email={row.email}
+          phone={row.phone}
+          productName={row.product}
+        />
       ),
     },
     {
@@ -48,7 +57,7 @@ export function AdminContactEnquiriesClient({ enquiries }: { enquiries: any[] })
     {
       header: "Message",
       cell: (row) => (
-        <div style={{ maxWidth: "340px", fontSize: "0.82rem", color: "var(--color-text-secondary)" }}>
+        <div style={{ maxWidth: "300px", fontSize: "0.82rem", color: "var(--color-text-secondary)" }}>
           {row.message || "No message entered"}
         </div>
       ),
@@ -70,7 +79,7 @@ export function AdminContactEnquiriesClient({ enquiries }: { enquiries: any[] })
           Contact Form Enquiries ({enquiries.length})
         </h2>
         <p style={{ margin: "0.25rem 0 0", color: "var(--color-text-secondary)", fontSize: "0.85rem" }}>
-          Messages submitted from the website Contact page and Home footer contact section.
+          Messages submitted from the website Contact page. Follow up directly with customer via Call, WhatsApp, or Email.
         </p>
       </div>
 

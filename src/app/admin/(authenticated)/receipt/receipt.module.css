@@ -1,0 +1,324 @@
+.receiptPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.desc {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.printBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-forest);
+  color: #fff;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-herbal-forest) 25%, transparent);
+}
+
+.printBtn:hover {
+  background: var(--color-herbal-forest-deep);
+  transform: translateY(-1px);
+}
+
+/* Two-column Layout for Generator & Live Preview */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Form Editor Card */
+.formCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+}
+
+.formCardTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fieldLabel {
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.input,
+.select {
+  height: 38px;
+  padding: 0 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-herbal-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--color-herbal-natural);
+}
+
+.itemsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.addItemBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-cream);
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.itemRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 55px 75px auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Receipt Preview Document (A4 Printable Layout) */
+.previewWrapper {
+  background: #fdfdfd;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
+}
+
+.receiptSheet {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-herbal-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--color-text-primary);
+  font-family: inherit;
+}
+
+.receiptTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-herbal-forest);
+  padding-bottom: 1.25rem;
+}
+
+.companyMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.receiptDocTitle {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.receiptDocTitle h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-herbal-forest-deep);
+}
+
+.receiptNumber {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--color-herbal-natural);
+}
+
+.customerMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  font-size: 0.82rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-herbal-cream);
+  border: 1px solid var(--color-herbal-border);
+}
+
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metaCol strong {
+  color: var(--color-herbal-forest-deep);
+}
+
+/* Printable Items Table */
+.receiptTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.receiptTable th {
+  background: var(--color-herbal-forest-deep);
+  color: #fff;
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.receiptTable td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.receiptTable td:last-child,
+.receiptTable th:last-child {
+  text-align: right;
+}
+
+.receiptTotals {
+  align-self: flex-end;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  padding-top: 0.5rem;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grandTotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+  border-top: 2px solid var(--color-herbal-forest);
+  padding-top: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.receiptFooterNotes {
+  border-top: 1px dashed var(--color-herbal-border);
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* Print Only Styles (for clean PDF output) */
+@media print {
+  /* Hide Admin Sidebar, Header, and Editor Form */
+  body * {
+    visibility: hidden;
+  }
+
+  .receiptSheet,
+  .receiptSheet * {
+    visibility: visible;
+  }
+
+  .receiptSheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+  }
+}

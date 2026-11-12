@@ -1,6 +1,7 @@
 "use client";
 
 import { DataTable, type ColumnDef } from "@/components/admin/DataTable/DataTable";
+import { LeadQuickActions } from "@/components/admin/QuickActions/LeadQuickActions";
 
 export function AdminProductEnquiriesClient({ enquiries }: { enquiries: any[] }) {
   const columns: ColumnDef<any>[] = [
@@ -17,7 +18,7 @@ export function AdminProductEnquiriesClient({ enquiries }: { enquiries: any[] })
       ),
     },
     {
-      header: "Customer Name",
+      header: "Customer",
       cell: (row) => (
         <div>
           <span style={{ fontWeight: 600, color: "var(--color-text-primary)" }}>{row.name}</span>
@@ -30,20 +31,28 @@ export function AdminProductEnquiriesClient({ enquiries }: { enquiries: any[] })
       ),
     },
     {
-      header: "Phone Number",
+      header: "Phone",
       cell: (row) => (
-        <a
-          href={`tel:${row.phone}`}
-          style={{ color: "var(--color-herbal-forest-deep)", fontWeight: 600, textDecoration: "none" }}
-        >
+        <span style={{ color: "var(--color-herbal-forest-deep)", fontWeight: 600 }}>
           {row.phone}
-        </a>
+        </span>
+      ),
+    },
+    {
+      header: "Quick Contact",
+      cell: (row) => (
+        <LeadQuickActions
+          customerName={row.name}
+          email={row.email}
+          phone={row.phone}
+          productName={row.product_name}
+        />
       ),
     },
     {
       header: "Customer Message",
       cell: (row) => (
-        <div style={{ maxWidth: "340px", fontSize: "0.82rem", color: "var(--color-text-secondary)" }}>
+        <div style={{ maxWidth: "300px", fontSize: "0.82rem", color: "var(--color-text-secondary)" }}>
           {row.message}
         </div>
       ),
@@ -65,7 +74,7 @@ export function AdminProductEnquiriesClient({ enquiries }: { enquiries: any[] })
           Product Enquiries ({enquiries.length})
         </h2>
         <p style={{ margin: "0.25rem 0 0", color: "var(--color-text-secondary)", fontSize: "0.85rem" }}>
-          Direct customer leads submitted from individual product detail pages.
+          Direct customer leads submitted from individual product detail pages. Use one-click Call, WhatsApp, or Email to follow up.
         </p>
       </div>
 
