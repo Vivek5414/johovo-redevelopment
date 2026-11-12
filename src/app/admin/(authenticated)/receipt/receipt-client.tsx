@@ -74,7 +74,19 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
   const grandTotal = Math.max(0, subtotal - discountDeduction);
 
   const handlePrint = () => {
+    const cleanName = (customerName || "Customer").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
+    const cleanPhone = (customerPhone || invoiceNumber || "receipt").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
+    const targetTitle = `${cleanName}-${cleanPhone}`;
+
+    const originalTitle = document.title;
+    document.title = targetTitle;
+
     window.print();
+
+    // Restore original title after print dialog closes
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 1000);
   };
 
   return (
