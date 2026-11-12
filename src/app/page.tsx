@@ -11,7 +11,6 @@ import {
   HerbalSection,
   ProductInformationSection,
   ProductCategoriesSection,
-  VideoSection,
 } from "@/components/home/home-sections";
 import { TestimonialsSection } from "@/components/testimonials/testimonials";
 
@@ -31,7 +30,6 @@ export default function Home() {
       <ProductCategoriesSection />
       <HerbalSection />
       <ProductInformationSection />
-      <VideoSection />
       <TestimonialsSection />
       <InstagramShowcase />
       <ContactSection />

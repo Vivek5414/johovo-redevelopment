@@ -359,7 +359,6 @@
 }
 
 .about,
-.videoSection,
 .contact {
   background: var(--color-surface-muted);
 }
@@ -888,35 +887,6 @@
   text-underline-offset: 4px;
 }
 
-.videoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
-}
-
-.videoCard {
-  display: grid;
-  align-content: start;
-  gap: var(--space-3);
-  min-width: 0;
-}
-
-.videoCard video {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--color-media-background);
-}
-
-.videoCard > a {
-  width: fit-content;
-  color: var(--color-text-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  text-decoration-color: var(--color-brand-cyan);
-  text-underline-offset: 4px;
-}
-
-
 .contactGrid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -1153,10 +1123,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .videoGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .ingredientGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1304,8 +1270,7 @@
   }
 
   .showcaseGrid,
-  .reviewGrid,
-  .videoGrid {
+  .reviewGrid {
     grid-template-columns: minmax(0, 1fr);
   }
 

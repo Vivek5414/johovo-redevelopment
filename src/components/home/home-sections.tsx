@@ -87,14 +87,6 @@ const heroLifestyleAlt =
 const hairOil = herbalProducts.find((product) =>
   product.categories.some(({ name }) => name === "Hair Oil"),
 );
-const videos = catalogProducts.flatMap((product) =>
-  product.videos.map((video, index) => ({
-    ...video,
-    productName: product.name,
-    productSlug: product.slug,
-    key: `${product.id}-${index}`,
-  })),
-);
 
 function SectionHeading({
   eyebrow,
@@ -526,35 +518,6 @@ export function ProductInformationSection() {
         >
           View all information for {hairOil.name} <span aria-hidden="true">→</span>
         </Link>
-      </PageContainer>
-    </ContentSection>
-  );
-}
-
-export function VideoSection() {
-  if (!videos.length) return null;
-
-  return (
-    <ContentSection className={styles.videoSection} id="videos" tone="neutral">
-      <PageContainer>
-        <SectionHeading
-          eyebrow="Product videos"
-          title="From the product pages"
-          description="Videos are shown only where the migration recorded an association with a published product page."
-        />
-        <div className={styles.videoGrid}>
-          {videos.map((video) => (
-            <article className={styles.videoCard} key={video.key}>
-              <video controls preload="metadata" title={`${video.productName} product video`}>
-                <source src={video.src} type="video/mp4" />
-                <a href={video.originalSourceUrl}>Open the source video</a>
-              </video>
-              <Link href={`/products/${video.productSlug}`}>
-                {video.productName}
-              </Link>
-            </article>
-          ))}
-        </div>
       </PageContainer>
     </ContentSection>
   );
