@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { HeroSection } from "@/components/hero/hero";
 import { SiteHeader } from "@/components/site-header";
-import { ReferenceHomepage } from "@/components/home/reference-homepage";
 import {
   AboutSection,
   CollectionsSection,
@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <ReferenceHomepage />
+      <HeroSection />
       <AboutSection />
       <CollectionsSection />
       <ProductCategoriesSection />

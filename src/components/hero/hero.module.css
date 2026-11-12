@@ -1,0 +1,472 @@
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: min(100vh, 920px);
+  background-color: var(--color-herbal-cream);
+  display: flex;
+  align-items: center;
+}
+
+/* Background image layer */
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Main content container */
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  width: min(var(--container-content), calc(100% - 2 * var(--page-gutter)));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 48%) minmax(0, 52%);
+  align-items: center;
+  min-height: min(100vh, 920px);
+  padding: var(--space-8) 0 0;
+}
+
+/* Left Section */
+.heroContent {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-6) 0 var(--space-8);
+  max-width: 530px;
+}
+
+/* Brand logo */
+.brandLogoWrapper {
+  margin-bottom: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandLogo {
+  width: auto;
+  height: clamp(52px, 6vw, 76px);
+  max-width: 240px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 8%, transparent));
+}
+
+/* Eyebrow badge */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrowIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-herbal-natural);
+  flex-shrink: 0;
+}
+
+/* Headline */
+.headline {
+  margin: 0 0 var(--space-4);
+  color: var(--color-herbal-forest-deep);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.headlineHighlight {
+  display: block;
+  color: var(--color-herbal-natural);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Description */
+.description {
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* CTA buttons row */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.75rem;
+  background-color: var(--color-herbal-natural);
+  color: var(--color-brand-neutral);
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-herbal-natural) 28%, transparent);
+  transition: transform var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard);
+}
+
+.primaryCta:hover,
+.primaryCta:focus-visible {
+  background-color: var(--color-herbal-forest);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--color-herbal-forest) 36%, transparent);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.65rem;
+  background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+  color: var(--color-herbal-forest-deep);
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  border: 1.5px solid var(--color-herbal-gold);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-herbal-forest) 5%, transparent);
+  transition: transform var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard),
+    background-color var(--duration-standard) var(--easing-standard),
+    box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.secondaryCta:hover,
+.secondaryCta:focus-visible {
+  background-color: var(--color-surface);
+  border-color: var(--color-herbal-natural);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-herbal-forest) 10%, transparent);
+}
+
+.ctaIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform var(--duration-standard) var(--easing-standard);
+}
+
+.primaryCta:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+/* Benefit Highlights */
+.benefitsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding-top: var(--space-2);
+}
+
+.benefitItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  max-width: 105px;
+}
+
+.benefitIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-herbal-border);
+  background: color-mix(in srgb, var(--color-surface) 65%, transparent);
+  color: var(--color-herbal-natural);
+  backdrop-filter: blur(4px);
+  transition: transform var(--duration-standard) var(--easing-standard),
+    border-color var(--duration-standard) var(--easing-standard);
+}
+
+.benefitItem:hover .benefitIconBox {
+  transform: translateY(-2px);
+  border-color: var(--color-herbal-natural);
+  color: var(--color-herbal-forest);
+}
+
+.benefitIconBox svg {
+  width: 20px;
+  height: 20px;
+}
+
+.benefitLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+  color: var(--color-herbal-forest-deep);
+}
+
+/* 
+ * Right Section: Girl Image aligned to precisely match the background image composition
+ * In the reference background, the golden circular swirl frames the girl's head,
+ * and the right foreground leaves curve around her shoulder.
+ */
+.heroVisual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.girlWrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  max-height: 1000px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+.girlImage {
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(-8px 12px 28px color-mix(in srgb, var(--color-herbal-forest-deep) 10%, transparent));
+}
+
+/* Responsive: Desktop & Laptop (992px - 1280px) */
+@media (max-width: 1280px) {
+  .heroContainer {
+    grid-template-columns: 50% 50%;
+  }
+
+  .headline {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  }
+
+  .heroVisual {
+    left: 45%;
+  }
+
+  .girlWrapper {
+    right: 0;
+    max-width: 900px;
+    height: 94%;
+  }
+
+  .benefitsRow {
+    gap: var(--space-4);
+  }
+}
+
+/* Responsive: Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .heroSection {
+    min-height: auto;
+  }
+
+  .heroContainer {
+    grid-template-columns: 55% 45%;
+    min-height: auto;
+    padding-top: var(--space-10);
+  }
+
+  .heroContent {
+    max-width: 440px;
+  }
+
+  .heroVisual {
+    left: 48%;
+    min-height: 560px;
+  }
+
+  .girlWrapper {
+    right: 0;
+    max-width: 730px;
+    height: 90%;
+  }
+
+  .headline {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: var(--font-size-sm);
+  }
+
+  .ctaRow {
+    gap: var(--space-3);
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    padding: 0.75rem 1.35rem;
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Responsive: Mobile (below 768px) */
+@media (max-width: 767px) {
+  .heroSection {
+    min-height: auto;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: var(--space-8);
+  }
+
+  .heroContent {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-4) 0;
+  }
+
+  .brandLogoWrapper {
+    justify-content: center;
+  }
+
+  .eyebrow {
+    justify-content: center;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+  }
+
+  .headlineHighlight {
+    display: inline;
+    margin-left: 0.25em;
+  }
+
+  .description {
+    max-width: 100%;
+    margin-inline: auto;
+    font-size: var(--font-size-sm);
+  }
+
+  .ctaRow {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    flex: 1 1 auto;
+    min-width: 150px;
+  }
+
+  .benefitsRow {
+    justify-content: center;
+    gap: var(--space-4);
+    width: 100%;
+    margin-bottom: var(--space-4);
+  }
+
+  /* Vertically stacked on mobile */
+  .heroVisual {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    min-height: 480px;
+    height: 520px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .girlWrapper {
+    position: relative;
+    right: auto;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+  }
+
+  .girlImage {
+    object-position: bottom center;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .headline {
+    font-size: 1.85rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+  }
+
+  .benefitsRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+
+  .benefitItem {
+    max-width: 100%;
+  }
+
+  .heroVisual {
+    min-height: 420px;
+    height: 440px;
+  }
+}
