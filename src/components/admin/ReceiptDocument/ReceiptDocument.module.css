@@ -79,12 +79,19 @@
   font-size: 0.92rem;
 }
 
+.receiptTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Items Table */
 .receiptTable {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0;
+  margin: 1rem 0;
   font-size: 0.85rem;
+  min-width: 320px;
 }
 
 .receiptTable th {
@@ -146,6 +153,61 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .receiptSheet {
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .receiptTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .receiptDocTitle {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .receiptDocTitle h2 {
+    font-size: 1.15rem;
+  }
+
+  .customerMetaGrid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 0.85rem 0;
+  }
+
+  .receiptTable th,
+  .receiptTable td {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.78rem;
+  }
+
+  .receiptTotals {
+    max-width: 100%;
+    margin-left: 0;
+    padding-bottom: 0.85rem;
+  }
+
+  .totalRow,
+  .grandTotalRow {
+    font-size: 0.82rem;
+  }
+
+  .grandTotalRow {
+    font-size: 0.95rem;
+  }
+
+  .receiptFooterNotes {
+    padding-top: 0.75rem;
+    font-size: 0.7rem;
+  }
 }
 
 /* Print Specific Rules */

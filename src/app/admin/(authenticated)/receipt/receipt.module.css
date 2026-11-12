@@ -1,7 +1,10 @@
 .receiptPage {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .pageHeader {
@@ -74,9 +77,11 @@
 /* Two-column Layout for Generator & Live Preview */
 .layoutGrid {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Form Editor Card */
@@ -84,11 +89,15 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 1.5rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
   box-shadow: 0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .formCardTitle {
@@ -171,8 +180,13 @@
   background: #fdfdfd;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(0.75rem, 2vw, 2rem);
   box-shadow: 0 4px 16px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .receiptSheet {
@@ -355,5 +369,99 @@
 @media (max-width: 900px) {
   .layoutGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+  }
+
+  .headerActions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .printBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .saveBadge {
+    justify-content: center;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .formCard {
+    padding: 0.85rem;
+    border-radius: var(--radius-lg);
+    gap: 0.85rem;
+  }
+
+  .fieldGroup {
+    gap: 0.25rem;
+  }
+
+  .input,
+  .select {
+    height: 36px;
+    font-size: 0.82rem;
+    padding: 0 0.6rem;
+  }
+
+  .itemRow {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "prod prod"
+      "qty price"
+      "del del";
+    gap: 0.4rem;
+    background: var(--color-surface-muted);
+    padding: 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .itemRow select {
+    grid-area: prod;
+    height: 36px;
+  }
+
+  .itemRow input:nth-of-type(1) {
+    grid-area: qty;
+    height: 36px;
+  }
+
+  .itemRow input:nth-of-type(2) {
+    grid-area: price;
+    height: 36px;
+  }
+
+  .itemRow .removeBtn {
+    grid-area: del;
+    justify-content: center;
+    padding: 0.35rem;
+    border: 1px dashed var(--color-danger);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+  }
+
+  .previewWrapper {
+    padding: 0.4rem;
+    border-radius: var(--radius-lg);
   }
 }

@@ -96,28 +96,30 @@ export function ReceiptDocument({ data }: { data: ReceiptDocumentData }) {
       </div>
 
       {/* Items Table */}
-      <table className={styles.receiptTable}>
-        <thead>
-          <tr>
-            <th>Item Description</th>
-            <th style={{ textAlign: "center" }}>Qty</th>
-            <th style={{ textAlign: "right" }}>Unit Price</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, idx) => (
-            <tr key={item.id || idx}>
-              <td>
-                <strong>{item.name}</strong>
-              </td>
-              <td style={{ textAlign: "center" }}>{item.quantity}</td>
-              <td style={{ textAlign: "right" }}>₹{Number(item.unitPrice).toFixed(2)}</td>
-              <td>₹{(item.quantity * item.unitPrice).toFixed(2)}</td>
+      <div className={styles.receiptTableWrapper}>
+        <table className={styles.receiptTable}>
+          <thead>
+            <tr>
+              <th>Item Description</th>
+              <th style={{ textAlign: "center" }}>Qty</th>
+              <th style={{ textAlign: "right" }}>Unit Price</th>
+              <th>Amount</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {items.map((item, idx) => (
+              <tr key={item.id || idx}>
+                <td>
+                  <strong>{item.name}</strong>
+                </td>
+                <td style={{ textAlign: "center" }}>{item.quantity}</td>
+                <td style={{ textAlign: "right" }}>₹{Number(item.unitPrice).toFixed(2)}</td>
+                <td>₹{(item.quantity * item.unitPrice).toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Totals */}
       <div className={styles.receiptTotals}>
