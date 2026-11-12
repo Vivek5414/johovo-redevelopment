@@ -1,0 +1,337 @@
+.main {
+  min-height: 60vh;
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-section);
+  background: linear-gradient(180deg, #fffdf8, #f8f6ed);
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+  border: 1px solid rgba(69, 107, 69, 0.15);
+  border-top: 3px solid var(--color-herbal-natural);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.collection[data-collection="wellness-snacks"] {
+  border-top-color: #b48b45;
+  background: linear-gradient(145deg, #fffdf8, #faf4e5);
+}
+
+.collection[data-collection="cold-pressed-oils"] {
+  border-top-color: #6f8060;
+  background: linear-gradient(145deg, #fffdf8, #f0f2e7);
+}
+
+.collectionCopy {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.status {
+  display: inline-flex;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.availableStatus {
+  border-color: rgba(69, 107, 69, 0.2);
+  color: var(--color-herbal-forest);
+  background: rgba(232, 241, 225, 0.8);
+}
+
+.upcomingStatus {
+  border-color: rgba(154, 135, 85, 0.25);
+  color: #76633b;
+  background: rgba(247, 243, 229, 0.9);
+}
+
+.collectionCopy h1 {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.description {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.audience {
+  max-width: 58ch;
+  margin: 0;
+  color: #76633b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.subcategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subcategories li {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(69, 107, 69, 0.18);
+  border-radius: 999px;
+  color: var(--color-herbal-forest);
+  background: rgba(255, 253, 248, 0.8);
+  font-size: 0.78rem;
+}
+
+.visual {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 340px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(232, 215, 123, 0.25), transparent 34%),
+    radial-gradient(ellipse at 12% 90%, rgba(69, 107, 69, 0.13), transparent 40%),
+    #f7f3e5;
+}
+
+.visual img:not(.logo) {
+  object-fit: contain;
+}
+
+.collection > .sourceNote {
+  grid-column: 1 / -1;
+  margin: -1rem 0 0;
+}
+
+.logo {
+  position: relative;
+  width: min(68%, 280px);
+  height: auto;
+  object-fit: contain;
+}
+
+.availabilityNote {
+  max-width: 58ch;
+  margin: 0.25rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #b48b45;
+  color: #76633b;
+  background: rgba(247, 243, 229, 0.75);
+  line-height: 1.6;
+}
+
+.products,
+.upcoming {
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.productsHeading {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.productsHeading h2,
+.upcoming h2 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  max-width: 860px;
+}
+
+.upcoming {
+  max-width: 760px;
+}
+
+.upcoming h2 {
+  margin-top: var(--space-3);
+}
+
+.upcoming > p:last-child {
+  max-width: 58ch;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.sourceNote {
+  max-width: 70ch;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+}
+
+.previewList {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 760px;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.previewList li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(154, 135, 85, 0.22);
+  background: rgba(255, 253, 248, 0.8);
+}
+
+.previewList a {
+  width: fit-content;
+  color: var(--color-herbal-forest);
+  font-weight: var(--font-weight-semibold);
+  text-underline-offset: 3px;
+}
+
+.previewMeta {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.rangeSection {
+  display: grid;
+  gap: var(--space-7);
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.rangeHeading {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.rangeHeading h2,
+.rangeCard h3 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+}
+
+.rangeHeading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.rangeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.rangeCard {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1px solid rgba(69, 107, 69, 0.15);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.rangeCard h3 {
+  font-size: var(--font-size-xl);
+}
+
+.rangeCard h4 {
+  margin: 0 0 var(--space-2);
+  color: var(--color-herbal-forest);
+  font-size: var(--font-size-sm);
+}
+
+.rangeCard p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.rangeItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rangeItems li {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgba(69, 107, 69, 0.16);
+  color: var(--color-herbal-forest);
+  background: rgba(247, 243, 229, 0.7);
+  font-size: var(--font-size-xs);
+}
+
+@media (max-width: 760px) {
+  .collection {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .visual {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding-block: 1rem var(--space-10);
+  }
+
+  .collection {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .visual {
+    min-height: 220px;
+  }
+
+  .productGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rangeGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

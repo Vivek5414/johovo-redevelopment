@@ -4,16 +4,24 @@
 
 .banner {
   padding: clamp(2rem, 7vw, 5.5rem);
+  background: linear-gradient(135deg, rgba(248, 244, 234, 0.96), rgba(255, 255, 255, 0.96));
 }
 
 .bannerContent {
   position: relative;
   z-index: 1;
+  display: grid;
+  gap: var(--space-4);
   max-width: 760px;
 }
 
+.brandLogo {
+  width: clamp(180px, 26vw, 320px);
+  height: auto;
+}
+
 .eyebrow {
-  margin: var(--space-6) 0 var(--space-3);
+  margin: 0;
   color: var(--color-herbal-natural);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
@@ -22,62 +30,247 @@
 }
 
 .banner h1 {
-  max-width: 16ch;
   margin: 0;
   color: var(--color-herbal-forest);
   font-family: var(--font-display);
-  font-size: var(--font-size-display);
+  font-size: clamp(2.75rem, 5vw, 5rem);
   font-weight: var(--font-weight-regular);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   line-height: var(--line-height-tight);
 }
 
 .intro {
-  max-width: 640px;
-  margin: var(--space-5) 0 var(--space-8);
+  max-width: 660px;
+  margin: 0;
   color: var(--color-herbal-forest);
   line-height: var(--line-height-body);
 }
 
-.categories {
-  padding-top: var(--space-section);
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
 }
 
-.categories > .eyebrow {
-  margin: 0 0 var(--space-3);
+.categoryOverview {
+  padding-top: clamp(3rem, 6vw, 5rem);
 }
 
-.categoriesTitle {
-  margin: 0 0 var(--space-8);
-  color: var(--color-herbal-forest);
-  font-family: var(--font-display);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
+.sectionIntro {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
 }
 
-.details {
-  max-width: 760px;
-  padding-block: var(--space-16);
-}
-
-.details .eyebrow {
-  margin-top: 0;
-}
-
-.details h2 {
+.sectionIntro h2 {
   margin: 0;
   color: var(--color-herbal-forest);
   font-family: var(--font-display);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-tight);
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
-.details > p:last-child {
-  margin: var(--space-4) 0 0;
+.sourceDisclosure {
+  max-width: 72ch;
+  margin: 0;
   color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
   line-height: var(--line-height-body);
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: start;
+}
+
+.categoryCard {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+  padding: clamp(1.25rem, 2vw, 1.6rem);
+  border: 1px solid rgba(69, 107, 69, 0.14);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.upcomingCard {
+  border-color: rgba(154, 135, 85, 0.2);
+  background: linear-gradient(160deg, rgba(255, 253, 248, 0.9), rgba(247, 243, 229, 0.72));
+}
+
+.categoryCard[data-category="herbal-products"] {
+  border-top: 3px solid var(--color-herbal-natural);
+}
+
+.categoryCard[data-category="wellness-snacks"] {
+  border-top: 3px solid #b48b45;
+}
+
+.categoryCard[data-category="cold-pressed-oils"] {
+  border-top: 3px solid #6f8060;
+}
+
+.categoryHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.categoryNumber {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(69, 107, 69, 0.18);
+  border-radius: 999px;
+  color: var(--color-herbal-natural);
+  background: rgba(247, 243, 229, 0.8);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.categoryStatus {
+  justify-self: end;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.availableStatus {
+  border-color: rgba(69, 107, 69, 0.2);
+  color: var(--color-herbal-forest);
+  background: rgba(232, 241, 225, 0.8);
+}
+
+.upcomingStatus {
+  border-color: rgba(154, 135, 85, 0.25);
+  color: #76633b;
+  background: rgba(247, 243, 229, 0.9);
+}
+
+.categoryHeadingWrap {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.6rem;
+}
+
+.categoryHeadingWrap h3 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.15;
+}
+
+.categoryHeadingWrap p {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  line-height: 1.6;
+}
+
+.categoryVisual {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  width: 100%;
+  min-height: 180px;
+  place-items: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(232, 215, 123, 0.18), rgba(69, 107, 69, 0.06));
+}
+
+.categoryVisual img {
+  object-fit: contain;
+}
+
+.upcomingVisual {
+  min-height: 180px;
+  border: 1px solid rgba(154, 135, 85, 0.12);
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(232, 215, 123, 0.24), transparent 34%),
+    radial-gradient(ellipse at 12% 90%, rgba(69, 107, 69, 0.14), transparent 40%),
+    #f7f3e5;
+}
+
+.categoryCard[data-category="wellness-snacks"] .upcomingVisual {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(232, 215, 123, 0.34), transparent 34%),
+    radial-gradient(ellipse at 12% 90%, rgba(180, 139, 69, 0.12), transparent 40%),
+    #faf4e5;
+}
+
+.categoryCard[data-category="cold-pressed-oils"] .upcomingVisual {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(111, 128, 96, 0.2), transparent 34%),
+    radial-gradient(ellipse at 12% 90%, rgba(69, 107, 69, 0.16), transparent 40%),
+    #f0f2e7;
+}
+
+.upcomingLogo {
+  position: relative;
+  width: min(62%, 250px);
+  height: auto;
+  object-fit: contain;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tagList li {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(69, 107, 69, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.86);
+  color: var(--color-herbal-forest);
+  font-size: 0.72rem;
+}
+
+.categoryLink {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(69, 107, 69, 0.14);
+  color: var(--color-herbal-forest);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.categoryLink:hover {
+  color: var(--color-herbal-natural);
+}
+
+.comingSoonNote {
+  margin: 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(154, 135, 85, 0.16);
+  color: #76633b;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 600px) {
@@ -85,7 +278,16 @@
     padding-block: var(--space-8);
   }
 
-  .details {
-    padding-block: var(--space-10);
+  .buttonRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .categoryOverview {
+    padding-top: 2.5rem;
+  }
+
+  .categoryGrid {
+    grid-template-columns: 1fr;
   }
 }

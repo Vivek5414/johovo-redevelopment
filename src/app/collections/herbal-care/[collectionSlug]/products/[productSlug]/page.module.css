@@ -1,0 +1,125 @@
+.main {
+  min-height: 60vh;
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--space-section);
+  background: linear-gradient(180deg, #fffdf8, #f8f6ed);
+}
+
+.product {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  border: 1px solid rgba(69, 107, 69, 0.15);
+  border-top: 3px solid #b48b45;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.header {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-herbal-natural);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.status {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(154, 135, 85, 0.25);
+  color: #76633b;
+  background: rgba(247, 243, 229, 0.9);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.header h1 {
+  max-width: 20ch;
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.collectionName,
+.availability,
+.sourceNote,
+.detailSection p,
+.categoryLabels {
+  margin: 0;
+  line-height: var(--line-height-body);
+}
+
+.collectionName {
+  color: var(--color-herbal-forest);
+  font-weight: var(--font-weight-semibold);
+}
+
+.availability {
+  max-width: 65ch;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #b48b45;
+  color: #76633b;
+  background: rgba(247, 243, 229, 0.75);
+}
+
+.sourceNote {
+  margin-top: var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.detailSection {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(69, 107, 69, 0.14);
+}
+
+.detailSection h2 {
+  margin: 0;
+  color: var(--color-herbal-forest);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.detailSection p,
+.detailSection li {
+  color: var(--color-text-secondary);
+}
+
+.detailSection ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.categoryLabels {
+  margin-top: var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.collectionLink {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: var(--space-6);
+  color: var(--color-herbal-forest);
+  font-weight: var(--font-weight-semibold);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .product {
+    padding: 1.25rem;
+  }
+}

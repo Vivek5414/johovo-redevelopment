@@ -367,16 +367,13 @@
   z-index: 46;
   max-height: calc(100vh - 78px);
   overflow-y: auto;
-  transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
-  transition: transform 280ms var(--easing-standard),
-    opacity 280ms var(--easing-standard);
+  transition: opacity 280ms var(--easing-standard);
   padding: 1.25rem 1.5rem 2rem;
 }
 
 .mobileDrawer[data-open="true"] {
-  transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
 }
@@ -518,5 +515,20 @@
 
   .mobileDrawerOverlay {
     top: 68px;
+  }
+}
+
+@media (max-width: 360px) {
+  .inner {
+    gap: 0.5rem;
+    padding-inline: 0.75rem;
+  }
+
+  .tools {
+    gap: 0.5rem;
+  }
+
+  .searchForm {
+    width: min(135px, calc(100vw - 215px));
   }
 }

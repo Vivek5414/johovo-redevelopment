@@ -7,6 +7,8 @@ import {
   catalogProducts,
   getCatalogCategories,
 } from "@/lib/catalog/migrated-catalog";
+import { getIyalMooligaiCollection } from "@/lib/catalog/iyalmooligai-collections";
+import { iyalmooligaiPreviewProducts } from "@/lib/catalog/iyalmooligai-source-content";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -23,6 +25,23 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const initialSearch = Array.isArray(params.search)
     ? params.search[0] ?? ""
     : params.search ?? "";
+  const previewProducts = iyalmooligaiPreviewProducts.map((product) => {
+    const collection = getIyalMooligaiCollection(product.collectionSlug);
+    if (!collection) {
+      throw new Error(
+        `Unknown IyalMooligai collection: ${product.collectionSlug}`,
+      );
+    }
+
+    return {
+      slug: product.slug,
+      name: product.name,
+      href: `/collections/herbal-care/${collection.slug}/products/${product.slug}`,
+      collectionTitle: collection.title,
+      categories: product.categories,
+      quantity: product.quantity,
+    };
+  });
 
   return (
     <>
@@ -42,6 +61,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             categories={getCatalogCategories()}
             initialSearch={initialSearch}
             products={catalogProducts}
+            previewProducts={previewProducts}
           />
         </PageContainer>
       </main>

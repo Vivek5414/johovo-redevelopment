@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import Link from "next/link";
 import type {
   CatalogCategory,
   CatalogProduct,
@@ -16,6 +17,14 @@ type ProductCatalogBrowserProps = {
   categories: CatalogCategory[];
   initialSearch?: string;
   initialCategorySlug?: string;
+  previewProducts?: {
+    slug: string;
+    name: string;
+    href: string;
+    collectionTitle: string;
+    categories: readonly string[];
+    quantity?: string;
+  }[];
 };
 
 export function ProductCatalogBrowser({
@@ -23,6 +32,7 @@ export function ProductCatalogBrowser({
   categories,
   initialSearch = "",
   initialCategorySlug,
+  previewProducts = [],
 }: ProductCatalogBrowserProps) {
   const availableCategories = categories.filter(
     ({ productCount }) => productCount > 0,
@@ -58,6 +68,16 @@ export function ProductCatalogBrowser({
 
     return filtered;
   }, [products, search, selectedCategory, sortOrder]);
+  const matchingPreviewProducts = useMemo(() => {
+    if (selectedCategory) return [];
+    const query = search.trim().toLocaleLowerCase();
+    return previewProducts.filter((product) =>
+      [product.name, product.collectionTitle, ...product.categories]
+        .join(" ")
+        .toLocaleLowerCase()
+        .includes(query),
+    );
+  }, [previewProducts, search, selectedCategory]);
 
   const sortOptions = [
     { value: "source", label: "Recommended" },
@@ -89,7 +109,11 @@ export function ProductCatalogBrowser({
 
         <div className={styles.toolbarMeta}>
           <p aria-live="polite" className={styles.resultCount} role="status">
-            {visibleProducts.length} {visibleProducts.length === 1 ? "product" : "products"}
+            {visibleProducts.length}{" "}
+            {visibleProducts.length === 1 ? "catalog product" : "catalog products"}
+            {matchingPreviewProducts.length
+              ? ` · ${matchingPreviewProducts.length} upcoming ${matchingPreviewProducts.length === 1 ? "preview" : "previews"}`
+              : ""}
             {selectedCategory
               ? ` in ${availableCategories.find(({ slug }) => slug === selectedCategory)?.name ?? ""}`
               : ""}
@@ -189,11 +213,42 @@ export function ProductCatalogBrowser({
                 />
               ))}
             </div>
-          ) : (
+          ) : null}
+          {matchingPreviewProducts.length ? (
+            <section
+              aria-labelledby="upcoming-preview-title"
+              className={styles.previewSection}
+            >
+              <h2 id="upcoming-preview-title">
+                IyalMooligai collections coming soon
+              </h2>
+              <p>
+                These product details are informational previews only. They are
+                not currently available to purchase.
+              </p>
+              <ul>
+                {matchingPreviewProducts.map((product) => (
+                  <li key={product.slug}>
+                    <Link href={product.href}>{product.name}</Link>
+                    <span>
+                      {[
+                        product.collectionTitle,
+                        product.quantity,
+                        product.categories.join(", "),
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+          {!visibleProducts.length && !matchingPreviewProducts.length ? (
             <p className={styles.emptyState}>
               No products match the selected category and search.
             </p>
-          )}
+          ) : null}
           {visibleProducts.length > visibleCount ? (
             <button
               className={styles.loadMore}

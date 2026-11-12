@@ -1,33 +1,26 @@
 import type { Metadata } from "next";
-import {
-  HerbalBotanicalPanel,
-  HerbalBrandSignature,
-} from "@/components/brand/herbal-botanical-pattern";
+import Image from "next/image";
+import Link from "next/link";
+import { HerbalBotanicalPanel } from "@/components/brand/herbal-botanical-pattern";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageContainer } from "@/components/layout/page-container";
-import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
 import { SiteHeader } from "@/components/site-header";
 import { LinkButton } from "@/components/ui/link-button";
-import {
-  catalogProducts,
-  getCatalogCategories,
-} from "@/lib/catalog/migrated-catalog";
+import { iyalmooligaiCollections } from "@/lib/catalog/iyalmooligai-collections";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "IyalMooligai Herbal Care",
+  title: "IyalMooligai – Natural Health & Wellness",
   description:
-    "Browse source-listed IyalMooligai herbal products within the JOHOVO website.",
+    "Explore the IyalMooligai brand experience across herbal products, healthy snacks and cold pressed oils.",
+  openGraph: {
+    title: "IyalMooligai – Natural Health & Wellness",
+    description:
+      "Explore the IyalMooligai brand experience across herbal products, healthy snacks and cold pressed oils.",
+  },
 };
 
 export default function HerbalCarePage() {
-  const herbalProducts = catalogProducts.filter(
-    (product) => product.brand === "iyalmooligai",
-  );
-  const herbalCategories = getCatalogCategories(herbalProducts).filter(
-    ({ productCount }) => productCount > 0,
-  );
-
   return (
     <>
       <SiteHeader />
@@ -35,28 +28,113 @@ export default function HerbalCarePage() {
         <PageContainer>
           <HerbalBotanicalPanel className={styles.banner}>
             <div className={styles.bannerContent}>
-              <HerbalBrandSignature />
-              <p className={styles.eyebrow}>JOHOVO · Herbal Care</p>
-              <h1>IyalMooligai Herbal Care</h1>
+              <Image
+                alt="IyalMooligai logo"
+                className={styles.brandLogo}
+                height={120}
+                src="/images/brand/iyalmooligai-logo.png"
+                unoptimized
+                width={260}
+              />
+              <p className={styles.eyebrow}>JOHOVO · Natural Health &amp; Wellness</p>
+              <h1>IyalMooligai – Natural Health &amp; Wellness</h1>
               <p className={styles.intro}>
-                Explore IyalMooligai products identified as the herbal
-                sub-brand in the source catalogue. Product details and images
-                are preserved from the original JOHOVO website.
+                Explore a thoughtfully curated range of personal care, everyday
+                wellness foods and traditional cold pressed oils, brought together
+                under the IyalMooligai brand.
               </p>
-              <LinkButton href="/products" variant="secondary">
-                Browse the catalogue
-              </LinkButton>
+              <div className={styles.buttonRow}>
+                <LinkButton href="#category-grid" variant="secondary">
+                  Explore categories
+                </LinkButton>
+                <LinkButton href="/products" variant="secondary">
+                  Browse the catalogue
+                </LinkButton>
+              </div>
             </div>
           </HerbalBotanicalPanel>
-          <section aria-labelledby="categories-title" className={styles.categories}>
-            <p className={styles.eyebrow}>IyalMooligai Herbal Care</p>
-            <h2 className={styles.categoriesTitle} id="categories-title">
-              Browse by category
-            </h2>
-            <ProductCatalogBrowser
-              categories={herbalCategories}
-              products={herbalProducts}
-            />
+
+          <section
+            aria-labelledby="category-grid-title"
+            className={styles.categoryOverview}
+            id="category-grid"
+          >
+            <div className={styles.sectionIntro}>
+              <p className={styles.eyebrow}>IyalMooligai brand experience</p>
+              <h2 id="category-grid-title">Three wellness categories</h2>
+              <p className={styles.sourceDisclosure}>
+                Collection artwork and product details are reproduced from the
+                supplied PDF; claims shown in the source text or packaging have
+                not been independently verified.
+              </p>
+            </div>
+
+            <div className={styles.categoryGrid}>
+              {iyalmooligaiCollections.map((category) => {
+                const isAvailable = !category.isUpcoming;
+
+                return (
+                  <article
+                    className={`${styles.categoryCard} ${!isAvailable ? styles.upcomingCard : ""}`}
+                    data-category={category.slug}
+                    id={category.slug}
+                    key={category.slug}
+                  >
+                    <div className={styles.categoryHeader}>
+                      <span className={styles.categoryNumber}>{category.number}</span>
+                      <span
+                        className={`${styles.categoryStatus} ${isAvailable ? styles.availableStatus : styles.upcomingStatus}`}
+                      >
+                        {category.status}
+                      </span>
+                      <div className={styles.categoryHeadingWrap}>
+                        <h3>{category.title}</h3>
+                        <p>{category.description}</p>
+                      </div>
+                    </div>
+
+                    <div className={`${styles.categoryVisual} ${category.isUpcoming ? styles.upcomingVisual : ""}`}>
+                      {category.imageSrc ? (
+                        <Image
+                          alt={category.imageAlt}
+                          fill
+                          sizes="(max-width: 600px) 100vw, 420px"
+                          src={category.imageSrc}
+                        />
+                      ) : (
+                        <Image
+                          alt="IyalMooligai brand logo"
+                          className={styles.upcomingLogo}
+                          height={120}
+                          src="/images/brand/iyalmooligai-logo.png"
+                          unoptimized
+                          width={260}
+                        />
+                      )}
+                    </div>
+
+                    <ul aria-label={`${category.title} subcategories`} className={styles.tagList}>
+                      {category.subcategories.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+
+                    {category.isUpcoming ? (
+                      <p className={styles.comingSoonNote}>
+                        This collection is not yet available to purchase.
+                      </p>
+                    ) : null}
+                    <Link
+                      className={styles.categoryLink}
+                      href={`/collections/herbal-care/${category.slug}`}
+                    >
+                      {isAvailable ? "View available products" : "Explore collection"}{" "}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
           </section>
         </PageContainer>
       </main>

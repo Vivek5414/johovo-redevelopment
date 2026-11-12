@@ -14,6 +14,7 @@ export type SearchProduct = {
   name: string;
   slug: string;
   categories: string[];
+  href?: string;
 };
 
 export type NavbarProps = {
@@ -153,7 +154,7 @@ export function Navbar({ products = [] }: NavbarProps) {
                 {matches.map((product) => (
                   <li className={styles.suggestionItem} key={product.slug}>
                     <Link
-                      href={`/products/${product.slug}`}
+                      href={product.href ?? `/products/${product.slug}`}
                       onClick={() => setQuery("")}
                     >
                       <span className={styles.suggestionName}>{product.name}</span>

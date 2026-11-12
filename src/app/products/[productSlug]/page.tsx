@@ -20,6 +20,7 @@ import {
   catalogProducts,
   getCatalogProduct,
 } from "@/lib/catalog/migrated-catalog";
+import { iyalmooligaiHerbalRanges } from "@/lib/catalog/iyalmooligai-source-content";
 import { getShowcaseProduct } from "@/lib/catalog/showcase-products";
 import styles from "./page.module.css";
 
@@ -60,6 +61,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   const showcase = getShowcaseProduct(product.slug);
+  const herbalRange =
+    product.slug === "johovo-iyalmooligai-herbal-hair-oil"
+      ? iyalmooligaiHerbalRanges.find(({ category }) => category === "Hair Care")
+      : product.slug === "johovo-iyalmooligai-herbal-face-pack"
+        ? iyalmooligaiHerbalRanges.find(
+            ({ category }) => category === "Face Care",
+          )
+        : undefined;
   const productSourceUrl = product.originalSourceUrl.split("#", 1)[0];
   const productReviews = product.reviews.filter(
     (review) =>
@@ -213,6 +222,38 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className={styles.sourceDescription}>
                 {product.fullDescription}
               </div>
+            </section>
+          ) : null}
+
+          {herbalRange ? (
+            <section
+              aria-labelledby="herbal-range-source-title"
+              className={styles.informationSection}
+            >
+              <h2 id="herbal-range-source-title">
+                {herbalRange.category} range details from source PDF
+              </h2>
+              <p className={styles.sourceNote}>
+                These details describe the broader care range, not a confirmed
+                formula for this individual product. Source information has not
+                been independently verified; benefit statements are withheld
+                pending review.
+              </p>
+              <h3>Range items named in source</h3>
+              <ul>
+                {herbalRange.rangeItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <h3>Quality and sourcing in source PDF</h3>
+              <p className={styles.sourceDescription}>
+                {herbalRange.qualitySourcing}
+              </p>
+              <h3>Usage instructions in source PDF</h3>
+              <p className={styles.sourceDescription}>
+                {herbalRange.usageInstructions ??
+                  "Usage instructions were not provided for this range."}
+              </p>
             </section>
           ) : null}
 

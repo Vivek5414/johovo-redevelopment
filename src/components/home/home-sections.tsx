@@ -8,10 +8,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Image from "next/image";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import {
-  HerbalBrandSignature,
-  HerbalBotanicalPanel,
-} from "@/components/brand/herbal-botanical-pattern";
+import { HerbalBrandSignature } from "@/components/brand/herbal-botanical-pattern";
 import { ContentSection } from "@/components/layout/content-section";
 import { PageContainer } from "@/components/layout/page-container";
 import { WhatsAppEnquiryForm } from "@/components/contact/whatsapp-enquiry-form";
@@ -32,6 +29,7 @@ import {
   getShowcaseProduct,
   showcaseProducts,
 } from "@/lib/catalog/showcase-products";
+import { iyalmooligaiCollections } from "@/lib/catalog/iyalmooligai-collections";
 import styles from "./home-sections.module.css";
 
 const categories = getCatalogCategories();
@@ -86,15 +84,6 @@ const heroLifestyleAlt =
 const hairOil = herbalProducts.find((product) =>
   product.categories.some(({ name }) => name === "Hair Oil"),
 );
-const videos = catalogProducts.flatMap((product) =>
-  product.videos.map((video, index) => ({
-    ...video,
-    productName: product.name,
-    productSlug: product.slug,
-    key: `${product.id}-${index}`,
-  })),
-);
-
 function SectionHeading({
   eyebrow,
   title,
@@ -460,35 +449,71 @@ export function HerbalSection() {
   return (
     <ContentSection className={styles.herbal} id="herbal-care">
       <PageContainer>
-        <HerbalBotanicalPanel className={styles.herbalPanel}>
-          <div className={styles.herbalIntro}>
-            <HerbalBrandSignature />
-            <p className={styles.eyebrow}>Herbal product sub-brand</p>
-            <h2>IyalMooligai</h2>
-            <p>
-              Discover the products identified as IyalMooligai in the source
-              catalogue, presented within JOHOVO.
-            </p>
-            <LinkButton href="/collections/herbal-care" variant="secondary">
-              Explore Herbal Care
-            </LinkButton>
+        <div className={styles.herbalBrandHeader}>
+          <Image
+            alt="IyalMooligai brand logo"
+            className={styles.herbalBrandLogo}
+            height={120}
+            priority
+            src="/images/brand/iyalmooligai-logo.png"
+            unoptimized
+            width={260}
+          />
+          <p className={styles.eyebrow}>Natural health &amp; wellness</p>
+          <h2>IyalMooligai – Natural Health &amp; Wellness</h2>
+          <p>
+            Explore a thoughtfully curated range of personal care, everyday
+            wellness foods and traditional cold pressed oils, brought together
+            under the IyalMooligai brand.
+          </p>
+          <div className={styles.brandCategoryGrid}>
+            {iyalmooligaiCollections.map((category) => (
+              <Link
+                className={`${styles.brandCategoryCard} ${category.isUpcoming ? styles.upcomingBrandCategoryCard : ""}`}
+                data-category={category.slug}
+                href={`/collections/herbal-care/${category.slug}`}
+                key={category.slug}
+              >
+                <div className={styles.brandCategoryMeta}>
+                  <span className={styles.categoryNumber}>{category.number}</span>
+                  <span
+                    className={`${styles.brandCategoryStatus} ${category.isUpcoming ? styles.brandUpcomingStatus : styles.brandAvailableStatus}`}
+                  >
+                    {category.status}
+                  </span>
+                </div>
+                <div className={`${styles.categoryVisual} ${category.isUpcoming ? styles.upcomingBrandVisual : ""}`}>
+                  {category.imageSrc ? (
+                    <Image
+                      alt={category.imageAlt}
+                      fill
+                      sizes="(max-width: 600px) 100vw, 220px"
+                      src={category.imageSrc}
+                    />
+                  ) : (
+                    <Image
+                      alt="IyalMooligai brand logo"
+                      className={styles.upcomingBrandLogo}
+                      height={120}
+                      src="/images/brand/iyalmooligai-logo.png"
+                      unoptimized
+                      width={260}
+                    />
+                  )}
+                </div>
+                <div className={styles.categoryCopy}>
+                  <h3>{category.title}</h3>
+                  <p>{category.description}</p>
+                </div>
+                <ul aria-label={`${category.title} subcategories`} className={styles.categoryTags}>
+                  {category.subcategories.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </Link>
+            ))}
           </div>
-          <div className={styles.herbalProductLinks}>
-            {herbalProducts.map((product) => {
-              const presentation = getShowcaseProduct(product.slug);
-              return (
-                <Link href={`/products/${product.slug}`} key={product.id}>
-                  <span>{presentation?.title ?? product.name}</span>
-                  <span aria-hidden="true">View product →</span>
-                </Link>
-              );
-            })}
-            <Link href="/collections/herbal-care">
-              <span>Browse all IyalMooligai products</span>
-              <span aria-hidden="true">Explore Herbal Care →</span>
-            </Link>
-          </div>
-        </HerbalBotanicalPanel>
+        </div>
       </PageContainer>
     </ContentSection>
   );
@@ -526,35 +551,6 @@ export function ProductInformationSection() {
         >
           View all information for {hairOil.name} <span aria-hidden="true">→</span>
         </Link>
-      </PageContainer>
-    </ContentSection>
-  );
-}
-
-export function VideoSection() {
-  if (!videos.length) return null;
-
-  return (
-    <ContentSection className={styles.videoSection} id="videos" tone="neutral">
-      <PageContainer>
-        <SectionHeading
-          eyebrow="Product videos"
-          title="From the product pages"
-          description="Videos are shown only where the migration recorded an association with a published product page."
-        />
-        <div className={styles.videoGrid}>
-          {videos.map((video) => (
-            <article className={styles.videoCard} key={video.key}>
-              <video controls preload="metadata" title={`${video.productName} product video`}>
-                <source src={video.src} type="video/mp4" />
-                <a href={video.originalSourceUrl}>Open the source video</a>
-              </video>
-              <Link href={`/products/${video.productSlug}`}>
-                {video.productName}
-              </Link>
-            </article>
-          ))}
-        </div>
       </PageContainer>
     </ContentSection>
   );

@@ -1,14 +1,18 @@
 # JOHOVO website
 
-Responsive Next.js App Router foundation for the unified JOHOVO website.
-IyalMooligai is reserved for relevant approved herbal products within this
-site.
-There are no product or category records in the workspace yet, so the public
-catalogue intentionally shows an empty state instead of invented products.
+Responsive Next.js App Router website for the unified JOHOVO brand.
+IyalMooligai is presented as a three-category health and wellness sub-brand.
+Only the verified herbal hair oil and face pack are currently offered; healthy
+snacks and cold pressed oils are shown as upcoming collections until confirmed
+product records are available.
+PDF-derived snack and oil details are informational previews with no purchase
+actions. Benefit, promotional, SEO, and packaging claims remain marked for
+review, and the confidential source PDF is kept outside the public assets.
 
-Neither original logo was supplied with the project files. Until they are
-provided, brand components use plain text labels; do not redraw or alter either
-logo.
+The public catalogue currently uses verified migrated source snapshots rather
+than a product database. Neon is used for upload metadata, while existing admin
+authentication uses Supabase. No product or category data has been migrated
+between these systems.
 
 ## Requirements
 
