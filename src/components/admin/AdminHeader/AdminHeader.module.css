@@ -1,0 +1,122 @@
+.header {
+  height: 68px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 2.5vw, 2rem);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menuToggleBtn {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.35rem;
+  color: var(--color-herbal-forest-deep);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.siteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-herbal-cream) 80%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest);
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+.siteLink:hover {
+  background: var(--color-herbal-cream);
+  color: var(--color-herbal-forest-deep);
+}
+
+.siteIcon {
+  font-size: 0.9rem !important;
+}
+
+.adminProfilePill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.65rem 0.25rem 0.35rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+}
+
+.avatarMini {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-herbal-forest);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.adminEmailText {
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-herbal-forest-deep);
+}
+
+@media (max-width: 1024px) {
+  .menuToggleBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .adminEmailText {
+    display: none;
+  }
+}
