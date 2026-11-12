@@ -11,6 +11,12 @@
   flex-direction: column;
   min-height: 100vh;
   width: calc(100% - 260px);
+  transition: all var(--duration-standard) var(--easing-standard);
+}
+
+.mainContentExpanded {
+  margin-left: 0;
+  width: 100%;
 }
 
 .pageBody {

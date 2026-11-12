@@ -9,6 +9,7 @@ import styles from "./AdminHeader.module.css";
 type AdminHeaderProps = {
   adminEmail: string;
   adminName: string;
+  sidebarOpen?: boolean;
   onOpenMobileMenu?: () => void;
 };
 
@@ -27,6 +28,7 @@ const TITLE_MAP: Record<string, string> = {
 export function AdminHeader({
   adminEmail,
   adminName,
+  sidebarOpen,
   onOpenMobileMenu,
 }: AdminHeaderProps) {
   const pathname = usePathname();
@@ -35,15 +37,17 @@ export function AdminHeader({
   return (
     <header className={styles.header}>
       <div className={styles.leftGroup}>
-        <button
-          aria-label="Toggle navigation menu"
-          className={styles.menuToggleBtn}
-          onClick={onOpenMobileMenu}
-          type="button"
-        >
-          <MenuRoundedIcon />
-        </button>
-     
+        {!sidebarOpen && (
+          <button
+            aria-label="Open sidebar"
+            className={styles.menuToggleBtn}
+            onClick={onOpenMobileMenu}
+            title="Open navigation"
+            type="button"
+          >
+            <MenuRoundedIcon />
+          </button>
+        )}
       </div>
 
       <div className={styles.rightGroup}>

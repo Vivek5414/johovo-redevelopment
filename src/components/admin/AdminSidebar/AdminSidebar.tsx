@@ -62,17 +62,17 @@ export function AdminSidebar({
     <>
       {isOpen && <div className={styles.backdrop} onClick={onClose} />}
 
-      <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}>
+      <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : styles.sidebarCollapsed}`}>
         {/* Brand */}
         <div className={styles.brandArea}>
           <div className={styles.brandLink}>
             <Logo size="header" />
-            <span className={styles.adminBadge}>Admin</span>
           </div>
           <button
-            aria-label="Close menu"
+            aria-label="Collapse sidebar"
             className={styles.closeMobileBtn}
             onClick={onClose}
+            title="Collapse sidebar"
             type="button"
           >
             <CloseRoundedIcon />

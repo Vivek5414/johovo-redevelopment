@@ -16,7 +16,7 @@ type AdminLayoutClientProps = {
 };
 
 export function AdminLayoutClient({ admin, children }: AdminLayoutClientProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <div className={styles.adminLayout}>
@@ -24,15 +24,16 @@ export function AdminLayoutClient({ admin, children }: AdminLayoutClientProps) {
         adminEmail={admin.email}
         adminName={admin.name}
         adminRole={admin.role}
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
 
-      <div className={styles.mainContent}>
+      <div className={`${styles.mainContent} ${!sidebarOpen ? styles.mainContentExpanded : ""}`}>
         <AdminHeader
           adminEmail={admin.email}
           adminName={admin.name}
-          onOpenMobileMenu={() => setMobileMenuOpen(true)}
+          onOpenMobileMenu={() => setSidebarOpen(true)}
+          sidebarOpen={sidebarOpen}
         />
         <main className={styles.pageBody}>{children}</main>
       </div>

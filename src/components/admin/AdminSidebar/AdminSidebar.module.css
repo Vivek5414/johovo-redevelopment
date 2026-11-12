@@ -40,12 +40,21 @@
 }
 
 .closeMobileBtn {
-  display: none;
+  display: flex;
   background: none;
   border: none;
   color: var(--color-text-secondary);
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.35rem;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast);
+  align-items: center;
+  justify-content: center;
+}
+
+.closeMobileBtn:hover {
+  background: var(--color-herbal-cream);
+  color: var(--color-herbal-forest-deep);
 }
 
 .navSection {
@@ -192,6 +201,10 @@
 /* Overlay for Mobile */
 .backdrop {
   display: none;
+}
+
+.sidebarCollapsed {
+  transform: translateX(-100%);
 }
 
 @media (max-width: 1024px) {
