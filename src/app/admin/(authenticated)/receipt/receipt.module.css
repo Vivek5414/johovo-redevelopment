@@ -293,7 +293,21 @@
 }
 
 /* Print Only Styles (for clean PDF output) */
+@page {
+  /* Hides default browser header (date & title) and footer (URL & page #) */
+  margin: 0;
+  size: auto;
+}
+
 @media print {
+  /* Reset page body margins and background */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
   /* Hide Admin Sidebar, Header, and Editor Form */
   body * {
     visibility: hidden;
@@ -308,12 +322,14 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-shadow: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
   }
 }
 
