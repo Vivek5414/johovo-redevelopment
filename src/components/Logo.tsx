@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./Logo.module.css";
 
 type LogoProps = {
@@ -20,11 +19,7 @@ export default function Logo({
     .join(" ");
 
   return (
-    <Link
-      href="/"
-      className={[styles.logo, className].filter(Boolean).join(" ")}
-      aria-label="JOHOVO home"
-    >
+    <a href="/" className={[styles.logo, className].filter(Boolean).join(" ")} aria-label="JOHOVO home">
       <Image
         alt="JOHOVO"
         className={imageClassName}
@@ -41,6 +36,6 @@ export default function Logo({
         unoptimized
         width={2172}
       />
-    </Link>
+    </a>
   );
 }

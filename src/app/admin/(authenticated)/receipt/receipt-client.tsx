@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PrintRoundedIcon from "@mui/icons-material/PrintRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
@@ -19,12 +19,18 @@ type ReceiptClientProps = {
   products: { name: string; price: number }[];
 };
 
+const generateInvoiceNumber = () => `JH-REC-${Math.floor(100000 + Math.random() * 900000)}`;
+
 export function ReceiptClient({ products }: ReceiptClientProps) {
   const [customerName, setCustomerName] = useState("Priya Sharma");
   const [customerPhone, setCustomerPhone] = useState("+91 98765 43210");
   const [customerEmail, setCustomerEmail] = useState("priya@example.com");
-  const [invoiceNumber, setInvoiceNumber] = useState(`JH-REC-${Math.floor(100000 + Math.random() * 900000)}`);
+  const [invoiceNumber, setInvoiceNumber] = useState("JH-REC-000000");
   const [paymentMethod, setPaymentMethod] = useState("UPI / Online Transfer");
+
+  useEffect(() => {
+    setInvoiceNumber(generateInvoiceNumber());
+  }, []);
   const [discountPercent, setDiscountPercent] = useState<number | "">("");
 
   const [items, setItems] = useState<ReceiptItem[]>([
@@ -76,34 +82,59 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
   const grandTotal = Math.max(0, subtotal - discountDeduction);
 
   const handlePrint = async () => {
-    // 1. Automatically save/log receipt into database
+    const payload = {
+      invoiceNumber,
+      customerName,
+      customerPhone,
+      customerEmail,
+      paymentMethod,
+      discountPercent: discountPercentVal,
+      subtotal,
+      discountAmount: discountDeduction,
+      totalAmount: grandTotal,
+      items,
+    };
+
     try {
       setIsSaving(true);
-      await fetch("/api/admin/receipts", {
+      const saveRes = await fetch("/api/admin/receipts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          invoiceNumber,
-          customerName,
-          customerPhone,
-          customerEmail,
-          paymentMethod,
-          discountPercent: discountPercentVal,
-          subtotal,
-          discountAmount: discountDeduction,
-          totalAmount: grandTotal,
-          items,
-        }),
+        body: JSON.stringify(payload),
       });
-      setSaveSuccessMsg("Receipt recorded to database!");
+
+      if (!saveRes.ok) {
+        throw new Error("Failed to save receipt");
+      }
+
+      if (customerEmail && customerEmail.includes("@")) {
+        try {
+          await fetch("/api/admin/receipts/dispatch", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ receiptData: payload }),
+          });
+          setSaveSuccessMsg("Receipt saved and email dispatched!");
+        } catch {
+          setSaveSuccessMsg("Receipt saved to database!");
+        }
+      } else {
+        setSaveSuccessMsg("Receipt recorded to database!");
+      }
+
       setTimeout(() => setSaveSuccessMsg(""), 4000);
     } catch (err) {
       console.error("Failed to auto-save receipt:", err);
+      setSaveSuccessMsg("Receipt save failed.");
+      setTimeout(() => setSaveSuccessMsg(""), 4000);
     } finally {
       setIsSaving(false);
     }
 
-    // 2. Trigger browser print with sanitized customer name-number
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
+    }
+
     const cleanName = (customerName || "Customer").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
     const cleanPhone = (customerPhone || invoiceNumber || "receipt").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
     const targetTitle = `${cleanName}-${cleanPhone}`;
@@ -113,9 +144,10 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
 
     window.print();
 
-    // Restore original title after print dialog closes
     setTimeout(() => {
-      document.title = originalTitle;
+      if (typeof document !== "undefined") {
+        document.title = originalTitle;
+      }
     }, 1000);
   };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "@/components/Logo";
 import { JOHOVO_CONTACT } from "@/lib/contact";
 import styles from "./ReceiptDocument.module.css";
 
@@ -62,13 +61,37 @@ export function ReceiptDocument({ data }: { data: ReceiptDocumentData }) {
     <div className={styles.receiptSheet} id="printable-receipt">
       <div className={styles.receiptTop}>
         <div className={styles.companyMeta}>
-          <Logo size="header" />
-          <p style={{ margin: "0.35rem 0 0", fontWeight: "bold", color: "var(--color-herbal-forest-deep)" }}>
-            JOHOVO Herbal &amp; Ayurvedic Care
-          </p>
-          <span>Phone: {JOHOVO_CONTACT.displayPhone}</span>
-          <span>Email: {JOHOVO_CONTACT.email}</span>
-          <span>Website: www.johovo.in</span>
+          <img
+            alt="JOHOVO"
+            src="/images/brand/johovo-logo.png"
+            style={{
+              display: "block",
+              width: "170px",
+              height: "auto",
+              maxWidth: "100%",
+              objectFit: "contain",
+            }}
+          />
+          <div
+            style={{
+              marginTop: "0.4rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.18rem",
+              fontSize: "0.72rem",
+              lineHeight: 1.5,
+              color: "var(--color-text-secondary)",
+            }}
+          >
+            <span>GST No: 33AKUPA5054C1ZH</span>
+            <span>JOHOVO</span>
+            <span>20/3, Natarajapuram West,</span>
+            <span>Nandivaram, Guduvancheri,</span>
+            <span>Tamil Nadu - 603202</span>
+            <span>Call &amp; WhatsApp: +91 7845873369</span>
+            <span>Email: info@johovo.in</span>
+            <span>Website: www.johovo.in</span>
+          </div>
         </div>
 
         <div className={styles.receiptDocTitle}>

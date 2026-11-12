@@ -29,6 +29,7 @@ type ReceiptRecord = {
 export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) {
   const [search, setSearch] = useState("");
   const [activeReceipt, setActiveReceipt] = useState<ReceiptRecord | null>(null);
+  const [dispatchingId, setDispatchingId] = useState<number | null>(null);
 
   const filtered = receipts.filter((r) => {
     const q = search.toLowerCase();
@@ -45,8 +46,16 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
   const triggerDownloadOrPrint = (r: ReceiptRecord) => {
     setActiveReceipt(r);
 
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
+    }
+
     // Give state a tick to mount the receipt sheet for print
     setTimeout(() => {
+      if (typeof window === "undefined" || typeof document === "undefined") {
+        return;
+      }
+
       const cleanName = (r.customer_name || "Customer").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
       const cleanPhone = (r.customer_phone || r.invoice_number || "receipt")
         .trim()
@@ -59,7 +68,9 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
       window.print();
 
       setTimeout(() => {
-        document.title = originalTitle;
+        if (typeof document !== "undefined") {
+          document.title = originalTitle;
+        }
       }, 1000);
     }, 150);
   };
@@ -89,6 +100,34 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
       items: parsedItems,
       createdAt: r.created_at,
     };
+  };
+
+  const dispatchReceiptByMail = async (r: ReceiptRecord) => {
+    if (!r.customer_email) {
+      alert("This receipt has no customer email to dispatch.");
+      return;
+    }
+
+    setDispatchingId(r.id);
+
+    try {
+      const response = await fetch("/api/admin/receipts/dispatch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ receiptId: r.id }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result?.error || "Failed to dispatch mail");
+      }
+
+      alert(`Receipt sent to ${r.customer_email}`);
+    } catch (error: any) {
+      alert(error?.message || "Unable to dispatch receipt mail.");
+    } finally {
+      setDispatchingId(null);
+    }
   };
 
   return (
@@ -218,6 +257,17 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
                         >
                           <DownloadRoundedIcon style={{ fontSize: "0.95rem" }} />
                           <span>Download PDF</span>
+                        </button>
+                        <button
+                          className={styles.viewBtn}
+                          disabled={dispatchingId === r.id}
+                          onClick={() => dispatchReceiptByMail(r)}
+                          title="Dispatch receipt by email"
+                          type="button"
+                          style={{ opacity: dispatchingId === r.id ? 0.7 : 1 }}
+                        >
+                          <PrintRoundedIcon style={{ fontSize: "0.95rem" }} />
+                          <span>{dispatchingId === r.id ? "Sending..." : "Dispatch Mail"}</span>
                         </button>
                       </div>
                     </td>
