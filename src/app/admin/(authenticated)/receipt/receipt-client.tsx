@@ -25,7 +25,7 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
   const [customerEmail, setCustomerEmail] = useState("priya@example.com");
   const [invoiceNumber, setInvoiceNumber] = useState(`JH-REC-${Math.floor(100000 + Math.random() * 900000)}`);
   const [paymentMethod, setPaymentMethod] = useState("UPI / Online Transfer");
-  const [discountAmount, setDiscountAmount] = useState<number | "">("");
+  const [discountPercent, setDiscountPercent] = useState<number | "">("");
 
   const [items, setItems] = useState<ReceiptItem[]>([
     {
@@ -66,8 +66,12 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
   };
 
   const subtotal = items.reduce((acc, it) => acc + (Number(it.quantity) || 1) * (Number(it.unitPrice) || 0), 0);
-  const discountVal = typeof discountAmount === "number" && !Number.isNaN(discountAmount) && discountAmount > 0 ? discountAmount : 0;
-  const grandTotal = Math.max(0, subtotal - discountVal);
+  const discountPercentVal =
+    typeof discountPercent === "number" && !Number.isNaN(discountPercent) && discountPercent > 0
+      ? Math.min(100, Math.max(0, discountPercent))
+      : 0;
+  const discountDeduction = (subtotal * discountPercentVal) / 100;
+  const grandTotal = Math.max(0, subtotal - discountDeduction);
 
   const handlePrint = () => {
     window.print();
@@ -151,18 +155,20 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
 
           <div className={styles.fieldGroup}>
             <label className={styles.fieldLabel}>
-              Discount / Promo (₹) <span style={{ fontWeight: "normal", color: "var(--color-text-secondary)" }}>(Optional)</span>
+              Discount (%) <span style={{ fontWeight: "normal", color: "var(--color-text-secondary)" }}>(Optional)</span>
             </label>
             <input
               className={styles.input}
+              max={100}
               min={0}
               onChange={(e) => {
                 const val = e.target.value.trim();
-                setDiscountAmount(val === "" ? "" : Number(val));
+                setDiscountPercent(val === "" ? "" : Number(val));
               }}
-              placeholder="e.g. 100"
+              placeholder="e.g. 10"
+              step="any"
               type="number"
-              value={discountAmount}
+              value={discountPercent}
             />
           </div>
 
@@ -286,10 +292,10 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
                 <span>Subtotal:</span>
                 <strong>₹{subtotal.toFixed(2)}</strong>
               </div>
-              {discountVal > 0 ? (
+              {discountPercentVal > 0 ? (
                 <div className={styles.totalRow}>
-                  <span style={{ color: "var(--color-brand-pink)" }}>Discount:</span>
-                  <strong style={{ color: "var(--color-brand-pink)" }}>-₹{discountVal.toFixed(2)}</strong>
+                  <span style={{ color: "var(--color-brand-pink)" }}>Discount ({discountPercentVal}%):</span>
+                  <strong style={{ color: "var(--color-brand-pink)" }}>-₹{discountDeduction.toFixed(2)}</strong>
                 </div>
               ) : null}
               <div className={styles.totalRow}>
