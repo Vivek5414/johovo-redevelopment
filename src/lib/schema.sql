@@ -36,8 +36,21 @@ CREATE TABLE IF NOT EXISTS contact_enquiries (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Indexes for quick lookups
-CREATE INDEX IF NOT EXISTS idx_uploaded_files_created_at ON uploaded_files(created_at DESC);
-CREATE INDEX IF NOT EXISTS idx_product_files_product_name ON product_files(product_name);
-CREATE INDEX IF NOT EXISTS idx_product_files_created_at ON product_files(created_at DESC);
-CREATE INDEX IF NOT EXISTS idx_contact_enquiries_created_at ON contact_enquiries(created_at DESC);
+-- 4. Table for customer tax receipts / invoices
+CREATE TABLE IF NOT EXISTS receipt (
+    id SERIAL PRIMARY KEY,
+    invoice_number VARCHAR(120) NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(50),
+    customer_email VARCHAR(255),
+    payment_method VARCHAR(120),
+    discount_percent NUMERIC(5,2) DEFAULT 0,
+    subtotal NUMERIC(12,2) NOT NULL DEFAULT 0,
+    discount_amount NUMERIC(12,2) NOT NULL DEFAULT 0,
+    total_amount NUMERIC(12,2) NOT NULL DEFAULT 0,
+    items JSONB NOT NULL DEFAULT '[]'::jsonb,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_receipt_created_at ON receipt(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_receipt_invoice_number ON receipt(invoice_number);

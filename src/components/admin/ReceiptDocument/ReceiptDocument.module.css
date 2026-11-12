@@ -1,0 +1,187 @@
+/* Shared Receipt Document Styles (Print-ready & Web-ready) */
+.receiptSheet {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.2rem, 2.5vw, 2rem);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.receiptTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 2px solid var(--color-herbal-forest);
+  padding-bottom: 1.25rem;
+}
+
+.companyMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.receiptDocTitle {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.receiptDocTitle h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--color-herbal-forest);
+}
+
+.receiptNumber {
+  display: inline-block;
+  margin: 0.2rem 0;
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-herbal-forest-deep);
+}
+
+.customerMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.82rem;
+}
+
+.metaCol span:first-child {
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.metaCol strong {
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.92rem;
+}
+
+/* Items Table */
+.receiptTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+}
+
+.receiptTable th {
+  background: var(--color-herbal-cream);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--color-herbal-border);
+  text-align: left;
+}
+
+.receiptTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-main);
+}
+
+/* Totals */
+.receiptTotals {
+  margin-left: auto;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 1.25rem;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.totalRow strong {
+  color: var(--color-herbal-forest-deep);
+}
+
+.grandTotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-herbal-forest-deep);
+  border-top: 2px solid var(--color-herbal-forest);
+  padding-top: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.receiptFooterNotes {
+  border-top: 1px dashed var(--color-herbal-border);
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Print Specific Rules */
+@page {
+  margin: 0;
+  size: auto;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .receiptSheet,
+  .receiptSheet * {
+    visibility: visible;
+  }
+
+  .receiptSheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}

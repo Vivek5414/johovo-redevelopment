@@ -4,8 +4,8 @@ import { useState } from "react";
 import PrintRoundedIcon from "@mui/icons-material/PrintRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
-import Logo from "@/components/Logo";
-import { JOHOVO_CONTACT } from "@/lib/contact";
+import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
+import { ReceiptDocument } from "@/components/admin/ReceiptDocument/ReceiptDocument";
 import styles from "./receipt.module.css";
 
 type ReceiptItem = {
@@ -41,6 +41,8 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
       unitPrice: 799,
     },
   ]);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveSuccessMsg, setSaveSuccessMsg] = useState("");
 
   const addItem = () => {
     const defaultProduct = products[0] || { name: "Herbal Skincare Product", price: 720 };
@@ -73,7 +75,35 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
   const discountDeduction = (subtotal * discountPercentVal) / 100;
   const grandTotal = Math.max(0, subtotal - discountDeduction);
 
-  const handlePrint = () => {
+  const handlePrint = async () => {
+    // 1. Automatically save/log receipt into database
+    try {
+      setIsSaving(true);
+      await fetch("/api/admin/receipts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          invoiceNumber,
+          customerName,
+          customerPhone,
+          customerEmail,
+          paymentMethod,
+          discountPercent: discountPercentVal,
+          subtotal,
+          discountAmount: discountDeduction,
+          totalAmount: grandTotal,
+          items,
+        }),
+      });
+      setSaveSuccessMsg("Receipt recorded to database!");
+      setTimeout(() => setSaveSuccessMsg(""), 4000);
+    } catch (err) {
+      console.error("Failed to auto-save receipt:", err);
+    } finally {
+      setIsSaving(false);
+    }
+
+    // 2. Trigger browser print with sanitized customer name-number
     const cleanName = (customerName || "Customer").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
     const cleanPhone = (customerPhone || invoiceNumber || "receipt").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
     const targetTitle = `${cleanName}-${cleanPhone}`;
@@ -97,10 +127,18 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
           <h2 className={styles.title}>Receipt &amp; Invoice Generator</h2>
           <p className={styles.desc}>Generate, preview, and print formal customer purchase receipts / PDF invoices.</p>
         </div>
-        <button className={styles.printBtn} onClick={handlePrint} type="button">
-          <PrintRoundedIcon />
-          <span>Print / Save as PDF</span>
-        </button>
+        <div className={styles.headerActions}>
+          {saveSuccessMsg && (
+            <span className={styles.saveBadge}>
+              <CheckCircleOutlineRoundedIcon fontSize="small" />
+              {saveSuccessMsg}
+            </span>
+          )}
+          <button className={styles.printBtn} disabled={isSaving} onClick={handlePrint} type="button">
+            <PrintRoundedIcon />
+            <span>{isSaving ? "Saving & Printing..." : "Print / Save as PDF"}</span>
+          </button>
+        </div>
       </div>
 
       <div className={styles.layoutGrid}>
@@ -238,95 +276,20 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
 
         {/* Live Printable Receipt Sheet (A4 PDF Ready) */}
         <div className={styles.previewWrapper}>
-          <div className={styles.receiptSheet} id="printable-receipt">
-            <div className={styles.receiptTop}>
-              <div className={styles.companyMeta}>
-                <Logo size="header" />
-                <p style={{ margin: "0.35rem 0 0", fontWeight: "bold", color: "var(--color-herbal-forest-deep)" }}>
-                  JOHOVO Herbal &amp; Ayurvedic Care
-                </p>
-                <span>Phone: {JOHOVO_CONTACT.displayPhone}</span>
-                <span>Email: {JOHOVO_CONTACT.email}</span>
-                <span>Website: www.johovo.in</span>
-              </div>
-
-              <div className={styles.receiptDocTitle}>
-                <h2>TAX RECEIPT</h2>
-                <span className={styles.receiptNumber}>{invoiceNumber}</span>
-                <span style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)" }}>
-                  Date: {new Date().toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" })}
-                </span>
-              </div>
-            </div>
-
-            {/* Customer Details */}
-            <div className={styles.customerMetaGrid}>
-              <div className={styles.metaCol}>
-                <span>BILLED TO:</span>
-                <strong>{customerName || "Customer Name"}</strong>
-                <span>{customerPhone || "Phone Number"}</span>
-                <span>{customerEmail || ""}</span>
-              </div>
-              <div className={styles.metaCol}>
-                <span>PAYMENT DETAILS:</span>
-                <strong>Mode: {paymentMethod}</strong>
-                <span>Status: Paid / Confirmed</span>
-              </div>
-            </div>
-
-            {/* Items Table */}
-            <table className={styles.receiptTable}>
-              <thead>
-                <tr>
-                  <th>Item Description</th>
-                  <th style={{ textAlign: "center" }}>Qty</th>
-                  <th style={{ textAlign: "right" }}>Unit Price</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((item) => (
-                  <tr key={item.id}>
-                    <td>
-                      <strong>{item.name}</strong>
-                    </td>
-                    <td style={{ textAlign: "center" }}>{item.quantity}</td>
-                    <td style={{ textAlign: "right" }}>₹{Number(item.unitPrice).toFixed(2)}</td>
-                    <td>₹{(item.quantity * item.unitPrice).toFixed(2)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {/* Totals */}
-            <div className={styles.receiptTotals}>
-              <div className={styles.totalRow}>
-                <span>Subtotal:</span>
-                <strong>₹{subtotal.toFixed(2)}</strong>
-              </div>
-              {discountPercentVal > 0 ? (
-                <div className={styles.totalRow}>
-                  <span style={{ color: "var(--color-brand-pink)" }}>Discount ({discountPercentVal}%):</span>
-                  <strong style={{ color: "var(--color-brand-pink)" }}>-₹{discountDeduction.toFixed(2)}</strong>
-                </div>
-              ) : null}
-              <div className={styles.totalRow}>
-                <span>Shipping:</span>
-                <strong style={{ color: "var(--color-herbal-natural)" }}>FREE</strong>
-              </div>
-              <div className={styles.grandTotalRow}>
-                <span>Total Amount:</span>
-                <span>₹{grandTotal.toFixed(2)}</span>
-              </div>
-            </div>
-
-            {/* Footer Notice */}
-            <div className={styles.receiptFooterNotes}>
-              <p style={{ margin: 0, fontWeight: 600 }}>Thank you for choosing JOHOVO authentic botanical formulations!</p>
-              <span>For queries, contact support: {JOHOVO_CONTACT.displayPhone} • {JOHOVO_CONTACT.email}</span>
-              <span>This is a computer-generated receipt issued by JOHOVO.</span>
-            </div>
-          </div>
+          <ReceiptDocument
+            data={{
+              invoiceNumber,
+              customerName,
+              customerPhone,
+              customerEmail,
+              paymentMethod,
+              discountPercent,
+              items,
+              subtotal,
+              discountAmount: discountDeduction,
+              totalAmount: grandTotal,
+            }}
+          />
         </div>
       </div>
     </div>

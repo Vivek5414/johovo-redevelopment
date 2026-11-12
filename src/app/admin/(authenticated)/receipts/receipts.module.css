@@ -1,0 +1,406 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.desc {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.createBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-forest);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+  transition: all var(--duration-fast) var(--easing-standard);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-herbal-forest) 20%, transparent);
+}
+
+.createBtn:hover {
+  background: var(--color-herbal-forest-deep);
+  transform: translateY(-1px);
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.statCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-herbal-forest-deep);
+  font-family: var(--font-display);
+}
+
+/* Controls Bar */
+.controlsBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 0.85rem 1.25rem;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  width: 100%;
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Table Container (Desktop / Laptop) */
+.tableCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.table th {
+  background: var(--color-herbal-cream);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-herbal-border);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background: color-mix(in srgb, var(--color-herbal-cream) 40%, transparent);
+}
+
+.invoicePill {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-herbal-cream);
+  border: 1px solid var(--color-herbal-border);
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--color-herbal-forest-deep);
+}
+
+.customerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.customerName {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.customerContact {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.amount {
+  font-weight: 700;
+  color: var(--color-herbal-forest);
+}
+
+.actionBtnGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-cream);
+  border: 1px solid var(--color-herbal-border);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.viewBtn:hover {
+  background: var(--color-herbal-forest);
+  color: #ffffff;
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-herbal-forest);
+  border: none;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.downloadBtn:hover {
+  background: var(--color-herbal-forest-deep);
+}
+
+/* Mobile & Tablet Card Layout */
+.mobileCardsGrid {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+}
+
+.mobileCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.mobileCardBody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.8rem;
+}
+
+.mobileMetaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mobileMetaLabel {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.mobileMetaValue {
+  color: var(--color-herbal-forest-deep);
+  font-weight: 600;
+}
+
+.mobileCardActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mobileCardActions button {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Modal Popup Preview */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background: #ffffff;
+  border-radius: var(--radius-2xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  animation: modalIn 0.2s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
+}
+
+.modalHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+}
+
+.modalCloseBtn:hover {
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent);
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: #f8faf9;
+}
+
+.emptyState {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 820px) {
+  .tableCard {
+    display: none;
+  }
+
+  .mobileCardsGrid {
+    display: flex;
+  }
+}

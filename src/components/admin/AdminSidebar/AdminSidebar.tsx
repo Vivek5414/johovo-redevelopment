@@ -22,7 +22,8 @@ const NAV_ITEMS = [
   { label: "Categories", href: "/admin/categories", icon: CategoryRoundedIcon },
   { label: "Product Enquiries", href: "/admin/product-enquiries", icon: QuestionAnswerRoundedIcon },
   { label: "Contact Enquiries", href: "/admin/contact-enquiries", icon: ContactMailRoundedIcon },
-  { label: "Receipt / Invoice", href: "/admin/receipt", icon: ReceiptLongRoundedIcon },
+  { label: "Receipts & Invoices", href: "/admin/receipts", icon: ReceiptLongRoundedIcon },
+  { label: "Create Receipt", href: "/admin/receipt", icon: ReceiptLongRoundedIcon },
   { label: "WhatsApp Click Logs", href: "/admin/whatsapp-clicks", icon: WhatsAppIcon },
   { label: "Call Click Logs", href: "/admin/call-clicks", icon: CallRoundedIcon },
   // Uploaded Files commented as requested
