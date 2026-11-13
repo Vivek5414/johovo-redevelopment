@@ -16,7 +16,6 @@ import { ContentSection } from "@/components/layout/content-section";
 import { PageContainer } from "@/components/layout/page-container";
 import { ContactForm } from "@/components/contact/contact-form";
 import { HomeContactDetails } from "./home-contact-details";
-import { ProductCard } from "@/components/product/product-card";
 import { LinkButton } from "@/components/ui/link-button";
 import { InstagramSection as InstagramShowcaseSection } from "@/components/Instagram";
 import { ScrollReveal } from "./scroll-reveal";
@@ -232,34 +231,6 @@ export function HeroSection() {
             </span>
           </Link>
         ) : null}
-      </PageContainer>
-    </ContentSection>
-  );
-}
-
-export function CollectionsSection() {
-  return (
-    <ContentSection className={styles.collections} id="collections">
-      <PageContainer>
-        <SectionHeading
-          description="Explore six featured products across the IyalMooligai and JOHOVO collections."
-          eyebrow="The JOHOVO collection"
-          title="Care, chosen with intention"
-        />
-        <div className={styles.showcaseGrid}>
-          {showcaseProducts.map(({ slug }, index) => {
-            const product = catalogProducts.find(
-              (candidate) => candidate.slug === slug,
-            );
-            return product ? (
-              <ScrollReveal index={index} key={product.id}>
-                <ProductCard
-                  product={product}
-                />
-              </ScrollReveal>
-            ) : null;
-          })}
-        </div>
       </PageContainer>
     </ContentSection>
   );

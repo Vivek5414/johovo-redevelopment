@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
 import {
-  CollectionsSection,
   ContactSection,
   HerbalSection,
   ProductInformationSection,
@@ -26,7 +25,6 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <CategorySection />
-      <CollectionsSection />
       <ProductCategoriesSection />
       <HerbalSection />
       <ProductInformationSection />
