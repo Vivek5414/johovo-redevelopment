@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import Inventory2RoundedIcon from "@mui/icons-material/Inventory2Rounded";
+import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
 import CategoryRoundedIcon from "@mui/icons-material/CategoryRounded";
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
 import ContactMailRoundedIcon from "@mui/icons-material/ContactMailRounded";
@@ -19,6 +20,7 @@ import styles from "./AdminSidebar.module.css";
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin/dashboard", icon: DashboardRoundedIcon },
   { label: "Products Catalog", href: "/admin/products", icon: Inventory2RoundedIcon },
+  { label: "Add Product", href: "/admin/products/new", icon: AddCircleOutlineRoundedIcon },
   { label: "Categories", href: "/admin/categories", icon: CategoryRoundedIcon },
   { label: "Product Enquiries", href: "/admin/product-enquiries", icon: QuestionAnswerRoundedIcon },
   { label: "Contact Enquiries", href: "/admin/contact-enquiries", icon: ContactMailRoundedIcon },

@@ -27,6 +27,7 @@ import {
   catalogProducts,
   getCatalogProduct,
 } from "@/lib/catalog/migrated-catalog";
+import { getProductBySlug, getAllProducts } from "@/lib/products-db";
 import { getShowcaseProduct } from "@/lib/catalog/showcase-products";
 import styles from "./product-details.module.css";
 
@@ -34,7 +35,7 @@ type ProductPageProps = {
   params: Promise<{ productSlug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return catalogProducts.map(({ slug }) => ({ productSlug: slug }));
@@ -44,7 +45,7 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { productSlug } = await params;
-  const product = getCatalogProduct(productSlug);
+  const product = await getProductBySlug(productSlug);
 
   if (!product) {
     return { title: "Product Not Found" };
@@ -62,7 +63,7 @@ export async function generateMetadata({
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { productSlug } = await params;
-  const product = getCatalogProduct(productSlug);
+  const product = await getProductBySlug(productSlug);
 
   if (!product) notFound();
 
