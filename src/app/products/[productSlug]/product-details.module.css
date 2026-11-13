@@ -240,65 +240,33 @@
 }
 
 /* Marketplace & Instant Buy Options Section */
-.buyOptionsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  margin-top: 0.5rem;
-  padding: 1.25rem;
-  border-radius: var(--radius-xl);
-  background: color-mix(in srgb, var(--color-herbal-cream) 45%, var(--color-surface));
-  border: 1px solid var(--color-herbal-border);
-}
-
-.buyOptionsHeader {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.buyOptionsTitle {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-herbal-forest-deep);
-}
-
-.buyOptionsSubtitle {
-  font-size: 0.75rem;
-  color: var(--color-herbal-natural);
-  font-weight: var(--font-weight-medium);
-}
-
 .buyCardsGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
 }
 
 .marketplaceCard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.95rem 0.65rem;
-  border-radius: var(--radius-lg);
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-height: 4.25rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
   background: var(--color-surface);
   border: 1.5px solid var(--color-border);
   text-decoration: none;
-  transition: all var(--duration-fast) var(--easing-standard);
+  transition: transform var(--duration-fast) var(--easing-standard), box-shadow var(--duration-fast) var(--easing-standard), border-color var(--duration-fast) var(--easing-standard);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 6px color-mix(in srgb, var(--color-herbal-forest) 4%, transparent);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
 }
 
 .marketplaceCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px color-mix(in srgb, var(--color-herbal-forest) 10%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px color-mix(in srgb, var(--color-herbal-forest) 12%, transparent);
 }
 
 .marketplaceCard:active {
@@ -307,12 +275,13 @@
 
 /* Amazon Card Theme (using global yellow & dark forest tones) */
 .amazonCard {
-  border-color: color-mix(in srgb, var(--color-brand-yellow) 40%, var(--color-border));
+  background: linear-gradient(135deg, #f8df8c 0%, #f3c845 100%);
+  border-color: color-mix(in srgb, var(--color-brand-yellow) 55%, var(--color-border));
 }
 
 .amazonCard:hover {
   border-color: var(--color-brand-yellow);
-  background: color-mix(in srgb, var(--color-brand-yellow) 6%, #fff);
+  background: linear-gradient(135deg, #f9e7a9 0%, #f1c33f 100%);
 }
 
 .amazonLogo {
@@ -331,12 +300,13 @@
 
 /* Flipkart Card Theme (using global cyan & yellow tones) */
 .flipkartCard {
-  border-color: color-mix(in srgb, var(--color-brand-cyan) 40%, var(--color-border));
+  background: linear-gradient(135deg, #e0f7fb 0%, #bdeef6 100%);
+  border-color: color-mix(in srgb, var(--color-brand-cyan) 50%, var(--color-border));
 }
 
 .flipkartCard:hover {
   border-color: var(--color-brand-cyan);
-  background: color-mix(in srgb, var(--color-brand-cyan) 6%, #fff);
+  background: linear-gradient(135deg, #eafcff 0%, #bfeef5 100%);
 }
 
 .flipkartLogo {
@@ -356,12 +326,13 @@
 
 /* WhatsApp Card Theme (using global green / herbal natural tones) */
 .whatsappCard {
-  border-color: color-mix(in srgb, var(--color-brand-green) 40%, var(--color-border));
+  background: linear-gradient(135deg, #dff9df 0%, #c4efc1 100%);
+  border-color: color-mix(in srgb, var(--color-brand-green) 50%, var(--color-border));
 }
 
 .whatsappCard:hover {
   border-color: var(--color-brand-green);
-  background: color-mix(in srgb, var(--color-brand-green) 6%, #fff);
+  background: linear-gradient(135deg, #ebffe9 0%, #c9f1c7 100%);
 }
 
 .whatsappLogo {
@@ -382,12 +353,18 @@
 .marketplaceAction {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--color-surface) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-herbal-forest) 10%, transparent);
   font-size: 0.72rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-herbal-forest);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .marketplaceIcon {
@@ -395,17 +372,20 @@
 }
 
 .marketplaceCard:hover .marketplaceAction {
-  color: var(--color-herbal-natural);
+  color: var(--color-herbal-forest-deep);
+  background: color-mix(in srgb, var(--color-surface) 52%, transparent);
 }
 
 .fastTag {
+  align-self: flex-start;
   font-size: 0.62rem;
-  padding: 0.1rem 0.4rem;
+  padding: 0.18rem 0.45rem;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-herbal-cream) 80%, transparent);
-  border: 1px solid var(--color-herbal-border);
-  color: var(--color-text-secondary);
+  background: color-mix(in srgb, var(--color-herbal-cream) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-herbal-forest) 12%, transparent);
+  color: var(--color-herbal-forest-deep);
   line-height: 1.2;
+  font-weight: var(--font-weight-semibold);
 }
 
 /* Sections Styling */
@@ -570,8 +550,7 @@
   }
 
   .marketplaceCard {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.85rem 1rem;
+    min-height: 3.75rem;
+    padding: 0.8rem 0.9rem;
   }
 }
