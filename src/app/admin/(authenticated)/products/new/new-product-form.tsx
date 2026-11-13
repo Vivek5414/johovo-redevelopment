@@ -6,16 +6,18 @@ import { useRouter } from "next/navigation";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
 import AddPhotoAlternateRoundedIcon from "@mui/icons-material/AddPhotoAlternateRounded";
+import VideoLibraryRoundedIcon from "@mui/icons-material/VideoLibraryRounded";
 import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
 import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import styles from "./new-product.module.css";
 
 export function NewProductForm() {
   const router = useRouter();
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const primaryInputRef = useRef<HTMLInputElement>(null);
+  const galleryInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("JOHOVO");
@@ -30,25 +32,64 @@ export function NewProductForm() {
   const [benefits, setBenefits] = useState("");
   const [usageInstructions, setUsageInstructions] = useState("");
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [filePreview, setFilePreview] = useState<string | null>(null);
+  // Media States
+  const [primaryFile, setPrimaryFile] = useState<File | null>(null);
+  const [primaryPreview, setPrimaryPreview] = useState<string | null>(null);
+
+  const [galleryFiles, setGalleryFiles] = useState<{ file: File; preview: string }[]>([]);
+  const [videoFiles, setVideoFiles] = useState<{ file: File; name: string }[]>([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Handlers
+  const handlePrimaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setSelectedFile(file);
-      setFilePreview(URL.createObjectURL(file));
+      setPrimaryFile(file);
+      setPrimaryPreview(URL.createObjectURL(file));
     }
   };
 
-  const removeFile = () => {
-    setSelectedFile(null);
-    if (filePreview) URL.revokeObjectURL(filePreview);
-    setFilePreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
+  const removePrimary = () => {
+    setPrimaryFile(null);
+    if (primaryPreview) URL.revokeObjectURL(primaryPreview);
+    setPrimaryPreview(null);
+    if (primaryInputRef.current) primaryInputRef.current.value = "";
+  };
+
+  const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newItems = Array.from(files).map((f) => ({
+        file: f,
+        preview: URL.createObjectURL(f),
+      }));
+      setGalleryFiles((prev) => [...prev, ...newItems]);
+    }
+  };
+
+  const removeGalleryItem = (index: number) => {
+    setGalleryFiles((prev) => {
+      const target = prev[index];
+      if (target?.preview) URL.revokeObjectURL(target.preview);
+      return prev.filter((_, i) => i !== index);
+    });
+  };
+
+  const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newVids = Array.from(files).map((f) => ({
+        file: f,
+        name: f.name,
+      }));
+      setVideoFiles((prev) => [...prev, ...newVids]);
+    }
+  };
+
+  const removeVideoItem = (index: number) => {
+    setVideoFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -80,8 +121,19 @@ export function NewProductForm() {
       formData.append("benefits", benefits);
       formData.append("usageInstructions", usageInstructions);
 
-      if (selectedFile) {
-        formData.append("image", selectedFile);
+      // Primary file
+      if (primaryFile) {
+        formData.append("image", primaryFile);
+      }
+
+      // Multiple gallery files
+      for (const item of galleryFiles) {
+        formData.append("gallery_images", item.file);
+      }
+
+      // Video files
+      for (const vItem of videoFiles) {
+        formData.append("video_files", vItem.file);
       }
 
       const res = await fetch("/api/admin/products", {
@@ -97,7 +149,7 @@ export function NewProductForm() {
 
       setStatus({
         type: "success",
-        message: "Product created successfully! Image uploaded to Google Drive and saved to Neon.",
+        message: "Product created successfully! All images and videos synced to Google Drive and Neon DB.",
       });
 
       setTimeout(() => {
@@ -122,7 +174,7 @@ export function NewProductForm() {
         <div className={styles.titleArea}>
           <h1 className={styles.title}>Add New Product</h1>
           <p className={styles.desc}>
-            Upload product details, herbal formulations, and high-res imagery directly to Google Drive and Neon DB.
+            Add full product specifications, multiple high-res gallery images, and videos synced to Google Drive.
           </p>
         </div>
         <Link className={styles.backBtn} href="/admin/products">
@@ -263,53 +315,171 @@ export function NewProductForm() {
           </div>
         </div>
 
-        {/* Section 3: Media Upload (Google Drive) */}
+        {/* Section 3: Media Upload (Primary + Multiple Images) */}
         <div className={styles.sectionBlock}>
           <h2 className={styles.sectionTitle}>
             <AddPhotoAlternateRoundedIcon className={styles.sectionIcon} />
-            <span>Product Media (Uploaded to Google Drive)</span>
+            <span>Product Photos (Primary &amp; Multiple Gallery Images)</span>
           </h2>
 
-          <input
-            accept="image/*"
-            hidden
-            onChange={handleFileChange}
-            ref={fileInputRef}
-            type="file"
-          />
+          {/* 3A: Primary Featured Image */}
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              Main Featured Cover Image <span className={styles.optional}>(Front showcase)</span>
+            </label>
 
-          {!selectedFile ? (
+            <input
+              accept="image/*"
+              hidden
+              onChange={handlePrimaryChange}
+              ref={primaryInputRef}
+              type="file"
+            />
+
+            {!primaryFile ? (
+              <div
+                className={styles.uploadDropzone}
+                onClick={() => primaryInputRef.current?.click()}
+              >
+                <CloudUploadRoundedIcon className={styles.cloudIcon} />
+                <p className={styles.dropzoneText}>Select Main Cover Image</p>
+                <p className={styles.dropzoneHint}>
+                  Uploads directly to Google Drive under folder:
+                  <strong> products/{name.trim() || "[Product Name]"}</strong>
+                </p>
+              </div>
+            ) : (
+              <div className={styles.mediaGrid}>
+                <div className={styles.mediaItemCard}>
+                  <span className={styles.mediaItemBadge}>MAIN COVER</span>
+                  {primaryPreview && (
+                    <img alt="Primary" className={styles.mediaItemThumb} src={primaryPreview} />
+                  )}
+                  <span className={styles.mediaItemName}>{primaryFile.name}</span>
+                  <button className={styles.removeMiniBtn} onClick={removePrimary} type="button">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 3B: Multiple Gallery Images */}
+          <div className={styles.fieldGroup} style={{ marginTop: "1rem" }}>
+            <label className={styles.label}>
+              Additional Gallery Images <span className={styles.optional}>(Select multiple photos)</span>
+            </label>
+
+            <input
+              accept="image/*"
+              hidden
+              multiple
+              onChange={handleGalleryChange}
+              ref={galleryInputRef}
+              type="file"
+            />
+
             <div
               className={styles.uploadDropzone}
-              onClick={() => fileInputRef.current?.click()}
+              onClick={() => galleryInputRef.current?.click()}
+              style={{ padding: "1.2rem" }}
             >
-              <CloudUploadRoundedIcon className={styles.cloudIcon} />
-              <p className={styles.dropzoneText}>Click to select product image</p>
+              <AddPhotoAlternateRoundedIcon className={styles.cloudIcon} style={{ fontSize: "1.8rem" }} />
+              <p className={styles.dropzoneText}>Add Gallery Images (Hold Ctrl/Shift to multi-select)</p>
               <p className={styles.dropzoneHint}>
-                PNG, JPG, WEBP up to 25MB. File automatically uploads to Google Drive under folder:
-                <strong> products/{name.trim() || "[Product Name]"}</strong>
+                Add packaging angles, texture shots, and ingredients. All files upload directly to Google Drive.
               </p>
             </div>
-          ) : (
-            <div className={styles.previewCard}>
-              {filePreview && (
-                <img alt="Preview" className={styles.previewThumb} src={filePreview} />
-              )}
-              <div className={styles.previewInfo}>
-                <span className={styles.previewName}>{selectedFile.name}</span>
-                <span className={styles.previewSize}>
-                  {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB • Ready for Google Drive sync
-                </span>
+
+            {galleryFiles.length > 0 && (
+              <div className={styles.mediaGrid}>
+                {galleryFiles.map((item, idx) => (
+                  <div className={styles.mediaItemCard} key={idx}>
+                    <span className={styles.mediaItemBadge}>PHOTO #{idx + 1}</span>
+                    <img alt={`Gallery ${idx + 1}`} className={styles.mediaItemThumb} src={item.preview} />
+                    <span className={styles.mediaItemName}>{item.file.name}</span>
+                    <button
+                      className={styles.removeMiniBtn}
+                      onClick={() => removeGalleryItem(idx)}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
               </div>
-              <button className={styles.removeImgBtn} onClick={removeFile} type="button">
-                <DeleteOutlineRoundedIcon fontSize="small" />
-                <span>Remove</span>
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
-        {/* Section 4: Descriptions & Herbal Formulation */}
+        {/* Section 4: Video Uploads & URLs */}
+        <div className={styles.sectionBlock}>
+          <h2 className={styles.sectionTitle}>
+            <VideoLibraryRoundedIcon className={styles.sectionIcon} />
+            <span>Product Videos &amp; Reels</span>
+          </h2>
+
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>
+              Upload Video Files <span className={styles.optional}>(MP4, MOV, WebM - Uploaded to Google Drive)</span>
+            </label>
+
+            <input
+              accept="video/mp4,video/webm,video/quicktime"
+              hidden
+              multiple
+              onChange={handleVideoChange}
+              ref={videoInputRef}
+              type="file"
+            />
+
+            <div
+              className={styles.uploadDropzone}
+              onClick={() => videoInputRef.current?.click()}
+              style={{ padding: "1.2rem" }}
+            >
+              <VideoLibraryRoundedIcon className={styles.cloudIcon} style={{ fontSize: "1.8rem" }} />
+              <p className={styles.dropzoneText}>Select Video Clip / Demo</p>
+              <p className={styles.dropzoneHint}>
+                Demonstration clips, application rituals, or texture videos.
+              </p>
+            </div>
+
+            {videoFiles.length > 0 && (
+              <div className={styles.mediaGrid}>
+                {videoFiles.map((v, vIdx) => (
+                  <div className={styles.mediaItemCard} key={vIdx}>
+                    <span className={styles.mediaItemBadge}>VIDEO</span>
+                    <div
+                      style={{
+                        width: "100%",
+                        aspectRatio: "1",
+                        background: "#161616",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "6px",
+                        color: "#fff",
+                      }}
+                    >
+                      <VideoLibraryRoundedIcon />
+                    </div>
+                    <span className={styles.mediaItemName}>{v.name}</span>
+                    <button
+                      className={styles.removeMiniBtn}
+                      onClick={() => removeVideoItem(vIdx)}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Section 5: Descriptions & Herbal Formulation */}
         <div className={styles.sectionBlock}>
           <h2 className={styles.sectionTitle}>
             <DescriptionRoundedIcon className={styles.sectionIcon} />
@@ -381,7 +551,7 @@ export function NewProductForm() {
           </Link>
           <button className={styles.submitBtn} disabled={isLoading} type="submit">
             {isLoading ? (
-              <span>Uploading to Drive &amp; Neon...</span>
+              <span>Uploading Media to Drive &amp; Neon...</span>
             ) : (
               <>
                 <CheckCircleRoundedIcon fontSize="small" />

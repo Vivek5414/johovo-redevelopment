@@ -3,6 +3,8 @@ import { retryTransientRequest } from "@/lib/upload-service";
 import {
   catalogProducts,
   type CatalogProduct,
+  type CatalogImage,
+  type CatalogVideo,
 } from "@/lib/catalog/migrated-catalog";
 
 export type CustomProductRecord = {
@@ -22,6 +24,8 @@ export type CustomProductRecord = {
   usage_instructions: string | null;
   image_url: string | null;
   drive_file_id: string | null;
+  gallery_images: any[];
+  videos: any[];
   is_active: boolean;
   created_at: string;
 };
@@ -47,6 +51,41 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
     .toLowerCase()
     .trim()
     .replace(/\s+/g, "-");
+
+  // Process gallery images (multiple images)
+  const rawGallery = Array.isArray(rec.gallery_images) ? rec.gallery_images : [];
+  const galleryCatalogImages: CatalogImage[] = rawGallery.map((img: any, idx: number) => {
+    let src = typeof img === "string" ? img : img.url || img.src;
+    const driveId = typeof img === "object" ? img.drive_file_id || img.fileId : null;
+    if (driveId) {
+      src = `https://drive.google.com/thumbnail?id=${driveId}&sz=w1000`;
+    }
+    return {
+      src: src || mainImageSrc,
+      alt: `${rec.name} photo ${idx + 1}`,
+      name: null,
+      originalSourceUrl: `/products/${rec.slug}`,
+      role: "gallery" as const,
+    };
+  });
+
+  const allProductImages: CatalogImage[] = [
+    {
+      src: mainImageSrc,
+      alt: rec.name,
+      name: rec.name,
+      originalSourceUrl: `/products/${rec.slug}`,
+      role: "main" as const,
+    },
+    ...galleryCatalogImages,
+  ];
+
+  // Process videos
+  const rawVideos = Array.isArray(rec.videos) ? rec.videos : [];
+  const catalogVideos: CatalogVideo[] = rawVideos.map((v: any) => ({
+    src: typeof v === "string" ? v : v.url || v.src || "",
+    originalSourceUrl: `/products/${rec.slug}`,
+  })).filter((v: CatalogVideo) => Boolean(v.src));
 
   return {
     id: 100000 + Number(rec.id),
@@ -76,17 +115,9 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
     sourceDiscount: discountStr,
     currency: "INR",
     sizes: [rec.net_quantity || "Standard"],
-    productImages: [
-      {
-        src: mainImageSrc,
-        alt: rec.name,
-        name: rec.name,
-        originalSourceUrl: `/products/${rec.slug}`,
-        role: "main",
-      },
-    ],
+    productImages: allProductImages,
     ingredientImages: [],
-    videos: [],
+    videos: catalogVideos,
     reviews: [],
     averageRating: 4.9,
     reviewCount: 1,
@@ -123,6 +154,8 @@ export async function getCustomProducts(): Promise<CatalogProduct[]> {
         usage_instructions,
         image_url,
         drive_file_id,
+        gallery_images,
+        videos,
         is_active,
         created_at
       FROM custom_products
@@ -132,7 +165,6 @@ export async function getCustomProducts(): Promise<CatalogProduct[]> {
 
     return (rows || []).map(mapCustomProductToCatalog);
   } catch (error) {
-    // If table not yet queried or connection hiccup, return empty array
     return [];
   }
 }
@@ -168,6 +200,8 @@ export async function getProductBySlug(slug: string): Promise<CatalogProduct | u
         usage_instructions,
         image_url,
         drive_file_id,
+        gallery_images,
+        videos,
         is_active,
         created_at
       FROM custom_products

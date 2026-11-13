@@ -25,6 +25,7 @@ export async function ensureProductsTable() {
         image_url TEXT,
         drive_file_id VARCHAR(255),
         gallery_images JSONB DEFAULT '[]'::jsonb,
+        videos JSONB DEFAULT '[]'::jsonb,
         is_active BOOLEAN DEFAULT TRUE,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -75,6 +76,7 @@ export async function GET() {
         image_url,
         drive_file_id,
         gallery_images,
+        videos,
         is_active,
         created_at,
         updated_at
@@ -89,6 +91,8 @@ export async function GET() {
         id: Number(r.id),
         selling_price: Number(r.selling_price || 0),
         mrp: Number(r.mrp || 0),
+        gallery_images: Array.isArray(r.gallery_images) ? r.gallery_images : [],
+        videos: Array.isArray(r.videos) ? r.videos : [],
       })),
     });
   } catch (error: any) {
@@ -102,8 +106,8 @@ export async function GET() {
 
 /**
  * POST /api/admin/products
- * Creates a new product: uploads image to Google Drive under "products/<ProductName>"
- * and persists all fields to Neon PostgreSQL table `custom_products`.
+ * Creates a new product: uploads primary image + multiple gallery images + videos to Google Drive
+ * and saves structured data to Neon PostgreSQL table `custom_products`.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -123,7 +127,13 @@ export async function POST(req: NextRequest) {
     const ingredients = (formData.get("ingredients") as string)?.trim() || "";
     const benefits = (formData.get("benefits") as string)?.trim() || "";
     const usageInstructions = (formData.get("usageInstructions") as string)?.trim() || "";
-    const file = formData.get("image") as File | null;
+
+    // Primary image file
+    const primaryFile = formData.get("image") as File | null;
+    // Multiple gallery images
+    const galleryFiles = formData.getAll("gallery_images") as File[];
+    // Video files uploaded to Google Drive
+    const videoFiles = formData.getAll("video_files") as File[];
 
     if (!name) {
       return NextResponse.json(
@@ -144,7 +154,6 @@ export async function POST(req: NextRequest) {
     if (!baseSlug) baseSlug = `product-${Date.now()}`;
     let finalSlug = baseSlug;
 
-    // Check slug collision
     const existing = await sql`
       SELECT id FROM custom_products WHERE slug = ${finalSlug} LIMIT 1;
     `;
@@ -154,39 +163,100 @@ export async function POST(req: NextRequest) {
 
     let imageUrl = "/images/products/iyalmooligai-herbal-hair-oil.png";
     let driveFileId = "";
+    const galleryImages: { url: string; drive_file_id: string; name: string }[] = [];
+    const videos: { url: string; drive_file_id?: string; title?: string }[] = [];
 
-    // If an image was uploaded, store it in Google Drive under products/<ProductName>
-    if (file && file.size > 0) {
+    // Prepare Google Drive product target folder
+    let targetFolderId: string | undefined;
+    try {
+      const productsParentFolderId = await getOrCreateFolder("products");
+      targetFolderId = await getOrCreateFolder(name, productsParentFolderId);
+    } catch (fErr) {
+      logServiceError("[admin-products] Could not create target Drive folder", fErr);
+    }
+
+    // 1. Upload Primary Image
+    if (primaryFile && primaryFile.size > 0 && targetFolderId) {
       try {
-        const arrayBuffer = await file.arrayBuffer();
+        const arrayBuffer = await primaryFile.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        // 1. Get or create "products" parent folder inside root Google Drive folder
-        const productsParentFolderId = await getOrCreateFolder("products");
-
-        // 2. Get or create the specific product's subfolder inside "products"
-        const targetFolderId = await getOrCreateFolder(name, productsParentFolderId);
-
-        // 3. Upload file to that subfolder
         const driveResult = await uploadFileToDrive({
-          fileName: file.name,
-          mimeType: file.type || "image/jpeg",
+          fileName: primaryFile.name,
+          mimeType: primaryFile.type || "image/jpeg",
           buffer,
           folderId: targetFolderId,
         });
 
         driveFileId = driveResult.fileId;
-        // Direct view/embed link or preview URL
         imageUrl = driveResult.previewUrl;
 
-        // Also record to product_files for historical traceability
         await sql`
           INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
-          VALUES (${name}, ${file.name}, ${driveResult.fileId}, ${file.type || "image/jpeg"}, ${file.size}, ${driveResult.previewUrl}, ${driveResult.downloadUrl});
+          VALUES (${name}, ${primaryFile.name}, ${driveResult.fileId}, ${primaryFile.type || "image/jpeg"}, ${primaryFile.size}, ${driveResult.previewUrl}, ${driveResult.downloadUrl});
         `;
       } catch (driveErr) {
-        logServiceError("[admin-products] Failed to upload image to Google Drive", driveErr);
-        // Fall back gracefully if Drive throws an auth error
+        logServiceError("[admin-products] Failed to upload primary image to Google Drive", driveErr);
+      }
+    }
+
+    // 2. Upload Multiple Gallery Images
+    if (galleryFiles && galleryFiles.length > 0 && targetFolderId) {
+      for (const gFile of galleryFiles) {
+        if (gFile && gFile.size > 0) {
+          try {
+            const buf = Buffer.from(await gFile.arrayBuffer());
+            const gRes = await uploadFileToDrive({
+              fileName: gFile.name,
+              mimeType: gFile.type || "image/jpeg",
+              buffer: buf,
+              folderId: targetFolderId,
+            });
+
+            galleryImages.push({
+              url: gRes.previewUrl,
+              drive_file_id: gRes.fileId,
+              name: gFile.name,
+            });
+
+            await sql`
+              INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
+              VALUES (${name}, ${gFile.name}, ${gRes.fileId}, ${gFile.type || "image/jpeg"}, ${gFile.size}, ${gRes.previewUrl}, ${gRes.downloadUrl});
+            `;
+          } catch (gErr) {
+            logServiceError(`[admin-products] Failed to upload gallery image ${gFile.name}`, gErr);
+          }
+        }
+      }
+    }
+
+    // 3. Upload Video Files (MP4, WebM, etc.) to Google Drive
+    if (videoFiles && videoFiles.length > 0 && targetFolderId) {
+      for (const vFile of videoFiles) {
+        if (vFile && vFile.size > 0) {
+          try {
+            const buf = Buffer.from(await vFile.arrayBuffer());
+            const vRes = await uploadFileToDrive({
+              fileName: vFile.name,
+              mimeType: vFile.type || "video/mp4",
+              buffer: buf,
+              folderId: targetFolderId,
+            });
+
+            videos.push({
+              url: vRes.previewUrl,
+              drive_file_id: vRes.fileId,
+              title: vFile.name,
+            });
+
+            await sql`
+              INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
+              VALUES (${name}, ${vFile.name}, ${vRes.fileId}, ${vFile.type || "video/mp4"}, ${vFile.size}, ${vRes.previewUrl}, ${vRes.downloadUrl});
+            `;
+          } catch (vErr) {
+            logServiceError(`[admin-products] Failed to upload video file ${vFile.name}`, vErr);
+          }
+        }
       }
     }
 
@@ -207,7 +277,9 @@ export async function POST(req: NextRequest) {
         benefits,
         usage_instructions,
         image_url,
-        drive_file_id
+        drive_file_id,
+        gallery_images,
+        videos
       ) VALUES (
         ${name},
         ${finalSlug},
@@ -223,14 +295,16 @@ export async function POST(req: NextRequest) {
         ${benefits},
         ${usageInstructions},
         ${imageUrl},
-        ${driveFileId}
+        ${driveFileId},
+        ${JSON.stringify(galleryImages)}::jsonb,
+        ${JSON.stringify(videos)}::jsonb
       )
       RETURNING *;
     `;
 
     return NextResponse.json({
       success: true,
-      message: "Product created and saved to Neon and Google Drive successfully!",
+      message: "Product created with multi-image & video assets synced to Google Drive and Neon!",
       product: insertResult[0],
     });
   } catch (error: any) {

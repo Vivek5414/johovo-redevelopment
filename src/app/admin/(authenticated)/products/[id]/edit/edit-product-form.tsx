@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
 import AddPhotoAlternateRoundedIcon from "@mui/icons-material/AddPhotoAlternateRounded";
+import VideoLibraryRoundedIcon from "@mui/icons-material/VideoLibraryRounded";
 import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
 import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
@@ -31,12 +32,16 @@ type EditProductFormProps = {
     usage_instructions: string;
     image_url: string;
     drive_file_id: string;
+    gallery_images?: any[];
+    videos?: any[];
   };
 };
 
 export function EditProductForm({ initialProduct }: EditProductFormProps) {
   const router = useRouter();
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const primaryInputRef = useRef<HTMLInputElement>(null);
+  const galleryInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState(initialProduct.name || "");
   const [brand, setBrand] = useState(initialProduct.brand || "JOHOVO");
@@ -51,25 +56,57 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
   const [benefits, setBenefits] = useState(initialProduct.benefits || "");
   const [usageInstructions, setUsageInstructions] = useState(initialProduct.usage_instructions || "");
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [filePreview, setFilePreview] = useState<string | null>(initialProduct.image_url || null);
+  // Media
+  const [primaryFile, setPrimaryFile] = useState<File | null>(null);
+  const [primaryPreview, setPrimaryPreview] = useState<string | null>(initialProduct.image_url || null);
+
+  const [galleryFiles, setGalleryFiles] = useState<{ file: File; preview: string }[]>([]);
+  const [videoFiles, setVideoFiles] = useState<{ file: File; name: string }[]>([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePrimaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setSelectedFile(file);
-      setFilePreview(URL.createObjectURL(file));
+      setPrimaryFile(file);
+      setPrimaryPreview(URL.createObjectURL(file));
     }
   };
 
-  const removeFile = () => {
-    setSelectedFile(null);
-    setFilePreview(initialProduct.image_url || null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
+  const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newItems = Array.from(files).map((f) => ({
+        file: f,
+        preview: URL.createObjectURL(f),
+      }));
+      setGalleryFiles((prev) => [...prev, ...newItems]);
+    }
+  };
+
+  const removeGalleryItem = (index: number) => {
+    setGalleryFiles((prev) => {
+      const target = prev[index];
+      if (target?.preview) URL.revokeObjectURL(target.preview);
+      return prev.filter((_, i) => i !== index);
+    });
+  };
+
+  const handleVideoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const newVids = Array.from(files).map((f) => ({
+        file: f,
+        name: f.name,
+      }));
+      setVideoFiles((prev) => [...prev, ...newVids]);
+    }
+  };
+
+  const removeVideoItem = (index: number) => {
+    setVideoFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -101,8 +138,16 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
       formData.append("benefits", benefits);
       formData.append("usageInstructions", usageInstructions);
 
-      if (selectedFile) {
-        formData.append("image", selectedFile);
+      if (primaryFile) {
+        formData.append("image", primaryFile);
+      }
+
+      for (const item of galleryFiles) {
+        formData.append("gallery_images", item.file);
+      }
+
+      for (const vItem of videoFiles) {
+        formData.append("video_files", vItem.file);
       }
 
       const res = await fetch(`/api/admin/products/${initialProduct.id}`, {
@@ -118,7 +163,7 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
 
       setStatus({
         type: "success",
-        message: "Product updated successfully!",
+        message: "Product and media updated successfully!",
       });
 
       setTimeout(() => {
@@ -166,7 +211,7 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
         <div className={styles.titleArea}>
           <h1 className={styles.title}>Edit Product: {initialProduct.name}</h1>
           <p className={styles.desc}>
-            Update pricing, formulations, and imagery synced across Google Drive and Neon DB.
+            Update pricing, descriptions, multiple photos, and videos synced across Google Drive and Neon DB.
           </p>
         </div>
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
@@ -308,9 +353,7 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
             </div>
 
             <div className={styles.fieldGroup}>
-              <label className={styles.label}>
-                Maximum Retail Price / MRP (₹)
-              </label>
+              <label className={styles.label}>Maximum Retail Price / MRP (₹)</label>
               <input
                 className={styles.input}
                 min={1}
@@ -327,50 +370,149 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
         <div className={styles.sectionBlock}>
           <h2 className={styles.sectionTitle}>
             <AddPhotoAlternateRoundedIcon className={styles.sectionIcon} />
-            <span>Product Media (Google Drive Synced)</span>
+            <span>Product Photos (Primary &amp; Multiple Gallery Images)</span>
+          </h2>
+
+          {/* Primary Cover */}
+          <div className={styles.fieldGroup}>
+            <label className={styles.label}>Main Cover Image</label>
+            <input
+              accept="image/*"
+              hidden
+              onChange={handlePrimaryChange}
+              ref={primaryInputRef}
+              type="file"
+            />
+            {primaryPreview ? (
+              <div className={styles.mediaGrid}>
+                <div className={styles.mediaItemCard}>
+                  <span className={styles.mediaItemBadge}>COVER</span>
+                  <img alt="Primary Preview" className={styles.mediaItemThumb} src={primaryPreview} />
+                  <span className={styles.mediaItemName}>
+                    {primaryFile ? primaryFile.name : "Current Cover Image"}
+                  </span>
+                  <button
+                    className={styles.removeMiniBtn}
+                    onClick={() => primaryInputRef.current?.click()}
+                    type="button"
+                  >
+                    Change Cover
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div
+                className={styles.uploadDropzone}
+                onClick={() => primaryInputRef.current?.click()}
+              >
+                <CloudUploadRoundedIcon className={styles.cloudIcon} />
+                <p className={styles.dropzoneText}>Select Main Cover Image</p>
+              </div>
+            )}
+          </div>
+
+          {/* Additional Gallery Images */}
+          <div className={styles.fieldGroup} style={{ marginTop: "1rem" }}>
+            <label className={styles.label}>
+              Append Gallery Images <span className={styles.optional}>(Select multiple photos)</span>
+            </label>
+            <input
+              accept="image/*"
+              hidden
+              multiple
+              onChange={handleGalleryChange}
+              ref={galleryInputRef}
+              type="file"
+            />
+            <div
+              className={styles.uploadDropzone}
+              onClick={() => galleryInputRef.current?.click()}
+              style={{ padding: "1.2rem" }}
+            >
+              <AddPhotoAlternateRoundedIcon className={styles.cloudIcon} style={{ fontSize: "1.8rem" }} />
+              <p className={styles.dropzoneText}>Add More Gallery Images</p>
+            </div>
+
+            {galleryFiles.length > 0 && (
+              <div className={styles.mediaGrid}>
+                {galleryFiles.map((item, idx) => (
+                  <div className={styles.mediaItemCard} key={idx}>
+                    <span className={styles.mediaItemBadge}>NEW #{idx + 1}</span>
+                    <img alt={`New Gallery ${idx + 1}`} className={styles.mediaItemThumb} src={item.preview} />
+                    <span className={styles.mediaItemName}>{item.file.name}</span>
+                    <button
+                      className={styles.removeMiniBtn}
+                      onClick={() => removeGalleryItem(idx)}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Section 4: Videos */}
+        <div className={styles.sectionBlock}>
+          <h2 className={styles.sectionTitle}>
+            <VideoLibraryRoundedIcon className={styles.sectionIcon} />
+            <span>Product Videos</span>
           </h2>
 
           <input
-            accept="image/*"
+            accept="video/mp4,video/webm,video/quicktime"
             hidden
-            onChange={handleFileChange}
-            ref={fileInputRef}
+            multiple
+            onChange={handleVideoChange}
+            ref={videoInputRef}
             type="file"
           />
 
-          {filePreview ? (
-            <div className={styles.previewCard}>
-              <img alt="Preview" className={styles.previewThumb} src={filePreview} />
-              <div className={styles.previewInfo}>
-                <span className={styles.previewName}>
-                  {selectedFile ? selectedFile.name : "Current Image (Google Drive Synced)"}
-                </span>
-                <span className={styles.previewSize}>
-                  {selectedFile
-                    ? `${(selectedFile.size / (1024 * 1024)).toFixed(2)} MB • Ready to replace on Google Drive`
-                    : "Click below if you wish to upload and replace with a new image"}
-                </span>
-              </div>
-              <button
-                className={styles.removeImgBtn}
-                onClick={() => fileInputRef.current?.click()}
-                type="button"
-              >
-                Change Image
-              </button>
-            </div>
-          ) : (
-            <div
-              className={styles.uploadDropzone}
-              onClick={() => fileInputRef.current?.click()}
-            >
-              <CloudUploadRoundedIcon className={styles.cloudIcon} />
-              <p className={styles.dropzoneText}>Click to select new product image</p>
+          <div
+            className={styles.uploadDropzone}
+            onClick={() => videoInputRef.current?.click()}
+            style={{ padding: "1.2rem" }}
+          >
+            <VideoLibraryRoundedIcon className={styles.cloudIcon} style={{ fontSize: "1.8rem" }} />
+            <p className={styles.dropzoneText}>Upload Video Demonstration File</p>
+          </div>
+
+          {videoFiles.length > 0 && (
+            <div className={styles.mediaGrid}>
+              {videoFiles.map((v, vIdx) => (
+                <div className={styles.mediaItemCard} key={vIdx}>
+                  <span className={styles.mediaItemBadge}>VIDEO</span>
+                  <div
+                    style={{
+                      width: "100%",
+                      aspectRatio: "1",
+                      background: "#161616",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "6px",
+                      color: "#fff",
+                    }}
+                  >
+                    <VideoLibraryRoundedIcon />
+                  </div>
+                  <span className={styles.mediaItemName}>{v.name}</span>
+                  <button
+                    className={styles.removeMiniBtn}
+                    onClick={() => removeVideoItem(vIdx)}
+                    type="button"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
             </div>
           )}
         </div>
 
-        {/* Section 4: Descriptions */}
+        {/* Section 5: Descriptions */}
         <div className={styles.sectionBlock}>
           <h2 className={styles.sectionTitle}>
             <DescriptionRoundedIcon className={styles.sectionIcon} />
@@ -437,7 +579,7 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
           </Link>
           <button className={styles.submitBtn} disabled={isLoading} type="submit">
             {isLoading ? (
-              <span>Updating Product...</span>
+              <span>Updating Product &amp; Media...</span>
             ) : (
               <>
                 <CheckCircleRoundedIcon fontSize="small" />

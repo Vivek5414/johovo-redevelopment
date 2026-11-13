@@ -10,7 +10,6 @@ type Params = {
 
 /**
  * GET /api/admin/products/[id]
- * Fetch single product details by id
  */
 export async function GET(req: NextRequest, { params }: Params) {
   try {
@@ -40,6 +39,8 @@ export async function GET(req: NextRequest, { params }: Params) {
         usage_instructions,
         image_url,
         drive_file_id,
+        gallery_images,
+        videos,
         is_active,
         created_at,
         updated_at
@@ -59,6 +60,8 @@ export async function GET(req: NextRequest, { params }: Params) {
         id: Number(rows[0].id),
         selling_price: Number(rows[0].selling_price || 0),
         mrp: Number(rows[0].mrp || 0),
+        gallery_images: Array.isArray(rows[0].gallery_images) ? rows[0].gallery_images : [],
+        videos: Array.isArray(rows[0].videos) ? rows[0].videos : [],
       },
     });
   } catch (error: any) {
@@ -72,7 +75,7 @@ export async function GET(req: NextRequest, { params }: Params) {
 
 /**
  * PUT /api/admin/products/[id]
- * Updates product details and optionally uploads a new image to Google Drive
+ * Updates product details and allows appending/replacing images and videos
  */
 export async function PUT(req: NextRequest, { params }: Params) {
   try {
@@ -84,7 +87,6 @@ export async function PUT(req: NextRequest, { params }: Params) {
       return NextResponse.json({ success: false, error: "Invalid product ID" }, { status: 400 });
     }
 
-    // Fetch existing product
     const existing = await sql`
       SELECT * FROM custom_products WHERE id = ${productId} LIMIT 1;
     `;
@@ -108,23 +110,33 @@ export async function PUT(req: NextRequest, { params }: Params) {
     const ingredients = (formData.get("ingredients") as string)?.trim() ?? currentProduct.ingredients;
     const benefits = (formData.get("benefits") as string)?.trim() ?? currentProduct.benefits;
     const usageInstructions = (formData.get("usageInstructions") as string)?.trim() ?? currentProduct.usage_instructions;
-    const file = formData.get("image") as File | null;
+
+    const primaryFile = formData.get("image") as File | null;
+    const galleryFiles = formData.getAll("gallery_images") as File[];
+    const videoFiles = formData.getAll("video_files") as File[];
 
     let imageUrl = currentProduct.image_url;
     let driveFileId = currentProduct.drive_file_id;
+    let galleryImages = Array.isArray(currentProduct.gallery_images) ? [...currentProduct.gallery_images] : [];
+    let videos = Array.isArray(currentProduct.videos) ? [...currentProduct.videos] : [];
 
-    // If new image uploaded, upload to Google Drive
-    if (file && file.size > 0) {
+    let targetFolderId: string | undefined;
+    try {
+      const productsParentFolderId = await getOrCreateFolder("products");
+      targetFolderId = await getOrCreateFolder(name, productsParentFolderId);
+    } catch (fErr) {
+      logServiceError("[admin-products] Could not create target Drive folder", fErr);
+    }
+
+    // 1. Upload updated primary image
+    if (primaryFile && primaryFile.size > 0 && targetFolderId) {
       try {
-        const arrayBuffer = await file.arrayBuffer();
+        const arrayBuffer = await primaryFile.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        const productsParentFolderId = await getOrCreateFolder("products");
-        const targetFolderId = await getOrCreateFolder(name, productsParentFolderId);
-
         const driveResult = await uploadFileToDrive({
-          fileName: file.name,
-          mimeType: file.type || "image/jpeg",
+          fileName: primaryFile.name,
+          mimeType: primaryFile.type || "image/jpeg",
           buffer,
           folderId: targetFolderId,
         });
@@ -134,10 +146,70 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
         await sql`
           INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
-          VALUES (${name}, ${file.name}, ${driveResult.fileId}, ${file.type || "image/jpeg"}, ${file.size}, ${driveResult.previewUrl}, ${driveResult.downloadUrl});
+          VALUES (${name}, ${primaryFile.name}, ${driveResult.fileId}, ${primaryFile.type || "image/jpeg"}, ${primaryFile.size}, ${driveResult.previewUrl}, ${driveResult.downloadUrl});
         `;
       } catch (driveErr) {
         logServiceError("[admin-products] Failed to upload updated image to Google Drive", driveErr);
+      }
+    }
+
+    // 2. Upload additional gallery images
+    if (galleryFiles && galleryFiles.length > 0 && targetFolderId) {
+      for (const gFile of galleryFiles) {
+        if (gFile && gFile.size > 0) {
+          try {
+            const buf = Buffer.from(await gFile.arrayBuffer());
+            const gRes = await uploadFileToDrive({
+              fileName: gFile.name,
+              mimeType: gFile.type || "image/jpeg",
+              buffer: buf,
+              folderId: targetFolderId,
+            });
+
+            galleryImages.push({
+              url: gRes.previewUrl,
+              drive_file_id: gRes.fileId,
+              name: gFile.name,
+            });
+
+            await sql`
+              INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
+              VALUES (${name}, ${gFile.name}, ${gRes.fileId}, ${gFile.type || "image/jpeg"}, ${gFile.size}, ${gRes.previewUrl}, ${gRes.downloadUrl});
+            `;
+          } catch (gErr) {
+            logServiceError(`[admin-products] Failed to upload gallery image ${gFile.name}`, gErr);
+          }
+        }
+      }
+    }
+
+    // 3. Upload additional video files
+    if (videoFiles && videoFiles.length > 0 && targetFolderId) {
+      for (const vFile of videoFiles) {
+        if (vFile && vFile.size > 0) {
+          try {
+            const buf = Buffer.from(await vFile.arrayBuffer());
+            const vRes = await uploadFileToDrive({
+              fileName: vFile.name,
+              mimeType: vFile.type || "video/mp4",
+              buffer: buf,
+              folderId: targetFolderId,
+            });
+
+            videos.push({
+              url: vRes.previewUrl,
+              drive_file_id: vRes.fileId,
+              title: vFile.name,
+            });
+
+            await sql`
+              INSERT INTO product_files (product_name, file_name, file_id, mime_type, file_size, preview_url, download_url)
+              VALUES (${name}, ${vFile.name}, ${vRes.fileId}, ${vFile.type || "video/mp4"}, ${vFile.size}, ${vRes.previewUrl}, ${vRes.downloadUrl});
+            `;
+          } catch (vErr) {
+            logServiceError(`[admin-products] Failed to upload video file ${vFile.name}`, vErr);
+          }
+        }
       }
     }
 
@@ -158,6 +230,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
         usage_instructions = ${usageInstructions},
         image_url = ${imageUrl},
         drive_file_id = ${driveFileId},
+        gallery_images = ${JSON.stringify(galleryImages)}::jsonb,
+        videos = ${JSON.stringify(videos)}::jsonb,
         updated_at = CURRENT_TIMESTAMP
       WHERE id = ${productId}
       RETURNING *;
@@ -179,7 +253,6 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 /**
  * DELETE /api/admin/products/[id]
- * Deletes a custom product from Neon DB
  */
 export async function DELETE(req: NextRequest, { params }: Params) {
   try {
