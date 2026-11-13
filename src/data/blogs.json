@@ -1,0 +1,198 @@
+[
+  {
+    "id": "ayurvedic-hair-oiling-ritual",
+    "slug": "ayurvedic-hair-oiling-ritual",
+    "title": "The Ancient Art of Shiro Abhyanga: Why Scalp Oiling Transforms Hair Health",
+    "excerpt": "Discover how traditional warm oil head massages using Bhringaraj and Amla penetrate root follicles to arrest hair fall, stimulate density, and calm the nervous system.",
+    "coverImage": "/images/products/iyalmooligai-herbal-hair-oil.png",
+    "category": "Hair Rituals",
+    "readTime": "5 min read",
+    "publishedAt": "2026-11-10",
+    "author": {
+      "name": "Dr. Mythili Raman",
+      "role": "Ayurvedic Formulation Lead",
+      "avatar": "/images/brand/logo2.png"
+    },
+    "tags": ["Hair Care", "Shiro Abhyanga", "Bhringaraj", "Herbal Wellness"],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "For centuries in classical Ayurvedic practice, *Shiro Abhyanga* (head oil massage) was regarded not merely as a cosmetic vanity, but as a foundational pillar of daily wellness (*Dinacharya*). The head is home to numerous energy centers (*Marmas*) and thousands of nerve endings that directly govern micro-circulation to hair follicles and systemic stress levels."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Biological Mechanism Behind Botanical Scalp Massage"
+      },
+      {
+        "type": "paragraph",
+        "text": "When cold-pressed coconut oil is infused with traditional herbs like Bhringaraj (Eclipta Alba) and Indian Gooseberry (Amla), the lipid matrix allows phytochemicals like wedelolactone and tannins to bypass the scalp sebum barrier. This activates dormant dermal papilla cells, supplying vital micronutrients right at the root sheath."
+      },
+      {
+        "type": "quote",
+        "text": "“Bhringaraj literally translates to the 'King of Hair' in Sanskrit — renowned for cooling an aggravated Pitta dosha, preventing premature silvering, and anchoring fragile roots.”"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How to Perform Your Weekly Ritual at Home"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Gently warm 2 to 3 tablespoons of herbal oil in a glass container placed in warm water.",
+          "Part hair into neat sections and apply the warmed botanical oil directly along scalp lines using clean fingertips.",
+          "Perform slow, circular kneading motions starting from the crown (*Adhipati Marma*) down toward the temples and occiput.",
+          "Allow the herbs to permeate for a minimum of 45 minutes, or overnight wrapped in a soft natural cotton wrap.",
+          "Rinse with lukewarm water and a gentle sulfate-free cleanser without harsh friction."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Consistent weekly adherence to this ritual nourishes hair shafts, reduces split ends, and delivers an unmistakable calming sensory experience that relieves screen fatigue."
+      }
+    ],
+    "relatedProductSlug": "iyalmooligai-herbal-hair-oil"
+  },
+  {
+    "id": "healing-power-herbal-face-packs",
+    "slug": "healing-power-herbal-face-packs",
+    "title": "Restoring Your Natural Skin Barrier: The Science of Herbal Clay & Botanical Packs",
+    "excerpt": "Move beyond harsh chemical peels. Learn how gentle sun-dried herbs and mineral-rich clays purify congested pores, soothe inflammation, and restore natural glow.",
+    "coverImage": "/images/products/iyalmooligai-herbal-face-pack.png",
+    "category": "Skin Radiance",
+    "readTime": "6 min read",
+    "publishedAt": "2026-11-06",
+    "author": {
+      "name": "Dr. Mythili Raman",
+      "role": "Ayurvedic Formulation Lead",
+      "avatar": "/images/brand/logo2.png"
+    },
+    "tags": ["Face Care", "Herbal Face Pack", "Skin Barrier", "Clean Beauty"],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Modern skincare often over-exfoliates the skin with aggressive chemical concentrations that strip the stratum corneum — leaving the epidermis fragile, sensitized, and vulnerable to hyperpigmentation. Traditional botanical face packs (*Lepas*) work on a completely different philosophy: gently purifying impurities while feeding the tissue living botanical nourishment."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Synergy of Ancient Herbs: Neem, Kasthuri Manjal & Sandalwood"
+      },
+      {
+        "type": "paragraph",
+        "text": "Our skin requires equilibrium. Neem provides broad-spectrum antimicrobial protection against breakout-causing bacteria, wild turmeric (*Kasthuri Manjal*) calms redness without staining the skin yellow, and pure red sandalwood encourages microcirculation and fades stubborn post-acne blemishes."
+      },
+      {
+        "type": "quote",
+        "text": "“A botanical face pack should never dry into a crackled, taut mask. Always mist lightly with pure rose water before rinsing so the skin stays hydrated and calm.”"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Customizing Your Mixture by Skin Concern"
+      },
+      {
+        "type": "list",
+        "items": [
+          "For Oily / Blemish-Prone Skin: Blend herbal powder with pure steam-distilled rose water or aloe vera gel.",
+          "For Dry / Mature Skin: Mix with raw milk, curd (yogurt), or honey for intense lipid restoration.",
+          "For Dull / Sun-Tanned Skin: Combine with pure tomato extract or cooling cucumber juice."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "By attuning your weekly mask application to seasonal transitions and your skin's immediate needs, you achieve balanced radiance that synthetic cosmetics cannot mimic."
+      }
+    ],
+    "relatedProductSlug": "iyalmooligai-herbal-face-pack"
+  },
+  {
+    "id": "rose-botanicals-body-wellness",
+    "slug": "rose-botanicals-body-wellness",
+    "title": "Damask Rose & Botanical Scrubs: Creating a Sacred Sanctuary in Your Bath",
+    "excerpt": "Transform your daily shower into an aromatic wellness retreat. Unpack the rejuvenating benefits of steam-distilled rose extracts, natural walnut granules, and lipid-rich moisturizers.",
+    "coverImage": "/images/products/premium-rose-body-wash.png",
+    "category": "Body Wellness",
+    "readTime": "4 min read",
+    "publishedAt": "2026-10-28",
+    "author": {
+      "name": "Kavitha Sundaram",
+      "role": "Botanical Wellness Curator",
+      "avatar": "/images/brand/logo2.png"
+    },
+    "tags": ["Body Care", "Rose Care", "Aromatherapy", "Self Care"],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "In Ayurvedic philosophy, rose (*Taruni*) is celebrated for its unmatched *Hridya* (heart-soothing) and *Sheeta* (cooling) virtues. Its subtle essential oils quiet mental chatter, balance hormonal fluctuations, and soften parched epidermal tissue."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Three-Step Botanical Bath Protocol"
+      },
+      {
+        "type": "paragraph",
+        "text": "Elevating your body care does not require complex routines — just mindful steps that awaken the senses and protect the moisture barrier."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Cleanse: Lather gently with a sulfate-free botanical rose body wash that preserves natural barrier ceramides.",
+          "Polish: Once or twice weekly, massage a gentle rose body scrub along dry areas (elbows, knees, heels) to buff away dead cells without micro-tears.",
+          "Lock: Within 3 minutes of stepping out of the shower, seal in moisture with a nutrient-rich botanical body lotion."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "“Self-care begins with how we treat our body's largest organ. The soothing aroma of pure rose elevates daily bathing into a meditative pause.”"
+      },
+      {
+        "type": "paragraph",
+        "text": "When choosing body care, prioritize products formulated with genuine floral distillates and cold-pressed botanical oils over synthetic parfum."
+      }
+    ],
+    "relatedProductSlug": "premium-rose-body-wash"
+  },
+  {
+    "id": "understanding-herbal-ingredients-purity",
+    "slug": "understanding-herbal-ingredients-purity",
+    "title": "Decoding Clean Beauty: How We Source Authentic Herbs from Native Soil",
+    "excerpt": "From village cooperatives to precision processing: an honest look behind our clean formulations, ingredient traceability, and zero-compromise purity standards.",
+    "coverImage": "/images/reference-homepage-featured.png",
+    "category": "Brand Story",
+    "readTime": "5 min read",
+    "publishedAt": "2026-10-18",
+    "author": {
+      "name": "JOHOVO Research Team",
+      "role": "Quality & Standards",
+      "avatar": "/images/brand/logo2.png"
+    },
+    "tags": ["Sustainability", "Clean Beauty", "Traceability", "JOHOVO"],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "The phrase 'natural' has become one of the most loosely regulated claims in the modern cosmetic landscape. At JOHOVO, we believe true natural efficacy lies in ingredient lineage: where the plant was harvested, when it was picked, and how it was processed."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Fresh Herbs vs. Chemical Extracts"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many commercial formulas utilize powdered synthetic chemical derivatives or solvent-extracted isolates. Our artisan batches, however, employ traditional slow-infusion methods that capture the full phytochemical spectrum of whole leaves, roots, and flowers."
+      },
+      {
+        "type": "quote",
+        "text": "“True herbal potency isn't synthesized in a rush — it is cultivated by seasons, nurtured by clean soil, and harvested at peak potency.”"
+      },
+      {
+        "type": "paragraph",
+        "text": "By maintaining direct relationships with ethical growers and sustainable herbal cooperatives across South India, we ensure every jar represents absolute integrity, safety, and respect for the earth."
+      }
+    ],
+    "relatedProductSlug": "iyalmooligai-herbal-hair-oil"
+  }
+]

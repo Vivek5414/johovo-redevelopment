@@ -36,6 +36,10 @@
       "href": "/testimonial"
     },
     {
+      "label": "Journal",
+      "href": "/blog"
+    },
+    {
       "label": "Contact",
       "href": "/contact"
     }

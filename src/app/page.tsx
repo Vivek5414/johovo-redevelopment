@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/hero";
 import { CategorySection } from "@/components/category";
 import { AboutSection } from "@/components/about";
+import { BlogSection } from "@/components/blog";
+import { getAllBlogs } from "@/lib/blogs";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const blogs = getAllBlogs().slice(0, 3);
+
   return (
     <>
       <SiteHeader />
@@ -29,6 +33,7 @@ export default function Home() {
       <HerbalSection />
       <ProductInformationSection />
       <TestimonialsSection />
+      <BlogSection posts={blogs} />
       <InstagramShowcase />
       <ContactSection />
       <SiteFooter />

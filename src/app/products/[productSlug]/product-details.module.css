@@ -275,13 +275,13 @@
 
 /* Amazon Card Theme (using global yellow & dark forest tones) */
 .amazonCard {
-  background: linear-gradient(135deg, #f8df8c 0%, #f3c845 100%);
-  border-color: color-mix(in srgb, var(--color-brand-yellow) 55%, var(--color-border));
+  background: linear-gradient(135deg, #fff5d7 0%, #ffd54d 100%);
+  border-color: #f4b400;
 }
 
 .amazonCard:hover {
-  border-color: var(--color-brand-yellow);
-  background: linear-gradient(135deg, #f9e7a9 0%, #f1c33f 100%);
+  border-color: #f4b400;
+  background: linear-gradient(135deg, #fff6de 0%, #ffc926 100%);
 }
 
 .amazonLogo {
@@ -295,18 +295,18 @@
 }
 
 .amazonAccent {
-  color: var(--color-brand-yellow);
+  color: #f59e0b;
 }
 
 /* Flipkart Card Theme (using global cyan & yellow tones) */
 .flipkartCard {
-  background: linear-gradient(135deg, #e0f7fb 0%, #bdeef6 100%);
-  border-color: color-mix(in srgb, var(--color-brand-cyan) 50%, var(--color-border));
+  background: linear-gradient(135deg, #e3f4ff 0%, #8fd3ff 100%);
+  border-color: #2874f0;
 }
 
 .flipkartCard:hover {
-  border-color: var(--color-brand-cyan);
-  background: linear-gradient(135deg, #eafcff 0%, #bfeef5 100%);
+  border-color: #2874f0;
+  background: linear-gradient(135deg, #ecf8ff 0%, #96d3ff 100%);
 }
 
 .flipkartLogo {
@@ -320,7 +320,7 @@
 }
 
 .flipkartAccent {
-  color: var(--color-brand-yellow);
+  color: #ff6f00;
   font-style: italic;
 }
 
