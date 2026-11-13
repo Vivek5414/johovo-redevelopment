@@ -1,0 +1,105 @@
+.faqWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faqItem {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(23, 47, 41, 0.03);
+}
+
+.faqItem[open] {
+  border-color: var(--color-herbal-forest);
+  box-shadow: 0 10px 28px rgba(23, 47, 41, 0.08);
+}
+
+.faqSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.35rem 1.6rem;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-herbal-forest-deep);
+  list-style: none;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.questionLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.questionIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--color-surface-muted);
+  color: var(--color-herbal-forest);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.faqItem[open] .questionIndex {
+  background: var(--color-herbal-forest);
+  color: #ffffff;
+}
+
+.toggleIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  color: var(--color-herbal-forest-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.faqItem[open] .toggleIcon {
+  transform: rotate(180deg);
+  background: var(--color-brand-pink);
+  color: #ffffff;
+}
+
+.faqAnswer {
+  padding: 0 1.6rem 1.4rem 4.1rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #405048;
+  border-top: 1px solid rgba(229, 227, 223, 0.4);
+  padding-top: 1rem;
+  margin-top: -0.25rem;
+}
+
+@media (max-width: 600px) {
+  .faqAnswer {
+    padding-left: 1.6rem;
+  }
+}
+
+.faqAnswer p {
+  margin: 0;
+}
