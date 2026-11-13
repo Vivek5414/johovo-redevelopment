@@ -9,15 +9,13 @@ import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
 import {
   ContactSection,
-  HerbalSection,
   ProductInformationSection,
-  ProductCategoriesSection,
 } from "@/components/home/home-sections";
 import { TestimonialsSection } from "@/components/testimonials/testimonials";
 
 export const metadata: Metadata = {
-  title: "JOHOVO | Product Catalogue",
-  description: "Browse the JOHOVO product catalogue, source-listed categories and product details.",
+  title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
+  description: "Browse the authentic IyalMooligai herbal products, 100% pure Marachekku cold pressed oils, and wellness trail mixes.",
 };
 
 export default function Home() {
@@ -29,8 +27,6 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <CategorySection />
-      <ProductCategoriesSection />
-      <HerbalSection />
       <ProductInformationSection />
       <TestimonialsSection />
       <BlogSection posts={blogs} />

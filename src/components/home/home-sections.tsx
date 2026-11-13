@@ -35,34 +35,6 @@ import {
 import styles from "./home-sections.module.css";
 
 const categories = getCatalogCategories();
-const categoryCardContent: Record<string, { description: string }> = {
-  "face-care": {
-    description: "Everyday face-care essentials for a fresh, cared-for feel.",
-  },
-  facepack: {
-    description: "Explore herbal face-pack favourites from the collection.",
-  },
-  "hair-care": {
-    description: "Thoughtful botanical essentials for your hair-care routine.",
-  },
-  "hair-oil": {
-    description: "Discover IyalMooligai herbal hair oil and its botanical blend.",
-  },
-  makeup: {
-    description: "A considered collection for your everyday beauty ritual.",
-  },
-  tranding: {
-    description: "Discover a current pick from the JOHOVO collection.",
-  },
-};
-const categoryDisplayOrder = [
-  "face-care",
-  "facepack",
-  "hair-care",
-  "hair-oil",
-  "makeup",
-  "tranding",
-];
 const herbalProducts = catalogProducts.filter(
   (product) => product.brand === "iyalmooligai",
 );
@@ -74,10 +46,7 @@ const heroImage = heroProduct?.productImages.find(
   ({ role }) => role === "main",
 );
 const heroFeatureCategories = categories.filter(
-  ({ slug, parentId, productCount }) =>
-    parentId === 0 &&
-    productCount > 0 &&
-    ["face-care", "hair-care", "makeup"].includes(slug),
+  ({ parentId, productCount }) => parentId === 0 && productCount > 0,
 );
 const heroLifestyleImage =
   heroImage?.src ?? "/images/reference-homepage-featured.png";
@@ -237,13 +206,6 @@ export function HeroSection() {
 }
 
 export function ProductCategoriesSection() {
-  const categoryCards = categoryDisplayOrder.flatMap((slug) => {
-    const category = categories.find((item) => item.slug === slug);
-    const content = categoryCardContent[slug];
-    if (!category || !content || category.productCount <= 0) return [];
-
-    return [{ category, content }];
-  });
   const featuredProducts = showcaseProducts.flatMap((presentation) => {
     const product = catalogProducts.find(
       ({ slug }) => slug === presentation.slug,
@@ -252,50 +214,13 @@ export function ProductCategoriesSection() {
   });
 
   return (
-    <ContentSection className={styles.categorySection} id="product-categories">
+    <ContentSection className={styles.categorySection} id="featured-products">
       <PageContainer>
         <ScrollReveal index={0}>
           <SectionHeading
-            eyebrow="EXPLORE JOHOVO"
-            title="Discover Your Beauty Essentials"
-            description="Explore our collections and find the right essentials for your everyday beauty and personal-care routine."
-          />
-        </ScrollReveal>
-        <nav
-          aria-label="Product categories"
-          className={styles.categoryNavigation}
-        >
-          {categoryCards.map(({ category, content }, index) => (
-            <ScrollReveal index={index} key={category.id}>
-              <Link
-                className={styles.categoryLink}
-                href={`/categories/${category.slug}`}
-              >
-                <span className={styles.categoryLinkNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className={styles.categoryLinkText}>
-                  <span className={styles.categoryName}>{category.name}</span>
-                  <span className={styles.categoryDescription}>
-                    {content.description}
-                  </span>
-                  <span className={styles.categoryCount}>
-                    {category.productCount}{" "}
-                    {category.productCount === 1 ? "product" : "products"}
-                  </span>
-                </span>
-                <span aria-hidden="true" className={styles.categoryArrow}>
-                  →
-                </span>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </nav>
-        <ScrollReveal index={0}>
-          <SectionHeading
-            eyebrow="JOHOVO PRODUCTS"
-            title="Shop the collection"
-            description="Explore the products featured in the JOHOVO catalogue."
+            eyebrow="JOHOVO BOTANICAL COLLECTION"
+            title="Featured Herbal Formulations"
+            description="Explore authentic botanical products crafted with pure herbs, unrefined oils, and traditional Ayurvedic wisdom."
           />
         </ScrollReveal>
         <div className={styles.categoryProductGrid}>
@@ -387,46 +312,6 @@ export function ProductCategoriesSection() {
             );
           })}
         </div>
-      </PageContainer>
-    </ContentSection>
-  );
-}
-
-export function HerbalSection() {
-  if (!herbalProducts.length) return null;
-
-  return (
-    <ContentSection className={styles.herbal} id="herbal-care">
-      <PageContainer>
-        <HerbalBotanicalPanel className={styles.herbalPanel}>
-          <div className={styles.herbalIntro}>
-            <HerbalBrandSignature />
-            <p className={styles.eyebrow}>Herbal product sub-brand</p>
-            <h2>IyalMooligai</h2>
-            <p>
-              Discover the products identified as IyalMooligai in the source
-              catalogue, presented within JOHOVO.
-            </p>
-            <LinkButton href="/collections/herbal-care" variant="secondary">
-              Explore Herbal Care
-            </LinkButton>
-          </div>
-          <div className={styles.herbalProductLinks}>
-            {herbalProducts.map((product) => {
-              const presentation = getShowcaseProduct(product.slug);
-              return (
-                <Link href={`/products/${product.slug}`} key={product.id}>
-                  <span>{presentation?.title ?? product.name}</span>
-                  <span aria-hidden="true">View product →</span>
-                </Link>
-              );
-            })}
-            <Link href="/collections/herbal-care">
-              <span>Browse all IyalMooligai products</span>
-              <span aria-hidden="true">Explore Herbal Care →</span>
-            </Link>
-          </div>
-        </HerbalBotanicalPanel>
       </PageContainer>
     </ContentSection>
   );

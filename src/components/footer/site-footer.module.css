@@ -2,19 +2,51 @@
   background: linear-gradient(180deg, var(--color-herbal-forest) 0%, var(--color-herbal-forest-deep) 100%);
   border-top: 1px solid var(--color-border);
   color: var(--color-herbal-cream);
+  position: relative;
 }
 
+/* Trust Banner Bar */
+.trustBanner {
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 0.85rem;
+}
+
+.trustBannerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-herbal-cream);
+  letter-spacing: 0.02em;
+}
+
+.trustIcon {
+  color: var(--color-herbal-yellow);
+}
+
+/* Grid Columns: Exactly 4 balanced columns (1 brand column + 3 link columns) */
 .footerInner {
   display: grid;
-  grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(130px, 1fr));
-  gap: var(--space-8);
-  padding-block: var(--space-12);
+  grid-template-columns: minmax(280px, 1.4fr) repeat(3, minmax(160px, 1fr));
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  padding-block: clamp(2.5rem, 4vw, 4rem);
 }
 
 .brandColumn {
-  display: grid;
-  align-content: start;
-  gap: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
 }
 
 .logo {
@@ -24,90 +56,159 @@
 
 .tagline {
   margin: 0;
-  max-width: 28rem;
-  color: color-mix(in srgb, var(--color-herbal-cream) 82%, var(--color-brand-cyan));
-  font-size: var(--font-size-sm);
-  line-height: 1.7;
+  max-width: 25rem;
+  color: color-mix(in srgb, var(--color-herbal-cream) 84%, transparent);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .contactLinks {
-  display: grid;
-  justify-items: start;
-  gap: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-.contactLinks a {
-  color: var(--color-brand-cyan);
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: color-mix(in srgb, var(--color-herbal-cream) 90%, var(--color-brand-cyan));
   text-decoration: none;
-  transition: opacity var(--duration-standard) var(--easing-standard);
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
-.contactLinks a:hover {
-  opacity: 0.8;
+.contactItem:hover {
+  color: var(--color-herbal-yellow);
+  transform: translateX(2px);
 }
 
+.contactIcon {
+  color: var(--color-herbal-yellow);
+  flex-shrink: 0;
+}
+
+/* Link Groups */
 .linkGroup {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-content: start;
-  gap: var(--space-3);
+  gap: 0.65rem;
 }
 
 .linkGroup h2 {
-  margin: 0 0 var(--space-1);
-  color: var(--color-surface);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  margin: 0 0 0.4rem;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .linkGroup a {
-  color: color-mix(in srgb, var(--color-herbal-cream) 86%, var(--color-brand-cyan));
+  color: color-mix(in srgb, var(--color-herbal-cream) 82%, transparent);
   text-decoration: none;
-  transition:
-    color var(--duration-standard) var(--easing-standard),
-    transform var(--duration-standard) var(--easing-standard);
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
 .linkGroup a:hover {
-  color: var(--color-brand-cyan);
+  color: var(--color-herbal-yellow);
   transform: translateX(2px);
 }
 
-.bottomBar {
+/* Footer Bottom Bar */
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-block: 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--color-herbal-cream) 75%, transparent);
+}
+
+.footerBottomInner {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-2) var(--space-6);
-  padding-block: var(--space-4);
-  border-top: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
-  color: color-mix(in srgb, var(--color-herbal-cream) 82%, var(--color-brand-cyan));
-  font-size: var(--font-size-xs);
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.brandMark {
-  color: var(--color-surface);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.12em;
+.copyrightText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.metaText {
-  color: color-mix(in srgb, var(--color-herbal-cream) 78%, var(--color-brand-cyan));
+.copyrightText p {
+  margin: 0;
 }
 
-@media (max-width: 800px) {
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footerDisclaimer {
+  color: var(--color-herbal-yellow);
+  font-weight: 500;
+}
+
+.adminBottomBadge {
+  display: flex;
+  align-items: center;
+}
+
+.adminSmallPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.adminSmallPill:hover {
+  background: var(--color-brand-pink);
+  border-color: var(--color-brand-pink);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
   .footerInner {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .brandColumn {
+    grid-column: span 2;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .trustBannerInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .footerInner {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: 1.75rem;
   }
 
-  .bottomBar {
+  .brandColumn {
+    grid-column: span 1;
+  }
+
+  .footerBottomInner {
     flex-direction: column;
     align-items: flex-start;
   }

@@ -1,30 +1,31 @@
 .categorySection {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
   position: relative;
 }
 
 .categorySectionWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-/* Header bar with title and quick browse action */
+/* Header bar */
 .sectionHeader {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 1.25rem;
-  padding-bottom: 0.75rem;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid color-mix(in srgb, var(--color-herbal-border) 45%, transparent);
 }
 
 .headerTextGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.5rem;
+  max-width: 680px;
 }
 
 .eyebrowBadge {
@@ -32,15 +33,15 @@
   align-items: center;
   gap: 0.5rem;
   width: fit-content;
-  padding: 0.2rem 0.65rem 0.2rem 0.5rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.6rem;
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--color-herbal-cream) 90%, var(--color-surface));
   border: 1px solid var(--color-herbal-border);
 }
 
 .eyebrowDot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--color-herbal-natural);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-herbal-natural) 25%, transparent);
@@ -49,9 +50,9 @@
 .eyebrow {
   margin: 0;
   color: var(--color-herbal-forest-deep);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1;
 }
@@ -59,263 +60,538 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  color: var(--color-herbal-forest-deep);
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
   font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .titleAccent {
   color: var(--color-herbal-natural);
-  font-style: italic;
-  font-weight: var(--font-weight-regular);
+  position: relative;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
 }
 
 .viewAllLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--color-herbal-forest);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-herbal-forest-deep);
   text-decoration: none;
-  padding: 0.45rem 0.85rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-surface);
-  border: 1px solid var(--color-herbal-border);
-  transition: all var(--duration-fast) var(--easing-standard);
   white-space: nowrap;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-herbal-cream) 80%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .viewAllLink:hover {
-  color: var(--color-herbal-forest-deep);
-  background: var(--color-herbal-cream);
-  border-color: var(--color-herbal-natural);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-herbal-forest) 8%, transparent);
+  background: var(--color-herbal-forest-deep);
+  color: #fff;
+  border-color: var(--color-herbal-forest-deep);
 }
 
 .viewAllIconWrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-herbal-natural) 15%, transparent);
-  color: var(--color-herbal-natural);
-  transition: transform var(--duration-fast) var(--easing-standard);
-}
-
-.viewAllLink:hover .viewAllIconWrapper {
-  transform: translateX(2px);
-  background: var(--color-herbal-natural);
-  color: #fff;
 }
 
 .viewAllIcon {
-  font-size: 0.8rem !important;
+  font-size: 1rem !important;
+  transition: transform 0.2s ease;
 }
 
-/* Scroll Container (Flipkart style horizontal strip with smooth scrolling) */
-.scrollContainer {
-  position: relative;
-  width: 100%;
+.viewAllLink:hover .viewAllIcon {
+  transform: translateX(3px);
 }
 
-.categoryRail {
+/* Category Tabs */
+.tabsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.tabButton {
   display: flex;
-  align-items: flex-start;
-  gap: clamp(1rem, 2.5vw, 2.25rem);
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 0.5rem 0.25rem 0.75rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-herbal-border) transparent;
-}
-
-.categoryRail::-webkit-scrollbar {
-  height: 4px;
-}
-
-.categoryRail::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.categoryRail::-webkit-scrollbar-thumb {
-  background: var(--color-herbal-border);
-  border-radius: var(--radius-pill);
-}
-
-.categoryRail::-webkit-scrollbar-thumb:hover {
-  background: var(--color-herbal-natural);
-}
-
-/* Category Item Card (Flipkart circular icon + title style) */
-.categoryItem {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  text-decoration: none;
-  flex: 0 0 auto;
-  min-width: clamp(84px, 11vw, 112px);
-  max-width: 120px;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-md, 12px);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
   cursor: pointer;
-  group: "";
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Circular Avatar / Badge Container */
-.imageWrapper {
-  position: relative;
-  width: clamp(68px, 9vw, 88px);
-  height: clamp(68px, 9vw, 88px);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 35% 35%,
-    var(--color-herbal-cream) 0%,
-    color-mix(in srgb, var(--color-herbal-cream) 70%, var(--color-surface)) 100%
-  );
-  border: 2px solid var(--color-herbal-border);
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-herbal-forest) 6%, transparent);
+.tabButton:hover {
+  border-color: var(--color-herbal-natural);
+  background: color-mix(in srgb, var(--color-herbal-cream) 40%, var(--color-surface));
+}
+
+.tabButtonActive {
+  border-color: var(--color-herbal-forest);
+  background: color-mix(in srgb, var(--color-herbal-cream) 85%, var(--color-surface));
+  box-shadow: 0 4px 16px rgba(32, 59, 51, 0.08);
+}
+
+.tabIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-herbal-natural) 12%, transparent);
+  color: var(--color-herbal-forest);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  margin-bottom: 0.65rem;
-  transition: transform var(--duration-standard) var(--easing-standard),
-    border-color var(--duration-standard) var(--easing-standard),
-    box-shadow var(--duration-standard) var(--easing-standard);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
-.categoryItem:hover .imageWrapper {
-  transform: translateY(-4px) scale(1.05);
-  border-color: var(--color-herbal-natural);
-  box-shadow: 0 8px 22px color-mix(in srgb, var(--color-herbal-natural) 25%, transparent);
-}
-
-.categoryImg {
-  object-fit: contain;
-  padding: 8px;
-  transition: transform var(--duration-standard) var(--easing-standard);
-}
-
-.categoryItem:hover .categoryImg {
-  transform: scale(1.1);
-}
-
-/* Pill Tag over top edge (Trending, Bestseller, etc.) */
-.tagBadge {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background: var(--color-brand-pink);
+.tabButtonActive .tabIcon {
+  background: var(--color-herbal-forest);
   color: #fff;
-  font-size: 0.55rem;
-  font-weight: var(--font-weight-bold);
-  padding: 0.15rem 0.35rem;
-  border-radius: var(--radius-pill);
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  z-index: 2;
 }
 
-/* Text group below icon */
-.categoryLabel {
+.tabTextWrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  width: 100%;
+  gap: 0.25rem;
+  min-width: 0;
 }
 
-.categoryTitle {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+.tabTitle {
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-herbal-forest-deep);
-  line-height: 1.25;
-  transition: color var(--duration-fast) var(--easing-standard);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.categoryItem:hover .categoryTitle {
-  color: var(--color-herbal-natural);
-}
-
-.categorySubtitle {
-  font-size: 0.7rem;
-  color: var(--color-text-secondary);
-  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
 
-/* Navigation Scroll Buttons (Desktop hover controls) */
-.scrollBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-herbal-border);
-  color: var(--color-herbal-forest-deep);
+.tabBadge {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabButtonActive .tabBadge {
+  color: var(--color-herbal-natural);
+  font-weight: 600;
+}
+
+/* Active Category Panel */
+.activeShowcase {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Hero Banner */
+.categoryHeroBanner {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-herbal-forest) 96%, #000) 0%,
+    var(--color-herbal-forest-deep) 100%
+  );
+  border-radius: var(--radius-lg, 16px);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.badgeRow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-herbal-forest) 15%, transparent);
-  cursor: pointer;
-  z-index: 5;
-  transition: all var(--duration-fast) var(--easing-standard);
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
-.scrollBtn:hover {
-  background: var(--color-herbal-natural);
-  border-color: var(--color-herbal-natural);
+.heroPill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-herbal-yellow);
+  color: var(--color-herbal-forest-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.heroPillSecondary {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
-  transform: translateY(-50%) scale(1.1);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
 }
 
-.scrollBtnPrev {
-  left: -14px;
+.categoryHeroTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
-.scrollBtnNext {
-  right: -14px;
+.categoryHeroDesc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
 }
 
-.scrollIcon {
-  font-size: 1rem !important;
+.heroExploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  background: #fff;
+  color: var(--color-herbal-forest-deep);
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .scrollBtn {
-    display: none;
+.heroExploreBtn:hover {
+  background: var(--color-herbal-yellow);
+  transform: translateY(-1px);
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.heroImage {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.heroImageWrapper:hover .heroImage {
+  transform: scale(1.05);
+}
+
+.heroImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 60%);
+}
+
+.trustTag {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(23, 47, 41, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.trustIcon {
+  color: var(--color-herbal-yellow);
+}
+
+/* Sub-ranges */
+.subRangesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.subRangesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.subRangesHeading {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-herbal-forest-deep);
+}
+
+.subRangesCount {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-herbal-natural);
+  background: color-mix(in srgb, var(--color-herbal-cream) 80%, var(--color-surface));
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-herbal-border);
+}
+
+.subRangesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.subCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 12px);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.25s ease;
+}
+
+.subCard:hover {
+  border-color: var(--color-herbal-natural);
+  box-shadow: 0 6px 20px rgba(32, 59, 51, 0.06);
+  transform: translateY(-2px);
+}
+
+.subCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.subCardIndex {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-herbal-natural);
+  background: color-mix(in srgb, var(--color-herbal-cream) 85%, var(--color-surface));
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.subCardTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-herbal-forest-deep);
+  line-height: 1.3;
+}
+
+.subCardTagline {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.featureBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  background: var(--color-surface-muted);
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+}
+
+.featureLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-herbal-forest-deep);
+}
+
+.featureDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-herbal-natural);
+}
+
+.featureDotAlt {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand-pink);
+}
+
+.featureText {
+  margin: 0;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+  font-size: 0.82rem;
+}
+
+.itemsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itemsLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.itemTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.itemTag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  background: color-mix(in srgb, var(--color-herbal-cream) 60%, var(--color-surface));
+  border: 1px solid var(--color-herbal-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-herbal-forest-deep);
+  font-weight: 500;
+}
+
+.itemTagMore {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-pill);
+  color: var(--color-herbal-natural);
+  font-weight: 600;
+}
+
+.subCardFooter {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.subCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-herbal-forest);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subCardLink:hover {
+  color: var(--color-brand-pink);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .tabsContainer {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  .categoryRail {
-    gap: 1.25rem;
-    padding-inline: 0.25rem;
+  .categoryHeroBanner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .imageWrapper {
-    width: 68px;
-    height: 68px;
+  .heroImageWrapper {
+    height: 200px;
   }
 
-  .categoryItem {
-    min-width: 80px;
-    max-width: 90px;
+  .subRangesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewAllLink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tabButton {
+    padding: 0.85rem 1rem;
+  }
+
+  .tabIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .categoryHeroBanner {
+    padding: 1.25rem;
+  }
+
+  .subCard {
+    padding: 1.15rem;
   }
 }

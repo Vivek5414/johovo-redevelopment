@@ -1,72 +1,276 @@
 [
   {
-    "id": "face-care",
-    "title": "Face Care",
-    "subtitle": "Pack & Glow",
-    "slug": "face-care",
-    "href": "/categories/face-care",
-    "image": "/images/products/iyalmooligai-herbal-face-pack.png",
-    "tag": "Trending",
-    "description": "Natural herbal face packs & botanical formulations for everyday radiant glow"
-  },
-  {
-    "id": "hair-care",
-    "title": "Hair Care",
-    "subtitle": "Oils & Tonics",
-    "slug": "hair-care",
-    "href": "/categories/hair-care",
+    "id": "herbal-products",
+    "title": "IyalMooligai Herbal Products",
+    "shortTitle": "Herbal Products",
+    "subtitle": "100% Pure Botanical Formulations",
+    "slug": "herbal-products",
+    "href": "/categories/herbal-products",
     "image": "/images/products/iyalmooligai-herbal-hair-oil.png",
-    "tag": "Bestseller",
-    "description": "Traditional Ayurvedic herbal hair oils for deep nourishment & root strength"
+    "tag": "100% Natural",
+    "badge": "Ayurvedic Heritage",
+    "description": "Transform your daily routine with pure herbal powders, oils, and lip kits. Chemical-free, ethically sourced, and crafted for natural radiance.",
+    "seo": {
+      "title": "IyalMooligai Herbal Care | 100% Natural Hair, Face & Body Care",
+      "description": "Transform your daily routine with IyalMooligai's pure herbal powders and oils. Chemical-free, ethically sourced, and crafted for natural radiance.",
+      "keywords": [
+        "organic herbal hair oil",
+        "natural face pack powder",
+        "chemical-free lip care",
+        "ayurvedic body scrub",
+        "pure herbal hair pack"
+      ]
+    },
+    "subRanges": [
+      {
+        "id": "hair-care",
+        "name": "Hair Care Range",
+        "slug": "hair-care",
+        "tagline": "Roots to Tips Botanical Nourishment",
+        "description": "Sun-dried and micro-milled to preserve active botanical enzymes. 100% free from synthetic dyes or preservatives.",
+        "items": [
+          "Herbal Hair Oil",
+          "Herbal Hair Pack Powder",
+          "Henna",
+          "Amla",
+          "Indigo",
+          "Reetha",
+          "Shikakai",
+          "Bhringaraj",
+          "Fenugreek Seed",
+          "Hibiscus",
+          "Aloevera",
+          "Neem Leaf",
+          "Tulsi"
+        ],
+        "qualitySourcing": "Sun-dried and micro-milled to preserve active botanical enzymes. 100% free from synthetic dyes or preservatives.",
+        "benefits": "Strengthens roots, naturally conditions, reduces premature graying, and tackles dandruff for voluminous, healthy hair.",
+        "howToUse": "Mix powders with water or curd to form a paste. Apply to scalp/hair for 30-45 minutes before rinsing. Warm oil before massaging into the scalp."
+      },
+      {
+        "id": "face-care",
+        "name": "Face Care Range",
+        "slug": "face-care",
+        "tagline": "Natural Glow & Skin Purity",
+        "description": "Hand-harvested herbs, finely sifted for gentle facial application without harsh chemicals.",
+        "items": [
+          "Herbal Face Pack",
+          "Haldi Chandan",
+          "Kasturi Turmeric",
+          "Multhani Mitti",
+          "Orange Peel",
+          "Rose Petals",
+          "Mulethi",
+          "Manjistha",
+          "Chandan",
+          "Beetroot",
+          "Masoor Dal"
+        ],
+        "qualitySourcing": "Hand-harvested herbs, finely sifted for gentle facial application.",
+        "benefits": "Draws out impurities, reduces pigmentation, and delivers a natural, youthful glow without harsh chemical peeling.",
+        "howToUse": "Blend 1 tbsp powder with rose water or milk. Apply evenly, leave for 15 mins, and rinse with cold water."
+      },
+      {
+        "id": "lip-care",
+        "name": "Lip Care Kits",
+        "slug": "lip-care",
+        "tagline": "Scrub, Balm & Serum 3-Step Care",
+        "description": "Available in Watermelon, Cinnamon, and Rose. Complete 3-step kit with scrub, balm, and serum.",
+        "items": [
+          "Watermelon Lip Care Kit",
+          "Cinnamon Lip Care Kit",
+          "Rose Lip Care Kit"
+        ],
+        "qualitySourcing": "Formulated with plant-derived waxes, pure essential oils, and natural fruit extracts.",
+        "benefits": "Exfoliates dead skin, locks in 24-hour moisture, and restores natural lip tint.",
+        "howToUse": "Gently scrub lips for 1 minute, wipe off, apply the serum to hydrate, and seal with the lip balm."
+      },
+      {
+        "id": "body-care",
+        "name": "Body Care Range",
+        "slug": "body-care",
+        "tagline": "Full Body Radiance & Tan Removal",
+        "description": "Coarsely ground traditional herbs for safe, effective body exfoliation and deep hydration.",
+        "items": [
+          "DTAN Natural Herbal Pack",
+          "Herbal Scrub Powder",
+          "Glowing Oil"
+        ],
+        "qualitySourcing": "Coarsely ground traditional herbs for safe, effective body exfoliation.",
+        "benefits": "Buffs away dead skin cells, removes stubborn tan, and leaves skin intensely moisturized and radiant.",
+        "howToUse": "Mix scrub powder with water or curd. Massage gently onto damp body in circular motions, leave for 10 minutes, and rinse."
+      }
+    ]
   },
   {
-    "id": "body-care",
-    "title": "Body Care",
-    "subtitle": "Scrubs & Care",
-    "slug": "body-care",
-    "href": "/categories/body-care",
-    "image": "/images/products/premium-rose-body-scrub.png",
-    "tag": "Popular",
-    "description": "Luxurious rose scrubs & smoothing bodycare made with gentle natural exfoliants"
+    "id": "wellness-snacks",
+    "title": "IyalMooligai Wellness Healthy Snacks",
+    "shortTitle": "Wellness Healthy Snacks",
+    "subtitle": "Fuel Your Day with Premium Trail Mixes",
+    "slug": "wellness-snacks",
+    "href": "/categories/wellness-snacks",
+    "image": "/images/products/iyalmooligai-herbal-face-pack.png",
+    "tag": "Nutrient Dense",
+    "badge": "Plant Protein & Omega-3",
+    "description": "Fuel your day with IyalMooligai's premium nut and seed mixes. Packed with Omega-3, antioxidants, and pure plant protein for sustained vitality.",
+    "seo": {
+      "title": "Premium Wellness Snacks | IyalMooligai Trail Mixes by JOHOVO",
+      "description": "Fuel your day with IyalMooligai's premium nut and seed mixes. Packed with Omega-3, antioxidants, and pure plant protein for sustained energy.",
+      "keywords": [
+        "healthy trail mix online",
+        "high energy nut mix",
+        "omega rich snacks",
+        "antioxidant dry fruits",
+        "premium mixed nuts"
+      ]
+    },
+    "subRanges": [
+      {
+        "id": "high-energy-mix",
+        "name": "High Energy Premium Mix (50g)",
+        "slug": "high-energy-mix",
+        "tagline": "Instant Stamina & Rapid Energy Boost",
+        "description": "Premium-grade, sun-dried fruits and perfectly roasted nuts without artificial syrups or preservatives.",
+        "items": [
+          "Dried Cranberries",
+          "Walnuts",
+          "Dried Pineapple",
+          "Dried Papaya",
+          "Roasted Cashews",
+          "Banana Chips",
+          "Dried Coconut Chips"
+        ],
+        "qualitySourcing": "Premium-grade, sun-dried fruits and perfectly roasted nuts. No artificial syrups or preservatives.",
+        "benefits": "Delivers plant-based protein and Omega-3 for sustained stamina. Natural enzymes (papain/bromelain) aid digestion, while MCTs from coconut provide rapid brain and body fuel.",
+        "salesHook": "Your instant, guilt-free energy boost for mid-day slumps and pre-workout fuel."
+      },
+      {
+        "id": "mega-omega-mix",
+        "name": "Mega OMEGA Mix (50g)",
+        "slug": "mega-omega-mix",
+        "tagline": "Brain Food & Heart Protection",
+        "description": "Sourced from top-tier farms, ensuring maximum oil retention in seeds and nuts for peak nutritional value.",
+        "items": [
+          "Dried Cranberries",
+          "Dried Mango",
+          "Roasted Almonds",
+          "Walnuts",
+          "Pumpkin Seeds"
+        ],
+        "qualitySourcing": "Sourced from top-tier farms, ensuring maximum oil retention in seeds and nuts for peak nutritional value.",
+        "benefits": "Nourishes cognitive health and heart wellness (rich in ALA, zinc, and magnesium). Stabilizes energy levels and provides Vitamin C for immune defense.",
+        "salesHook": "Brain food that tastes like a treat. Protect your heart and skin with every crunch."
+      },
+      {
+        "id": "anti-oxidant-mix",
+        "name": "Anti Oxidant Mix (50g)",
+        "slug": "anti-oxidant-mix",
+        "tagline": "Cellular Defense & Mood Elevation",
+        "description": "Real dark chocolate chunks paired with unsweetened, naturally dried berries and nuts.",
+        "items": [
+          "Dried Cranberries",
+          "Walnuts",
+          "Raisins",
+          "Dark Chocolate Chunks",
+          "Shelled Pecans",
+          "Dried Blueberries"
+        ],
+        "qualitySourcing": "Real dark chocolate chunks paired with unsweetened, naturally dried berries.",
+        "benefits": "Cocoa flavanols elevate mood and protect cells from free-radical damage. Strengthens daily immunity and supports cholesterol balance.",
+        "salesHook": "The ultimate smart-snacking upgrade to satisfy your sweet tooth while defending your cellular health."
+      }
+    ]
   },
   {
-    "id": "body-lotion",
-    "title": "Moisturizers",
-    "subtitle": "Rose Lotions",
-    "slug": "body-lotion",
-    "href": "/categories/body-lotion",
-    "image": "/images/products/premium-rose-body-lotion.png",
-    "tag": "Hydration",
-    "description": "Deeply hydrating rose body lotions with lasting softness and delicate floral scent"
-  },
-  {
-    "id": "body-wash",
-    "title": "Body Wash",
-    "subtitle": "Gentle Cleanse",
-    "slug": "body-wash",
-    "href": "/categories/body-wash",
-    "image": "/images/products/premium-rose-body-wash.png",
-    "tag": "Refreshing",
-    "description": "Botanical herbal bath washes that refresh and nourish without stripping skin"
-  },
-  {
-    "id": "orange-glow",
-    "title": "Orange Glow",
-    "subtitle": "Citrus Bright",
-    "slug": "orange-glow",
-    "href": "/products/johovo-iyalmooligai-herbal-face-pack",
-    "image": "/images/products/johovo-orange-face-pack.png",
-    "tag": "New",
-    "description": "Vitamin C infused herbal face formulations for refreshed, energized skin"
-  },
-  {
-    "id": "herbal-care",
-    "title": "All Herbal",
-    "subtitle": "Complete Range",
-    "slug": "herbal-care",
-    "href": "/collections/herbal-care",
-    "image": "/images/hero/hero.png",
-    "tag": "Explore",
-    "description": "Explore the complete botanical universe of IyalMooligai & JOHOVO collections"
+    "id": "cold-pressed-oils",
+    "title": "IyalMooligai Cold Pressed Oils",
+    "shortTitle": "100% Pure Marachekku Oils",
+    "subtitle": "Traditional Wooden-Press Extraction",
+    "slug": "cold-pressed-oils",
+    "href": "/categories/cold-pressed-oils",
+    "image": "/images/products/iyalmooligai-herbal-hair-oil.png",
+    "tag": "100% Pure",
+    "badge": "Marachekku Wood Pressed",
+    "description": "Shop IyalMooligai 100% pure, unrefined cold pressed oils. Traditional Marachekku Coconut, Groundnut, Sesame, Castor, Neem & Pooja Aroma Oils.",
+    "introCopy": "Pure Tradition, Pressed Slowly for Modern Living. At IyalMooligai, we bring back the honest purity of traditional wooden-press (Marachekku) extraction. Crafted from sun-dried, farm-sourced seeds and nuts without external heat, chemical solvents, or preservatives, every drop retains its natural aroma and vital nutrients.",
+    "seo": {
+      "title": "IyalMooligai Cold Pressed Oils | 100% Pure Marachekku Oils",
+      "description": "Shop IyalMooligai 100% pure, unrefined cold pressed oils. Traditional Marachekku Coconut, Groundnut, Sesame, Castor, Neem & Pooja Aroma Oils.",
+      "keywords": [
+        "marachekku cold pressed oil",
+        "pure unrefined coconut oil",
+        "wooden pressed groundnut oil",
+        "traditional sesame oil",
+        "pure neem oil for plants"
+      ]
+    },
+    "subRanges": [
+      {
+        "id": "cold-pressed-coconut-oil",
+        "name": "Cold Pressed Coconut Oil",
+        "slug": "cold-pressed-coconut-oil",
+        "tagline": "Sun-Dried Handpicked Copra Extraction",
+        "description": "Extracted from sun-dried, handpicked copra using slow wooden-press (Marachekku) methods. Zero heat or chemical solvents.",
+        "items": ["Cold Pressed Coconut Oil (Marachekku)"],
+        "qualitySourcing": "Extracted from sun-dried, handpicked copra using slow wooden-press (Marachekku) methods. Zero heat or chemical solvents.",
+        "benefits": "Rich in MCTs and Lauric Acid for metabolism support. Penetrates hair shafts to reduce protein loss and intensely hydrates dry skin.",
+        "howToUse": "Ideal for sautéing and baking. Massage warm into scalp 45 mins before washing, or use for daily morning oil pulling."
+      },
+      {
+        "id": "cold-pressed-groundnut-oil",
+        "name": "Cold Pressed Groundnut Oil",
+        "slug": "cold-pressed-groundnut-oil",
+        "tagline": "Heart-Healthy Low Temperature Pressed",
+        "description": "Pressed from premium-grade, non-GMO peanuts at low temperatures. Free from trans fats and argemone oil.",
+        "items": ["Cold Pressed Groundnut Oil"],
+        "qualitySourcing": "Pressed from premium-grade, non-GMO peanuts at low temperatures. Free from trans fats and argemone oil.",
+        "benefits": "Heart-healthy lipid profile (high MUFA) maintains balanced cholesterol. High smoke point ensures it remains stable at high cooking temperatures.",
+        "howToUse": "Perfect for everyday deep frying, stir-frying, and tempering (tadka)."
+      },
+      {
+        "id": "cold-pressed-sesame-oil",
+        "name": "Cold Pressed Sesame Oil (Gingelly Oil)",
+        "slug": "cold-pressed-sesame-oil",
+        "tagline": "Unbleached Traditional Gingelly Extraction",
+        "description": "Crafted from high-oil-content sesame seeds. Unbleached and unrefined to preserve vital lignans (sesamol and sesamin).",
+        "items": ["Cold Pressed Sesame / Gingelly Oil"],
+        "qualitySourcing": "Crafted from high-oil-content sesame seeds. Unbleached and unrefined to preserve vital lignans (sesamol and sesamin).",
+        "benefits": "Eases joint stiffness (high in zinc and calcium nutrients). Promotes healthy digestion and offers potent antioxidant protection.",
+        "howToUse": "Use for tempering South Indian dishes or making pickles. Massage over the body 20 mins before a warm bath (Abhyanga)."
+      },
+      {
+        "id": "cold-pressed-castor-oil",
+        "name": "Cold Pressed Castor Oil",
+        "slug": "cold-pressed-castor-oil",
+        "tagline": "First-Press Hexane-Free Thickening Elixir",
+        "description": "First-press extraction from mature castor beans without hexane or heat refinement.",
+        "items": ["Cold Pressed Castor Oil"],
+        "qualitySourcing": "First-press extraction from mature castor beans without hexane or heat refinement.",
+        "benefits": "Boosts scalp micro-circulation for thicker hair, brows, and lashes. Softens rough heels and provides anti-inflammatory relief for stiff joints.",
+        "howToUse": "Mix equal parts with Coconut oil for hair packs. Apply a tiny drop to brows before bed, or massage onto cracked heels."
+      },
+      {
+        "id": "cold-pressed-neem-oil",
+        "name": "Cold Pressed Neem Oil",
+        "slug": "cold-pressed-neem-oil",
+        "tagline": "Potent Antifungal & Clarifying Botanical",
+        "description": "Cold-pressed from sun-dried neem seed kernels (Azadirachta indica). Untreated and unrefined.",
+        "items": ["Cold Pressed Neem Oil"],
+        "qualitySourcing": "Cold-pressed from sun-dried neem seed kernels (Azadirachta indica). Untreated and unrefined.",
+        "benefits": "Natural antifungal properties target dandruff. Clarifies blemish-prone skin and acts as a potent, organic bug and pest repellent.",
+        "howToUse": "Dilute 5–10 drops in 2 tbsp Coconut oil for scalp treatments. Mix 5 ml with 1 liter of water and mild soap for an organic plant spray."
+      },
+      {
+        "id": "pooja-aroma-oil",
+        "name": "Pooja Aroma Oil",
+        "slug": "pooja-aroma-oil",
+        "tagline": "Temple-Grade Sacred Botanical Blend",
+        "description": "A blend of cold-pressed sesame, coconut, castor, and mahua oils infused with temple-grade herbs. 100% free from paraffin and mineral oil.",
+        "items": ["Pooja Aroma Sacred Diya Oil"],
+        "qualitySourcing": "A blend of cold-pressed sesame, coconut, castor, and mahua oils infused with temple-grade herbs. 100% free from paraffin and mineral oil.",
+        "benefits": "Burns with a clean, steady, long-lasting flame with minimal soot. Purifies indoor air and creates a grounding spiritual ambiance.",
+        "howToUse": "Pour into a clean brass or clay diya with a cotton wick for morning/evening prayers, meditation, or festive rituals."
+      }
+    ]
   }
 ]

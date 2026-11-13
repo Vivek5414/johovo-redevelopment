@@ -238,13 +238,13 @@ export function NewProductForm() {
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
               >
-                <option value="Face Care">Face Care</option>
-                <option value="Facepack">Face Pack</option>
-                <option value="Hair Care">Hair Care</option>
-                <option value="Hair Oil">Hair Oil</option>
-                <option value="Body Care">Body Care</option>
-                <option value="Herbal Care">Herbal Care</option>
-                <option value="Trending">Trending</option>
+                <option value="Herbal Products">Herbal Products</option>
+                <option value="Hair Care">Hair Care Range</option>
+                <option value="Face Care">Face Care Range</option>
+                <option value="Lip Care">Lip Care Kits</option>
+                <option value="Body Care">Body Care Range</option>
+                <option value="Wellness Snacks">Wellness Healthy Snacks</option>
+                <option value="Cold Pressed Oils">Cold Pressed Oils (Marachekku)</option>
               </select>
             </div>
 
