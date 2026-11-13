@@ -237,31 +237,6 @@ export function HeroSection() {
   );
 }
 
-export function AboutSection() {
-  return (
-    <ContentSection className={styles.about} id="about" tone="neutral">
-      <PageContainer className={styles.aboutGrid}>
-        <div className={styles.aboutLabel}>
-          <p className={styles.eyebrow}>About JOHOVO</p>
-          <h2>The company behind the catalogue.</h2>
-          <LinkButton href="/about-us" size="compact" variant="quiet">
-            Read about JOHOVO <span aria-hidden="true">→</span>
-          </LinkButton>
-        </div>
-        <blockquote className={styles.aboutQuote}>
-          <p>
-            “At JOHOVO, we’re passionate about helping you achieve healthy,
-            glowing skin, luscious locks, and soft, nourished lips and body. Our
-            mission is to provide high-quality, herbal-based products that cater
-            to your diverse beauty needs.”
-          </p>
-          <cite>From JOHOVO’s public About page</cite>
-        </blockquote>
-      </PageContainer>
-    </ContentSection>
-  );
-}
-
 export function CollectionsSection() {
   return (
     <ContentSection className={styles.collections} id="collections">

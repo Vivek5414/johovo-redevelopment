@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/hero";
 import { CategorySection } from "@/components/category";
+import { AboutSection } from "@/components/about";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
 import {
-  AboutSection,
   CollectionsSection,
   ContactSection,
   HerbalSection,
