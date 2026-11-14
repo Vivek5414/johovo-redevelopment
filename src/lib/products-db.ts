@@ -1,5 +1,6 @@
 import { sql } from "@/lib/db";
 import { retryTransientRequest } from "@/lib/upload-service";
+import { getDirectImageUrl } from "@/lib/drive-image-utils";
 import {
   catalogProducts,
   type CatalogProduct,
@@ -41,11 +42,8 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
       ? `${Math.round(((mrp - sellingPrice) / mrp) * 100)}% off`
       : null;
 
-  // Format Google Drive preview URLs if drive_file_id exists
-  let mainImageSrc = rec.image_url || "/images/products/iyalmooligai-herbal-hair-oil.png";
-  if (rec.drive_file_id) {
-    mainImageSrc = `https://drive.google.com/thumbnail?id=${rec.drive_file_id}&sz=w1000`;
-  }
+  // Format Google Drive preview URLs if drive_file_id exists or URL is present
+  const mainImageSrc = getDirectImageUrl(rec.image_url, rec.drive_file_id);
 
   const categorySlug = (rec.category || "herbal-care")
     .toLowerCase()
@@ -55,11 +53,9 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
   // Process gallery images (multiple images)
   const rawGallery = Array.isArray(rec.gallery_images) ? rec.gallery_images : [];
   const galleryCatalogImages: CatalogImage[] = rawGallery.map((img: any, idx: number) => {
-    let src = typeof img === "string" ? img : img.url || img.src;
+    const rawSrc = typeof img === "string" ? img : img.url || img.src;
     const driveId = typeof img === "object" ? img.drive_file_id || img.fileId : null;
-    if (driveId) {
-      src = `https://drive.google.com/thumbnail?id=${driveId}&sz=w1000`;
-    }
+    const src = getDirectImageUrl(rawSrc, driveId);
     return {
       src: src || mainImageSrc,
       alt: `${rec.name} photo ${idx + 1}`,

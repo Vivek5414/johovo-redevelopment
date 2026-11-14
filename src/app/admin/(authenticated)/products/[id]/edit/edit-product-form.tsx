@@ -12,6 +12,7 @@ import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import { getDirectImageUrl } from "@/lib/drive-image-utils";
 import styles from "../../new/new-product.module.css";
 
 type EditProductFormProps = {
@@ -58,7 +59,19 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
 
   // Media
   const [primaryFile, setPrimaryFile] = useState<File | null>(null);
-  const [primaryPreview, setPrimaryPreview] = useState<string | null>(initialProduct.image_url || null);
+  const [primaryPreview, setPrimaryPreview] = useState<string | null>(
+    getDirectImageUrl(initialProduct.image_url, initialProduct.drive_file_id)
+  );
+
+  const [existingGallery, setExistingGallery] = useState<{ url: string; drive_file_id?: string }[]>(
+    Array.isArray(initialProduct.gallery_images)
+      ? initialProduct.gallery_images.map((img) =>
+          typeof img === "string"
+            ? { url: img }
+            : { url: img.url || img.src || "", drive_file_id: img.drive_file_id || img.fileId }
+        )
+      : []
+  );
 
   const [galleryFiles, setGalleryFiles] = useState<{ file: File; preview: string }[]>([]);
   const [videoFiles, setVideoFiles] = useState<{ file: File; name: string }[]>([]);
@@ -141,6 +154,8 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
       if (primaryFile) {
         formData.append("image", primaryFile);
       }
+
+      formData.append("existing_gallery", JSON.stringify(existingGallery));
 
       for (const item of galleryFiles) {
         formData.append("gallery_images", item.file);
@@ -414,8 +429,32 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
           {/* Additional Gallery Images */}
           <div className={styles.fieldGroup} style={{ marginTop: "1rem" }}>
             <label className={styles.label}>
-              Append Gallery Images <span className={styles.optional}>(Select multiple photos)</span>
+              Gallery Images <span className={styles.optional}>(Existing photos and add more)</span>
             </label>
+
+            {/* Existing Gallery Photos */}
+            {existingGallery.length > 0 && (
+              <div className={styles.mediaGrid} style={{ marginBottom: "1rem" }}>
+                {existingGallery.map((img, idx) => (
+                  <div className={styles.mediaItemCard} key={`existing-${idx}`}>
+                    <span className={styles.mediaItemBadge}>SAVED #{idx + 1}</span>
+                    <img
+                      alt={`Saved Gallery ${idx + 1}`}
+                      className={styles.mediaItemThumb}
+                      src={getDirectImageUrl(img.url, img.drive_file_id)}
+                    />
+                    <button
+                      className={styles.removeMiniBtn}
+                      onClick={() => setExistingGallery((prev) => prev.filter((_, i) => i !== idx))}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <input
               accept="image/*"
               hidden

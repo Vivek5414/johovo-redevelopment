@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { AdminSidebar } from "../AdminSidebar/AdminSidebar";
 import { AdminHeader } from "../AdminHeader/AdminHeader";
 import styles from "./AdminLayoutClient.module.css";
@@ -16,7 +16,27 @@ type AdminLayoutClientProps = {
 };
 
 export function AdminLayoutClient({ admin, children }: AdminLayoutClientProps) {
+  // Check localStorage if user explicitly closed the sidebar on desktop/laptop
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  useEffect(() => {
+    // Only restore preference on desktop/laptop (width > 1024)
+    if (typeof window !== "undefined" && window.innerWidth > 1024) {
+      const saved = localStorage.getItem("admin_sidebar_open");
+      if (saved !== null) {
+        setSidebarOpen(saved === "true");
+      } else {
+        setSidebarOpen(true);
+      }
+    }
+  }, []);
+
+  const handleToggle = (open: boolean) => {
+    setSidebarOpen(open);
+    if (typeof window !== "undefined" && window.innerWidth > 1024) {
+      localStorage.setItem("admin_sidebar_open", String(open));
+    }
+  };
 
   return (
     <div className={styles.adminLayout}>
@@ -25,14 +45,14 @@ export function AdminLayoutClient({ admin, children }: AdminLayoutClientProps) {
         adminName={admin.name}
         adminRole={admin.role}
         isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
+        onClose={() => handleToggle(false)}
       />
 
       <div className={`${styles.mainContent} ${!sidebarOpen ? styles.mainContentExpanded : ""}`}>
         <AdminHeader
           adminEmail={admin.email}
           adminName={admin.name}
-          onOpenMobileMenu={() => setSidebarOpen(true)}
+          onOpenMobileMenu={() => handleToggle(true)}
           sidebarOpen={sidebarOpen}
         />
         <main className={styles.pageBody}>{children}</main>

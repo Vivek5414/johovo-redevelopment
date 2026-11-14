@@ -92,7 +92,12 @@ export function AdminSidebar({
                 className={`${styles.navItem} ${isActive ? styles.navItemActive : ""}`}
                 href={item.href}
                 key={item.href}
-                onClick={onClose}
+                onClick={() => {
+                  // Only close sidebar on link click in mobile view (< 1024px)
+                  if (typeof window !== "undefined" && window.innerWidth <= 1024) {
+                    onClose?.();
+                  }
+                }}
               >
                 <Icon className={styles.navIcon} />
                 <span>{item.label}</span>

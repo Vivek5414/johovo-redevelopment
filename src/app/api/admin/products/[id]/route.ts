@@ -117,7 +117,12 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
     let imageUrl = currentProduct.image_url;
     let driveFileId = currentProduct.drive_file_id;
-    let galleryImages = Array.isArray(currentProduct.gallery_images) ? [...currentProduct.gallery_images] : [];
+    const existingGalleryRaw = formData.get("existing_gallery") as string | null;
+    let galleryImages = existingGalleryRaw
+      ? JSON.parse(existingGalleryRaw)
+      : Array.isArray(currentProduct.gallery_images)
+      ? [...currentProduct.gallery_images]
+      : [];
     let videos = Array.isArray(currentProduct.videos) ? [...currentProduct.videos] : [];
 
     let targetFolderId: string | undefined;

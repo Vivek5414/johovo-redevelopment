@@ -42,7 +42,9 @@ export default async function EditProductPage({ params }: Props) {
       benefits,
       usage_instructions,
       image_url,
-      drive_file_id
+      drive_file_id,
+      gallery_images,
+      videos
     FROM custom_products
     WHERE id = ${productId}
     LIMIT 1;
@@ -70,6 +72,8 @@ export default async function EditProductPage({ params }: Props) {
     usage_instructions: String(p.usage_instructions || ""),
     image_url: String(p.image_url || ""),
     drive_file_id: String(p.drive_file_id || ""),
+    gallery_images: Array.isArray(p.gallery_images) ? p.gallery_images : [],
+    videos: Array.isArray(p.videos) ? p.videos : [],
   };
 
   return <EditProductForm initialProduct={initialProduct} />;
