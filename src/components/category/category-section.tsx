@@ -208,10 +208,10 @@ export function CategorySection() {
 
                         <div className={styles.subCardFooter}>
                           <Link
-                            href={currentCategory.href}
+                            href={`/products?category=${currentCategory.slug}`}
                             className={styles.subCardLink}
                           >
-                            <span>Learn more &amp; shop</span>
+                            <span>Shop now</span>
                             <ArrowForwardRoundedIcon fontSize="inherit" />
                           </Link>
                         </div>
