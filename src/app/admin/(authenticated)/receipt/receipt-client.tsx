@@ -114,12 +114,12 @@ export function ReceiptClient({ products }: ReceiptClientProps) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ receiptData: payload }),
           });
-          setSaveSuccessMsg("Receipt saved and email dispatched!");
+          setSaveSuccessMsg("Thank you! Receipt saved and PDF sent.");
         } catch {
-          setSaveSuccessMsg("Receipt saved to database!");
+          setSaveSuccessMsg("Thank you! Receipt saved to database.");
         }
       } else {
-        setSaveSuccessMsg("Receipt recorded to database!");
+        setSaveSuccessMsg("Thank you! Receipt recorded to database.");
       }
 
       setTimeout(() => setSaveSuccessMsg(""), 4000);

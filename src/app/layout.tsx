@@ -4,20 +4,26 @@ import { FloatingActions } from "@/components/navbar";
 import "./globals.css";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+const siteName = "JOHOVO";
+const defaultTitle = "JOHOVO | Herbal Care & Natural Oils";
+const defaultDescription = "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.";
 const ogImageUrl = new URL("/og-image.png", `${siteUrl}/`).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "JOHOVO | Herbal Care & Natural Oils",
+    default: defaultTitle,
     template: "%s | JOHOVO",
   },
   description: "Explore the JOHOVO product catalogue and discover natural herbal wellness essentials rooted in tradition.",
   openGraph: {
-    title: "JOHOVO | Herbal Care & Natural Oils",
-    description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
     url: siteUrl,
-    siteName: "JOHOVO",
+    type: "website",
+    siteName,
+    title: defaultTitle,
+    description: defaultDescription,
+    locale: "en_IN",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: ogImageUrl,
@@ -26,13 +32,13 @@ export const metadata: Metadata = {
         alt: "JOHOVO herbal products and natural wellness categories",
       },
     ],
-    locale: "en_IN",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "JOHOVO | Herbal Care & Natural Oils",
-    description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
+    site: "@JOHOVO",
+    creator: "@JOHOVO",
+    title: defaultTitle,
+    description: defaultDescription,
     images: [ogImageUrl],
   },
 };

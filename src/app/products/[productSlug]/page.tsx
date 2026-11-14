@@ -45,14 +45,43 @@ export async function generateMetadata({
   if (!product) {
     return { title: "Product Not Found" };
   }
+
   const showcase = getShowcaseProduct(product.slug);
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+  const productTitle = `${showcase?.title ?? product.name} | JOHOVO Herbal`;
+  const productDescription =
+    showcase?.description ??
+    product.shortDescription ??
+    `Authentic Ayurvedic and herbal formulation for ${product.name}.`;
+  const productImage =
+    showcase?.imageSrc ??
+    product.productImages.find((image) => image.role === "main")?.src ??
+    "/og-image.png";
 
   return {
-    title: `${showcase?.title ?? product.name} | JOHOVO Herbal`,
-    description:
-      showcase?.description ??
-      product.shortDescription ??
-      `Authentic Ayurvedic and herbal formulation for ${product.name}.`,
+    title: productTitle,
+    description: productDescription,
+    openGraph: {
+      title: productTitle,
+      description: productDescription,
+      url: `${siteUrl}/products/${product.slug}`,
+      siteName: "JOHOVO",
+      type: "website",
+      images: [
+        {
+          url: new URL(productImage, `${siteUrl}/`).toString(),
+          width: 1200,
+          height: 630,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: productTitle,
+      description: productDescription,
+      images: [new URL(productImage, `${siteUrl}/`).toString()],
+    },
   };
 }
 

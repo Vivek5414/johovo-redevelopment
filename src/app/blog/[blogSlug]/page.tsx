@@ -35,9 +35,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+  const blogTitle = `${blog.title} | JOHOVO Journal`;
+  const blogImage = blog.coverImage || "/og-image.png";
+
   return {
-    title: `${blog.title} | JOHOVO Journal`,
+    title: blogTitle,
     description: blog.excerpt,
+    openGraph: {
+      title: blogTitle,
+      description: blog.excerpt,
+      url: `${siteUrl}/blog/${blog.slug}`,
+      siteName: "JOHOVO",
+      type: "article",
+      images: [
+        {
+          url: new URL(blogImage, `${siteUrl}/`).toString(),
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blogTitle,
+      description: blog.excerpt,
+      images: [new URL(blogImage, `${siteUrl}/`).toString()],
+    },
   };
 }
 

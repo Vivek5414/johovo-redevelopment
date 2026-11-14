@@ -36,23 +36,78 @@ export async function generateMetadata({
 }: CategoryPageProps): Promise<Metadata> {
   const { categorySlug } = await params;
   const jsonCategory = categoriesData.find((c: any) => c.slug === categorySlug);
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+
   if (jsonCategory) {
+    const title = jsonCategory.seo?.title || `${jsonCategory.title} | IyalMooligai JOHOVO`;
+    const description = jsonCategory.seo?.description || jsonCategory.description;
+    const categoryUrl = `${siteUrl}/categories/${jsonCategory.slug}`;
+
     return {
-      title: jsonCategory.seo?.title || `${jsonCategory.title} | IyalMooligai JOHOVO`,
-      description: jsonCategory.seo?.description || jsonCategory.description,
+      title,
+      description,
       keywords: jsonCategory.seo?.keywords,
+      openGraph: {
+        title,
+        description,
+        url: categoryUrl,
+        siteName: "JOHOVO",
+        type: "website",
+        images: [
+          {
+            url: new URL("/og-image.png", `${siteUrl}/`).toString(),
+            width: 1200,
+            height: 630,
+            alt: jsonCategory.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [new URL("/og-image.png", `${siteUrl}/`).toString()],
+      },
     };
   }
 
   const catalogCat = getCatalogCategories().find(
     ({ slug }) => slug === categorySlug,
   );
-  return catalogCat
-    ? {
-        title: `${catalogCat.name} | JOHOVO Authentic Botanical Collection`,
-        description: `Browse authentic products in the ${catalogCat.name} category.`,
-      }
-    : { title: "Category not found | JOHOVO" };
+
+  if (!catalogCat) {
+    return { title: "Category not found | JOHOVO" };
+  }
+
+  const title = `${catalogCat.name} | JOHOVO Authentic Botanical Collection`;
+  const description = `Browse authentic products in the ${catalogCat.name} category.`;
+  const categoryUrl = `${siteUrl}/categories/${catalogCat.slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: categoryUrl,
+      siteName: "JOHOVO",
+      type: "website",
+      images: [
+        {
+          url: new URL("/og-image.png", `${siteUrl}/`).toString(),
+          width: 1200,
+          height: 630,
+          alt: catalogCat.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [new URL("/og-image.png", `${siteUrl}/`).toString()],
+    },
+  };
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

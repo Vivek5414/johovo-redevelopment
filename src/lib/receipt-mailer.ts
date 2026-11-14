@@ -55,10 +55,17 @@ export function generateReceiptFileName(invoiceNumber?: string | null) {
 }
 
 export async function buildReceiptEmailHtml(data: ReceiptMailData) {
-  const { renderToStaticMarkup } = await import("react-dom/server");
-  const normalized = normalizeReceiptForTemplate(data);
-  const markup = renderToStaticMarkup(React.createElement(ReceiptDocument, { data: normalized }));
-  return `<!DOCTYPE html><html><body style="margin:0; background:#f6f3ee; padding:24px;">${markup}</body></html>`;
+  const customerName = data.customerName || "Customer";
+  return `<!DOCTYPE html>
+  <html>
+    <body style="margin:0; background:#f6f3ee; font-family:Arial,sans-serif; padding:24px; color:#1f2d25;">
+      <div style="max-width:560px; margin:0 auto; background:#ffffff; border:1px solid #e8e0d8; border-radius:12px; padding:28px;">
+        <h2 style="margin:0 0 12px; color:#2e6443; font-size:24px;">Thank you, ${customerName}!</h2>
+        <p style="margin:0 0 12px; font-size:16px; line-height:1.6;">Your JOHOVO purchase receipt is attached as a PDF.</p>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#4a5d52;">We appreciate your trust in our authentic botanical formulations.</p>
+      </div>
+    </body>
+  </html>`;
 }
 
 /**
@@ -384,8 +391,8 @@ export async function dispatchReceiptByEmail(data: ReceiptMailData) {
     from,
     to: toEmail,
     replyTo: from,
-    subject: `Your JOHOVO receipt - ${data.invoiceNumber || "Purchase"}`,
-    text: `Hello ${data.customerName || "Customer"},\n\nYour purchase receipt has been attached. Thank you for shopping with JOHOVO.`,
+    subject: `Thank you for your JOHOVO purchase - ${data.invoiceNumber || "Receipt"}`,
+    text: `Hello ${data.customerName || "Customer"},\n\nThank you for shopping with JOHOVO. Your receipt PDF is attached here.`,
     html,
     attachments: [
       {
