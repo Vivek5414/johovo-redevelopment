@@ -4,7 +4,7 @@ import { FloatingActions } from "@/components/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://johovo.in"),
+  metadataBase: new URL("https://johovo-redevelopment.vercel.app/"),
   title: {
     default: "JOHOVO",
     template: "%s | JOHOVO",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
     description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
-    url: "https://johovo.in",
+    url: "https://johovo-redevelopment.vercel.app/",
     siteName: "JOHOVO",
     images: [
       {
