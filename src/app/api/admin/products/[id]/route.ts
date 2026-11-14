@@ -41,6 +41,8 @@ export async function GET(req: NextRequest, { params }: Params) {
         drive_file_id,
         gallery_images,
         videos,
+        amazon_url,
+        flipkart_url,
         is_active,
         created_at,
         updated_at

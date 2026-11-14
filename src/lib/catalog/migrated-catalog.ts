@@ -51,6 +51,8 @@ export type CatalogProduct = {
   showcaseImage?: string;
   showcaseImageAlt?: string;
   verifiedSize?: string;
+  amazonUrl?: string | null;
+  flipkartUrl?: string | null;
 };
 
 export type CatalogCategory = {

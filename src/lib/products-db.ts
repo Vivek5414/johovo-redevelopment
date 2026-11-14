@@ -27,6 +27,8 @@ export type CustomProductRecord = {
   drive_file_id: string | null;
   gallery_images: any[];
   videos: any[];
+  amazon_url?: string | null;
+  flipkart_url?: string | null;
   is_active: boolean;
   created_at: string;
 };
@@ -124,6 +126,8 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
     showcaseImage: mainImageSrc,
     showcaseImageAlt: rec.name,
     verifiedSize: rec.net_quantity || "Standard",
+    amazonUrl: rec.amazon_url || null,
+    flipkartUrl: rec.flipkart_url || null,
   };
 }
 
@@ -152,6 +156,8 @@ export async function getCustomProducts(): Promise<CatalogProduct[]> {
         drive_file_id,
         gallery_images,
         videos,
+        amazon_url,
+        flipkart_url,
         is_active,
         created_at
       FROM custom_products
@@ -198,6 +204,8 @@ export async function getProductBySlug(slug: string): Promise<CatalogProduct | u
         drive_file_id,
         gallery_images,
         videos,
+        amazon_url,
+        flipkart_url,
         is_active,
         created_at
       FROM custom_products

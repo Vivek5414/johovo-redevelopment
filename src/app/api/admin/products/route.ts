@@ -26,6 +26,8 @@ export async function ensureProductsTable() {
         drive_file_id VARCHAR(255),
         gallery_images JSONB DEFAULT '[]'::jsonb,
         videos JSONB DEFAULT '[]'::jsonb,
+        amazon_url TEXT,
+        flipkart_url TEXT,
         is_active BOOLEAN DEFAULT TRUE,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -33,6 +35,8 @@ export async function ensureProductsTable() {
     `;
     await sql`CREATE INDEX IF NOT EXISTS idx_custom_products_slug ON custom_products(slug);`;
     await sql`CREATE INDEX IF NOT EXISTS idx_custom_products_created_at ON custom_products(created_at DESC);`;
+    await sql`ALTER TABLE custom_products ADD COLUMN IF NOT EXISTS amazon_url TEXT;`;
+    await sql`ALTER TABLE custom_products ADD COLUMN IF NOT EXISTS flipkart_url TEXT;`;
   });
 }
 
@@ -77,6 +81,8 @@ export async function GET() {
         drive_file_id,
         gallery_images,
         videos,
+        amazon_url,
+        flipkart_url,
         is_active,
         created_at,
         updated_at
@@ -127,6 +133,8 @@ export async function POST(req: NextRequest) {
     const ingredients = (formData.get("ingredients") as string)?.trim() || "";
     const benefits = (formData.get("benefits") as string)?.trim() || "";
     const usageInstructions = (formData.get("usageInstructions") as string)?.trim() || "";
+    const amazonUrl = (formData.get("amazonUrl") as string)?.trim() || "";
+    const flipkartUrl = (formData.get("flipkartUrl") as string)?.trim() || "";
 
     // Primary image file
     const primaryFile = formData.get("image") as File | null;
@@ -279,7 +287,9 @@ export async function POST(req: NextRequest) {
         image_url,
         drive_file_id,
         gallery_images,
-        videos
+        videos,
+        amazon_url,
+        flipkart_url
       ) VALUES (
         ${name},
         ${finalSlug},
@@ -297,7 +307,9 @@ export async function POST(req: NextRequest) {
         ${imageUrl},
         ${driveFileId},
         ${JSON.stringify(galleryImages)}::jsonb,
-        ${JSON.stringify(videos)}::jsonb
+        ${JSON.stringify(videos)}::jsonb,
+        ${amazonUrl || null},
+        ${flipkartUrl || null}
       )
       RETURNING *;
     `;

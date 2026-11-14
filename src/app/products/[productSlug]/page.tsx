@@ -101,8 +101,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   );
 
   const encodedProductName = encodeURIComponent(productName);
-  const amazonSearchUrl = `https://www.amazon.in/s?k=${encodedProductName}`;
-  const flipkartSearchUrl = `https://www.flipkart.com/search?q=${encodedProductName}`;
+  const amazonTargetUrl = product.amazonUrl?.trim() || `https://www.amazon.in/s?k=${encodedProductName}`;
+  const flipkartTargetUrl = product.flipkartUrl?.trim() || `https://www.flipkart.com/search?q=${encodedProductName}`;
   const whatsappBuyMessage = encodeURIComponent(
     `Hello JOHOVO, I would like to buy "${productName}". Please share payment & delivery details.`,
   );
@@ -217,7 +217,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <a
                   aria-label={`Buy ${productName} on Amazon`}
                   className={`${styles.marketplaceCard} ${styles.amazonCard}`}
-                  href={amazonSearchUrl}
+                  href={amazonTargetUrl}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -236,7 +236,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <a
                   aria-label={`Buy ${productName} on Flipkart`}
                   className={`${styles.marketplaceCard} ${styles.flipkartCard}`}
-                  href={flipkartSearchUrl}
+                  href={flipkartTargetUrl}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
