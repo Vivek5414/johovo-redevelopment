@@ -78,12 +78,6 @@ export function CategorySection() {
                 Pure tradition, ethically sourced herbs, wooden-press Marachekku oils, and nutrient-dense wellness trail mixes.
               </p>
             </div>
-            <Link className={styles.viewAllLink} href="/categories">
-              <span>View All Categories</span>
-              <span className={styles.viewAllIconWrapper}>
-                <ArrowForwardRoundedIcon className={styles.viewAllIcon} />
-              </span>
-            </Link>
           </div>
 
           {/* Category Tabs */}

@@ -80,7 +80,6 @@ export function SiteFooter() {
           <Link href="/">Home</Link>
           <Link href="/about-us">About JOHOVO</Link>
           <Link href="/products">All Products</Link>
-          <Link href="/categories">All Categories</Link>
           <Link href="/blog">Herbal Care Blog</Link>
           <Link href="/testimonial">Customer Reviews</Link>
           <Link href="/johovoinsta">Instagram Feed</Link>

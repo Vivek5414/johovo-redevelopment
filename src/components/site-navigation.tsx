@@ -30,11 +30,6 @@ const links = [
     matches: (path: string) => path.startsWith("/products"),
   },
   {
-    href: "/collections/herbal-care",
-    label: "Herbal Care",
-    matches: (path: string) => path.startsWith("/collections/herbal-care"),
-  },
-  {
     href: "/contact",
     label: "Contact",
     matches: (path: string) => path === "/contact",

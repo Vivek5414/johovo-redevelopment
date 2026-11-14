@@ -3,7 +3,6 @@ import Link from "next/link";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import AutoFixHighRoundedIcon from "@mui/icons-material/AutoFixHighRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import ShieldRoundedIcon from "@mui/icons-material/ShieldRounded";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
@@ -66,11 +65,6 @@ export function HeroSection() {
               <ShoppingBagRoundedIcon className={styles.ctaIcon} />
               <span>Shop Collection</span>
               <ArrowForwardRoundedIcon className={styles.arrowIcon} />
-            </Link>
-
-            <Link href="/categories" className={styles.secondaryCta}>
-              <GridViewRoundedIcon className={styles.ctaIcon} />
-              <span>Explore Categories</span>
             </Link>
           </div>
 

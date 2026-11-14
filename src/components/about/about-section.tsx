@@ -6,10 +6,6 @@ import NaturePeopleRoundedIcon from "@mui/icons-material/NaturePeopleRounded";
 import RecyclingRoundedIcon from "@mui/icons-material/RecyclingRounded";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import VolunteerActivismRoundedIcon from "@mui/icons-material/VolunteerActivismRounded";
-import FaceRetouchingNaturalRoundedIcon from "@mui/icons-material/FaceRetouchingNaturalRounded";
-import ContentCutRoundedIcon from "@mui/icons-material/ContentCutRounded";
-import CleanHandsRoundedIcon from "@mui/icons-material/CleanHandsRounded";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { JOHOVO_CONTACT } from "@/lib/contact";
@@ -44,33 +40,6 @@ const corePillars = [
     bg: "rgba(252, 40, 116, 0.1)",
     title: "Customer Devotion",
     text: "Honest customer relationships, transparent formulations, and handcrafted attention to every single parcel delivered.",
-  },
-];
-
-const categorySpotlights = [
-  {
-    name: "Skin Care",
-    icon: FaceRetouchingNaturalRoundedIcon,
-    desc: "Rejuvenating face packs and daily botanicals that restore glow and suppleness.",
-    href: "/categories/face-care",
-  },
-  {
-    name: "Hair Care",
-    icon: ContentCutRoundedIcon,
-    desc: "Authentic IyalMooligai herbal oils that reduce hair fall and nourish roots.",
-    href: "/categories/hair-care",
-  },
-  {
-    name: "Body Care",
-    icon: CleanHandsRoundedIcon,
-    desc: "Silky rose washes, scrubs, and moisture-locking lotions for holistic body wellness.",
-    href: "/categories/body-care",
-  },
-  {
-    name: "Herbal Care",
-    icon: AutoAwesomeRoundedIcon,
-    desc: "Traditional Indian herbal recipes crafted for gentle, time-tested restorative care.",
-    href: "/collections/herbal-care",
   },
 ];
 
@@ -166,32 +135,6 @@ export function AboutSection() {
                   <h4 className={styles.pillarTitle}>{pillar.title}</h4>
                   <p className={styles.pillarText}>{pillar.text}</p>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Category Range Spotlight */}
-        <div className={styles.categoriesShowcase}>
-          <div className={styles.categoriesHeader}>
-            <h3>Curated Rituals for Every Care Need</h3>
-            <p>Explore thoughtfully crafted remedies designed for everyday rejuvenation.</p>
-          </div>
-
-          <div className={styles.categoriesGrid}>
-            {categorySpotlights.map((cat, idx) => {
-              const CatIcon = cat.icon;
-              return (
-                <Link className={styles.categoryMiniCard} href={cat.href} key={idx}>
-                  <div className={styles.catIconRow}>
-                    <div className={styles.catIcon}>
-                      <CatIcon fontSize="inherit" />
-                    </div>
-                    <ArrowForwardRoundedIcon className={styles.arrowPill} />
-                  </div>
-                  <h4 className={styles.catName}>{cat.name}</h4>
-                  <p className={styles.catDesc}>{cat.desc}</p>
-                </Link>
               );
             })}
           </div>
