@@ -63,7 +63,81 @@ export type CatalogCategory = {
   productCount: number;
 };
 
-export const catalogProducts: CatalogProduct[] = rawProductsData as unknown as CatalogProduct[];
+export const PRODUCT_CATEGORY_OPTIONS = [
+  { slug: "herbal-products", name: "Herbal Products" },
+  { slug: "healthy-snacks", name: "Healthy Snacks" },
+  { slug: "oils", name: "Oils" },
+] as const;
+
+export function normalizeProductCategorySlug(value: string | null | undefined): string {
+  const raw = (value ?? "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const directMap: Record<string, string> = {
+    "herbal-products": "herbal-products",
+    "herbal-care": "herbal-products",
+    "hair-care": "herbal-products",
+    "face-care": "herbal-products",
+    "lip-care": "herbal-products",
+    "body-care": "herbal-products",
+    "healthy-snacks": "healthy-snacks",
+    "wellness-snacks": "healthy-snacks",
+    "wellness-healthy-snacks": "healthy-snacks",
+    "snacks": "healthy-snacks",
+    "oils": "oils",
+    "cold-pressed-oils": "oils",
+    "cold-pressed-oil": "oils",
+    "marachekku-oils": "oils",
+    "oil": "oils",
+  };
+
+  if (directMap[raw]) {
+    return directMap[raw];
+  }
+
+  if (raw.includes("snack")) {
+    return "healthy-snacks";
+  }
+
+  if (raw.includes("oil") || raw.includes("marachekku")) {
+    return "oils";
+  }
+
+  return "herbal-products";
+}
+
+export function getCanonicalCategoryLabel(value: string | null | undefined): string {
+  const slug = normalizeProductCategorySlug(value);
+  const match = PRODUCT_CATEGORY_OPTIONS.find((item) => item.slug === slug);
+  return match?.name ?? "Herbal Products";
+}
+
+function normalizeProductCategories(product: CatalogProduct): CatalogProduct {
+  const normalizedCategories = Array.from(
+    new Map(
+      (product.categories ?? []).map((category) => {
+        const slug = normalizeProductCategorySlug(category.slug || category.name);
+        const label = getCanonicalCategoryLabel(slug);
+        return [slug, { id: Number(category.id) || 0, name: label, slug }];
+      }),
+    ).values(),
+  );
+
+  const categorySlugs = normalizedCategories.map((category) => category.slug);
+
+  return {
+    ...product,
+    categories: normalizedCategories.length ? normalizedCategories : [{ id: 0, name: "Herbal Products", slug: "herbal-products" }],
+    categorySlugs: Array.from(new Set(categorySlugs.length ? categorySlugs : ["herbal-products"])),
+  };
+}
+
+export const catalogProducts: CatalogProduct[] = (
+  rawProductsData as unknown as CatalogProduct[]
+).map(normalizeProductCategories);
 
 export function sourceHtmlToText(html: string | null | undefined): string | null {
   if (!html) return null;
@@ -125,37 +199,36 @@ export function sourceHtmlToText(html: string | null | undefined): string | null
 export function getCatalogCategories(
   products: CatalogProduct[] = catalogProducts,
 ): CatalogCategory[] {
+  const normalizedProducts = products.map(normalizeProductCategories);
   const categoryMap = new Map<string, { id: number; name: string; slug: string; parentId: number; productCount: number }>();
 
-  for (const product of products) {
-    for (const cat of product.categories) {
-      if (!categoryMap.has(cat.slug)) {
-        categoryMap.set(cat.slug, {
-          id: cat.id,
-          name: cat.name,
-          slug: cat.slug,
+  for (const product of normalizedProducts) {
+    for (const category of product.categories) {
+      const slug = normalizeProductCategorySlug(category.slug || category.name);
+      if (!categoryMap.has(slug)) {
+        categoryMap.set(slug, {
+          id: category.id || 0,
+          name: getCanonicalCategoryLabel(slug),
+          slug,
           parentId: 0,
           productCount: 0,
         });
       }
-      const existing = categoryMap.get(cat.slug)!;
+      const existing = categoryMap.get(slug)!;
       existing.productCount += 1;
     }
   }
 
-  // Ensure top-level face-care category exists
-  if (!categoryMap.has("face-care")) {
-    const faceCount = products.filter((p) => p.categorySlugs.includes("face-care")).length;
-    categoryMap.set("face-care", {
-      id: 64,
-      name: "Face Care",
-      slug: "face-care",
+  return PRODUCT_CATEGORY_OPTIONS.map(({ slug, name }) => {
+    const existing = categoryMap.get(slug);
+    return {
+      id: existing?.id ?? 0,
+      name,
+      slug,
       parentId: 0,
-      productCount: faceCount,
-    });
-  }
-
-  return Array.from(categoryMap.values());
+      productCount: existing?.productCount ?? 0,
+    };
+  });
 }
 
 export function getCatalogProduct(slug: string): CatalogProduct | undefined {

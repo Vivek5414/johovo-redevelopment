@@ -12,6 +12,7 @@ import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import { ConfirmationModal } from "@/components/ui/confirmation-modal";
 import { getDirectImageUrl } from "@/lib/drive-image-utils";
 import styles from "../../new/new-product.module.css";
 
@@ -82,6 +83,8 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   const handlePrimaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -203,11 +206,9 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
   };
 
   const handleDelete = async () => {
-    if (!confirm(`Are you sure you want to permanently delete "${name}" from the catalog?`)) {
-      return;
-    }
-
+    setDeleteError(null);
     setIsDeleting(true);
+
     try {
       const res = await fetch(`/api/admin/products/${initialProduct.id}`, {
         method: "DELETE",
@@ -217,10 +218,11 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
         throw new Error(data.error || "Failed to delete product");
       }
 
+      setIsDeleteModalOpen(false);
       router.push("/admin/products");
       router.refresh();
     } catch (err: any) {
-      alert(err?.message || "Failed to delete product");
+      setDeleteError(err?.message || "Failed to delete product. Please try again.");
       setIsDeleting(false);
     }
   };
@@ -238,7 +240,7 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <button
             disabled={isDeleting}
-            onClick={handleDelete}
+            onClick={() => setIsDeleteModalOpen(true)}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -319,12 +321,8 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
                 value={category}
               >
                 <option value="Herbal Products">Herbal Products</option>
-                <option value="Hair Care">Hair Care Range</option>
-                <option value="Face Care">Face Care Range</option>
-                <option value="Lip Care">Lip Care Kits</option>
-                <option value="Body Care">Body Care Range</option>
-                <option value="Wellness Snacks">Wellness Healthy Snacks</option>
-                <option value="Cold Pressed Oils">Cold Pressed Oils (Marachekku)</option>
+                <option value="Healthy Snacks">Healthy Snacks</option>
+                <option value="Oils">Oils</option>
               </select>
             </div>
 
@@ -663,6 +661,20 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
           </button>
         </div>
       </form>
+
+      <ConfirmationModal
+        confirmText="Delete product"
+        errorMessage={deleteError}
+        isConfirming={isDeleting}
+        message={`This will permanently remove "${name}" from the catalog and unpublish it from the public storefront.`}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+          setDeleteError(null);
+        }}
+        onConfirm={handleDelete}
+        open={isDeleteModalOpen}
+        title="Delete product?"
+      />
     </div>
   );
 }

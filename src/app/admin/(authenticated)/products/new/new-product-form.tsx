@@ -243,12 +243,8 @@ export function NewProductForm() {
                 value={category}
               >
                 <option value="Herbal Products">Herbal Products</option>
-                <option value="Hair Care">Hair Care Range</option>
-                <option value="Face Care">Face Care Range</option>
-                <option value="Lip Care">Lip Care Kits</option>
-                <option value="Body Care">Body Care Range</option>
-                <option value="Wellness Snacks">Wellness Healthy Snacks</option>
-                <option value="Cold Pressed Oils">Cold Pressed Oils (Marachekku)</option>
+                <option value="Healthy Snacks">Healthy Snacks</option>
+                <option value="Oils">Oils</option>
               </select>
             </div>
 

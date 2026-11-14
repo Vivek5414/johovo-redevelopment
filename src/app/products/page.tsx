@@ -26,6 +26,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     : params.search ?? "";
 
   const products = await getAllProducts();
+  const categories = getCatalogCategories(products);
 
   return (
     <>
@@ -63,7 +64,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                   <span className={styles.statLabel}>Products</span>
                 </div>
                 <div className={styles.statCard}>
-                  <span className={styles.statValue}>{getCatalogCategories().length}</span>
+                  <span className={styles.statValue}>{categories.length}</span>
                   <span className={styles.statLabel}>Categories</span>
                 </div>
               </div>
@@ -71,7 +72,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           </header>
 
           <ProductCatalogBrowser
-            categories={getCatalogCategories()}
+            categories={categories}
             initialSearch={initialSearch}
             products={products}
           />

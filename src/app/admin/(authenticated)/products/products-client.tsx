@@ -8,6 +8,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import { DataTable, type ColumnDef } from "@/components/admin/DataTable/DataTable";
+import { ConfirmationModal } from "@/components/ui/confirmation-modal";
 
 type FormattedProduct = {
   id: number;
@@ -28,15 +29,24 @@ type FormattedProduct = {
 export function AdminProductsClient({ products }: { products: FormattedProduct[] }) {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState<number | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{ dbId: number; productName: string } | null>(null);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
-  const handleDelete = async (dbId: number, productName: string) => {
-    if (!confirm(`Are you sure you want to permanently delete "${productName}" from the catalog?`)) {
+  const closeDeleteDialog = () => {
+    setDeleteTarget(null);
+    setDeleteError(null);
+  };
+
+  const handleDelete = async () => {
+    if (!deleteTarget) {
       return;
     }
 
-    setDeletingId(dbId);
+    setDeletingId(deleteTarget.dbId);
+    setDeleteError(null);
+
     try {
-      const res = await fetch(`/api/admin/products/${dbId}`, {
+      const res = await fetch(`/api/admin/products/${deleteTarget.dbId}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -44,9 +54,10 @@ export function AdminProductsClient({ products }: { products: FormattedProduct[]
         throw new Error(data.error || "Failed to delete product");
       }
 
+      closeDeleteDialog();
       router.refresh();
     } catch (err: any) {
-      alert(err?.message || "Failed to delete product");
+      setDeleteError(err?.message || "Failed to delete product. Please try again.");
     } finally {
       setDeletingId(null);
     }
@@ -152,7 +163,7 @@ export function AdminProductsClient({ products }: { products: FormattedProduct[]
 
               <button
                 disabled={deletingId === row.dbId}
-                onClick={() => handleDelete(row.dbId!, row.name)}
+                onClick={() => setDeleteTarget({ dbId: row.dbId!, productName: row.name })}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -227,6 +238,21 @@ export function AdminProductsClient({ products }: { products: FormattedProduct[]
         emptyMessage="No products match your search query."
         pageSize={8}
         searchPlaceholder="Search product by name, SKU or category..."
+      />
+
+      <ConfirmationModal
+        confirmText="Delete product"
+        errorMessage={deleteError}
+        isConfirming={deletingId !== null}
+        message={
+          deleteTarget
+            ? `This will permanently remove "${deleteTarget.productName}" from the catalog and unpublish it from the public storefront.`
+            : "This action cannot be undone."
+        }
+        onClose={closeDeleteDialog}
+        onConfirm={handleDelete}
+        open={Boolean(deleteTarget)}
+        title="Delete product?"
       />
     </div>
   );

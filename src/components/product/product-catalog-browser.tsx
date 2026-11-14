@@ -24,9 +24,7 @@ export function ProductCatalogBrowser({
   initialSearch = "",
   initialCategorySlug,
 }: ProductCatalogBrowserProps) {
-  const availableCategories = categories.filter(
-    ({ productCount }) => productCount > 0,
-  );
+  const availableCategories = categories;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     initialCategorySlug ?? null,
   );
@@ -161,7 +159,7 @@ export function ProductCatalogBrowser({
                 <button
                   aria-pressed={selectedCategory === category.slug}
                   className={`${styles.categoryButton} ${category.parentId !== 0 ? styles.childCategory : ""} ${selectedCategory === category.slug ? styles.selected : ""}`}
-                  key={category.id}
+                  key={category.slug}
                   onClick={() => {
                     setSelectedCategory(
                       selectedCategory === category.slug ? null : category.slug,

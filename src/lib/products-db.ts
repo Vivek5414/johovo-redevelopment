@@ -3,6 +3,8 @@ import { retryTransientRequest } from "@/lib/upload-service";
 import { getDirectImageUrl } from "@/lib/drive-image-utils";
 import {
   catalogProducts,
+  getCanonicalCategoryLabel,
+  normalizeProductCategorySlug,
   type CatalogProduct,
   type CatalogImage,
   type CatalogVideo,
@@ -47,10 +49,8 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
   // Format Google Drive preview URLs if drive_file_id exists or URL is present
   const mainImageSrc = getDirectImageUrl(rec.image_url, rec.drive_file_id);
 
-  const categorySlug = (rec.category || "herbal-care")
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-");
+  const categorySlug = normalizeProductCategorySlug(rec.category || "Herbal Products");
+  const canonicalCategoryName = getCanonicalCategoryLabel(rec.category || "Herbal Products");
 
   // Process gallery images (multiple images)
   const rawGallery = Array.isArray(rec.gallery_images) ? rec.gallery_images : [];
@@ -94,7 +94,7 @@ export function mapCustomProductToCatalog(rec: any): CatalogProduct {
     categories: [
       {
         id: 999,
-        name: rec.category || "Herbal Care",
+        name: canonicalCategoryName,
         slug: categorySlug,
       },
     ],
