@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import { FloatingActions } from "@/components/navbar";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://johovo-redevelopment.vercel.app";
-const ogImageUrl = new URL("/og-image.png", siteUrl).toString();
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/+$/, "");
+const ogImageUrl = new URL("/og-image.png", `${siteUrl}/`).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

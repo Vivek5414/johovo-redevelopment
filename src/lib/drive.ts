@@ -7,6 +7,7 @@ export function getDriveClient() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
   const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
   if (!clientId || !clientSecret || !refreshToken) {
     throw new Error('Google Drive OAuth credentials are not fully configured.');
@@ -15,7 +16,7 @@ export function getDriveClient() {
   const oauth2Client = new google.auth.OAuth2(
     clientId,
     clientSecret,
-    process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+    siteUrl
   );
 
   oauth2Client.setCredentials({
