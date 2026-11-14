@@ -19,7 +19,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const blogs = getAllBlogs();
+  const blogs = await getAllBlogs();
   return blogs.map((blog) => ({
     blogSlug: blog.slug,
   }));
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { blogSlug } = await params;
-  const blog = getBlogBySlug(blogSlug);
+  const blog = await getBlogBySlug(blogSlug);
 
   if (!blog) {
     return {
@@ -43,13 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetailPage({ params }: Props) {
   const { blogSlug } = await params;
-  const blog = getBlogBySlug(blogSlug);
+  const blog = await getBlogBySlug(blogSlug);
 
   if (!blog) {
     notFound();
   }
 
-  const allBlogs = getAllBlogs();
+  const allBlogs = await getAllBlogs();
   const relatedPosts = allBlogs.filter((item) => item.slug !== blog.slug).slice(0, 3);
 
   const formattedDate = new Date(blog.publishedAt).toLocaleDateString("en-IN", {

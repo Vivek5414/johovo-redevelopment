@@ -1,4 +1,5 @@
 import blogsData from "@/data/blogs.json";
+import { getProductBySlug } from "@/lib/products-db";
 
 export type BlogAuthor = {
   name: string;
@@ -27,15 +28,48 @@ export type BlogPost = {
   relatedProductSlug?: string;
 };
 
-export function getAllBlogs(): BlogPost[] {
-  return blogsData as BlogPost[];
+async function resolveBlogCoverImage(blog: BlogPost): Promise<string> {
+  if (blog.coverImage?.startsWith("/blog/")) {
+    return blog.coverImage;
+  }
+
+  if (!blog.relatedProductSlug) {
+    return blog.coverImage;
+  }
+
+  try {
+    const product = await getProductBySlug(blog.relatedProductSlug);
+    const coverFromProduct =
+      product?.productImages.find((image) => image.src && image.role !== "ingredient")?.src ??
+      product?.showcaseImage ??
+      product?.productImages[0]?.src;
+
+    if (coverFromProduct) {
+      return coverFromProduct;
+    }
+  } catch {
+    // fall back to the original blog cover image below
+  }
+
+  return blog.coverImage;
 }
 
-export function getBlogBySlug(slug: string): BlogPost | undefined {
-  const blogs = getAllBlogs();
+export async function getAllBlogs(): Promise<BlogPost[]> {
+  const blogs = blogsData as BlogPost[];
+
+  return Promise.all(
+    blogs.map(async (blog) => ({
+      ...blog,
+      coverImage: await resolveBlogCoverImage(blog),
+    })),
+  );
+}
+
+export async function getBlogBySlug(slug: string): Promise<BlogPost | undefined> {
+  const blogs = await getAllBlogs();
   return blogs.find((blog) => blog.slug === slug);
 }
 
-export function getRecentBlogs(limit: number = 3): BlogPost[] {
-  return getAllBlogs().slice(0, limit);
+export async function getRecentBlogs(limit: number = 3): Promise<BlogPost[]> {
+  return (await getAllBlogs()).slice(0, limit);
 }

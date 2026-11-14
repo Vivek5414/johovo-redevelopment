@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     "Explore herbal care guides, botanical formulation secrets, and scalp care rituals from JOHOVO's wellness experts.",
 };
 
-export default function BlogListingPage() {
-  const blogs = getAllBlogs();
+export default async function BlogListingPage() {
+  const blogs = await getAllBlogs();
 
   return (
     <>

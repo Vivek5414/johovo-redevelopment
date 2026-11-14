@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   description: "Browse the authentic IyalMooligai herbal products, 100% pure Marachekku cold pressed oils, and wellness trail mixes.",
 };
 
-export default function Home() {
-  const blogs = getAllBlogs().slice(0, 3);
+export default async function Home() {
+  const blogs = (await getAllBlogs()).slice(0, 3);
 
   return (
     <>
