@@ -1,5 +1,6 @@
 import type { ProductBrandIdentity } from "@/lib/brand/identity";
 import rawProductsData from "@/data/products.json";
+import backupProductsData from "@/data/products.backup.json";
 
 export type CatalogImage = {
   src: string;
@@ -143,9 +144,11 @@ function normalizeProductCategories(product: CatalogProduct): CatalogProduct {
   };
 }
 
-export const catalogProducts: CatalogProduct[] = (
-  rawProductsData as unknown as CatalogProduct[]
-).map(normalizeProductCategories);
+const primaryCatalogData = Array.isArray(rawProductsData) && rawProductsData.length > 0
+  ? (rawProductsData as CatalogProduct[])
+  : (backupProductsData as CatalogProduct[]);
+
+export const catalogProducts: CatalogProduct[] = primaryCatalogData.map(normalizeProductCategories);
 
 export function sourceHtmlToText(html: string | null | undefined): string | null {
   if (!html) return null;

@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  catalogProducts,
   normalizeProductCategorySlug,
   resolveCatalogCategorySlug,
 } from "./migrated-catalog";
@@ -17,4 +18,10 @@ test("resolves incoming product category query params to matching catalog catego
   assert.equal(resolveCatalogCategorySlug("cold-pressed-oils"), "oils");
   assert.equal(resolveCatalogCategorySlug("herbal-products"), "herbal-products");
   assert.equal(resolveCatalogCategorySlug(undefined), null);
+});
+
+test("falls back to backup product catalog data when the primary catalog file is empty", () => {
+  assert.ok(Array.isArray(catalogProducts), "catalogProducts should be an array");
+  assert.ok(catalogProducts.length > 0, "catalogProducts should not be empty");
+  assert.equal(catalogProducts[0].brand, "iyalmooligai");
 });

@@ -7,6 +7,7 @@ import { getAllBlogs } from "@/lib/blogs";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { InstagramSection as InstagramShowcase } from "@/components/Instagram";
+import { LatestProductsSection } from "@/components/home/latest-products-section";
 import {
   ContactSection,
   ProductInformationSection,
@@ -27,6 +28,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <CategorySection />
+      <LatestProductsSection />
       <ProductInformationSection />
       <TestimonialsSection />
       <BlogSection posts={blogs} />
