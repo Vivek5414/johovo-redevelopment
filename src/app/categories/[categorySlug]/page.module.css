@@ -192,6 +192,28 @@
 .catalogProductsSection {
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+}
+
+.showProductsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-herbal-forest) 0%, var(--color-herbal-forest-deep) 100%);
+  color: var(--color-herbal-cream);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-herbal-forest) 20%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.showProductsButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--color-herbal-forest) 28%, transparent);
 }
 
 .catalogHeading {

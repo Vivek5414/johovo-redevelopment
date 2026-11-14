@@ -9,7 +9,6 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import { PageNavigation } from "@/components/common/page-navigation";
 import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
 import { SiteHeader } from "@/components/site-header";
 import categoriesData from "@/data/categories.json";
 import {
@@ -169,14 +168,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </section>
           )}
 
-          {/* Catalog Products */}
           <section className={styles.catalogProductsSection} aria-label="Products">
-            <h2 className={styles.catalogHeading}>Browse In-Stock Formulations</h2>
-            <ProductCatalogBrowser
-              categories={getCatalogCategories(products.length > 0 ? products : allDbProducts)}
-              initialCategorySlug={resolvedCategorySlug}
-              products={products.length > 0 ? products : allDbProducts}
-            />
+            <Link
+              href={`/products?category=${resolvedCategorySlug}`}
+              className={styles.showProductsButton}
+            >
+              Show Products
+            </Link>
           </section>
         </PageContainer>
       </main>
