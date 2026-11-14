@@ -97,8 +97,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   );
 
   const encodedProductName = encodeURIComponent(productName);
-  const amazonTargetUrl = product.amazonUrl?.trim() || `https://www.amazon.in/s?k=${encodedProductName}`;
-  const flipkartTargetUrl = product.flipkartUrl?.trim() || `https://www.flipkart.com/search?q=${encodedProductName}`;
+  const amazonTargetUrl = product.amazonUrl?.trim();
+  const flipkartTargetUrl = product.flipkartUrl?.trim();
   const whatsappBuyMessage = encodeURIComponent(
     `Hello JOHOVO, I would like to buy "${productName}". Please share payment & delivery details.`,
   );
@@ -207,47 +207,48 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
               </div>
 
-              {/* Three Buy Options: Amazon, Flipkart, WhatsApp */}
+              {/* Buy options: marketplace links only when provided, plus WhatsApp */}
               <div className={styles.buyCardsGrid}>
-                {/* Option 1: Amazon */}
-                <a
-                  aria-label={`Buy ${productName} on Amazon`}
-                  className={`${styles.marketplaceCard} ${styles.amazonCard}`}
-                  href={amazonTargetUrl}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <div className={styles.amazonLogo}>
-                    <ShoppingCartRoundedIcon fontSize="inherit" />
-                    <span>amazon<span className={styles.amazonAccent}>.in</span></span>
-                  </div>
-                  <span className={styles.fastTag}>Fast Prime</span>
-                  <span className={styles.marketplaceAction}>
-                    <span>Buy Now</span>
-                    <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
-                  </span>
-                </a>
+                {amazonTargetUrl ? (
+                  <a
+                    aria-label={`Buy ${productName} on Amazon`}
+                    className={`${styles.marketplaceCard} ${styles.amazonCard}`}
+                    href={amazonTargetUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <div className={styles.amazonLogo}>
+                      <ShoppingCartRoundedIcon fontSize="inherit" />
+                      <span>amazon<span className={styles.amazonAccent}>.in</span></span>
+                    </div>
+                    <span className={styles.fastTag}>Fast Prime</span>
+                    <span className={styles.marketplaceAction}>
+                      <span>Buy Now</span>
+                      <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
+                    </span>
+                  </a>
+                ) : null}
 
-                {/* Option 2: Flipkart */}
-                <a
-                  aria-label={`Buy ${productName} on Flipkart`}
-                  className={`${styles.marketplaceCard} ${styles.flipkartCard}`}
-                  href={flipkartTargetUrl}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <div className={styles.flipkartLogo}>
-                    <ShoppingBagRoundedIcon fontSize="inherit" />
-                    <span>Flipkart<span className={styles.flipkartAccent}>+</span></span>
-                  </div>
-                  <span className={styles.fastTag}>Assured</span>
-                  <span className={styles.marketplaceAction}>
-                    <span>Buy Now</span>
-                    <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
-                  </span>
-                </a>
+                {flipkartTargetUrl ? (
+                  <a
+                    aria-label={`Buy ${productName} on Flipkart`}
+                    className={`${styles.marketplaceCard} ${styles.flipkartCard}`}
+                    href={flipkartTargetUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <div className={styles.flipkartLogo}>
+                      <ShoppingBagRoundedIcon fontSize="inherit" />
+                      <span>Flipkart<span className={styles.flipkartAccent}>+</span></span>
+                    </div>
+                    <span className={styles.fastTag}>Assured</span>
+                    <span className={styles.marketplaceAction}>
+                      <span>Buy Now</span>
+                      <OpenInNewRoundedIcon className={styles.marketplaceIcon} />
+                    </span>
+                  </a>
+                ) : null}
 
-                {/* Option 3: WhatsApp */}
                 <WhatsAppDirectBuyLink
                   productName={productName}
                   url={whatsappDirectBuyUrl}
