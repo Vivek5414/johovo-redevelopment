@@ -9,6 +9,7 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import PrintRoundedIcon from "@mui/icons-material/PrintRounded";
 import { ReceiptDocument, ReceiptDocumentData } from "@/components/admin/ReceiptDocument/ReceiptDocument";
+import { CommonPopup } from "@/components/common/common-popup";
 import styles from "./receipts.module.css";
 
 type ReceiptRecord = {
@@ -30,6 +31,19 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
   const [search, setSearch] = useState("");
   const [activeReceipt, setActiveReceipt] = useState<ReceiptRecord | null>(null);
   const [dispatchingId, setDispatchingId] = useState<number | null>(null);
+  const [popup, setPopup] = useState<{
+    open: boolean;
+    title: string;
+    message: string;
+    type: "success" | "error" | "info";
+  }>({
+    open: false,
+    title: "",
+    message: "",
+    type: "info",
+  });
+
+  const closePopup = () => setPopup((current) => ({ ...current, open: false }));
 
   const filtered = receipts.filter((r) => {
     const q = search.toLowerCase();
@@ -104,7 +118,12 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
 
   const dispatchReceiptByMail = async (r: ReceiptRecord) => {
     if (!r.customer_email) {
-      alert("This receipt has no customer email to dispatch.");
+      setPopup({
+        open: true,
+        title: "Email missing",
+        message: "This receipt has no customer email to dispatch.",
+        type: "error",
+      });
       return;
     }
 
@@ -122,9 +141,19 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
         throw new Error(result?.error || "Failed to dispatch mail");
       }
 
-      alert(`Receipt sent to ${r.customer_email}`);
+      setPopup({
+        open: true,
+        title: "Receipt sent",
+        message: `Receipt sent to ${r.customer_email}`,
+        type: "success",
+      });
     } catch (error: any) {
-      alert(error?.message || "Unable to dispatch receipt mail.");
+      setPopup({
+        open: true,
+        title: "Dispatch failed",
+        message: error?.message || "Unable to dispatch receipt mail.",
+        type: "error",
+      });
     } finally {
       setDispatchingId(null);
     }
@@ -278,6 +307,14 @@ export function ReceiptsListClient({ receipts }: { receipts: ReceiptRecord[] }) 
           </table>
         </div>
       </div>
+
+      <CommonPopup
+        message={popup.message}
+        onClose={closePopup}
+        open={popup.open}
+        title={popup.title}
+        type={popup.type}
+      />
 
       {/* Mobile & Tablet Card Layout */}
       <div className={styles.mobileCardsGrid}>
