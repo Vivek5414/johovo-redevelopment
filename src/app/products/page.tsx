@@ -4,7 +4,10 @@ import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
-import { getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import {
+  getCatalogCategories,
+  resolveCatalogCategorySlug,
+} from "@/lib/catalog/migrated-catalog";
 import { getAllProducts } from "@/lib/products-db";
 import styles from "./page.module.css";
 
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 type ProductsPageProps = {
-  searchParams: Promise<{ search?: string | string[] }>;
+  searchParams: Promise<{ search?: string | string[]; category?: string | string[] }>;
 };
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
@@ -24,6 +27,9 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const initialSearch = Array.isArray(params.search)
     ? params.search[0] ?? ""
     : params.search ?? "";
+  const initialCategorySlug = resolveCatalogCategorySlug(
+    Array.isArray(params.category) ? params.category[0] ?? undefined : params.category ?? undefined,
+  ) ?? undefined;
 
   const products = await getAllProducts();
   const categories = getCatalogCategories(products);
@@ -73,6 +79,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
           <ProductCatalogBrowser
             categories={categories}
+            initialCategorySlug={initialCategorySlug}
             initialSearch={initialSearch}
             products={products}
           />

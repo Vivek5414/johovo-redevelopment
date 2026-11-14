@@ -12,7 +12,10 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
 import { SiteHeader } from "@/components/site-header";
 import categoriesData from "@/data/categories.json";
-import { getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import {
+  getCatalogCategories,
+  resolveCatalogCategorySlug,
+} from "@/lib/catalog/migrated-catalog";
 import { getAllProducts } from "@/lib/products-db";
 import styles from "./page.module.css";
 
@@ -55,10 +58,11 @@ export async function generateMetadata({
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { categorySlug } = await params;
+  const resolvedCategorySlug = resolveCatalogCategorySlug(categorySlug) ?? categorySlug;
 
   const jsonCategory = categoriesData.find((c: any) => c.slug === categorySlug);
   const catalogCat = getCatalogCategories().find(
-    ({ slug }) => slug === categorySlug,
+    ({ slug }) => slug === resolvedCategorySlug,
   );
 
   if (!jsonCategory && !catalogCat) {
@@ -71,8 +75,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     : `Browse authentic products in the ${catalogCat!.name} collection.`;
 
   // Find products matching the category slug or its sub-ranges
-  const subSlugs = jsonCategory?.subRanges?.map((s: any) => s.slug) || [];
-  const relevantSlugs = [categorySlug, ...subSlugs];
+  const subSlugs = (jsonCategory?.subRanges?.map((s: any) => resolveCatalogCategorySlug(s.slug)).filter(Boolean) as string[]) || [];
+  const relevantSlugs = [resolvedCategorySlug, ...subSlugs];
 
   const allDbProducts = await getAllProducts();
   const products = allDbProducts.filter((product) =>
@@ -170,7 +174,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <h2 className={styles.catalogHeading}>Browse In-Stock Formulations</h2>
             <ProductCatalogBrowser
               categories={getCatalogCategories(products.length > 0 ? products : allDbProducts)}
-              initialCategorySlug={categorySlug}
+              initialCategorySlug={resolvedCategorySlug}
               products={products.length > 0 ? products : allDbProducts}
             />
           </section>

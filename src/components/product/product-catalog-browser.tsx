@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import type {
-  CatalogCategory,
-  CatalogProduct,
+import {
+  resolveCatalogCategorySlug,
+  type CatalogCategory,
+  type CatalogProduct,
 } from "@/lib/catalog/migrated-catalog";
 import { ProductCard } from "./product-card";
 import styles from "./product-catalog-browser.module.css";
@@ -24,11 +26,36 @@ export function ProductCatalogBrowser({
   initialSearch = "",
   initialCategorySlug,
 }: ProductCatalogBrowserProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const availableCategories = categories;
+  const normalizedInitialCategory = resolveCatalogCategorySlug(initialCategorySlug) ?? null;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    initialCategorySlug ?? null,
+    normalizedInitialCategory,
   );
+
+  useEffect(() => {
+    const urlCategory = resolveCatalogCategorySlug(searchParams.get("category")) ?? null;
+    setSelectedCategory(urlCategory);
+  }, [searchParams]);
+
   const [search, setSearch] = useState(initialSearch);
+
+  const updateCategoryInUrl = (nextCategory: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (nextCategory) {
+      params.set("category", nextCategory);
+    } else {
+      params.delete("category");
+    }
+
+    const queryString = params.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, {
+      scroll: false,
+    });
+  };
   const [sortOrder, setSortOrder] = useState("source");
   const [visibleCount, setVisibleCount] = useState(6);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -150,7 +177,12 @@ export function ProductCatalogBrowser({
               <button
                 aria-pressed={selectedCategory === null}
                 className={`${styles.categoryButton} ${selectedCategory === null ? styles.selected : ""}`}
-                onClick={() => setSelectedCategory(null)}
+                onClick={() => {
+                  setSelectedCategory(null);
+                  updateCategoryInUrl(null);
+                  setVisibleCount(6);
+                  setShowMobileFilters(false);
+                }}
                 type="button"
               >
                 All Products <span>{products.length}</span>
@@ -161,9 +193,12 @@ export function ProductCatalogBrowser({
                   className={`${styles.categoryButton} ${category.parentId !== 0 ? styles.childCategory : ""} ${selectedCategory === category.slug ? styles.selected : ""}`}
                   key={category.slug}
                   onClick={() => {
-                    setSelectedCategory(
-                      selectedCategory === category.slug ? null : category.slug,
-                    );
+                    const nextCategory = resolveCatalogCategorySlug(category.slug);
+                    const updatedCategory =
+                      selectedCategory === nextCategory ? null : nextCategory;
+
+                    setSelectedCategory(updatedCategory);
+                    updateCategoryInUrl(updatedCategory);
                     setVisibleCount(6);
                     setShowMobileFilters(false);
                   }}

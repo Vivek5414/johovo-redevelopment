@@ -9,7 +9,6 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ShieldRoundedIcon from "@mui/icons-material/ShieldRounded";
 import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
 import { PageContainer } from "@/components/layout/page-container";
-import categoriesData from "@/data/categories.json";
 import { JOHOVO_CONTACT } from "@/lib/contact";
 import { recordContactClick } from "@/lib/tracking";
 import styles from "./site-footer.module.css";
@@ -86,26 +85,21 @@ export function SiteFooter() {
           <Link href="/contact">Contact &amp; Enquiries</Link>
         </nav>
 
-        {/* Categories from JSON */}
+        {/* Categories */}
         <nav aria-label="Product categories" className={styles.linkGroup}>
           <h2>Categories</h2>
-          {categoriesData.map((cat: any) => (
-            <Link href={cat.href || `/categories/${cat.slug}`} key={cat.id}>
-              {cat.shortTitle || cat.title}
-            </Link>
-          ))}
-          <Link href="/categories/herbal-products">Herbal Hair &amp; Face</Link>
-          <Link href="/categories/wellness-snacks">Wellness Trail Mixes</Link>
-          <Link href="/categories/cold-pressed-oils">100% Marachekku Oils</Link>
+          <Link href="/products?category=herbal-products">Herbal Products</Link>
+          <Link href="/products?category=healthy-snacks">Healthy Snacks</Link>
+          <Link href="/products?category=oils">100% Pure Marachekku Oils</Link>
         </nav>
 
         {/* Customer Care & Policies */}
         <nav aria-label="Help and policies" className={styles.linkGroup}>
           <h2>Policies &amp; Help</h2>
           <Link href="/faq">FAQ</Link>
-          <Link href="/delivery-policy">Delivery Policy</Link>
+          {/* <Link href="/delivery-policy">Delivery Policy</Link>
           <Link href="/return-policy">Return Policy</Link>
-          <Link href="/refund-policy">Refund Policy</Link>
+          <Link href="/refund-policy">Refund Policy</Link> */}
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
         </nav>

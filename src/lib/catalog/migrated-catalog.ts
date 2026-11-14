@@ -109,6 +109,14 @@ export function normalizeProductCategorySlug(value: string | null | undefined): 
   return "herbal-products";
 }
 
+export function resolveCatalogCategorySlug(value: string | null | undefined): string | null {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+
+  return normalizeProductCategorySlug(value);
+}
+
 export function getCanonicalCategoryLabel(value: string | null | undefined): string {
   const slug = normalizeProductCategorySlug(value);
   const match = PRODUCT_CATEGORY_OPTIONS.find((item) => item.slug === slug);
