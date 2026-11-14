@@ -35,6 +35,8 @@ type EditProductFormProps = {
     drive_file_id: string;
     gallery_images?: any[];
     videos?: any[];
+    amazon_url?: string;
+    flipkart_url?: string;
   };
 };
 
@@ -56,6 +58,8 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
   const [ingredients, setIngredients] = useState(initialProduct.ingredients || "");
   const [benefits, setBenefits] = useState(initialProduct.benefits || "");
   const [usageInstructions, setUsageInstructions] = useState(initialProduct.usage_instructions || "");
+  const [amazonUrl, setAmazonUrl] = useState(initialProduct.amazon_url || "");
+  const [flipkartUrl, setFlipkartUrl] = useState(initialProduct.flipkart_url || "");
 
   // Media
   const [primaryFile, setPrimaryFile] = useState<File | null>(null);
@@ -150,6 +154,8 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
       formData.append("ingredients", ingredients);
       formData.append("benefits", benefits);
       formData.append("usageInstructions", usageInstructions);
+      formData.append("amazonUrl", amazonUrl);
+      formData.append("flipkartUrl", flipkartUrl);
 
       if (primaryFile) {
         formData.append("image", primaryFile);
@@ -376,6 +382,35 @@ export function EditProductForm({ initialProduct }: EditProductFormProps) {
                 step="any"
                 type="number"
                 value={mrp}
+              />
+            </div>
+          </div>
+
+          {/* Marketplace Buying Links */}
+          <div className={styles.grid2} style={{ marginTop: "1rem" }}>
+            <div className={styles.fieldGroup}>
+              <label className={styles.label}>
+                Amazon Product URL <span className={styles.optional}>(For &quot;Buy on Amazon&quot; button)</span>
+              </label>
+              <input
+                className={styles.input}
+                onChange={(e) => setAmazonUrl(e.target.value)}
+                placeholder="https://www.amazon.in/dp/..."
+                type="url"
+                value={amazonUrl}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.label}>
+                Flipkart Product URL <span className={styles.optional}>(For &quot;Buy on Flipkart&quot; button)</span>
+              </label>
+              <input
+                className={styles.input}
+                onChange={(e) => setFlipkartUrl(e.target.value)}
+                placeholder="https://www.flipkart.com/..."
+                type="url"
+                value={flipkartUrl}
               />
             </div>
           </div>

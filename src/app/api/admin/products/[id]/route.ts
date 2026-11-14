@@ -110,6 +110,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
     const ingredients = (formData.get("ingredients") as string)?.trim() ?? currentProduct.ingredients;
     const benefits = (formData.get("benefits") as string)?.trim() ?? currentProduct.benefits;
     const usageInstructions = (formData.get("usageInstructions") as string)?.trim() ?? currentProduct.usage_instructions;
+    const amazonUrl = (formData.get("amazonUrl") as string)?.trim() ?? currentProduct.amazon_url;
+    const flipkartUrl = (formData.get("flipkartUrl") as string)?.trim() ?? currentProduct.flipkart_url;
 
     const primaryFile = formData.get("image") as File | null;
     const galleryFiles = formData.getAll("gallery_images") as File[];
@@ -237,6 +239,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
         drive_file_id = ${driveFileId},
         gallery_images = ${JSON.stringify(galleryImages)}::jsonb,
         videos = ${JSON.stringify(videos)}::jsonb,
+        amazon_url = ${amazonUrl || null},
+        flipkart_url = ${flipkartUrl || null},
         updated_at = CURRENT_TIMESTAMP
       WHERE id = ${productId}
       RETURNING *;

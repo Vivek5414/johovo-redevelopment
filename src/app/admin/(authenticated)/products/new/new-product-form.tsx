@@ -31,6 +31,8 @@ export function NewProductForm() {
   const [ingredients, setIngredients] = useState("");
   const [benefits, setBenefits] = useState("");
   const [usageInstructions, setUsageInstructions] = useState("");
+  const [amazonUrl, setAmazonUrl] = useState("");
+  const [flipkartUrl, setFlipkartUrl] = useState("");
 
   // Media States
   const [primaryFile, setPrimaryFile] = useState<File | null>(null);
@@ -120,6 +122,8 @@ export function NewProductForm() {
       formData.append("ingredients", ingredients);
       formData.append("benefits", benefits);
       formData.append("usageInstructions", usageInstructions);
+      formData.append("amazonUrl", amazonUrl);
+      formData.append("flipkartUrl", flipkartUrl);
 
       // Primary file
       if (primaryFile) {
@@ -310,6 +314,35 @@ export function NewProductForm() {
                 step="any"
                 type="number"
                 value={mrp}
+              />
+            </div>
+          </div>
+
+          {/* Marketplace Buying Links */}
+          <div className={styles.grid2} style={{ marginTop: "1rem" }}>
+            <div className={styles.fieldGroup}>
+              <label className={styles.label}>
+                Amazon Product URL <span className={styles.optional}>(For customer buy button)</span>
+              </label>
+              <input
+                className={styles.input}
+                onChange={(e) => setAmazonUrl(e.target.value)}
+                placeholder="https://www.amazon.in/dp/..."
+                type="url"
+                value={amazonUrl}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.label}>
+                Flipkart Product URL <span className={styles.optional}>(For customer buy button)</span>
+              </label>
+              <input
+                className={styles.input}
+                onChange={(e) => setFlipkartUrl(e.target.value)}
+                placeholder="https://www.flipkart.com/..."
+                type="url"
+                value={flipkartUrl}
               />
             </div>
           </div>
