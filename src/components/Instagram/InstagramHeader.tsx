@@ -27,10 +27,6 @@ export function InstagramHeader({ account }: { account: AccountInfo }) {
         <Link className={styles.primaryButton} href={account.profileUrl} rel="noopener noreferrer" target="_blank">
           Follow on Instagram
         </Link>
-        <Link className={styles.secondaryButton} href="/" prefetch>
-          Back to Home
-          <ArrowForwardRoundedIcon fontSize="small" />
-        </Link>
       </div>
     </div>
   );

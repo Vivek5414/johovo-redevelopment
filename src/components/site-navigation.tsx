@@ -30,6 +30,16 @@ const links = [
     matches: (path: string) => path.startsWith("/products"),
   },
   {
+    href: "/blog",
+    label: "Blog",
+    matches: (path: string) => path.startsWith("/blog"),
+  },
+  {
+    href: "/johovoinsta",
+    label: "Instagram",
+    matches: (path: string) => path.startsWith("/johovoinsta"),
+  },
+  {
     href: "/contact",
     label: "Contact",
     matches: (path: string) => path === "/contact",

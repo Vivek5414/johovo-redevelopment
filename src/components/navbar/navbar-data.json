@@ -26,6 +26,14 @@
     {
       "label": "Contact",
       "href": "/contact"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Instagram",
+      "href": "/johovoinsta"
     }
   ],
   "contact": {

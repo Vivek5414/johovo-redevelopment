@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageNavigation } from "@/components/common/page-navigation";
 import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { InstagramGrid } from "@/components/Instagram/InstagramGrid";
@@ -40,6 +41,14 @@ export default function JohovoInstaPage() {
       <SiteHeader />
       <main className={styles.page}>
         <PageContainer className={styles.container}>
+          <PageNavigation
+            backHref="/"
+            backLabel="Back to Home"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Instagram", current: true },
+            ]}
+          />
           <InstagramHeader account={account} />
           <section className={styles.gallerySection} aria-labelledby="johovo-instagram-grid-title">
             <div className={styles.sectionHeader}>
