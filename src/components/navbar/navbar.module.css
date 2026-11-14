@@ -339,8 +339,7 @@
 /* Mobile Drawer Backdrop & Menu */
 .mobileDrawerOverlay {
   position: fixed;
-  inset: 0;
-  top: 78px;
+  inset: 78px 0 0 0;
   background: rgba(23, 47, 41, 0.45);
   backdrop-filter: blur(4px);
   z-index: 45;
@@ -360,12 +359,13 @@
   right: 0;
   left: auto;
   width: min(88vw, 360px);
+  height: calc(100dvh - 78px);
+  max-height: none;
   background: var(--color-surface);
   border-bottom: 2px solid var(--color-herbal-border);
   border-left: 1px solid var(--color-border);
   box-shadow: -16px 0 36px rgba(0, 0, 0, 0.12);
   z-index: 46;
-  max-height: calc(100vh - 78px);
   overflow-y: auto;
   transform: translateX(100%);
   opacity: 0;
@@ -513,10 +513,11 @@
 
   .mobileDrawer {
     top: 68px;
-    max-height: calc(100vh - 68px);
+    height: calc(100dvh - 68px);
+    max-height: none;
   }
 
   .mobileDrawerOverlay {
-    top: 68px;
+    inset: 68px 0 0 0;
   }
 }
