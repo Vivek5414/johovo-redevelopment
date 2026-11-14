@@ -14,6 +14,7 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { JOHOVO_CONTACT } from "@/lib/contact";
 import styles from "./about-section.module.css";
+import AboutImage from "../../../public/about/about.png"
 
 const corePillars = [
   {
@@ -127,7 +128,7 @@ export function AboutSection() {
                 fill
                 priority={false}
                 sizes="(max-width: 768px) 100vw, 500px"
-                src="/images/reference-homepage-branded.png"
+                src={AboutImage}
               />
             </div>
 
