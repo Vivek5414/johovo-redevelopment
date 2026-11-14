@@ -189,11 +189,8 @@ export default async function BlogDetailPage({ params }: Props) {
                       Crafted with handpicked herbs following the traditional formulation principles explored in this article.
                     </p>
                   </div>
-                  <Link
-                    className={styles.spotlightAction}
-                    href={`/products/${blog.relatedProductSlug}`}
-                  >
-                    <span>View Product Details</span>
+                  <Link className={styles.spotlightAction} href="/products">
+                    <span>View Products</span>
                     <ArrowForwardRoundedIcon fontSize="small" />
                   </Link>
                 </div>
