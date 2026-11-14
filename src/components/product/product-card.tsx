@@ -53,13 +53,13 @@ export function ProductCard({
         </div>
       </Link>
       <div className={styles.content}>
-        {!showcase ? (
+        {/* {!showcase ? (
           isHerbal ? (
             <HerbalBrandSignature />
           ) : (
             <ProductBrandSignature identity={product.brand} />
           )
-        ) : null}
+        ) : null} */}
         <div className={styles.metaRow}>
           <span className={styles.ratingBadge}>
             <StarRoundedIcon fontSize="inherit" />

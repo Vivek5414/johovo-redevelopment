@@ -9,7 +9,7 @@ import { PageNavigation } from "@/components/common/page-navigation";
 import { PageContainer } from "@/components/layout/page-container";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { catalogProducts } from "@/lib/catalog/migrated-catalog";
+import { getAllProducts } from "@/lib/products-db";
 import { getShowcaseProduct } from "@/lib/catalog/showcase-products";
 import { JOHOVO_CONTACT } from "@/lib/contact";
 import styles from "./page.module.css";
@@ -20,8 +20,11 @@ export const metadata: Metadata = {
     "Get in touch with JOHOVO. Send a product enquiry, connect via WhatsApp, phone or email for personalized herbal skincare & hair care guidance.",
 };
 
-export default function ContactPage() {
-  const productOptions = catalogProducts.map(
+export const dynamic = "force-dynamic";
+
+export default async function ContactPage() {
+  const allProducts = await getAllProducts();
+  const productOptions = allProducts.map(
     (product) => getShowcaseProduct(product.slug)?.title ?? product.name
   );
 

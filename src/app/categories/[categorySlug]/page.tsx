@@ -12,10 +12,8 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
 import { SiteHeader } from "@/components/site-header";
 import categoriesData from "@/data/categories.json";
-import {
-  catalogProducts,
-  getCatalogCategories,
-} from "@/lib/catalog/migrated-catalog";
+import { getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import { getAllProducts } from "@/lib/products-db";
 import styles from "./page.module.css";
 
 type CategoryPageProps = {
@@ -76,7 +74,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const subSlugs = jsonCategory?.subRanges?.map((s: any) => s.slug) || [];
   const relevantSlugs = [categorySlug, ...subSlugs];
 
-  const products = catalogProducts.filter((product) =>
+  const allDbProducts = await getAllProducts();
+  const products = allDbProducts.filter((product) =>
     product.categorySlugs.some((s) => relevantSlugs.includes(s) || (categorySlug === "herbal-products" && product.brand === "iyalmooligai")),
   );
 
@@ -170,9 +169,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <section className={styles.catalogProductsSection} aria-label="Products">
             <h2 className={styles.catalogHeading}>Browse In-Stock Formulations</h2>
             <ProductCatalogBrowser
-              categories={getCatalogCategories(products.length > 0 ? products : catalogProducts)}
+              categories={getCatalogCategories(products.length > 0 ? products : allDbProducts)}
               initialCategorySlug={categorySlug}
-              products={products.length > 0 ? products : catalogProducts}
+              products={products.length > 0 ? products : allDbProducts}
             />
           </section>
         </PageContainer>

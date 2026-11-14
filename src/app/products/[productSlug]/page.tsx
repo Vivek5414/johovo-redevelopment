@@ -24,7 +24,6 @@ import {
   formatCatalogPrice,
 } from "@/lib/catalog/format-price";
 import {
-  catalogProducts,
   getCatalogProduct,
 } from "@/lib/catalog/migrated-catalog";
 import { getProductBySlug, getAllProducts } from "@/lib/products-db";
@@ -35,11 +34,7 @@ type ProductPageProps = {
   params: Promise<{ productSlug: string }>;
 };
 
-export const dynamicParams = true;
-
-export function generateStaticParams() {
-  return catalogProducts.map(({ slug }) => ({ productSlug: slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -92,7 +87,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     (review) => review.originalSourceUrl?.split("#", 1)[0] === productSourceUrl,
   );
 
-  const relatedProducts = catalogProducts.filter(
+  const allProducts = await getAllProducts();
+  const relatedProducts = allProducts.filter(
     (candidate) =>
       candidate.id !== product.id &&
       product.categories.some((category) =>

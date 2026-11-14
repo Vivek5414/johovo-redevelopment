@@ -8,10 +8,8 @@ import { PageContainer } from "@/components/layout/page-container";
 import { ProductCatalogBrowser } from "@/components/product/product-catalog-browser";
 import { SiteHeader } from "@/components/site-header";
 import { LinkButton } from "@/components/ui/link-button";
-import {
-  catalogProducts,
-  getCatalogCategories,
-} from "@/lib/catalog/migrated-catalog";
+import { getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import { getAllProducts } from "@/lib/products-db";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -20,8 +18,11 @@ export const metadata: Metadata = {
     "Browse source-listed IyalMooligai herbal products within the JOHOVO website.",
 };
 
-export default function HerbalCarePage() {
-  const herbalProducts = catalogProducts.filter(
+export const dynamic = "force-dynamic";
+
+export default async function HerbalCarePage() {
+  const allProducts = await getAllProducts();
+  const herbalProducts = allProducts.filter(
     (product) => product.brand === "iyalmooligai",
   );
   const herbalCategories = getCatalogCategories(herbalProducts).filter(

@@ -23,6 +23,7 @@ import {
   catalogProducts,
   getCatalogCategories,
 } from "@/lib/catalog/migrated-catalog";
+import { getAllProducts } from "@/lib/products-db";
 import {
   calculateDiscountPercentage,
   formatCatalogPrice,
@@ -318,7 +319,7 @@ export function ProductCategoriesSection() {
 }
 
 export function ProductInformationSection() {
-  if (!hairOil?.ingredientImages.length) return null;
+  if (!hairOil?.ingredientImages?.length) return null;
 
   return (
     <ContentSection className={styles.information} id="product-information">
@@ -326,10 +327,10 @@ export function ProductInformationSection() {
         <SectionHeading
           eyebrow="Product information"
           title="Source imagery, kept with its product."
-          description={`These illustrations were captured on the ${hairOil.name} source page. Their labels do not independently verify the product formula.`}
+          description={`These illustrations were captured on the ${hairOil?.name || "product"} source page. Their labels do not independently verify the product formula.`}
         />
         <div className={styles.ingredientGrid}>
-          {hairOil.ingredientImages.map((image) => (
+          {hairOil?.ingredientImages?.map((image) => (
             <figure className={styles.ingredientCard} key={image.src}>
               <div>
                 <Image
@@ -345,9 +346,9 @@ export function ProductInformationSection() {
         </div>
         <Link
           className={styles.informationLink}
-          href={`/products/${hairOil.slug}`}
+          href={`/products/${hairOil?.slug || ""}`}
         >
-          View all information for {hairOil.name} <span aria-hidden="true">→</span>
+          View all information for {hairOil?.name || "product"} <span aria-hidden="true">→</span>
         </Link>
       </PageContainer>
     </ContentSection>
@@ -358,7 +359,12 @@ export function InstagramSection() {
   return <InstagramShowcaseSection />;
 }
 
-export function ContactSection() {
+export async function ContactSection() {
+  const allProducts = await getAllProducts().catch(() => []);
+  const productOptions = allProducts.map(
+    (product) => getShowcaseProduct(product.slug)?.title ?? product.name,
+  );
+
   return (
     <ContentSection className={styles.contact} id="contact">
       <PageContainer className={styles.contactGrid}>
@@ -390,10 +396,7 @@ export function ContactSection() {
               </p>
             </div>
             <ContactForm
-              products={catalogProducts.map(
-                (product) =>
-                  getShowcaseProduct(product.slug)?.title ?? product.name,
-              )}
+              products={productOptions}
             />
           </div>
         </ScrollReveal>

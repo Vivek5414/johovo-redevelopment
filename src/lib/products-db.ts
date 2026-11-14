@@ -172,11 +172,14 @@ export async function getCustomProducts(): Promise<CatalogProduct[]> {
 }
 
 /**
- * Returns merged catalog products (static catalog + Neon custom products)
+ * Returns merged catalog products (custom products from DB, with fallback to static catalog if DB is empty)
  */
 export async function getAllProducts(): Promise<CatalogProduct[]> {
   const custom = await getCustomProducts();
-  return [...custom, ...catalogProducts];
+  if (custom.length > 0) {
+    return custom;
+  }
+  return catalogProducts;
 }
 
 /**

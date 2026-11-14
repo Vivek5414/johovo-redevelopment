@@ -9,7 +9,8 @@ import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import AdminPanelSettingsRoundedIcon from "@mui/icons-material/AdminPanelSettingsRounded";
 import { sql } from "@/lib/db";
 import { requireAdmin } from "@/lib/auth/admin-auth";
-import { catalogProducts, getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import { getCatalogCategories } from "@/lib/catalog/migrated-catalog";
+import { getAllProducts } from "@/lib/products-db";
 import { StatsCard } from "@/components/admin/StatsCard/StatsCard";
 import { DashboardCharts } from "@/components/admin/DashboardCharts/DashboardCharts";
 import styles from "./dashboard.module.css";
@@ -34,6 +35,7 @@ export default async function AdminDashboardPage() {
     deviceBreakdownRows,
     topPagesRows,
     paymentModeRows,
+    allProductsList,
   ] = await Promise.all([
     sql`SELECT count(*)::int as count FROM product_enquiries;`.then((r) => r[0]?.count ?? 0).catch(() => 0),
     sql`SELECT count(*)::int as count FROM contact_enquiries;`.then((r) => r[0]?.count ?? 0).catch(() => 0),
@@ -108,10 +110,12 @@ export default async function AdminDashboardPage() {
       GROUP BY payment_method
       ORDER BY count DESC;
     `.catch(() => []),
+    getAllProducts().catch(() => []),
   ]);
 
-  const categories = getCatalogCategories();
-  const totalProducts = catalogProducts.length;
+  const allDbProducts = allProductsList || [];
+  const categories = getCatalogCategories(allDbProducts);
+  const totalProducts = allDbProducts.length;
   const totalCategories = categories.length;
 
   // Visuals Data Formatting
