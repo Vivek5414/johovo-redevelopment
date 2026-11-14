@@ -15,7 +15,7 @@ import {
 import { TestimonialsSection } from "@/components/testimonials/testimonials";
 
 export const metadata: Metadata = {
-  title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
+  title: "JOHOVO | Herbal Care & Natural Oils",
   description: "Browse the authentic IyalMooligai herbal products, 100% pure Marachekku cold pressed oils, and wellness trail mixes.",
 };
 

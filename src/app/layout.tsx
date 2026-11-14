@@ -9,12 +9,12 @@ const ogImageUrl = new URL("/og-image.png", siteUrl).toString();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "JOHOVO",
+    default: "JOHOVO | Herbal Care & Natural Oils",
     template: "%s | JOHOVO",
   },
   description: "Explore the JOHOVO product catalogue and discover natural herbal wellness essentials rooted in tradition.",
   openGraph: {
-    title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
+    title: "JOHOVO | Herbal Care & Natural Oils",
     description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
     url: siteUrl,
     siteName: "JOHOVO",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
+    title: "JOHOVO | Herbal Care & Natural Oils",
     description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
     images: [ogImageUrl],
   },
