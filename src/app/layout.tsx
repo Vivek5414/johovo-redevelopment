@@ -3,8 +3,11 @@ import type { ReactNode } from "react";
 import { FloatingActions } from "@/components/navbar";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://johovo-redevelopment.vercel.app";
+const ogImageUrl = new URL("/og-image.png", siteUrl).toString();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://johovo-redevelopment.vercel.app/"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "JOHOVO",
     template: "%s | JOHOVO",
@@ -13,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
     description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
-    url: "https://johovo-redevelopment.vercel.app/",
+    url: siteUrl,
     siteName: "JOHOVO",
     images: [
       {
-        url: "/og-image.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "JOHOVO herbal products and natural wellness categories",
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JOHOVO | 100% Pure IyalMooligai Herbal Care & Natural Oils",
     description: "Pure tradition, ethically sourced herbs, wood-press oils, and nutrient-dense wellness essentials.",
-    images: ["/og-image.png"],
+    images: [ogImageUrl],
   },
 };
 
